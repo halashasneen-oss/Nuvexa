@@ -2,6 +2,7 @@ package com.nuvexa.app.ui.tools.text
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
@@ -23,6 +24,7 @@ import java.util.Locale
 
 private enum class CaseMode { UPPER, LOWER, TITLE, SENTENCE }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun CaseConverterScreen(modifier: Modifier = Modifier) {
     val spacing = LocalSpacing.current

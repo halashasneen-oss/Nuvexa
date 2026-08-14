@@ -2,6 +2,7 @@ package com.nuvexa.app.ui.tools.text
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
@@ -19,6 +20,7 @@ import com.nuvexa.app.ui.components.PrimaryButton
 import com.nuvexa.app.ui.components.SecondaryButton
 import com.nuvexa.app.ui.theme.LocalSpacing
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun TextCleanerScreen(modifier: Modifier = Modifier) {
     val spacing = LocalSpacing.current

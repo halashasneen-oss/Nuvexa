@@ -2,6 +2,7 @@ package com.nuvexa.app.ui.tools.security
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.FilterChip
@@ -29,6 +30,7 @@ private fun hash(text: String, algorithm: String): String {
     return digest.joinToString("") { "%02x".format(it) }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun HashGeneratorScreen(modifier: Modifier = Modifier) {
     val spacing = LocalSpacing.current

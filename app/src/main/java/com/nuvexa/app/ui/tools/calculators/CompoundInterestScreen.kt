@@ -2,6 +2,7 @@ package com.nuvexa.app.ui.tools.calculators
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.FilterChip
@@ -24,6 +25,7 @@ import kotlin.math.pow
 
 private data class CompoundResult(val amount: Double, val interest: Double)
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun CompoundInterestScreen(modifier: Modifier = Modifier, onResult: (String) -> Unit) {
     val spacing = LocalSpacing.current

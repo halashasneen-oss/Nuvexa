@@ -2,6 +2,7 @@ package com.nuvexa.app.ui.tools.converter
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,6 +10,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.SwapVert
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenu
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.FilterChip
@@ -33,6 +35,7 @@ import com.nuvexa.app.ui.components.NuvexaNumberField
 import com.nuvexa.app.ui.components.ResultCard
 import com.nuvexa.app.ui.theme.LocalSpacing
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun UnitConverterScreen(modifier: Modifier = Modifier) {
     val spacing = LocalSpacing.current
@@ -119,7 +122,7 @@ private fun UnitDropdown(
                 .fillMaxWidth(),
             textStyle = MaterialTheme.typography.titleMedium.copy(textAlign = TextAlign.Center),
         )
-        ExposedDropdownMenuDefaults.DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
             units.forEachIndexed { index, unit ->
                 DropdownMenuItem(text = { Text(unit.symbol) }, onClick = { onSelected(index); expanded = false })
             }

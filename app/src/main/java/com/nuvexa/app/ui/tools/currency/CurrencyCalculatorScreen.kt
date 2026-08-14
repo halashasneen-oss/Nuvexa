@@ -10,6 +10,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenu
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
@@ -97,7 +98,7 @@ private fun CurrencyDropdown(codes: List<String>, selected: String, onSelected: 
             modifier = Modifier.menuAnchor().fillMaxWidth(),
             textStyle = MaterialTheme.typography.titleMedium.copy(textAlign = TextAlign.Center),
         )
-        ExposedDropdownMenuDefaults.DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
             codes.forEach { code ->
                 DropdownMenuItem(text = { Text(code) }, onClick = { onSelected(code); expanded = false })
             }

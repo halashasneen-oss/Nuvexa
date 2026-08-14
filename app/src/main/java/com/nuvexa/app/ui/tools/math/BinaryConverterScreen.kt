@@ -2,6 +2,7 @@ package com.nuvexa.app.ui.tools.math
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,6 +31,7 @@ private val bases = listOf(
     BaseOption(8, R.string.binary_base_octal),
 )
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun BinaryConverterScreen(modifier: Modifier = Modifier) {
     val spacing = LocalSpacing.current

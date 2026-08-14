@@ -2,6 +2,7 @@ package com.nuvexa.app.ui.tools.text
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,6 +25,7 @@ import com.nuvexa.app.ui.theme.LocalSpacing
 import com.nuvexa.app.ui.theme.NuvexaExtraType
 import kotlin.math.ceil
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun TextAnalyzerScreen(modifier: Modifier = Modifier) {
     val spacing = LocalSpacing.current
