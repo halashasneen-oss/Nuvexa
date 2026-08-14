@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nuvexa</string>
+    <string name="app_tagline">Every tool you need. Always offline.</string>
+
+    <!-- Common actions -->
+    <string name="action_save">Save</string>
+    <string name="action_share">Share</string>
+    <string name="action_copy">Copy</string>
+    <string name="action_copied">Copied</string>
+    <string name="action_saved">Saved</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_done">Done</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_close">Close</string>
+    <string name="action_back">Back</string>
+    <string name="action_help">Help</string>
+    <string name="action_continue">Continue</string>
+    <string name="action_skip">Skip</string>
+    <string name="action_get_started">Get started</string>
+    <string name="action_start_again">Start again</string>
+    <string name="action_open">Open</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_delete_all">Delete all</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_choose_file">Choose another file</string>
+    <string name="action_add_favorite">Add to favorites</string>
+    <string name="action_remove_favorite">Remove from favorites</string>
+    <string name="action_scan">Scan</string>
+    <string name="action_calculate">Calculate</string>
+    <string name="action_generate">Generate</string>
+    <string name="action_convert">Convert</string>
+    <string name="action_apply">Apply</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_tools">Tools</string>
+    <string name="nav_favorites">Favorites</string>
+    <string name="nav_history">History</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">One app. Every tool you need.</string>
+    <string name="onboarding_body_1">Calculators, converters, PDF and image tools, generators, and more — all in one place.</string>
+    <string name="onboarding_title_2">Everything runs on your device</string>
+    <string name="onboarding_body_2">No servers, no waiting. Your tools work instantly, even in airplane mode.</string>
+    <string name="onboarding_title_3">Your files stay private</string>
+    <string name="onboarding_body_3">Nuvexa never uploads your photos, documents, or text anywhere. Everything stays on your phone.</string>
+    <string name="onboarding_title_4">Find anything instantly</string>
+    <string name="onboarding_body_4">Just describe what you need — search understands plain language, in your own language.</string>
+
+    <!-- Home -->
+    <string name="home_search_hint">What do you need?</string>
+    <string name="home_search_placeholder_1">Compress an image</string>
+    <string name="home_search_placeholder_2">Convert PDF</string>
+    <string name="home_search_placeholder_3">Calculate percentage</string>
+    <string name="home_search_placeholder_4">Scan QR</string>
+    <string name="home_quick_actions">Quick actions</string>
+    <string name="home_recent">Recent</string>
+    <string name="home_recent_see_all">See all</string>
+    <string name="home_favorites">Favorites</string>
+    <string name="home_recommended">Recommended for you</string>
+    <string name="home_categories">Categories</string>
+    <string name="home_privacy_banner">Your files stay on your device.</string>
+    <string name="home_empty_recent_title">No recent tools yet</string>
+    <string name="home_empty_recent_body">Tools you use will show up here for quick access.</string>
+
+    <!-- Search -->
+    <string name="search_hint">Search tools, e.g. \"how old am I\"</string>
+    <string name="search_no_results_title">No tools found</string>
+    <string name="search_no_results_body">Try a different word, or browse categories instead.</string>
+    <string name="search_results_count">%1$d results</string>
+
+    <!-- Categories -->
+    <string name="category_calculators">Calculators</string>
+    <string name="category_calculators_desc">Everyday math, finance, and date calculations</string>
+    <string name="category_converter">Unit Converter</string>
+    <string name="category_converter_desc">Length, weight, temperature, and more</string>
+    <string name="category_currency">Currency</string>
+    <string name="category_currency_desc">Manual exchange-rate conversion</string>
+    <string name="category_text">Text &amp; Writing</string>
+    <string name="category_text_desc">Count, clean, format, and transform text</string>
+    <string name="category_security">Privacy &amp; Security</string>
+    <string name="category_security_desc">Generators, hashes, and secure random values</string>
+    <string name="category_qr">QR &amp; Barcode</string>
+    <string name="category_qr_desc">Scan and create codes instantly</string>
+    <string name="category_color">Color Tools</string>
+    <string name="category_color_desc">Convert, pick, and generate color palettes</string>
+    <string name="category_time">Time &amp; Date</string>
+    <string name="category_time_desc">Clocks, timers, and date calculations</string>
+    <string name="category_developer">Developer Tools</string>
+    <string name="category_developer_desc">Regex, formatting, and text utilities for developers</string>
+    <string name="category_device">Device</string>
+    <string name="category_device_desc">Information about this device</string>
+    <string name="category_image">Image Tools</string>
+    <string name="category_image_desc">Compress and resize photos on-device</string>
+    <string name="category_tool_count">%1$d tools</string>
+
+    <!-- Tools browser -->
+    <string name="tools_title">Tools</string>
+    <string name="tools_search_hint">Search all tools</string>
+    <string name="tools_filter_all">All</string>
+    <string name="tools_filter_favorites">Favorites</string>
+    <string name="tools_filter_recent">Recent</string>
+
+    <!-- Favorites screen -->
+    <string name="favorites_title">Favorites</string>
+    <string name="favorites_empty_title">No favorites yet</string>
+    <string name="favorites_empty_body">Tap the star on any tool to pin it here for quick access.</string>
+    <string name="favorites_reorder_hint">Drag to reorder</string>
+
+    <!-- History screen -->
+    <string name="history_title">History</string>
+    <string name="history_empty_title">No history yet</string>
+    <string name="history_empty_body">Completed operations will appear here so you can find them again.</string>
+    <string name="history_search_hint">Search history</string>
+    <string name="history_clear_all_title">Clear all history?</string>
+    <string name="history_clear_all_body">This removes every entry from your history. This can\'t be undone.</string>
+    <string name="history_delete_one_title">Delete this entry?</string>
+
+    <!-- Tool detail scaffold -->
+    <string name="tool_result_title">Done</string>
+    <string name="tool_input_missing">Add some input to get started.</string>
+    <string name="tool_progress_cancel">Cancel</string>
+    <string name="tool_output_saved_to">Saved to %1$s</string>
+
+    <!-- Errors -->
+    <string name="error_generic_title">Something needs your attention</string>
+    <string name="error_unsupported_format">This file format isn\'t supported yet.</string>
+    <string name="error_corrupted_file">This file appears to be damaged or unsupported.</string>
+    <string name="error_permission_denied">Nuvexa needs this permission to continue. You can grant it in system settings.</string>
+    <string name="error_storage_unavailable">Storage isn\'t available right now. Check your device storage and try again.</string>
+    <string name="error_empty_input">Enter something first.</string>
+    <string name="error_invalid_number">That doesn\'t look like a valid number.</string>
+    <string name="error_division_by_zero">Can\'t divide by zero.</string>
+    <string name="error_camera_unavailable">No camera was found on this device.</string>
+    <string name="error_operation_cancelled">Operation cancelled.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_theme_system">System default</string>
+    <string name="settings_section_language">Language</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_language_system">System default</string>
+    <string name="settings_section_behavior">Behavior</string>
+    <string name="settings_start_screen">Default start screen</string>
+    <string name="settings_haptics">Haptic feedback</string>
+    <string name="settings_reduce_motion">Reduce animations</string>
+    <string name="settings_section_storage">Storage</string>
+    <string name="settings_clear_cache">Clear cache</string>
+    <string name="settings_clear_cache_desc">Removes temporary files created while using tools</string>
+    <string name="settings_clear_cache_done">Cache cleared</string>
+    <string name="settings_section_privacy">Privacy</string>
+    <string name="settings_clear_history">Clear history</string>
+    <string name="settings_clear_recent">Clear recent tools</string>
+    <string name="settings_privacy_note">Nuvexa processes everything on this device. Nothing you create or open is ever uploaded.</string>
+    <string name="settings_section_about">About</string>
+    <string name="settings_version">Version</string>
+    <string name="settings_privacy_policy">Privacy policy</string>
+    <string name="settings_terms">Terms of use</string>
+    <string name="settings_contact">Contact us</string>
+    <string name="support_email" translatable="false">support@nuvexa.app</string>
+    <string name="privacy_policy_body">Nuvexa runs entirely on your device. It does not create a user account, does not upload your photos, documents, text, or clipboard content, and does not use any cloud service for its tools. Data such as favorites, history entries, and settings are stored locally in this app\'s private storage and are never transmitted anywhere. The only network activity in Nuvexa is optional ad serving through Google AdMob; every tool works fully offline.</string>
+    <string name="terms_body">Nuvexa is provided free of charge, as-is, for personal use. You are responsible for the content you process with its tools. Nuvexa\'s calculators, converters, and generators are provided for convenience and general use; verify results independently for critical financial, legal, or medical decisions.</string>
+
+    <!-- Categories: calculators -->
+    <string name="tool_calc_basic_name">Calculator</string>
+    <string name="tool_calc_basic_desc">Everyday arithmetic with a clean, fast keypad</string>
+    <string name="tool_calc_basic_keywords">math, add, subtract, multiply, divide, arithmetic</string>
+
+    <string name="tool_calc_percentage_name">Percentage</string>
+    <string name="tool_calc_percentage_desc">Find a percentage, increase, or decrease</string>
+    <string name="tool_calc_percentage_keywords">percent, percentage of, increase, decrease</string>
+
+    <string name="tool_calc_discount_name">Discount Calculator</string>
+    <string name="tool_calc_discount_desc">Work out sale prices and how much you save</string>
+    <string name="tool_calc_discount_keywords">sale, price off, save money, markdown</string>
+
+    <string name="tool_calc_tip_name">Tip Calculator</string>
+    <string name="tool_calc_tip_desc">Calculate tips and the total per person</string>
+    <string name="tool_calc_tip_keywords">gratuity, restaurant, service charge</string>
+
+    <string name="tool_calc_split_bill_name">Split Bill</string>
+    <string name="tool_calc_split_bill_desc">Split a bill evenly between friends</string>
+    <string name="tool_calc_split_bill_keywords">share bill, divide bill, group expenses</string>
+
+    <string name="tool_calc_age_name">Age Calculator</string>
+    <string name="tool_calc_age_desc">Find exact age in years, months, and days</string>
+    <string name="tool_calc_age_keywords">how old am i, birthday, date of birth</string>
+
+    <string name="tool_calc_date_diff_name">Date Difference</string>
+    <string name="tool_calc_date_diff_desc">Find the number of days between two dates</string>
+    <string name="tool_calc_date_diff_keywords">days between, date range, duration</string>
+
+    <string name="tool_calc_simple_interest_name">Simple Interest</string>
+    <string name="tool_calc_simple_interest_desc">Calculate interest on a principal amount</string>
+    <string name="tool_calc_simple_interest_keywords">interest rate, principal, loan</string>
+
+    <string name="tool_calc_compound_interest_name">Compound Interest</string>
+    <string name="tool_calc_compound_interest_desc">See how savings or debt grow over time</string>
+    <string name="tool_calc_compound_interest_keywords">investment growth, savings, compounding</string>
+
+    <string name="tool_calc_emi_name">EMI Calculator</string>
+    <string name="tool_calc_emi_desc">Estimate a monthly loan installment</string>
+    <string name="tool_calc_emi_keywords">loan payment, monthly installment, mortgage</string>
+
+    <!-- Unit converter -->
+    <string name="tool_unit_converter_name">Unit Converter</string>
+    <string name="tool_unit_converter_desc">Length, weight, temperature, speed, and more</string>
+    <string name="tool_unit_converter_keywords">convert kg to pounds, cm to inches, celsius to fahrenheit, km to miles</string>
+    <string name="unit_type_length">Length</string>
+    <string name="unit_type_weight">Weight</string>
+    <string name="unit_type_temperature">Temperature</string>
+    <string name="unit_type_area">Area</string>
+    <string name="unit_type_volume">Volume</string>
+    <string name="unit_type_speed">Speed</string>
+    <string name="unit_type_time">Time</string>
+    <string name="unit_type_data">Data Storage</string>
+
+    <!-- Currency -->
+    <string name="tool_currency_calculator_name">Currency Calculator</string>
+    <string name="tool_currency_calculator_desc">Convert between currencies using rates you set</string>
+    <string name="tool_currency_calculator_keywords">exchange rate, money conversion, dollars to euros</string>
+    <string name="currency_manual_rate_notice">Rates are entered manually and stored on your device — Nuvexa doesn\'t fetch live rates while offline.</string>
+    <string name="currency_edit_rate">Edit rate</string>
+    <string name="currency_base_currency">Base currency</string>
+
+    <!-- Text tools -->
+    <string name="tool_text_analyzer_name">Text Analyzer</string>
+    <string name="tool_text_analyzer_desc">Word, character, and sentence counts with reading time</string>
+    <string name="tool_text_analyzer_keywords">word count, character count, reading time, sentence count</string>
+
+    <string name="tool_text_case_converter_name">Case Converter</string>
+    <string name="tool_text_case_converter_desc">Switch text between upper, lower, and title case</string>
+    <string name="tool_text_case_converter_keywords">uppercase, lowercase, capitalize, title case</string>
+
+    <string name="tool_text_cleaner_name">Text Cleaner</string>
+    <string name="tool_text_cleaner_desc">Remove extra spaces, duplicate lines, and empty lines</string>
+    <string name="tool_text_cleaner_keywords">remove duplicates, sort lines, trim spaces</string>
+
+    <string name="tool_text_base64_name">Base64</string>
+    <string name="tool_text_base64_desc">Encode or decode Base64 text</string>
+    <string name="tool_text_base64_keywords">base64 encode, base64 decode</string>
+
+    <string name="tool_text_url_encode_name">URL Encoder</string>
+    <string name="tool_text_url_encode_desc">Encode or decode text for use in a URL</string>
+    <string name="tool_text_url_encode_keywords">url encode, url decode, percent encoding</string>
+
+    <string name="tool_text_json_formatter_name">JSON Formatter</string>
+    <string name="tool_text_json_formatter_desc">Format, validate, and minify JSON</string>
+    <string name="tool_text_json_formatter_keywords">json validator, pretty print, minify json</string>
+
+    <!-- Security tools -->
+    <string name="tool_sec_password_generator_name">Password Generator</string>
+    <string name="tool_sec_password_generator_desc">Create strong, random passwords</string>
+    <string name="tool_sec_password_generator_keywords">strong password, secure password, random password</string>
+
+    <string name="tool_sec_pin_generator_name">PIN Generator</string>
+    <string name="tool_sec_pin_generator_desc">Generate a random numeric PIN</string>
+    <string name="tool_sec_pin_generator_keywords">pin code, numeric code</string>
+
+    <string name="tool_sec_uuid_generator_name">UUID Generator</string>
+    <string name="tool_sec_uuid_generator_desc">Generate random UUID v4 identifiers</string>
+    <string name="tool_sec_uuid_generator_keywords">guid, unique id, uuid v4</string>
+
+    <string name="tool_sec_random_number_name">Random Number Generator</string>
+    <string name="tool_sec_random_number_desc">Generate a random number within a range</string>
+    <string name="tool_sec_random_number_keywords">random number, dice roll, lottery number</string>
+
+    <string name="tool_sec_hash_generator_name">Hash Generator</string>
+    <string name="tool_sec_hash_generator_desc">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes</string>
+    <string name="tool_sec_hash_generator_keywords">md5, sha1, sha256, sha512, checksum</string>
+
+    <!-- QR / barcode -->
+    <string name="tool_qr_generator_name">QR Generator</string>
+    <string name="tool_qr_generator_desc">Create QR codes for text, links, and Wi-Fi</string>
+    <string name="tool_qr_generator_keywords">qr code, wifi qr, create qr</string>
+
+    <string name="tool_qr_scanner_name">QR Scanner</string>
+    <string name="tool_qr_scanner_desc">Scan QR codes and barcodes with your camera</string>
+    <string name="tool_qr_scanner_keywords">scan qr, barcode scanner, read qr code</string>
+
+    <!-- Color tools -->
+    <string name="tool_color_converter_name">Color Converter</string>
+    <string name="tool_color_converter_desc">Convert and pick colors in HEX, RGB, and HSL</string>
+    <string name="tool_color_converter_keywords">hex to rgb, rgb to hex, hsl, color picker</string>
+
+    <string name="tool_color_palette_generator_name">Palette Generator</string>
+    <string name="tool_color_palette_generator_desc">Generate random and complementary color palettes</string>
+    <string name="tool_color_palette_generator_keywords">color scheme, random color, complementary colors</string>
+
+    <!-- Time & date -->
+    <string name="tool_time_world_clock_name">World Clock</string>
+    <string name="tool_time_world_clock_desc">Check the time in cities around the world</string>
+    <string name="tool_time_world_clock_keywords">time zones, what time is it</string>
+
+    <string name="tool_time_stopwatch_name">Stopwatch</string>
+    <string name="tool_time_stopwatch_desc">Time an activity with lap tracking</string>
+    <string name="tool_time_stopwatch_keywords">timer, laps, time tracking</string>
+
+    <string name="tool_time_timer_name">Timer</string>
+    <string name="tool_time_timer_desc">Set a countdown timer with an alert</string>
+    <string name="tool_time_timer_keywords">countdown, alarm, reminder</string>
+
+    <string name="tool_time_unix_converter_name">Unix Timestamp</string>
+    <string name="tool_time_unix_converter_desc">Convert between Unix time and readable dates</string>
+    <string name="tool_time_unix_converter_keywords">epoch time, timestamp converter</string>
+
+    <string name="tool_time_date_calculator_name">Date Calculator</string>
+    <string name="tool_time_date_calculator_desc">Add or subtract days, and find week numbers</string>
+    <string name="tool_time_date_calculator_keywords">add days, week number, day of year</string>
+
+    <!-- Developer tools -->
+    <string name="tool_dev_regex_tester_name">Regex Tester</string>
+    <string name="tool_dev_regex_tester_desc">Test regular expressions against sample text</string>
+    <string name="tool_dev_regex_tester_keywords">regular expression, pattern matching</string>
+
+    <string name="tool_dev_lorem_ipsum_name">Lorem Ipsum Generator</string>
+    <string name="tool_dev_lorem_ipsum_desc">Generate placeholder text for designs and mockups</string>
+    <string name="tool_dev_lorem_ipsum_keywords">placeholder text, dummy text, filler text</string>
+
+    <!-- Device -->
+    <string name="tool_device_info_name">Device Information</string>
+    <string name="tool_device_info_desc">See details about this phone\'s hardware and software</string>
+    <string name="tool_device_info_keywords">phone specs, android version, ram, storage, battery</string>
+    <string name="device_info_model">Model</string>
+    <string name="device_info_manufacturer">Manufacturer</string>
+    <string name="device_info_android_version">Android version</string>
+    <string name="device_info_api_level">API level</string>
+    <string name="device_info_screen">Screen</string>
+    <string name="device_info_storage">Storage</string>
+    <string name="device_info_ram">RAM</string>
+    <string name="device_info_battery">Battery</string>
+    <string name="device_info_cpu_cores">CPU cores</string>
+    <string name="device_info_not_available">Not available on this device</string>
+
+    <!-- Image tools -->
+    <string name="tool_image_compressor_name">Image Compressor</string>
+    <string name="tool_image_compressor_desc">Make photo files smaller without losing much quality</string>
+    <string name="tool_image_compressor_keywords">make photo smaller, reduce image size, shrink photo</string>
+
+    <string name="tool_image_resizer_name">Image Resizer</string>
+    <string name="tool_image_resizer_desc">Resize a photo to exact dimensions</string>
+    <string name="tool_image_resizer_keywords">resize photo, change image size, scale image</string>
+    <string name="image_pick_source">Choose an image</string>
+    <string name="image_original_size">Original: %1$s</string>
+    <string name="image_result_size">Result: %1$s</string>
+    <string name="image_savings">%1$d%% smaller</string>
+
+    <!-- Workflows (roadmap-visible placeholder screen text kept out of nav until implemented) -->
+    <string name="workflows_title">Workflows</string>
+
+    <!-- Shared calculator result labels -->
+    <string name="label_total">Total</string>
+    <string name="label_per_person">Per person</string>
+    <string name="label_amount_saved">You save</string>
+    <string name="label_interest">Interest</string>
+    <string name="label_final_amount">Final amount</string>
+    <string name="label_monthly_payment">Monthly payment</string>
+    <string name="label_total_payment">Total payment</string>
+    <string name="label_total_interest">Total interest</string>
+    <string name="label_years">years</string>
+    <string name="label_months">months</string>
+    <string name="label_days">days</string>
+    <string name="label_age_result">%1$d years, %2$d months, %3$d days</string>
+    <string name="label_days_between">%1$d days</string>
+    <string name="label_date_of_birth">Date of birth</string>
+    <string name="label_start_date">Start date</string>
+    <string name="label_end_date">End date</string>
+    <string name="label_principal">Principal amount</string>
+    <string name="label_interest_rate">Annual interest rate</string>
+    <string name="label_time_years">Time (years)</string>
+    <string name="label_loan_amount">Loan amount</string>
+    <string name="label_tenure_months">Tenure (months)</string>
+    <string name="label_compounding">Compounding</string>
+    <string name="label_compounding_annually">Annually</string>
+    <string name="label_compounding_semiannually">Semi-annually</string>
+    <string name="label_compounding_quarterly">Quarterly</string>
+    <string name="label_compounding_monthly">Monthly</string>
+
+    <!-- Text analyzer stat labels -->
+    <string name="tool_text_word_counter_name">Words</string>
+    <string name="tool_text_character_counter_name">Characters</string>
+    <string name="tool_text_character_counter_no_spaces">Characters (no spaces)</string>
+    <string name="tool_text_sentence_counter_name">Sentences</string>
+    <string name="tool_text_reading_time">Reading time (min)</string>
+
+    <!-- Text case converter -->
+    <string name="case_uppercase">UPPERCASE</string>
+    <string name="case_lowercase">lowercase</string>
+    <string name="case_title">Title Case</string>
+    <string name="case_sentence">Sentence case</string>
+
+    <!-- Text cleaner -->
+    <string name="clean_trim_spaces">Trim extra spaces</string>
+    <string name="clean_remove_empty_lines">Remove empty lines</string>
+    <string name="clean_remove_duplicate_lines">Remove duplicate lines</string>
+    <string name="clean_sort_lines">Sort lines A–Z</string>
+
+    <!-- Base64 / URL encode -->
+    <string name="mode_encode">Encode</string>
+    <string name="mode_decode">Decode</string>
+    <string name="input_label">Input</string>
+    <string name="output_label">Output</string>
+
+    <!-- JSON formatter -->
+    <string name="action_format">Format</string>
+    <string name="action_minify">Minify</string>
+    <string name="json_valid">Valid JSON</string>
+    <string name="json_invalid">Invalid JSON: %1$s</string>
+
+    <!-- Password / generators -->
+    <string name="password_length">Length: %1$d</string>
+    <string name="password_include_uppercase">Uppercase (A-Z)</string>
+    <string name="password_include_lowercase">Lowercase (a-z)</string>
+    <string name="password_include_numbers">Numbers (0-9)</string>
+    <string name="password_include_symbols">Symbols (!@#$…)</string>
+    <string name="password_strength_weak">Weak</string>
+    <string name="password_strength_fair">Fair</string>
+    <string name="password_strength_strong">Strong</string>
+    <string name="pin_length">Digits: %1$d</string>
+    <string name="random_number_min">Minimum</string>
+    <string name="random_number_max">Maximum</string>
+    <string name="hash_algorithm">Algorithm</string>
+
+    <!-- QR generator -->
+    <string name="qr_mode_text">Text</string>
+    <string name="qr_mode_url">Link</string>
+    <string name="qr_mode_wifi">Wi-Fi</string>
+    <string name="qr_wifi_ssid">Network name (SSID)</string>
+    <string name="qr_wifi_password">Password</string>
+    <string name="qr_wifi_secured">Password-protected</string>
+    <string name="qr_scan_hint">Point the camera at a QR code or barcode</string>
+    <string name="qr_scanned_result">Scanned</string>
+    <string name="qr_scan_again">Scan again</string>
+    <string name="qr_open_link">Open link</string>
+
+    <!-- World clock cities -->
+    <string name="city_new_york">New York</string>
+    <string name="city_los_angeles">Los Angeles</string>
+    <string name="city_london">London</string>
+    <string name="city_paris">Paris</string>
+    <string name="city_cairo">Cairo</string>
+    <string name="city_dubai">Dubai</string>
+    <string name="city_tokyo">Tokyo</string>
+    <string name="city_sydney">Sydney</string>
+
+    <!-- Time & date tools -->
+    <string name="stopwatch_lap">Lap</string>
+    <string name="stopwatch_start">Start</string>
+    <string name="stopwatch_pause">Pause</string>
+    <string name="stopwatch_reset">Reset</string>
+    <string name="timer_set_minutes">Minutes</string>
+    <string name="timer_set_seconds">Seconds</string>
+    <string name="timer_start">Start</string>
+    <string name="timer_finished">Time\'s up!</string>
+    <string name="unix_now">Now</string>
+    <string name="unix_timestamp_label">Unix timestamp (seconds)</string>
+    <string name="unix_date_label">Date &amp; time</string>
+    <string name="date_calc_add_days">Add/subtract days</string>
+    <string name="date_calc_days_amount">Days (negative to subtract)</string>
+    <string name="date_calc_week_number">Week number</string>
+    <string name="date_calc_day_of_year">Day of year</string>
+    <string name="date_calc_result_date">Result date</string>
+
+    <!-- Developer tools -->
+    <string name="regex_pattern_label">Pattern</string>
+    <string name="regex_case_insensitive">Case-insensitive</string>
+    <string name="regex_test_text_label">Test text</string>
+    <string name="regex_match_count">%1$d matches</string>
+    <string name="regex_invalid_pattern">Invalid pattern: %1$s</string>
+    <string name="lorem_paragraphs_label">Paragraphs: %1$d</string>
+</resources>

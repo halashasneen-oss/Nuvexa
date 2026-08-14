@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nuvexa</string>
+    <string name="app_tagline">Tous les outils dont vous avez besoin. Toujours hors ligne.</string>
+
+    <!-- Common actions -->
+    <string name="action_save">Enregistrer</string>
+    <string name="action_share">Partager</string>
+    <string name="action_copy">Copier</string>
+    <string name="action_copied">Copié</string>
+    <string name="action_saved">Enregistré</string>
+    <string name="action_reset">Réinitialiser</string>
+    <string name="action_done">Terminé</string>
+    <string name="action_cancel">Annuler</string>
+    <string name="action_retry">Réessayer</string>
+    <string name="action_close">Fermer</string>
+    <string name="action_back">Retour</string>
+    <string name="action_help">Aide</string>
+    <string name="action_continue">Continuer</string>
+    <string name="action_skip">Passer</string>
+    <string name="action_get_started">Commencer</string>
+    <string name="action_start_again">Recommencer</string>
+    <string name="action_open">Ouvrir</string>
+    <string name="action_delete">Supprimer</string>
+    <string name="action_delete_all">Tout supprimer</string>
+    <string name="action_clear">Effacer</string>
+    <string name="action_confirm">Confirmer</string>
+    <string name="action_choose_file">Choisir un autre fichier</string>
+    <string name="action_add_favorite">Ajouter aux favoris</string>
+    <string name="action_remove_favorite">Retirer des favoris</string>
+    <string name="action_scan">Scanner</string>
+    <string name="action_calculate">Calculer</string>
+    <string name="action_generate">Générer</string>
+    <string name="action_convert">Convertir</string>
+    <string name="action_apply">Appliquer</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Accueil</string>
+    <string name="nav_tools">Outils</string>
+    <string name="nav_favorites">Favoris</string>
+    <string name="nav_history">Historique</string>
+    <string name="nav_settings">Réglages</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">Une seule appli. Tous les outils.</string>
+    <string name="onboarding_body_1">Calculatrices, convertisseurs, outils PDF et image, générateurs, et bien plus — tout au même endroit.</string>
+    <string name="onboarding_title_2">Tout fonctionne sur votre appareil</string>
+    <string name="onboarding_body_2">Aucun serveur, aucune attente. Vos outils répondent instantanément, même en mode avion.</string>
+    <string name="onboarding_title_3">Vos fichiers restent privés</string>
+    <string name="onboarding_body_3">Nuvexa n\'envoie jamais vos photos, documents ou textes où que ce soit. Tout reste sur votre téléphone.</string>
+    <string name="onboarding_title_4">Trouvez tout instantanément</string>
+    <string name="onboarding_body_4">Décrivez simplement ce qu\'il vous faut — la recherche comprend le langage courant, dans votre langue.</string>
+
+    <!-- Home -->
+    <string name="home_search_hint">De quoi avez-vous besoin ?</string>
+    <string name="home_search_placeholder_1">Compresser une image</string>
+    <string name="home_search_placeholder_2">Convertir un PDF</string>
+    <string name="home_search_placeholder_3">Calculer un pourcentage</string>
+    <string name="home_search_placeholder_4">Scanner un QR code</string>
+    <string name="home_quick_actions">Actions rapides</string>
+    <string name="home_recent">Récents</string>
+    <string name="home_recent_see_all">Tout voir</string>
+    <string name="home_favorites">Favoris</string>
+    <string name="home_recommended">Recommandé pour vous</string>
+    <string name="home_categories">Catégories</string>
+    <string name="home_privacy_banner">Vos fichiers restent sur votre appareil.</string>
+    <string name="home_empty_recent_title">Aucun outil récent</string>
+    <string name="home_empty_recent_body">Les outils que vous utilisez apparaîtront ici pour un accès rapide.</string>
+
+    <!-- Search -->
+    <string name="search_hint">Rechercher un outil, ex. \"quel âge ai-je\"</string>
+    <string name="search_no_results_title">Aucun outil trouvé</string>
+    <string name="search_no_results_body">Essayez un autre mot, ou parcourez les catégories.</string>
+    <string name="search_results_count">%1$d résultats</string>
+
+    <!-- Categories -->
+    <string name="category_calculators">Calculatrices</string>
+    <string name="category_calculators_desc">Calculs du quotidien, finances et dates</string>
+    <string name="category_converter">Convertisseur d\'unités</string>
+    <string name="category_converter_desc">Longueur, poids, température, et plus</string>
+    <string name="category_currency">Devises</string>
+    <string name="category_currency_desc">Conversion avec des taux définis manuellement</string>
+    <string name="category_text">Texte et rédaction</string>
+    <string name="category_text_desc">Compter, nettoyer, formater et transformer du texte</string>
+    <string name="category_security">Confidentialité et sécurité</string>
+    <string name="category_security_desc">Générateurs, empreintes (hash) et valeurs aléatoires sécurisées</string>
+    <string name="category_qr">QR code et codes-barres</string>
+    <string name="category_qr_desc">Scannez et créez des codes instantanément</string>
+    <string name="category_color">Outils de couleur</string>
+    <string name="category_color_desc">Convertir, choisir et générer des palettes de couleurs</string>
+    <string name="category_time">Temps et date</string>
+    <string name="category_time_desc">Horloges, minuteurs et calculs de dates</string>
+    <string name="category_developer">Outils développeur</string>
+    <string name="category_developer_desc">Expressions régulières, formatage et outils texte pour développeurs</string>
+    <string name="category_device">Appareil</string>
+    <string name="category_device_desc">Informations sur cet appareil</string>
+    <string name="category_image">Outils image</string>
+    <string name="category_image_desc">Compressez et redimensionnez vos photos sur l\'appareil</string>
+    <string name="category_tool_count">%1$d outils</string>
+
+    <!-- Tools browser -->
+    <string name="tools_title">Outils</string>
+    <string name="tools_search_hint">Rechercher parmi tous les outils</string>
+    <string name="tools_filter_all">Tous</string>
+    <string name="tools_filter_favorites">Favoris</string>
+    <string name="tools_filter_recent">Récents</string>
+
+    <!-- Favorites screen -->
+    <string name="favorites_title">Favoris</string>
+    <string name="favorites_empty_title">Aucun favori pour l\'instant</string>
+    <string name="favorites_empty_body">Appuyez sur l\'étoile d\'un outil pour l\'épingler ici.</string>
+    <string name="favorites_reorder_hint">Glissez pour réorganiser</string>
+
+    <!-- History screen -->
+    <string name="history_title">Historique</string>
+    <string name="history_empty_title">Aucun historique pour l\'instant</string>
+    <string name="history_empty_body">Les opérations terminées apparaîtront ici pour que vous puissiez les retrouver.</string>
+    <string name="history_search_hint">Rechercher dans l\'historique</string>
+    <string name="history_clear_all_title">Effacer tout l\'historique ?</string>
+    <string name="history_clear_all_body">Cela supprime chaque entrée de votre historique. Cette action est irréversible.</string>
+    <string name="history_delete_one_title">Supprimer cette entrée ?</string>
+
+    <!-- Tool detail scaffold -->
+    <string name="tool_result_title">Terminé</string>
+    <string name="tool_input_missing">Ajoutez des données pour commencer.</string>
+    <string name="tool_progress_cancel">Annuler</string>
+    <string name="tool_output_saved_to">Enregistré dans %1$s</string>
+
+    <!-- Errors -->
+    <string name="error_generic_title">Un point nécessite votre attention</string>
+    <string name="error_unsupported_format">Ce format de fichier n\'est pas encore pris en charge.</string>
+    <string name="error_corrupted_file">Ce fichier semble endommagé ou non pris en charge.</string>
+    <string name="error_permission_denied">Nuvexa a besoin de cette autorisation pour continuer. Vous pouvez l\'accorder dans les réglages système.</string>
+    <string name="error_storage_unavailable">Le stockage n\'est pas disponible pour le moment. Vérifiez l\'espace de stockage et réessayez.</string>
+    <string name="error_empty_input">Saisissez d\'abord quelque chose.</string>
+    <string name="error_invalid_number">Cela ne ressemble pas à un nombre valide.</string>
+    <string name="error_division_by_zero">Impossible de diviser par zéro.</string>
+    <string name="error_camera_unavailable">Aucune caméra détectée sur cet appareil.</string>
+    <string name="error_operation_cancelled">Opération annulée.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Réglages</string>
+    <string name="settings_section_appearance">Apparence</string>
+    <string name="settings_theme">Thème</string>
+    <string name="settings_theme_light">Clair</string>
+    <string name="settings_theme_dark">Sombre</string>
+    <string name="settings_theme_system">Paramètre système</string>
+    <string name="settings_section_language">Langue</string>
+    <string name="settings_language">Langue</string>
+    <string name="settings_language_system">Paramètre système</string>
+    <string name="settings_section_behavior">Comportement</string>
+    <string name="settings_start_screen">Écran de démarrage par défaut</string>
+    <string name="settings_haptics">Retour haptique</string>
+    <string name="settings_reduce_motion">Réduire les animations</string>
+    <string name="settings_section_storage">Stockage</string>
+    <string name="settings_clear_cache">Vider le cache</string>
+    <string name="settings_clear_cache_desc">Supprime les fichiers temporaires créés en utilisant les outils</string>
+    <string name="settings_clear_cache_done">Cache vidé</string>
+    <string name="settings_section_privacy">Confidentialité</string>
+    <string name="settings_clear_history">Effacer l\'historique</string>
+    <string name="settings_clear_recent">Effacer les outils récents</string>
+    <string name="settings_privacy_note">Nuvexa traite tout sur cet appareil. Rien de ce que vous créez ou ouvrez n\'est jamais envoyé en ligne.</string>
+    <string name="settings_section_about">À propos</string>
+    <string name="settings_version">Version</string>
+    <string name="settings_privacy_policy">Politique de confidentialité</string>
+    <string name="settings_terms">Conditions d\'utilisation</string>
+    <string name="settings_contact">Nous contacter</string>
+    <string name="support_email" translatable="false">support@nuvexa.app</string>
+    <string name="privacy_policy_body">Nuvexa fonctionne entièrement sur votre appareil. L\'application ne crée pas de compte utilisateur, ne téléverse jamais vos photos, documents, textes ou contenu du presse-papiers, et n\'utilise aucun service cloud pour ses outils. Les données comme les favoris, l\'historique et les réglages sont stockées localement dans le stockage privé de l\'application et ne sont jamais transmises ailleurs. La seule activité réseau de Nuvexa concerne l\'affichage publicitaire optionnel via Google AdMob ; tous les outils fonctionnent entièrement hors ligne.</string>
+    <string name="terms_body">Nuvexa est fourni gratuitement, en l\'état, pour un usage personnel. Vous êtes responsable du contenu que vous traitez avec ses outils. Les calculatrices, convertisseurs et générateurs de Nuvexa sont fournis à titre pratique et général ; vérifiez les résultats de manière indépendante pour toute décision financière, juridique ou médicale importante.</string>
+
+    <!-- Categories: calculators -->
+    <string name="tool_calc_basic_name">Calculatrice</string>
+    <string name="tool_calc_basic_desc">Calculs du quotidien avec un clavier rapide et clair</string>
+    <string name="tool_calc_basic_keywords">calcul, addition, soustraction, multiplication, division, arithmétique</string>
+
+    <string name="tool_calc_percentage_name">Pourcentage</string>
+    <string name="tool_calc_percentage_desc">Calculez un pourcentage, une hausse ou une baisse</string>
+    <string name="tool_calc_percentage_keywords">pourcentage de, augmentation, diminution</string>
+
+    <string name="tool_calc_discount_name">Calculateur de remise</string>
+    <string name="tool_calc_discount_desc">Calculez les prix soldés et vos économies</string>
+    <string name="tool_calc_discount_keywords">solde, réduction, économie, promo</string>
+
+    <string name="tool_calc_tip_name">Calculateur de pourboire</string>
+    <string name="tool_calc_tip_desc">Calculez le pourboire et le total par personne</string>
+    <string name="tool_calc_tip_keywords">pourboire, restaurant, service</string>
+
+    <string name="tool_calc_split_bill_name">Partager l\'addition</string>
+    <string name="tool_calc_split_bill_desc">Divisez une addition équitablement entre amis</string>
+    <string name="tool_calc_split_bill_keywords">partager la note, diviser les frais</string>
+
+    <string name="tool_calc_age_name">Calculateur d\'âge</string>
+    <string name="tool_calc_age_desc">Trouvez l\'âge exact en années, mois et jours</string>
+    <string name="tool_calc_age_keywords">quel âge ai-je, date de naissance, anniversaire</string>
+
+    <string name="tool_calc_date_diff_name">Différence de dates</string>
+    <string name="tool_calc_date_diff_desc">Trouvez le nombre de jours entre deux dates</string>
+    <string name="tool_calc_date_diff_keywords">jours entre deux dates, durée</string>
+
+    <string name="tool_calc_simple_interest_name">Intérêt simple</string>
+    <string name="tool_calc_simple_interest_desc">Calculez l\'intérêt sur un montant principal</string>
+    <string name="tool_calc_simple_interest_keywords">taux d\'intérêt, capital, prêt</string>
+
+    <string name="tool_calc_compound_interest_name">Intérêt composé</string>
+    <string name="tool_calc_compound_interest_desc">Voyez comment l\'épargne ou une dette évolue avec le temps</string>
+    <string name="tool_calc_compound_interest_keywords">croissance d\'investissement, épargne</string>
+
+    <string name="tool_calc_emi_name">Calculateur de mensualité</string>
+    <string name="tool_calc_emi_desc">Estimez la mensualité d\'un prêt</string>
+    <string name="tool_calc_emi_keywords">remboursement prêt, mensualité, crédit immobilier</string>
+
+    <!-- Unit converter -->
+    <string name="tool_unit_converter_name">Convertisseur d\'unités</string>
+    <string name="tool_unit_converter_desc">Longueur, poids, température, vitesse, et plus</string>
+    <string name="tool_unit_converter_keywords">convertir kg en livres, cm en pouces, celsius en fahrenheit, km en miles</string>
+    <string name="unit_type_length">Longueur</string>
+    <string name="unit_type_weight">Poids</string>
+    <string name="unit_type_temperature">Température</string>
+    <string name="unit_type_area">Surface</string>
+    <string name="unit_type_volume">Volume</string>
+    <string name="unit_type_speed">Vitesse</string>
+    <string name="unit_type_time">Temps</string>
+    <string name="unit_type_data">Stockage de données</string>
+
+    <!-- Currency -->
+    <string name="tool_currency_calculator_name">Calculateur de devises</string>
+    <string name="tool_currency_calculator_desc">Convertissez entre devises avec des taux que vous définissez</string>
+    <string name="tool_currency_calculator_keywords">taux de change, conversion monétaire, dollars en euros</string>
+    <string name="currency_manual_rate_notice">Les taux sont saisis manuellement et stockés sur votre appareil — Nuvexa ne récupère pas de taux en direct hors ligne.</string>
+    <string name="currency_edit_rate">Modifier le taux</string>
+    <string name="currency_base_currency">Devise de base</string>
+
+    <!-- Text tools -->
+    <string name="tool_text_analyzer_name">Analyseur de texte</string>
+    <string name="tool_text_analyzer_desc">Nombre de mots, caractères et phrases, avec temps de lecture</string>
+    <string name="tool_text_analyzer_keywords">nombre de mots, nombre de caractères, temps de lecture</string>
+
+    <string name="tool_text_case_converter_name">Convertisseur de casse</string>
+    <string name="tool_text_case_converter_desc">Basculez le texte entre majuscules, minuscules et casse de titre</string>
+    <string name="tool_text_case_converter_keywords">majuscules, minuscules, casse de titre</string>
+
+    <string name="tool_text_cleaner_name">Nettoyeur de texte</string>
+    <string name="tool_text_cleaner_desc">Supprimez les espaces superflus, lignes en double et lignes vides</string>
+    <string name="tool_text_cleaner_keywords">supprimer les doublons, trier les lignes, espaces en trop</string>
+
+    <string name="tool_text_base64_name">Base64</string>
+    <string name="tool_text_base64_desc">Encodez ou décodez du texte en Base64</string>
+    <string name="tool_text_base64_keywords">encoder base64, décoder base64</string>
+
+    <string name="tool_text_url_encode_name">Encodeur d\'URL</string>
+    <string name="tool_text_url_encode_desc">Encodez ou décodez du texte pour une URL</string>
+    <string name="tool_text_url_encode_keywords">encoder url, décoder url</string>
+
+    <string name="tool_text_json_formatter_name">Formateur JSON</string>
+    <string name="tool_text_json_formatter_desc">Formatez, validez et minifiez du JSON</string>
+    <string name="tool_text_json_formatter_keywords">validateur json, minifier json</string>
+
+    <!-- Security tools -->
+    <string name="tool_sec_password_generator_name">Générateur de mots de passe</string>
+    <string name="tool_sec_password_generator_desc">Créez des mots de passe forts et aléatoires</string>
+    <string name="tool_sec_password_generator_keywords">mot de passe fort, mot de passe sécurisé</string>
+
+    <string name="tool_sec_pin_generator_name">Générateur de code PIN</string>
+    <string name="tool_sec_pin_generator_desc">Générez un code PIN numérique aléatoire</string>
+    <string name="tool_sec_pin_generator_keywords">code pin, code numérique</string>
+
+    <string name="tool_sec_uuid_generator_name">Générateur d\'UUID</string>
+    <string name="tool_sec_uuid_generator_desc">Générez des identifiants UUID v4 aléatoires</string>
+    <string name="tool_sec_uuid_generator_keywords">identifiant unique, uuid v4</string>
+
+    <string name="tool_sec_random_number_name">Générateur de nombres aléatoires</string>
+    <string name="tool_sec_random_number_desc">Générez un nombre aléatoire dans une plage</string>
+    <string name="tool_sec_random_number_keywords">nombre aléatoire, lancer de dé</string>
+
+    <string name="tool_sec_hash_generator_name">Générateur de hachage</string>
+    <string name="tool_sec_hash_generator_desc">Générez des empreintes MD5, SHA-1, SHA-256 et SHA-512</string>
+    <string name="tool_sec_hash_generator_keywords">md5, sha1, sha256, sha512, somme de contrôle</string>
+
+    <!-- QR / barcode -->
+    <string name="tool_qr_generator_name">Générateur de QR code</string>
+    <string name="tool_qr_generator_desc">Créez des QR codes pour du texte, des liens et le Wi-Fi</string>
+    <string name="tool_qr_generator_keywords">qr code, qr wifi, créer un qr code</string>
+
+    <string name="tool_qr_scanner_name">Scanner de QR code</string>
+    <string name="tool_qr_scanner_desc">Scannez des QR codes et codes-barres avec l\'appareil photo</string>
+    <string name="tool_qr_scanner_keywords">scanner qr, lecteur de code-barres</string>
+
+    <!-- Color tools -->
+    <string name="tool_color_converter_name">Convertisseur de couleurs</string>
+    <string name="tool_color_converter_desc">Convertissez et choisissez des couleurs en HEX, RGB et HSL</string>
+    <string name="tool_color_converter_keywords">hex vers rgb, rgb vers hex, hsl, pipette</string>
+
+    <string name="tool_color_palette_generator_name">Générateur de palette</string>
+    <string name="tool_color_palette_generator_desc">Générez des palettes de couleurs aléatoires et complémentaires</string>
+    <string name="tool_color_palette_generator_keywords">palette de couleurs, couleur aléatoire, couleurs complémentaires</string>
+
+    <!-- Time & date -->
+    <string name="tool_time_world_clock_name">Horloge mondiale</string>
+    <string name="tool_time_world_clock_desc">Consultez l\'heure dans des villes du monde entier</string>
+    <string name="tool_time_world_clock_keywords">fuseaux horaires, quelle heure est-il</string>
+
+    <string name="tool_time_stopwatch_name">Chronomètre</string>
+    <string name="tool_time_stopwatch_desc">Chronométrez une activité avec suivi des tours</string>
+    <string name="tool_time_stopwatch_keywords">minuteur, tours, suivi du temps</string>
+
+    <string name="tool_time_timer_name">Minuteur</string>
+    <string name="tool_time_timer_desc">Réglez un compte à rebours avec alerte</string>
+    <string name="tool_time_timer_keywords">compte à rebours, alarme, rappel</string>
+
+    <string name="tool_time_unix_converter_name">Horodatage Unix</string>
+    <string name="tool_time_unix_converter_desc">Convertissez entre temps Unix et dates lisibles</string>
+    <string name="tool_time_unix_converter_keywords">temps epoch, convertisseur d\'horodatage</string>
+
+    <string name="tool_time_date_calculator_name">Calculateur de dates</string>
+    <string name="tool_time_date_calculator_desc">Ajoutez ou soustrayez des jours, trouvez le numéro de semaine</string>
+    <string name="tool_time_date_calculator_keywords">ajouter des jours, numéro de semaine, jour de l\'année</string>
+
+    <!-- Developer tools -->
+    <string name="tool_dev_regex_tester_name">Testeur d\'expressions régulières</string>
+    <string name="tool_dev_regex_tester_desc">Testez des expressions régulières sur un texte d\'exemple</string>
+    <string name="tool_dev_regex_tester_keywords">regex, expression régulière, correspondance de motifs</string>
+
+    <string name="tool_dev_lorem_ipsum_name">Générateur de faux texte</string>
+    <string name="tool_dev_lorem_ipsum_desc">Générez du texte de substitution pour vos maquettes</string>
+    <string name="tool_dev_lorem_ipsum_keywords">texte de remplissage, lorem ipsum, texte factice</string>
+
+    <!-- Device -->
+    <string name="tool_device_info_name">Informations sur l\'appareil</string>
+    <string name="tool_device_info_desc">Découvrez le matériel et le logiciel de ce téléphone</string>
+    <string name="tool_device_info_keywords">caractéristiques du téléphone, version android, ram, stockage, batterie</string>
+    <string name="device_info_model">Modèle</string>
+    <string name="device_info_manufacturer">Fabricant</string>
+    <string name="device_info_android_version">Version d\'Android</string>
+    <string name="device_info_api_level">Niveau d\'API</string>
+    <string name="device_info_screen">Écran</string>
+    <string name="device_info_storage">Stockage</string>
+    <string name="device_info_ram">RAM</string>
+    <string name="device_info_battery">Batterie</string>
+    <string name="device_info_cpu_cores">Cœurs du processeur</string>
+    <string name="device_info_not_available">Non disponible sur cet appareil</string>
+
+    <!-- Image tools -->
+    <string name="tool_image_compressor_name">Compresseur d\'images</string>
+    <string name="tool_image_compressor_desc">Réduisez la taille d\'une photo sans trop perdre en qualité</string>
+    <string name="tool_image_compressor_keywords">réduire une photo, compresser une image, alléger une photo</string>
+
+    <string name="tool_image_resizer_name">Redimensionneur d\'images</string>
+    <string name="tool_image_resizer_desc">Redimensionnez une photo à des dimensions précises</string>
+    <string name="tool_image_resizer_keywords">redimensionner une photo, changer la taille d\'une image</string>
+    <string name="image_pick_source">Choisir une image</string>
+    <string name="image_original_size">Original : %1$s</string>
+    <string name="image_result_size">Résultat : %1$s</string>
+    <string name="image_savings">%1$d %% plus léger</string>
+
+    <!-- Workflows -->
+    <string name="workflows_title">Flux de travail</string>
+
+    <!-- Shared calculator result labels -->
+    <string name="label_total">Total</string>
+    <string name="label_per_person">Par personne</string>
+    <string name="label_amount_saved">Vous économisez</string>
+    <string name="label_interest">Intérêt</string>
+    <string name="label_final_amount">Montant final</string>
+    <string name="label_monthly_payment">Mensualité</string>
+    <string name="label_total_payment">Paiement total</string>
+    <string name="label_total_interest">Intérêt total</string>
+    <string name="label_years">ans</string>
+    <string name="label_months">mois</string>
+    <string name="label_days">jours</string>
+    <string name="label_age_result">%1$d ans, %2$d mois, %3$d jours</string>
+    <string name="label_days_between">%1$d jours</string>
+    <string name="label_date_of_birth">Date de naissance</string>
+    <string name="label_start_date">Date de début</string>
+    <string name="label_end_date">Date de fin</string>
+    <string name="label_principal">Montant principal</string>
+    <string name="label_interest_rate">Taux d\'intérêt annuel</string>
+    <string name="label_time_years">Durée (années)</string>
+    <string name="label_loan_amount">Montant du prêt</string>
+    <string name="label_tenure_months">Durée (mois)</string>
+    <string name="label_compounding">Capitalisation</string>
+    <string name="label_compounding_annually">Annuelle</string>
+    <string name="label_compounding_semiannually">Semestrielle</string>
+    <string name="label_compounding_quarterly">Trimestrielle</string>
+    <string name="label_compounding_monthly">Mensuelle</string>
+
+    <!-- Text analyzer stat labels -->
+    <string name="tool_text_word_counter_name">Mots</string>
+    <string name="tool_text_character_counter_name">Caractères</string>
+    <string name="tool_text_character_counter_no_spaces">Caractères (sans espaces)</string>
+    <string name="tool_text_sentence_counter_name">Phrases</string>
+    <string name="tool_text_reading_time">Temps de lecture (min)</string>
+
+    <!-- Text case converter -->
+    <string name="case_uppercase">MAJUSCULES</string>
+    <string name="case_lowercase">minuscules</string>
+    <string name="case_title">Casse De Titre</string>
+    <string name="case_sentence">Casse de phrase</string>
+
+    <!-- Text cleaner -->
+    <string name="clean_trim_spaces">Supprimer les espaces en trop</string>
+    <string name="clean_remove_empty_lines">Supprimer les lignes vides</string>
+    <string name="clean_remove_duplicate_lines">Supprimer les lignes en double</string>
+    <string name="clean_sort_lines">Trier les lignes A–Z</string>
+
+    <!-- Base64 / URL encode -->
+    <string name="mode_encode">Encoder</string>
+    <string name="mode_decode">Décoder</string>
+    <string name="input_label">Entrée</string>
+    <string name="output_label">Sortie</string>
+
+    <!-- JSON formatter -->
+    <string name="action_format">Formater</string>
+    <string name="action_minify">Minifier</string>
+    <string name="json_valid">JSON valide</string>
+    <string name="json_invalid">JSON invalide : %1$s</string>
+
+    <!-- Password / generators -->
+    <string name="password_length">Longueur : %1$d</string>
+    <string name="password_include_uppercase">Majuscules (A-Z)</string>
+    <string name="password_include_lowercase">Minuscules (a-z)</string>
+    <string name="password_include_numbers">Chiffres (0-9)</string>
+    <string name="password_include_symbols">Symboles (!@#$…)</string>
+    <string name="password_strength_weak">Faible</string>
+    <string name="password_strength_fair">Moyenne</string>
+    <string name="password_strength_strong">Forte</string>
+    <string name="pin_length">Chiffres : %1$d</string>
+    <string name="random_number_min">Minimum</string>
+    <string name="random_number_max">Maximum</string>
+    <string name="hash_algorithm">Algorithme</string>
+
+    <!-- QR generator -->
+    <string name="qr_mode_text">Texte</string>
+    <string name="qr_mode_url">Lien</string>
+    <string name="qr_mode_wifi">Wi-Fi</string>
+    <string name="qr_wifi_ssid">Nom du réseau (SSID)</string>
+    <string name="qr_wifi_password">Mot de passe</string>
+    <string name="qr_wifi_secured">Protégé par mot de passe</string>
+    <string name="qr_scan_hint">Pointez la caméra vers un QR code ou un code-barres</string>
+    <string name="qr_scanned_result">Scanné</string>
+    <string name="qr_scan_again">Scanner à nouveau</string>
+    <string name="qr_open_link">Ouvrir le lien</string>
+
+    <!-- World clock cities -->
+    <string name="city_new_york">New York</string>
+    <string name="city_los_angeles">Los Angeles</string>
+    <string name="city_london">Londres</string>
+    <string name="city_paris">Paris</string>
+    <string name="city_cairo">Le Caire</string>
+    <string name="city_dubai">Dubaï</string>
+    <string name="city_tokyo">Tokyo</string>
+    <string name="city_sydney">Sydney</string>
+
+    <!-- Time & date tools -->
+    <string name="stopwatch_lap">Tour</string>
+    <string name="stopwatch_start">Démarrer</string>
+    <string name="stopwatch_pause">Pause</string>
+    <string name="stopwatch_reset">Réinitialiser</string>
+    <string name="timer_set_minutes">Minutes</string>
+    <string name="timer_set_seconds">Secondes</string>
+    <string name="timer_start">Démarrer</string>
+    <string name="timer_finished">Temps écoulé !</string>
+    <string name="unix_now">Maintenant</string>
+    <string name="unix_timestamp_label">Horodatage Unix (secondes)</string>
+    <string name="unix_date_label">Date et heure</string>
+    <string name="date_calc_add_days">Ajouter/soustraire des jours</string>
+    <string name="date_calc_days_amount">Jours (négatif pour soustraire)</string>
+    <string name="date_calc_week_number">Numéro de semaine</string>
+    <string name="date_calc_day_of_year">Jour de l\'année</string>
+    <string name="date_calc_result_date">Date résultante</string>
+
+    <!-- Developer tools -->
+    <string name="regex_pattern_label">Motif</string>
+    <string name="regex_case_insensitive">Ignorer la casse</string>
+    <string name="regex_test_text_label">Texte de test</string>
+    <string name="regex_match_count">%1$d correspondances</string>
+    <string name="regex_invalid_pattern">Motif invalide : %1$s</string>
+    <string name="lorem_paragraphs_label">Paragraphes : %1$d</string>
+</resources>

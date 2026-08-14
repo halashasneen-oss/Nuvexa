@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">نوفيكسا</string>
+    <string name="app_tagline">كل أداة تحتاجها. دائمًا بلا إنترنت.</string>
+
+    <!-- Common actions -->
+    <string name="action_save">حفظ</string>
+    <string name="action_share">مشاركة</string>
+    <string name="action_copy">نسخ</string>
+    <string name="action_copied">تم النسخ</string>
+    <string name="action_saved">تم الحفظ</string>
+    <string name="action_reset">إعادة تعيين</string>
+    <string name="action_done">تم</string>
+    <string name="action_cancel">إلغاء</string>
+    <string name="action_retry">إعادة المحاولة</string>
+    <string name="action_close">إغلاق</string>
+    <string name="action_back">رجوع</string>
+    <string name="action_help">مساعدة</string>
+    <string name="action_continue">متابعة</string>
+    <string name="action_skip">تخطي</string>
+    <string name="action_get_started">ابدأ الآن</string>
+    <string name="action_start_again">البدء من جديد</string>
+    <string name="action_open">فتح</string>
+    <string name="action_delete">حذف</string>
+    <string name="action_delete_all">حذف الكل</string>
+    <string name="action_clear">مسح</string>
+    <string name="action_confirm">تأكيد</string>
+    <string name="action_choose_file">اختر ملفًا آخر</string>
+    <string name="action_add_favorite">إضافة إلى المفضلة</string>
+    <string name="action_remove_favorite">إزالة من المفضلة</string>
+    <string name="action_scan">مسح ضوئي</string>
+    <string name="action_calculate">احسب</string>
+    <string name="action_generate">توليد</string>
+    <string name="action_convert">تحويل</string>
+    <string name="action_apply">تطبيق</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_tools">الأدوات</string>
+    <string name="nav_favorites">المفضلة</string>
+    <string name="nav_history">السجل</string>
+    <string name="nav_settings">الإعدادات</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">تطبيق واحد. كل أداة تحتاجها.</string>
+    <string name="onboarding_body_1">حاسبات، محولات، أدوات صور وملفات PDF، مولّدات، والمزيد — كلها في مكان واحد.</string>
+    <string name="onboarding_title_2">كل شيء يعمل على جهازك</string>
+    <string name="onboarding_body_2">بلا خوادم وبلا انتظار. أدواتك تعمل فورًا، حتى في وضع الطيران.</string>
+    <string name="onboarding_title_3">ملفاتك تبقى خاصة</string>
+    <string name="onboarding_body_3">لا يرفع نوفيكسا صورك أو مستنداتك أو نصوصك إلى أي مكان. كل شيء يبقى على هاتفك.</string>
+    <string name="onboarding_title_4">اعثر على أي شيء فورًا</string>
+    <string name="onboarding_body_4">فقط صف ما تحتاجه — البحث يفهم اللغة الطبيعية، بلغتك أنت.</string>
+
+    <!-- Home -->
+    <string name="home_search_hint">ماذا تحتاج؟</string>
+    <string name="home_search_placeholder_1">ضغط صورة</string>
+    <string name="home_search_placeholder_2">تحويل PDF</string>
+    <string name="home_search_placeholder_3">حساب النسبة المئوية</string>
+    <string name="home_search_placeholder_4">مسح رمز QR</string>
+    <string name="home_quick_actions">إجراءات سريعة</string>
+    <string name="home_recent">الأحدث</string>
+    <string name="home_recent_see_all">عرض الكل</string>
+    <string name="home_favorites">المفضلة</string>
+    <string name="home_recommended">موصى به لك</string>
+    <string name="home_categories">الفئات</string>
+    <string name="home_privacy_banner">ملفاتك تبقى على جهازك.</string>
+    <string name="home_empty_recent_title">لا توجد أدوات حديثة بعد</string>
+    <string name="home_empty_recent_body">ستظهر هنا الأدوات التي تستخدمها للوصول السريع إليها.</string>
+
+    <!-- Search -->
+    <string name="search_hint">ابحث عن أداة، مثل \"كم عمري\"</string>
+    <string name="search_no_results_title">لم يتم العثور على أدوات</string>
+    <string name="search_no_results_body">جرّب كلمة أخرى، أو تصفح الفئات بدلاً من ذلك.</string>
+    <string name="search_results_count">%1$d نتيجة</string>
+
+    <!-- Categories -->
+    <string name="category_calculators">الحاسبات</string>
+    <string name="category_calculators_desc">حسابات يومية ومالية وتواريخ</string>
+    <string name="category_converter">محول الوحدات</string>
+    <string name="category_converter_desc">الطول، الوزن، درجة الحرارة، والمزيد</string>
+    <string name="category_currency">العملات</string>
+    <string name="category_currency_desc">تحويل بأسعار صرف تُدخلها يدويًا</string>
+    <string name="category_text">النصوص والكتابة</string>
+    <string name="category_text_desc">عدّ وتنظيف وتنسيق وتحويل النصوص</string>
+    <string name="category_security">الخصوصية والأمان</string>
+    <string name="category_security_desc">مولّدات وتجزئات (هاش) وقيم عشوائية آمنة</string>
+    <string name="category_qr">رمز QR والباركود</string>
+    <string name="category_qr_desc">امسح وأنشئ الرموز فورًا</string>
+    <string name="category_color">أدوات الألوان</string>
+    <string name="category_color_desc">حوّل والتقط وأنشئ لوحات الألوان</string>
+    <string name="category_time">الوقت والتاريخ</string>
+    <string name="category_time_desc">ساعات ومؤقتات وحسابات التواريخ</string>
+    <string name="category_developer">أدوات المطورين</string>
+    <string name="category_developer_desc">تعبيرات نمطية وتنسيق وأدوات نصية للمطورين</string>
+    <string name="category_device">الجهاز</string>
+    <string name="category_device_desc">معلومات حول هذا الجهاز</string>
+    <string name="category_image">أدوات الصور</string>
+    <string name="category_image_desc">ضغط وتغيير حجم الصور على الجهاز</string>
+    <string name="category_tool_count">%1$d أدوات</string>
+
+    <!-- Tools browser -->
+    <string name="tools_title">الأدوات</string>
+    <string name="tools_search_hint">ابحث في كل الأدوات</string>
+    <string name="tools_filter_all">الكل</string>
+    <string name="tools_filter_favorites">المفضلة</string>
+    <string name="tools_filter_recent">الأحدث</string>
+
+    <!-- Favorites screen -->
+    <string name="favorites_title">المفضلة</string>
+    <string name="favorites_empty_title">لا توجد عناصر مفضلة بعد</string>
+    <string name="favorites_empty_body">اضغط على أيقونة النجمة في أي أداة لتثبيتها هنا للوصول السريع.</string>
+    <string name="favorites_reorder_hint">اسحب لإعادة الترتيب</string>
+
+    <!-- History screen -->
+    <string name="history_title">السجل</string>
+    <string name="history_empty_title">لا يوجد سجل بعد</string>
+    <string name="history_empty_body">ستظهر هنا العمليات المكتملة حتى تتمكن من العثور عليها مرة أخرى.</string>
+    <string name="history_search_hint">ابحث في السجل</string>
+    <string name="history_clear_all_title">مسح كل السجل؟</string>
+    <string name="history_clear_all_body">سيؤدي هذا إلى إزالة كل عنصر من سجلك. لا يمكن التراجع عن هذا الإجراء.</string>
+    <string name="history_delete_one_title">حذف هذا العنصر؟</string>
+
+    <!-- Tool detail scaffold -->
+    <string name="tool_result_title">تم</string>
+    <string name="tool_input_missing">أضف بعض المدخلات للبدء.</string>
+    <string name="tool_progress_cancel">إلغاء</string>
+    <string name="tool_output_saved_to">تم الحفظ في %1$s</string>
+
+    <!-- Errors -->
+    <string name="error_generic_title">هناك أمر يحتاج انتباهك</string>
+    <string name="error_unsupported_format">صيغة هذا الملف غير مدعومة بعد.</string>
+    <string name="error_corrupted_file">يبدو أن هذا الملف تالف أو غير مدعوم.</string>
+    <string name="error_permission_denied">يحتاج نوفيكسا هذا الإذن للمتابعة. يمكنك منحه من إعدادات النظام.</string>
+    <string name="error_storage_unavailable">التخزين غير متاح حاليًا. تحقق من مساحة التخزين وحاول مرة أخرى.</string>
+    <string name="error_empty_input">أدخل شيئًا أولاً.</string>
+    <string name="error_invalid_number">هذا لا يبدو رقمًا صالحًا.</string>
+    <string name="error_division_by_zero">لا يمكن القسمة على صفر.</string>
+    <string name="error_camera_unavailable">لم يتم العثور على كاميرا في هذا الجهاز.</string>
+    <string name="error_operation_cancelled">تم إلغاء العملية.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_section_appearance">المظهر</string>
+    <string name="settings_theme">السمة</string>
+    <string name="settings_theme_light">فاتحة</string>
+    <string name="settings_theme_dark">داكنة</string>
+    <string name="settings_theme_system">حسب النظام</string>
+    <string name="settings_section_language">اللغة</string>
+    <string name="settings_language">اللغة</string>
+    <string name="settings_language_system">حسب النظام</string>
+    <string name="settings_section_behavior">السلوك</string>
+    <string name="settings_start_screen">شاشة البدء الافتراضية</string>
+    <string name="settings_haptics">الاهتزاز اللمسي</string>
+    <string name="settings_reduce_motion">تقليل الحركة</string>
+    <string name="settings_section_storage">التخزين</string>
+    <string name="settings_clear_cache">مسح ذاكرة التخزين المؤقت</string>
+    <string name="settings_clear_cache_desc">يزيل الملفات المؤقتة التي تم إنشاؤها أثناء استخدام الأدوات</string>
+    <string name="settings_clear_cache_done">تم مسح ذاكرة التخزين المؤقت</string>
+    <string name="settings_section_privacy">الخصوصية</string>
+    <string name="settings_clear_history">مسح السجل</string>
+    <string name="settings_clear_recent">مسح الأدوات الحديثة</string>
+    <string name="settings_privacy_note">يعالج نوفيكسا كل شيء على هذا الجهاز. لا يتم رفع أي شيء تنشئه أو تفتحه أبدًا.</string>
+    <string name="settings_section_about">حول التطبيق</string>
+    <string name="settings_version">الإصدار</string>
+    <string name="settings_privacy_policy">سياسة الخصوصية</string>
+    <string name="settings_terms">شروط الاستخدام</string>
+    <string name="settings_contact">تواصل معنا</string>
+    <string name="support_email" translatable="false">support@nuvexa.app</string>
+    <string name="privacy_policy_body">يعمل نوفيكسا بالكامل على جهازك. لا ينشئ حساب مستخدم، ولا يرفع صورك أو مستنداتك أو نصوصك أو محتوى الحافظة، ولا يستخدم أي خدمة سحابية لأدواته. تُخزَّن بيانات مثل المفضلة وسجل الاستخدام والإعدادات محليًا في التخزين الخاص بالتطبيق ولا تُرسل إلى أي مكان أبدًا. النشاط الشبكي الوحيد في نوفيكسا هو عرض الإعلانات الاختياري عبر Google AdMob؛ جميع الأدوات تعمل بالكامل دون اتصال بالإنترنت.</string>
+    <string name="terms_body">يُقدَّم نوفيكسا مجانًا، كما هو، للاستخدام الشخصي. أنت مسؤول عن المحتوى الذي تعالجه باستخدام أدواته. تُقدَّم حاسبات ومحولات ومولّدات نوفيكسا للتسهيل والاستخدام العام؛ يُرجى التحقق من النتائج بشكل مستقل في القرارات المالية أو القانونية أو الطبية المهمة.</string>
+
+    <!-- Categories: calculators -->
+    <string name="tool_calc_basic_name">الحاسبة</string>
+    <string name="tool_calc_basic_desc">حسابات حسابية يومية بلوحة مفاتيح سريعة وواضحة</string>
+    <string name="tool_calc_basic_keywords">حساب، جمع، طرح، ضرب، قسمة، رياضيات</string>
+
+    <string name="tool_calc_percentage_name">النسبة المئوية</string>
+    <string name="tool_calc_percentage_desc">احسب نسبة مئوية أو زيادة أو نقصان</string>
+    <string name="tool_calc_percentage_keywords">في المئة، زيادة، نقصان، حساب النسبة</string>
+
+    <string name="tool_calc_discount_name">حاسبة الخصم</string>
+    <string name="tool_calc_discount_desc">احسب أسعار التخفيضات ومقدار التوفير</string>
+    <string name="tool_calc_discount_keywords">تخفيض، عرض، توفير، خصم</string>
+
+    <string name="tool_calc_tip_name">حاسبة الإكرامية</string>
+    <string name="tool_calc_tip_desc">احسب الإكرامية والإجمالي لكل شخص</string>
+    <string name="tool_calc_tip_keywords">بقشيش، مطعم، خدمة</string>
+
+    <string name="tool_calc_split_bill_name">تقسيم الفاتورة</string>
+    <string name="tool_calc_split_bill_desc">قسّم الفاتورة بالتساوي بين الأصدقاء</string>
+    <string name="tool_calc_split_bill_keywords">مشاركة الفاتورة، تقسيم المصاريف</string>
+
+    <string name="tool_calc_age_name">حاسبة العمر</string>
+    <string name="tool_calc_age_desc">اعرف عمرك الدقيق بالسنوات والأشهر والأيام</string>
+    <string name="tool_calc_age_keywords">كم عمري، تاريخ الميلاد، عيد ميلاد</string>
+
+    <string name="tool_calc_date_diff_name">الفرق بين تاريخين</string>
+    <string name="tool_calc_date_diff_desc">اعرف عدد الأيام بين تاريخين</string>
+    <string name="tool_calc_date_diff_keywords">أيام بين تاريخين، مدة زمنية</string>
+
+    <string name="tool_calc_simple_interest_name">الفائدة البسيطة</string>
+    <string name="tool_calc_simple_interest_desc">احسب الفائدة على مبلغ أساسي</string>
+    <string name="tool_calc_simple_interest_keywords">سعر الفائدة، رأس المال، قرض</string>
+
+    <string name="tool_calc_compound_interest_name">الفائدة المركبة</string>
+    <string name="tool_calc_compound_interest_desc">شاهد كيف تنمو المدخرات أو الديون بمرور الوقت</string>
+    <string name="tool_calc_compound_interest_keywords">نمو الاستثمار، ادخار، فائدة مركبة</string>
+
+    <string name="tool_calc_emi_name">حاسبة القسط الشهري</string>
+    <string name="tool_calc_emi_desc">قدّر القسط الشهري لقرض</string>
+    <string name="tool_calc_emi_keywords">قسط القرض، دفعة شهرية، رهن عقاري</string>
+
+    <!-- Unit converter -->
+    <string name="tool_unit_converter_name">محول الوحدات</string>
+    <string name="tool_unit_converter_desc">الطول، الوزن، درجة الحرارة، السرعة، والمزيد</string>
+    <string name="tool_unit_converter_keywords">تحويل كيلوغرام إلى رطل، سنتيمتر إلى بوصة، مئوية إلى فهرنهايت، كيلومتر إلى ميل</string>
+    <string name="unit_type_length">الطول</string>
+    <string name="unit_type_weight">الوزن</string>
+    <string name="unit_type_temperature">درجة الحرارة</string>
+    <string name="unit_type_area">المساحة</string>
+    <string name="unit_type_volume">الحجم</string>
+    <string name="unit_type_speed">السرعة</string>
+    <string name="unit_type_time">الوقت</string>
+    <string name="unit_type_data">سعة التخزين</string>
+
+    <!-- Currency -->
+    <string name="tool_currency_calculator_name">حاسبة العملات</string>
+    <string name="tool_currency_calculator_desc">حوّل بين العملات باستخدام أسعار تحددها أنت</string>
+    <string name="tool_currency_calculator_keywords">سعر الصرف، تحويل العملات، دولار إلى يورو</string>
+    <string name="currency_manual_rate_notice">يتم إدخال الأسعار يدويًا وتُحفظ على جهازك — لا يجلب نوفيكسا أسعارًا مباشرة أثناء عدم الاتصال.</string>
+    <string name="currency_edit_rate">تعديل السعر</string>
+    <string name="currency_base_currency">العملة الأساسية</string>
+
+    <!-- Text tools -->
+    <string name="tool_text_analyzer_name">محلل النصوص</string>
+    <string name="tool_text_analyzer_desc">عدّ الكلمات والأحرف والجمل مع وقت القراءة</string>
+    <string name="tool_text_analyzer_keywords">عدد الكلمات، عدد الأحرف، وقت القراءة</string>
+
+    <string name="tool_text_case_converter_name">محول حالة الأحرف</string>
+    <string name="tool_text_case_converter_desc">حوّل النص بين الأحرف الكبيرة والصغيرة وحالة العنوان</string>
+    <string name="tool_text_case_converter_keywords">أحرف كبيرة، أحرف صغيرة، حالة العنوان</string>
+
+    <string name="tool_text_cleaner_name">منظّف النصوص</string>
+    <string name="tool_text_cleaner_desc">إزالة المسافات الزائدة والأسطر المكررة والفارغة</string>
+    <string name="tool_text_cleaner_keywords">إزالة التكرار، ترتيب الأسطر، إزالة المسافات</string>
+
+    <string name="tool_text_base64_name">Base64</string>
+    <string name="tool_text_base64_desc">ترميز أو فك ترميز نص Base64</string>
+    <string name="tool_text_base64_keywords">ترميز base64، فك ترميز base64</string>
+
+    <string name="tool_text_url_encode_name">ترميز الروابط</string>
+    <string name="tool_text_url_encode_desc">ترميز أو فك ترميز نص لاستخدامه في رابط</string>
+    <string name="tool_text_url_encode_keywords">ترميز url، فك ترميز url</string>
+
+    <string name="tool_text_json_formatter_name">منسّق JSON</string>
+    <string name="tool_text_json_formatter_desc">تنسيق والتحقق من صحة وتصغير JSON</string>
+    <string name="tool_text_json_formatter_keywords">التحقق من json، تنسيق json، تصغير json</string>
+
+    <!-- Security tools -->
+    <string name="tool_sec_password_generator_name">مولّد كلمات المرور</string>
+    <string name="tool_sec_password_generator_desc">أنشئ كلمات مرور قوية وعشوائية</string>
+    <string name="tool_sec_password_generator_keywords">كلمة مرور قوية، كلمة مرور آمنة، كلمة مرور عشوائية</string>
+
+    <string name="tool_sec_pin_generator_name">مولّد رمز PIN</string>
+    <string name="tool_sec_pin_generator_desc">أنشئ رمز PIN رقميًا عشوائيًا</string>
+    <string name="tool_sec_pin_generator_keywords">رمز سري، رمز رقمي</string>
+
+    <string name="tool_sec_uuid_generator_name">مولّد UUID</string>
+    <string name="tool_sec_uuid_generator_desc">أنشئ معرّفات UUID v4 عشوائية</string>
+    <string name="tool_sec_uuid_generator_keywords">معرّف فريد، uuid v4</string>
+
+    <string name="tool_sec_random_number_name">مولّد الأرقام العشوائية</string>
+    <string name="tool_sec_random_number_desc">أنشئ رقمًا عشوائيًا ضمن نطاق</string>
+    <string name="tool_sec_random_number_keywords">رقم عشوائي، رمي نرد، رقم يانصيب</string>
+
+    <string name="tool_sec_hash_generator_name">مولّد التجزئة (Hash)</string>
+    <string name="tool_sec_hash_generator_desc">أنشئ قيم تجزئة MD5 وSHA-1 وSHA-256 وSHA-512</string>
+    <string name="tool_sec_hash_generator_keywords">md5، sha1، sha256، sha512، تجزئة</string>
+
+    <!-- QR / barcode -->
+    <string name="tool_qr_generator_name">مولّد رمز QR</string>
+    <string name="tool_qr_generator_desc">أنشئ رموز QR للنصوص والروابط وشبكات Wi-Fi</string>
+    <string name="tool_qr_generator_keywords">رمز qr، رمز واي فاي، إنشاء qr</string>
+
+    <string name="tool_qr_scanner_name">ماسح QR</string>
+    <string name="tool_qr_scanner_desc">امسح رموز QR والباركود بالكاميرا</string>
+    <string name="tool_qr_scanner_keywords">مسح qr، ماسح باركود، قراءة رمز qr</string>
+
+    <!-- Color tools -->
+    <string name="tool_color_converter_name">محول الألوان</string>
+    <string name="tool_color_converter_desc">حوّل والتقط الألوان بصيغ HEX وRGB وHSL</string>
+    <string name="tool_color_converter_keywords">hex إلى rgb، rgb إلى hex، hsl، منتقي الألوان</string>
+
+    <string name="tool_color_palette_generator_name">مولّد لوحات الألوان</string>
+    <string name="tool_color_palette_generator_desc">أنشئ لوحات ألوان عشوائية ومتكاملة</string>
+    <string name="tool_color_palette_generator_keywords">تركيبة ألوان، لون عشوائي، ألوان متكاملة</string>
+
+    <!-- Time & date -->
+    <string name="tool_time_world_clock_name">الساعة العالمية</string>
+    <string name="tool_time_world_clock_desc">تحقق من الوقت في مدن حول العالم</string>
+    <string name="tool_time_world_clock_keywords">المناطق الزمنية، كم الساعة الآن</string>
+
+    <string name="tool_time_stopwatch_name">ساعة الإيقاف</string>
+    <string name="tool_time_stopwatch_desc">وقّت نشاطًا مع تتبع الأشواط</string>
+    <string name="tool_time_stopwatch_keywords">مؤقت، أشواط، تتبع الوقت</string>
+
+    <string name="tool_time_timer_name">المؤقت</string>
+    <string name="tool_time_timer_desc">اضبط مؤقت عدّ تنازلي مع تنبيه</string>
+    <string name="tool_time_timer_keywords">عد تنازلي، منبه، تذكير</string>
+
+    <string name="tool_time_unix_converter_name">طابع زمني Unix</string>
+    <string name="tool_time_unix_converter_desc">حوّل بين وقت Unix والتواريخ المقروءة</string>
+    <string name="tool_time_unix_converter_keywords">epoch، محول الطابع الزمني</string>
+
+    <string name="tool_time_date_calculator_name">حاسبة التاريخ</string>
+    <string name="tool_time_date_calculator_desc">أضف أو اطرح أيامًا، واعرف رقم الأسبوع</string>
+    <string name="tool_time_date_calculator_keywords">إضافة أيام، رقم الأسبوع، يوم من السنة</string>
+
+    <!-- Developer tools -->
+    <string name="tool_dev_regex_tester_name">مختبر التعبيرات النمطية</string>
+    <string name="tool_dev_regex_tester_desc">اختبر التعبيرات النمطية على نص تجريبي</string>
+    <string name="tool_dev_regex_tester_keywords">regex، تعبير نمطي، مطابقة الأنماط</string>
+
+    <string name="tool_dev_lorem_ipsum_name">مولّد نص تجريبي</string>
+    <string name="tool_dev_lorem_ipsum_desc">أنشئ نصًا بديلاً للتصاميم والنماذج الأولية</string>
+    <string name="tool_dev_lorem_ipsum_keywords">نص بديل، نص وهمي، لوريم إيبسوم</string>
+
+    <!-- Device -->
+    <string name="tool_device_info_name">معلومات الجهاز</string>
+    <string name="tool_device_info_desc">اطّلع على تفاصيل عتاد وبرمجيات هذا الهاتف</string>
+    <string name="tool_device_info_keywords">مواصفات الهاتف، إصدار أندرويد، رام، تخزين، بطارية</string>
+    <string name="device_info_model">الطراز</string>
+    <string name="device_info_manufacturer">الشركة المصنعة</string>
+    <string name="device_info_android_version">إصدار أندرويد</string>
+    <string name="device_info_api_level">مستوى API</string>
+    <string name="device_info_screen">الشاشة</string>
+    <string name="device_info_storage">التخزين</string>
+    <string name="device_info_ram">الذاكرة العشوائية</string>
+    <string name="device_info_battery">البطارية</string>
+    <string name="device_info_cpu_cores">أنوية المعالج</string>
+    <string name="device_info_not_available">غير متاح على هذا الجهاز</string>
+
+    <!-- Image tools -->
+    <string name="tool_image_compressor_name">ضاغط الصور</string>
+    <string name="tool_image_compressor_desc">قلّل حجم ملف الصورة دون فقدان الجودة كثيرًا</string>
+    <string name="tool_image_compressor_keywords">تصغير الصورة، تقليل حجم الصورة، ضغط صورة</string>
+
+    <string name="tool_image_resizer_name">تغيير حجم الصورة</string>
+    <string name="tool_image_resizer_desc">غيّر حجم الصورة إلى أبعاد محددة</string>
+    <string name="tool_image_resizer_keywords">تغيير حجم الصورة، تكبير الصورة، تصغير الصورة</string>
+    <string name="image_pick_source">اختر صورة</string>
+    <string name="image_original_size">الأصلي: %1$s</string>
+    <string name="image_result_size">النتيجة: %1$s</string>
+    <string name="image_savings">أصغر بنسبة %1$d%%</string>
+
+    <!-- Workflows -->
+    <string name="workflows_title">سير العمل</string>
+
+    <!-- Shared calculator result labels -->
+    <string name="label_total">الإجمالي</string>
+    <string name="label_per_person">لكل شخص</string>
+    <string name="label_amount_saved">توفّر</string>
+    <string name="label_interest">الفائدة</string>
+    <string name="label_final_amount">المبلغ النهائي</string>
+    <string name="label_monthly_payment">القسط الشهري</string>
+    <string name="label_total_payment">إجمالي الدفع</string>
+    <string name="label_total_interest">إجمالي الفائدة</string>
+    <string name="label_years">سنوات</string>
+    <string name="label_months">أشهر</string>
+    <string name="label_days">أيام</string>
+    <string name="label_age_result">%1$d سنة، %2$d شهر، %3$d يوم</string>
+    <string name="label_days_between">%1$d يوم</string>
+    <string name="label_date_of_birth">تاريخ الميلاد</string>
+    <string name="label_start_date">تاريخ البداية</string>
+    <string name="label_end_date">تاريخ النهاية</string>
+    <string name="label_principal">المبلغ الأساسي</string>
+    <string name="label_interest_rate">معدل الفائدة السنوي</string>
+    <string name="label_time_years">المدة (سنوات)</string>
+    <string name="label_loan_amount">مبلغ القرض</string>
+    <string name="label_tenure_months">مدة السداد (أشهر)</string>
+    <string name="label_compounding">فترة التركيب</string>
+    <string name="label_compounding_annually">سنويًا</string>
+    <string name="label_compounding_semiannually">نصف سنوي</string>
+    <string name="label_compounding_quarterly">ربع سنوي</string>
+    <string name="label_compounding_monthly">شهريًا</string>
+
+    <!-- Text analyzer stat labels -->
+    <string name="tool_text_word_counter_name">الكلمات</string>
+    <string name="tool_text_character_counter_name">الأحرف</string>
+    <string name="tool_text_character_counter_no_spaces">الأحرف (بدون مسافات)</string>
+    <string name="tool_text_sentence_counter_name">الجمل</string>
+    <string name="tool_text_reading_time">وقت القراءة (دقيقة)</string>
+
+    <!-- Text case converter -->
+    <string name="case_uppercase">أحرف كبيرة</string>
+    <string name="case_lowercase">أحرف صغيرة</string>
+    <string name="case_title">حالة العنوان</string>
+    <string name="case_sentence">حالة الجملة</string>
+
+    <!-- Text cleaner -->
+    <string name="clean_trim_spaces">إزالة المسافات الزائدة</string>
+    <string name="clean_remove_empty_lines">إزالة الأسطر الفارغة</string>
+    <string name="clean_remove_duplicate_lines">إزالة الأسطر المكررة</string>
+    <string name="clean_sort_lines">ترتيب الأسطر أبجديًا</string>
+
+    <!-- Base64 / URL encode -->
+    <string name="mode_encode">ترميز</string>
+    <string name="mode_decode">فك الترميز</string>
+    <string name="input_label">المدخل</string>
+    <string name="output_label">المخرج</string>
+
+    <!-- JSON formatter -->
+    <string name="action_format">تنسيق</string>
+    <string name="action_minify">تصغير</string>
+    <string name="json_valid">JSON صالح</string>
+    <string name="json_invalid">JSON غير صالح: %1$s</string>
+
+    <!-- Password / generators -->
+    <string name="password_length">الطول: %1$d</string>
+    <string name="password_include_uppercase">أحرف كبيرة (A-Z)</string>
+    <string name="password_include_lowercase">أحرف صغيرة (a-z)</string>
+    <string name="password_include_numbers">أرقام (0-9)</string>
+    <string name="password_include_symbols">رموز (!@#$…)</string>
+    <string name="password_strength_weak">ضعيفة</string>
+    <string name="password_strength_fair">متوسطة</string>
+    <string name="password_strength_strong">قوية</string>
+    <string name="pin_length">عدد الأرقام: %1$d</string>
+    <string name="random_number_min">الحد الأدنى</string>
+    <string name="random_number_max">الحد الأقصى</string>
+    <string name="hash_algorithm">الخوارزمية</string>
+
+    <!-- QR generator -->
+    <string name="qr_mode_text">نص</string>
+    <string name="qr_mode_url">رابط</string>
+    <string name="qr_mode_wifi">واي فاي</string>
+    <string name="qr_wifi_ssid">اسم الشبكة (SSID)</string>
+    <string name="qr_wifi_password">كلمة المرور</string>
+    <string name="qr_wifi_secured">محمية بكلمة مرور</string>
+    <string name="qr_scan_hint">وجّه الكاميرا نحو رمز QR أو باركود</string>
+    <string name="qr_scanned_result">تم المسح</string>
+    <string name="qr_scan_again">مسح مرة أخرى</string>
+    <string name="qr_open_link">فتح الرابط</string>
+
+    <!-- World clock cities -->
+    <string name="city_new_york">نيويورك</string>
+    <string name="city_los_angeles">لوس أنجلوس</string>
+    <string name="city_london">لندن</string>
+    <string name="city_paris">باريس</string>
+    <string name="city_cairo">القاهرة</string>
+    <string name="city_dubai">دبي</string>
+    <string name="city_tokyo">طوكيو</string>
+    <string name="city_sydney">سيدني</string>
+
+    <!-- Time & date tools -->
+    <string name="stopwatch_lap">شوط</string>
+    <string name="stopwatch_start">بدء</string>
+    <string name="stopwatch_pause">إيقاف مؤقت</string>
+    <string name="stopwatch_reset">إعادة تعيين</string>
+    <string name="timer_set_minutes">دقائق</string>
+    <string name="timer_set_seconds">ثوانٍ</string>
+    <string name="timer_start">بدء</string>
+    <string name="timer_finished">انتهى الوقت!</string>
+    <string name="unix_now">الآن</string>
+    <string name="unix_timestamp_label">الطابع الزمني (ثوانٍ)</string>
+    <string name="unix_date_label">التاريخ والوقت</string>
+    <string name="date_calc_add_days">إضافة/طرح أيام</string>
+    <string name="date_calc_days_amount">عدد الأيام (سالب للطرح)</string>
+    <string name="date_calc_week_number">رقم الأسبوع</string>
+    <string name="date_calc_day_of_year">اليوم من السنة</string>
+    <string name="date_calc_result_date">التاريخ الناتج</string>
+
+    <!-- Developer tools -->
+    <string name="regex_pattern_label">النمط</string>
+    <string name="regex_case_insensitive">تجاهل حالة الأحرف</string>
+    <string name="regex_test_text_label">نص الاختبار</string>
+    <string name="regex_match_count">%1$d تطابق</string>
+    <string name="regex_invalid_pattern">نمط غير صالح: %1$s</string>
+    <string name="lorem_paragraphs_label">الفقرات: %1$d</string>
+</resources>

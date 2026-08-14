@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Nuvexa stores nothing but local app preferences and lightweight usage
+   metadata (favorites, history entries, settings) — never file contents.
+   The defaults (full backup, no exclusions) are safe for this data.
+-->
+<full-backup-content />
