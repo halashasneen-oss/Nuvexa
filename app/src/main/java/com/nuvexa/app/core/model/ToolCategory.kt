@@ -4,10 +4,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.Category
 import androidx.compose.material.icons.filled.Code
+import androidx.compose.material.icons.filled.DocumentScanner
 import androidx.compose.material.icons.filled.Functions
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.PhoneAndroid
+import androidx.compose.material.icons.filled.PictureAsPdf
 import androidx.compose.material.icons.filled.QrCode
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Security
@@ -36,6 +38,8 @@ enum class ToolCategory(
     IMAGE("image", R.string.category_image, R.string.category_image_desc, Icons.Filled.Image),
     MATH("math", R.string.category_math, R.string.category_math_desc, Icons.Filled.Functions),
     NETWORK("network", R.string.category_network, R.string.category_network_desc, Icons.Filled.Wifi),
+    PDF_DOCUMENT("pdf", R.string.category_pdf, R.string.category_pdf_desc, Icons.Filled.PictureAsPdf),
+    OCR("ocr", R.string.category_ocr, R.string.category_ocr_desc, Icons.Filled.DocumentScanner),
     ;
 
     companion object {

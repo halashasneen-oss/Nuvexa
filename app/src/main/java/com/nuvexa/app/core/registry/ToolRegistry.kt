@@ -6,8 +6,11 @@ import androidx.compose.material.icons.filled.AccountBalance
 import androidx.compose.material.icons.filled.AspectRatio
 import androidx.compose.material.icons.filled.AttachMoney
 import androidx.compose.material.icons.filled.Article
+import androidx.compose.material.icons.filled.BrandingWatermark
 import androidx.compose.material.icons.filled.Cake
 import androidx.compose.material.icons.filled.Calculate
+import androidx.compose.material.icons.filled.CallSplit
+import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.CleaningServices
 import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.Colorize
@@ -34,8 +37,11 @@ import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.Percent
 import androidx.compose.material.icons.filled.PhoneAndroid
 import androidx.compose.material.icons.filled.Public
+import androidx.compose.material.icons.filled.PictureAsPdf
 import androidx.compose.material.icons.filled.QrCode
 import androidx.compose.material.icons.filled.QrCodeScanner
+import androidx.compose.material.icons.filled.Reorder
+import androidx.compose.material.icons.filled.RotateRight
 import androidx.compose.material.icons.filled.Savings
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Search
@@ -146,6 +152,23 @@ object ToolRegistry {
         Tool("net_port_reference", ToolCategory.NETWORK, R.string.tool_net_port_reference_name, R.string.tool_net_port_reference_desc, R.string.tool_net_port_reference_keywords, Icons.Filled.Dns),
 
         Tool("time_working_days", ToolCategory.TIME, R.string.tool_time_working_days_name, R.string.tool_time_working_days_desc, R.string.tool_time_working_days_keywords, Icons.Filled.Event),
+
+        // ============ WAVE 3 ============
+        Tool("pdf_images_to_pdf", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_images_to_pdf_name, R.string.tool_pdf_images_to_pdf_desc, R.string.tool_pdf_images_to_pdf_keywords, Icons.Filled.PictureAsPdf),
+        Tool("pdf_text_to_pdf", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_text_to_pdf_name, R.string.tool_pdf_text_to_pdf_desc, R.string.tool_pdf_text_to_pdf_keywords, Icons.Filled.Description),
+        Tool("pdf_to_images", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_to_images_name, R.string.tool_pdf_to_images_desc, R.string.tool_pdf_to_images_keywords, Icons.Filled.Image),
+        Tool("pdf_viewer", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_viewer_name, R.string.tool_pdf_viewer_desc, R.string.tool_pdf_viewer_keywords, Icons.Filled.PictureAsPdf),
+        Tool("pdf_page_counter", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_page_counter_name, R.string.tool_pdf_page_counter_desc, R.string.tool_pdf_page_counter_keywords, Icons.Filled.FormatListNumbered),
+        Tool("pdf_size_analyzer", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_size_analyzer_name, R.string.tool_pdf_size_analyzer_desc, R.string.tool_pdf_size_analyzer_keywords, Icons.Filled.Info),
+        Tool("pdf_merge", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_merge_name, R.string.tool_pdf_merge_desc, R.string.tool_pdf_merge_keywords, Icons.Filled.PictureAsPdf),
+        Tool("pdf_split", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_split_name, R.string.tool_pdf_split_desc, R.string.tool_pdf_split_keywords, Icons.Filled.CallSplit),
+        Tool("pdf_rotate", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_rotate_name, R.string.tool_pdf_rotate_desc, R.string.tool_pdf_rotate_keywords, Icons.Filled.RotateRight),
+        Tool("pdf_watermark", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_watermark_name, R.string.tool_pdf_watermark_desc, R.string.tool_pdf_watermark_keywords, Icons.Filled.BrandingWatermark),
+        Tool("pdf_organize", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_organize_name, R.string.tool_pdf_organize_desc, R.string.tool_pdf_organize_keywords, Icons.Filled.Reorder),
+
+        Tool("ocr_from_image", ToolCategory.OCR, R.string.tool_ocr_from_image_name, R.string.tool_ocr_from_image_desc, R.string.tool_ocr_from_image_keywords, Icons.Filled.TextFields),
+        Tool("ocr_from_camera", ToolCategory.OCR, R.string.tool_ocr_from_camera_name, R.string.tool_ocr_from_camera_desc, R.string.tool_ocr_from_camera_keywords, Icons.Filled.CameraAlt),
+        Tool("ocr_from_pdf", ToolCategory.OCR, R.string.tool_ocr_from_pdf_name, R.string.tool_ocr_from_pdf_desc, R.string.tool_ocr_from_pdf_keywords, Icons.Filled.PictureAsPdf),
     )
 
     private val byId: Map<String, Tool> = tools.associateBy { it.id }

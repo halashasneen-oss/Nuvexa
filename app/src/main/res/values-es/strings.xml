@@ -678,4 +678,93 @@
     <string name="subnet_invalid">Ingresa una dirección IPv4 válida con un prefijo /0–/32.</string>
     <string name="reference_search_hint">Buscar</string>
     <string name="working_days_result">Días laborables</string>
+
+    <!-- ============ WAVE 3 ============ -->
+
+    <!-- New categories -->
+    <string name="category_pdf">PDF y documentos</string>
+    <string name="category_pdf_desc">Crea, visualiza y reorganiza archivos PDF en tu dispositivo</string>
+    <string name="category_ocr">OCR y escaneo de texto</string>
+    <string name="category_ocr_desc">Extrae texto editable de fotos, escaneos y PDF</string>
+
+    <!-- PDF tools -->
+    <string name="tool_pdf_images_to_pdf_name">Imágenes a PDF</string>
+    <string name="tool_pdf_images_to_pdf_desc">Combina fotos en un solo PDF, una imagen por página</string>
+    <string name="tool_pdf_images_to_pdf_keywords">fotos a pdf, convertir imágenes a pdf, jpg a pdf</string>
+
+    <string name="tool_pdf_text_to_pdf_name">Texto a PDF</string>
+    <string name="tool_pdf_text_to_pdf_desc">Convierte texto escrito en un documento PDF paginado</string>
+    <string name="tool_pdf_text_to_pdf_keywords">texto a documento, guardar texto como pdf</string>
+
+    <string name="tool_pdf_to_images_name">PDF a imágenes</string>
+    <string name="tool_pdf_to_images_desc">Exporta cada página de un PDF como imagen JPG</string>
+    <string name="tool_pdf_to_images_keywords">pdf a jpg, pdf a png, exportar páginas de pdf</string>
+
+    <string name="tool_pdf_viewer_name">Visor de PDF</string>
+    <string name="tool_pdf_viewer_desc">Abre y recorre un PDF en tu dispositivo</string>
+    <string name="tool_pdf_viewer_keywords">abrir pdf, leer pdf, ver documento</string>
+
+    <string name="tool_pdf_page_counter_name">Contador de páginas PDF</string>
+    <string name="tool_pdf_page_counter_desc">Comprueba cuántas páginas tiene un PDF</string>
+    <string name="tool_pdf_page_counter_keywords">cuántas páginas, número de páginas pdf</string>
+
+    <string name="tool_pdf_size_analyzer_name">Analizador de tamaño de PDF</string>
+    <string name="tool_pdf_size_analyzer_desc">Consulta el tamaño de un PDF y el promedio por página</string>
+    <string name="tool_pdf_size_analyzer_keywords">tamaño de archivo pdf, almacenamiento pdf</string>
+
+    <string name="tool_pdf_merge_name">Unir PDF</string>
+    <string name="tool_pdf_merge_desc">Combina varios PDF en uno — recrea cada página como una imagen de alta resolución</string>
+    <string name="tool_pdf_merge_keywords">combinar pdf, unir archivos pdf</string>
+
+    <string name="tool_pdf_split_name">Dividir PDF</string>
+    <string name="tool_pdf_split_desc">Extrae un rango de páginas a su propio PDF — recrea las páginas como imágenes de alta resolución</string>
+    <string name="tool_pdf_split_keywords">extraer páginas de pdf, separar pdf</string>
+
+    <string name="tool_pdf_rotate_name">Rotar páginas de PDF</string>
+    <string name="tool_pdf_rotate_desc">Rota una o todas las páginas de un PDF — recrea las páginas como imágenes de alta resolución</string>
+    <string name="tool_pdf_rotate_keywords">corregir orientación de pdf, rotar documento</string>
+
+    <string name="tool_pdf_watermark_name">Añadir marca de agua</string>
+    <string name="tool_pdf_watermark_desc">Estampa texto en cada página de un PDF — recrea las páginas como imágenes de alta resolución</string>
+    <string name="tool_pdf_watermark_keywords">sellar pdf, marca de agua confidencial</string>
+
+    <string name="tool_pdf_organize_name">Organizar páginas</string>
+    <string name="tool_pdf_organize_desc">Reordena o elimina páginas de un PDF — recrea las páginas como imágenes de alta resolución</string>
+    <string name="tool_pdf_organize_keywords">eliminar páginas de pdf, reordenar páginas de pdf</string>
+
+    <!-- OCR tools -->
+    <string name="tool_ocr_from_image_name">OCR desde imagen</string>
+    <string name="tool_ocr_from_image_desc">Extrae texto de una foto o captura de pantalla, completamente en el dispositivo</string>
+    <string name="tool_ocr_from_image_keywords">extraer texto de una foto, imagen a texto</string>
+
+    <string name="tool_ocr_from_camera_name">OCR desde la cámara</string>
+    <string name="tool_ocr_from_camera_desc">Toma una foto y extrae su texto, completamente en el dispositivo</string>
+    <string name="tool_ocr_from_camera_keywords">escanear texto con la cámara, cámara a texto</string>
+
+    <string name="tool_ocr_from_pdf_name">OCR desde PDF</string>
+    <string name="tool_ocr_from_pdf_desc">Extrae texto de un PDF escaneado, completamente en el dispositivo</string>
+    <string name="tool_ocr_from_pdf_keywords">pdf a texto, extraer texto de un pdf</string>
+
+    <!-- Wave 3 field labels -->
+    <string name="pdf_pick_images">Elegir imágenes</string>
+    <string name="pdf_pick_file">Elegir un PDF</string>
+    <string name="pdf_pick_files">Elegir PDF</string>
+    <string name="pdf_page_count_result">%1$d páginas</string>
+    <string name="pdf_average_page_size">Promedio por página</string>
+    <string name="pdf_encrypted_error">Este PDF está protegido con contraseña y no se puede abrir.</string>
+    <string name="pdf_no_pages_error">No se pudo leer ninguna página de este archivo.</string>
+    <string name="pdf_too_large_error">Este PDF es demasiado grande para procesarlo en este dispositivo. Prueba con un archivo más pequeño o menos páginas.</string>
+    <string name="pdf_page_range_from">Desde la página</string>
+    <string name="pdf_page_range_to">Hasta la página</string>
+    <string name="pdf_rotate_angle">Rotación</string>
+    <string name="pdf_watermark_text_label">Texto de la marca de agua</string>
+    <string name="pdf_organize_hint">Toca el ícono de papelera para eliminar una página, o usa las flechas para reordenar</string>
+    <string name="pdf_page_label">Página %1$d</string>
+    <string name="pdf_specific_page_label">Número de página</string>
+    <string name="pdf_add_another">Añadir otro PDF</string>
+    <string name="pdf_files_to_merge">%1$d archivos para unir</string>
+    <string name="ocr_pick_source">Elegir una foto</string>
+    <string name="ocr_take_photo">Tomar una foto</string>
+    <string name="ocr_no_text_found">No se encontró texto en esta imagen.</string>
+    <string name="ocr_processing">Leyendo texto…</string>
 </resources>

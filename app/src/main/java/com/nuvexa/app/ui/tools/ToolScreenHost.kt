@@ -47,6 +47,20 @@ import com.nuvexa.app.ui.tools.math.StatisticsScreen
 import com.nuvexa.app.ui.tools.network.HttpStatusReferenceScreen
 import com.nuvexa.app.ui.tools.network.PortReferenceScreen
 import com.nuvexa.app.ui.tools.network.SubnetCalculatorScreen
+import com.nuvexa.app.ui.tools.ocr.OcrFromCameraScreen
+import com.nuvexa.app.ui.tools.ocr.OcrFromImageScreen
+import com.nuvexa.app.ui.tools.ocr.OcrFromPdfScreen
+import com.nuvexa.app.ui.tools.pdf.ImagesToPdfScreen
+import com.nuvexa.app.ui.tools.pdf.PdfMergeScreen
+import com.nuvexa.app.ui.tools.pdf.PdfOrganizeScreen
+import com.nuvexa.app.ui.tools.pdf.PdfPageCounterScreen
+import com.nuvexa.app.ui.tools.pdf.PdfRotateScreen
+import com.nuvexa.app.ui.tools.pdf.PdfSizeAnalyzerScreen
+import com.nuvexa.app.ui.tools.pdf.PdfSplitScreen
+import com.nuvexa.app.ui.tools.pdf.PdfToImagesScreen
+import com.nuvexa.app.ui.tools.pdf.PdfViewerScreen
+import com.nuvexa.app.ui.tools.pdf.PdfWatermarkScreen
+import com.nuvexa.app.ui.tools.pdf.TextToPdfScreen
 import com.nuvexa.app.ui.tools.qr.QrGeneratorScreen
 import com.nuvexa.app.ui.tools.qr.QrScannerScreen
 import com.nuvexa.app.ui.tools.security.HashGeneratorScreen
@@ -168,6 +182,23 @@ fun ToolScreenHost(tool: Tool, onBack: () -> Unit) {
             "net_port_reference" -> PortReferenceScreen(modifier)
 
             "time_working_days" -> WorkingDaysCalculatorScreen(modifier)
+
+            // ============ WAVE 3 ============
+            "pdf_images_to_pdf" -> ImagesToPdfScreen(modifier, recordHistory)
+            "pdf_text_to_pdf" -> TextToPdfScreen(modifier, recordHistory)
+            "pdf_to_images" -> PdfToImagesScreen(modifier, recordHistory)
+            "pdf_viewer" -> PdfViewerScreen(modifier)
+            "pdf_page_counter" -> PdfPageCounterScreen(modifier)
+            "pdf_size_analyzer" -> PdfSizeAnalyzerScreen(modifier)
+            "pdf_merge" -> PdfMergeScreen(modifier, recordHistory)
+            "pdf_split" -> PdfSplitScreen(modifier, recordHistory)
+            "pdf_rotate" -> PdfRotateScreen(modifier, recordHistory)
+            "pdf_watermark" -> PdfWatermarkScreen(modifier, recordHistory)
+            "pdf_organize" -> PdfOrganizeScreen(modifier, recordHistory)
+
+            "ocr_from_image" -> OcrFromImageScreen(modifier, recordHistory)
+            "ocr_from_camera" -> OcrFromCameraScreen(modifier, recordHistory)
+            "ocr_from_pdf" -> OcrFromPdfScreen(modifier, recordHistory)
         }
     }
 }

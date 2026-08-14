@@ -678,4 +678,93 @@
     <string name="subnet_invalid">أدخل عنوان IPv4 صالحًا مع بادئة من /0 إلى /32.</string>
     <string name="reference_search_hint">بحث</string>
     <string name="working_days_result">أيام العمل</string>
+
+    <!-- ============ WAVE 3 ============ -->
+
+    <!-- New categories -->
+    <string name="category_pdf">PDF والمستندات</string>
+    <string name="category_pdf_desc">أنشئ واعرض وأعد تنظيم ملفات PDF على جهازك</string>
+    <string name="category_ocr">التعرف الضوئي على النصوص</string>
+    <string name="category_ocr_desc">استخرج نصًا قابلاً للتعديل من الصور والمسحات وملفات PDF</string>
+
+    <!-- PDF tools -->
+    <string name="tool_pdf_images_to_pdf_name">تحويل الصور إلى PDF</string>
+    <string name="tool_pdf_images_to_pdf_desc">اجمع الصور في ملف PDF واحد، صورة واحدة في كل صفحة</string>
+    <string name="tool_pdf_images_to_pdf_keywords">تحويل الصور الى pdf، صور الى pdf</string>
+
+    <string name="tool_pdf_text_to_pdf_name">تحويل النص إلى PDF</string>
+    <string name="tool_pdf_text_to_pdf_desc">حوّل نصًا مكتوبًا إلى مستند PDF مقسّم إلى صفحات</string>
+    <string name="tool_pdf_text_to_pdf_keywords">حفظ النص كملف pdf، نص الى مستند</string>
+
+    <string name="tool_pdf_to_images_name">تحويل PDF إلى صور</string>
+    <string name="tool_pdf_to_images_desc">صدّر كل صفحة من PDF كصورة JPG</string>
+    <string name="tool_pdf_to_images_keywords">pdf الى jpg، pdf الى png، تصدير صفحات pdf</string>
+
+    <string name="tool_pdf_viewer_name">عارض PDF</string>
+    <string name="tool_pdf_viewer_desc">افتح وتصفّح ملف PDF على جهازك</string>
+    <string name="tool_pdf_viewer_keywords">فتح pdf، قراءة pdf، عرض مستند</string>
+
+    <string name="tool_pdf_page_counter_name">عداد صفحات PDF</string>
+    <string name="tool_pdf_page_counter_desc">تحقق من عدد الصفحات في ملف PDF</string>
+    <string name="tool_pdf_page_counter_keywords">كم عدد الصفحات، عدد صفحات pdf</string>
+
+    <string name="tool_pdf_size_analyzer_name">محلل حجم PDF</string>
+    <string name="tool_pdf_size_analyzer_desc">اطّلع على حجم ملف PDF ومتوسط الحجم لكل صفحة</string>
+    <string name="tool_pdf_size_analyzer_keywords">حجم ملف pdf، تخزين pdf</string>
+
+    <string name="tool_pdf_merge_name">دمج PDF</string>
+    <string name="tool_pdf_merge_desc">ادمج عدة ملفات PDF في ملف واحد — يعيد إنشاء كل صفحة كصورة عالية الدقة</string>
+    <string name="tool_pdf_merge_keywords">دمج ملفات pdf، توحيد ملفات pdf</string>
+
+    <string name="tool_pdf_split_name">تقسيم PDF</string>
+    <string name="tool_pdf_split_desc">استخرج نطاق صفحات إلى ملف PDF منفصل — يعيد إنشاء الصفحات كصور عالية الدقة</string>
+    <string name="tool_pdf_split_keywords">استخراج صفحات pdf، فصل pdf</string>
+
+    <string name="tool_pdf_rotate_name">تدوير صفحات PDF</string>
+    <string name="tool_pdf_rotate_desc">دوّر صفحة واحدة أو كل صفحات PDF — يعيد إنشاء الصفحات كصور عالية الدقة</string>
+    <string name="tool_pdf_rotate_keywords">تصحيح اتجاه pdf، تدوير مستند</string>
+
+    <string name="tool_pdf_watermark_name">إضافة علامة مائية</string>
+    <string name="tool_pdf_watermark_desc">اطبع نصًا عبر كل صفحات PDF — يعيد إنشاء الصفحات كصور عالية الدقة</string>
+    <string name="tool_pdf_watermark_keywords">ختم pdf، علامة مائية سرية</string>
+
+    <string name="tool_pdf_organize_name">تنظيم الصفحات</string>
+    <string name="tool_pdf_organize_desc">أعد ترتيب أو احذف صفحات من PDF — يعيد إنشاء الصفحات كصور عالية الدقة</string>
+    <string name="tool_pdf_organize_keywords">حذف صفحات pdf، إعادة ترتيب صفحات pdf</string>
+
+    <!-- OCR tools -->
+    <string name="tool_ocr_from_image_name">التعرف الضوئي من صورة</string>
+    <string name="tool_ocr_from_image_desc">استخرج النص من صورة أو لقطة شاشة، بالكامل على الجهاز</string>
+    <string name="tool_ocr_from_image_keywords">استخراج نص من صورة، تحويل الصورة الى نص</string>
+
+    <string name="tool_ocr_from_camera_name">التعرف الضوئي من الكاميرا</string>
+    <string name="tool_ocr_from_camera_desc">التقط صورة واستخرج نصها، بالكامل على الجهاز</string>
+    <string name="tool_ocr_from_camera_keywords">مسح النص بالكاميرا، تحويل الكاميرا الى نص</string>
+
+    <string name="tool_ocr_from_pdf_name">التعرف الضوئي من PDF</string>
+    <string name="tool_ocr_from_pdf_desc">استخرج النص من ملف PDF ممسوح ضوئيًا، بالكامل على الجهاز</string>
+    <string name="tool_ocr_from_pdf_keywords">pdf الى نص، استخراج نص من pdf</string>
+
+    <!-- Wave 3 field labels -->
+    <string name="pdf_pick_images">اختر صورًا</string>
+    <string name="pdf_pick_file">اختر ملف PDF</string>
+    <string name="pdf_pick_files">اختر ملفات PDF</string>
+    <string name="pdf_page_count_result">%1$d صفحة</string>
+    <string name="pdf_average_page_size">المتوسط لكل صفحة</string>
+    <string name="pdf_encrypted_error">ملف PDF هذا محمي بكلمة مرور ولا يمكن فتحه.</string>
+    <string name="pdf_no_pages_error">تعذّرت قراءة أي صفحات من هذا الملف.</string>
+    <string name="pdf_too_large_error">حجم ملف PDF هذا كبير جدًا على المعالجة في هذا الجهاز. جرّب ملفًا أصغر أو عددًا أقل من الصفحات.</string>
+    <string name="pdf_page_range_from">من صفحة</string>
+    <string name="pdf_page_range_to">إلى صفحة</string>
+    <string name="pdf_rotate_angle">زاوية الدوران</string>
+    <string name="pdf_watermark_text_label">نص العلامة المائية</string>
+    <string name="pdf_organize_hint">اضغط على أيقونة سلة المهملات لحذف صفحة، أو استخدم الأسهم لإعادة الترتيب</string>
+    <string name="pdf_page_label">صفحة %1$d</string>
+    <string name="pdf_specific_page_label">رقم الصفحة</string>
+    <string name="pdf_add_another">إضافة ملف PDF آخر</string>
+    <string name="pdf_files_to_merge">%1$d ملفات للدمج</string>
+    <string name="ocr_pick_source">اختر صورة</string>
+    <string name="ocr_take_photo">التقط صورة</string>
+    <string name="ocr_no_text_found">لم يتم العثور على نص في هذه الصورة.</string>
+    <string name="ocr_processing">جارٍ قراءة النص…</string>
 </resources>

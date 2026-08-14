@@ -106,6 +106,10 @@ dependencies {
 
     implementation("com.google.android.gms:play-services-ads:23.5.0")
 
+    // Bundled (not Play-Services-downloaded) Latin-script model: OCR works fully offline
+    // starting from first launch, matching the "OCR must work offline" requirement.
+    implementation("com.google.mlkit:text-recognition:16.0.1")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")

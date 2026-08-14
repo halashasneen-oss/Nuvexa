@@ -20,7 +20,7 @@ Every tool listed in the app is fully implemented and functional; there are no "
 Soon" placeholders, dummy buttons, or fake results anywhere in the UI. What's *not* built
 yet simply isn't in the app — see [Roadmap](#roadmap) for what's next.
 
-### Implemented today (66 tools across 13 categories)
+### Implemented today (80 tools across 15 categories)
 
 | Category | Tools |
 |---|---|
@@ -35,8 +35,21 @@ yet simply isn't in the app — see [Roadmap](#roadmap) for what's next.
 | Developer Tools | Regex Tester, Lorem Ipsum Generator, XML/HTML/CSS Formatter, JWT Decoder |
 | Math & Engineering | Prime Checker, Prime Generator, GCD & LCM, Factorial, Fibonacci Sequence, Binary/Hex/Octal Converter, Statistics Calculator |
 | Network Tools | Subnet/CIDR Calculator, HTTP Status Code Reference, Port Reference — local calculators and reference data only, clearly not live network diagnostics |
+| PDF & Documents | Images→PDF, Text→PDF, PDF→Images, PDF Viewer, Page Counter, Size Analyzer, Merge, Split, Rotate, Watermark, Organize Pages (see note below) |
+| OCR & Text Scanning | OCR from Image, OCR from Camera, OCR from PDF — Google ML Kit's on-device, bundled-model text recognizer (no network call, works from first launch) |
 | Device | Device Information |
 | Image Tools | Image Compressor, Image Resizer |
+
+> **PDF tools use a rasterized approach.** Android has no built-in library for editing an
+> existing PDF's real structure — only `PdfRenderer` (rasterize pages to images, read-only)
+> and `PdfDocument` (build a new PDF from scratch). So Merge/Split/Rotate/Watermark/Organize
+> all work by rendering each page to a high-resolution image and rebuilding a new PDF from
+> those images — genuinely functional, but the output pages are images, not the original
+> selectable/vector text. Each of those tools says so plainly in its own description. Images→PDF
+> and Text→PDF are the exception: they build genuinely vector PDFs (real embedded images /
+> real drawn text) since there's no existing structure to preserve. Password-protected PDFs
+> can't be opened (no decryption support) and are reported with a clear message rather than
+> failing silently.
 
 Plus the full app shell: onboarding, home dashboard (search, quick actions, favorites,
 recents, local usage-based recommendations), category browser, favorites (reorderable),
@@ -122,21 +135,32 @@ app IDs — replace both with real ones before publishing.
 ## Roadmap
 
 The master specification this app is built against describes a much larger set of
-categories (PDF/document tools, OCR, file management beyond what's below, more QR content
-types, workflows chaining tools together, and so on). Rather than stub those out with fake
-"Coming Soon" tiles, they are simply not in the tool registry yet — the architecture
-(`Tool` model + `ToolRegistry` + `ToolScreenHost`) is built to make adding each of them a
-contained, incremental change: add a `Tool` entry, its 4-language strings, and a screen
-file. (Wave 2 added Math & Engineering and Network Tools as full categories this way,
-plus 8 more calculators, 4 more developer formatters, 3 text-extraction tools, and 3 more
-security tools — 66 tools total now, up from the initial 37.)
+categories (file management beyond what's below, more QR content types, workflows
+chaining tools together, and so on). Rather than stub those out with fake "Coming Soon"
+tiles, they are simply not in the tool registry yet — the architecture (`Tool` model +
+`ToolRegistry` + `ToolScreenHost`) is built to make adding each of them a contained,
+incremental change: add a `Tool` entry, its 4-language strings, and a screen file.
+
+- Wave 2 added Math & Engineering and Network Tools as full categories, plus 8 more
+  calculators, 4 more developer formatters, 3 text-extraction tools, and 3 more security
+  tools (37 → 66 tools).
+- Wave 3 added PDF & Documents and OCR & Text Scanning as full categories — 11 PDF tools
+  (built on Android's built-in `PdfRenderer`/`PdfDocument`, no new risk beyond what's
+  already unverifiable in this environment) and 3 OCR tools (the one genuinely new
+  dependency this wave: Google ML Kit's bundled-model text recognizer, `com.google.mlkit:text-recognition`,
+  chosen specifically because the model ships in the APK rather than needing a Play-Services
+  download, so OCR works offline from first launch) (66 → 80 tools).
 
 Next up, roughly in priority order:
-1. PDF tools (merge/split/compress/watermark) and a document scanner.
-2. OCR (on-device, e.g. ML Kit text recognition) feeding into "image → text → clean →
-   save" workflows.
+1. A camera-based Document Scanner with auto edge-detection (e.g. ML Kit's Document Scanner
+   API) — deliberately left out this wave to avoid stacking two unverified ML Kit modules
+   at once; PDF/OCR wiring is already there for it to plug into.
+2. Real (non-rasterized) PDF editing — would need a third-party PDF library (e.g.
+   pdfbox-android) instead of just `PdfRenderer`/`PdfDocument`; see the PDF tools note above
+   for why that's a deliberately separate, bigger decision.
 3. More file tools (batch rename, ZIP, duplicate finder) via Storage Access Framework.
-4. Saved multi-tool **Workflows** (the data model already anticipates this).
+4. Saved multi-tool **Workflows** (the data model already anticipates this) — e.g. "photo →
+   OCR → clean text → save," which OCR from Image now makes directly possible to wire up.
 5. More QR content types (contact/email/SMS/location/calendar) and QR history.
 6. Expanding automated test coverage to instrumented UI tests (Compose test rule) for the
    navigation graph, RTL layout, and the search engine (which needs an Android `Context`

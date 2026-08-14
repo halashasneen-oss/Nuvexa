@@ -678,4 +678,93 @@
     <string name="subnet_invalid">Enter a valid IPv4 address with a /0–/32 prefix.</string>
     <string name="reference_search_hint">Search</string>
     <string name="working_days_result">Working days</string>
+
+    <!-- ============ WAVE 3 ============ -->
+
+    <!-- New categories -->
+    <string name="category_pdf">PDF &amp; Documents</string>
+    <string name="category_pdf_desc">Create, view, and reorganize PDF files on your device</string>
+    <string name="category_ocr">OCR &amp; Text Scanning</string>
+    <string name="category_ocr_desc">Pull editable text out of photos, scans, and PDFs</string>
+
+    <!-- PDF tools -->
+    <string name="tool_pdf_images_to_pdf_name">Images to PDF</string>
+    <string name="tool_pdf_images_to_pdf_desc">Combine photos into a single PDF, one image per page</string>
+    <string name="tool_pdf_images_to_pdf_keywords">photos to pdf, convert images to pdf, jpg to pdf</string>
+
+    <string name="tool_pdf_text_to_pdf_name">Text to PDF</string>
+    <string name="tool_pdf_text_to_pdf_desc">Turn typed text into a paginated PDF document</string>
+    <string name="tool_pdf_text_to_pdf_keywords">text to document, save text as pdf</string>
+
+    <string name="tool_pdf_to_images_name">PDF to Images</string>
+    <string name="tool_pdf_to_images_desc">Export each page of a PDF as a JPG image</string>
+    <string name="tool_pdf_to_images_keywords">pdf to jpg, pdf to png, export pdf pages</string>
+
+    <string name="tool_pdf_viewer_name">PDF Viewer</string>
+    <string name="tool_pdf_viewer_desc">Open and page through a PDF on your device</string>
+    <string name="tool_pdf_viewer_keywords">open pdf, read pdf, view document</string>
+
+    <string name="tool_pdf_page_counter_name">PDF Page Counter</string>
+    <string name="tool_pdf_page_counter_desc">Check how many pages are in a PDF</string>
+    <string name="tool_pdf_page_counter_keywords">how many pages, pdf page count</string>
+
+    <string name="tool_pdf_size_analyzer_name">PDF Size Analyzer</string>
+    <string name="tool_pdf_size_analyzer_desc">See a PDF\'s file size and average size per page</string>
+    <string name="tool_pdf_size_analyzer_keywords">pdf file size, pdf storage</string>
+
+    <string name="tool_pdf_merge_name">Merge PDF</string>
+    <string name="tool_pdf_merge_desc">Combine multiple PDFs into one — recreates each page as a high-resolution image</string>
+    <string name="tool_pdf_merge_keywords">combine pdfs, join pdf files</string>
+
+    <string name="tool_pdf_split_name">Split PDF</string>
+    <string name="tool_pdf_split_desc">Pull a page range into its own PDF — recreates pages as high-resolution images</string>
+    <string name="tool_pdf_split_keywords">extract pdf pages, separate pdf</string>
+
+    <string name="tool_pdf_rotate_name">Rotate PDF Pages</string>
+    <string name="tool_pdf_rotate_desc">Rotate one or all pages of a PDF — recreates pages as high-resolution images</string>
+    <string name="tool_pdf_rotate_keywords">fix pdf orientation, rotate document</string>
+
+    <string name="tool_pdf_watermark_name">Add Watermark</string>
+    <string name="tool_pdf_watermark_desc">Stamp text across every page of a PDF — recreates pages as high-resolution images</string>
+    <string name="tool_pdf_watermark_keywords">stamp pdf, confidential watermark</string>
+
+    <string name="tool_pdf_organize_name">Organize Pages</string>
+    <string name="tool_pdf_organize_desc">Reorder or remove pages from a PDF — recreates pages as high-resolution images</string>
+    <string name="tool_pdf_organize_keywords">delete pdf pages, reorder pdf pages, remove page from pdf</string>
+
+    <!-- OCR tools -->
+    <string name="tool_ocr_from_image_name">OCR from Image</string>
+    <string name="tool_ocr_from_image_desc">Extract text from a photo or screenshot, fully on-device</string>
+    <string name="tool_ocr_from_image_keywords">extract words from photo, image to text, picture to text</string>
+
+    <string name="tool_ocr_from_camera_name">OCR from Camera</string>
+    <string name="tool_ocr_from_camera_desc">Take a photo and extract its text, fully on-device</string>
+    <string name="tool_ocr_from_camera_keywords">scan text with camera, camera to text</string>
+
+    <string name="tool_ocr_from_pdf_name">OCR from PDF</string>
+    <string name="tool_ocr_from_pdf_desc">Extract text from a scanned PDF, fully on-device</string>
+    <string name="tool_ocr_from_pdf_keywords">pdf to text, extract text from pdf, searchable pdf</string>
+
+    <!-- Wave 3 field labels -->
+    <string name="pdf_pick_images">Choose images</string>
+    <string name="pdf_pick_file">Choose a PDF</string>
+    <string name="pdf_pick_files">Choose PDFs</string>
+    <string name="pdf_page_count_result">%1$d pages</string>
+    <string name="pdf_average_page_size">Average per page</string>
+    <string name="pdf_encrypted_error">This PDF is password-protected and can\'t be opened.</string>
+    <string name="pdf_no_pages_error">Couldn\'t read any pages from this file.</string>
+    <string name="pdf_too_large_error">This PDF is too large to process on this device. Try a smaller file or fewer pages.</string>
+    <string name="pdf_page_range_from">From page</string>
+    <string name="pdf_page_range_to">To page</string>
+    <string name="pdf_rotate_angle">Rotation</string>
+    <string name="pdf_watermark_text_label">Watermark text</string>
+    <string name="pdf_organize_hint">Tap the trash icon to remove a page, or use the arrows to reorder</string>
+    <string name="pdf_page_label">Page %1$d</string>
+    <string name="pdf_specific_page_label">Page number</string>
+    <string name="pdf_add_another">Add another PDF</string>
+    <string name="pdf_files_to_merge">%1$d files to merge</string>
+    <string name="ocr_pick_source">Choose a photo</string>
+    <string name="ocr_take_photo">Take a photo</string>
+    <string name="ocr_no_text_found">No text was found in this image.</string>
+    <string name="ocr_processing">Reading text…</string>
 </resources>
