@@ -476,4 +476,206 @@
     <string name="regex_match_count">%1$d matches</string>
     <string name="regex_invalid_pattern">Invalid pattern: %1$s</string>
     <string name="lorem_paragraphs_label">Paragraphs: %1$d</string>
+
+    <!-- ============ WAVE 2 ============ -->
+
+    <!-- New categories -->
+    <string name="category_math">Math &amp; Engineering</string>
+    <string name="category_math_desc">Number theory, statistics, and base conversions</string>
+    <string name="category_network">Network Tools</string>
+    <string name="category_network_desc">Local, offline networking references and calculators</string>
+
+    <!-- Calculators (wave 2) -->
+    <string name="tool_calc_fraction_name">Fraction Calculator</string>
+    <string name="tool_calc_fraction_desc">Add, subtract, multiply, and divide fractions</string>
+    <string name="tool_calc_fraction_keywords">numerator, denominator, simplify fraction</string>
+
+    <string name="tool_calc_ratio_name">Ratio Calculator</string>
+    <string name="tool_calc_ratio_desc">Simplify a ratio and find an equivalent value</string>
+    <string name="tool_calc_ratio_keywords">proportion, simplify ratio, scale ratio</string>
+
+    <string name="tool_calc_average_name">Average Calculator</string>
+    <string name="tool_calc_average_desc">Find the mean, minimum, and maximum of a list of numbers</string>
+    <string name="tool_calc_average_keywords">mean, median, list of numbers</string>
+
+    <string name="tool_calc_markup_name">Markup Calculator</string>
+    <string name="tool_calc_markup_desc">Calculate a selling price from cost and markup percentage</string>
+    <string name="tool_calc_markup_keywords">cost price, selling price, markup percentage</string>
+
+    <string name="tool_calc_profit_margin_name">Profit Margin Calculator</string>
+    <string name="tool_calc_profit_margin_desc">Calculate profit margin from cost and revenue</string>
+    <string name="tool_calc_profit_margin_keywords">gross margin, profit percentage, revenue</string>
+
+    <string name="tool_calc_mortgage_name">Mortgage Calculator</string>
+    <string name="tool_calc_mortgage_desc">Estimate a monthly mortgage payment</string>
+    <string name="tool_calc_mortgage_keywords">home loan, down payment, monthly payment</string>
+
+    <string name="tool_calc_savings_name">Savings Calculator</string>
+    <string name="tool_calc_savings_desc">See how monthly savings grow with interest over time</string>
+    <string name="tool_calc_savings_keywords">savings goal, future value, monthly deposit</string>
+
+    <string name="tool_calc_work_hours_name">Work Hours Calculator</string>
+    <string name="tool_calc_work_hours_desc">Calculate hours worked between a start and end time</string>
+    <string name="tool_calc_work_hours_keywords">timesheet, clock in clock out, hours worked</string>
+
+    <!-- Math & Engineering -->
+    <string name="tool_math_prime_checker_name">Prime Checker</string>
+    <string name="tool_math_prime_checker_desc">Check whether a number is prime</string>
+    <string name="tool_math_prime_checker_keywords">is prime, prime number</string>
+
+    <string name="tool_math_prime_generator_name">Prime Generator</string>
+    <string name="tool_math_prime_generator_desc">List prime numbers up to a limit</string>
+    <string name="tool_math_prime_generator_keywords">list primes, prime numbers</string>
+
+    <string name="tool_math_gcd_lcm_name">GCD &amp; LCM</string>
+    <string name="tool_math_gcd_lcm_desc">Find the greatest common divisor and least common multiple</string>
+    <string name="tool_math_gcd_lcm_keywords">greatest common divisor, least common multiple, highest common factor</string>
+
+    <string name="tool_math_factorial_name">Factorial</string>
+    <string name="tool_math_factorial_desc">Calculate the factorial of a number</string>
+    <string name="tool_math_factorial_keywords">n factorial, permutations</string>
+
+    <string name="tool_math_fibonacci_name">Fibonacci Sequence</string>
+    <string name="tool_math_fibonacci_desc">Generate the Fibonacci sequence up to a length</string>
+    <string name="tool_math_fibonacci_keywords">fibonacci numbers, sequence</string>
+
+    <string name="tool_math_binary_converter_name">Binary Converter</string>
+    <string name="tool_math_binary_converter_desc">Convert between binary, decimal, hexadecimal, and octal</string>
+    <string name="tool_math_binary_converter_keywords">binary to decimal, decimal to hex, octal converter</string>
+
+    <string name="tool_math_statistics_name">Statistics Calculator</string>
+    <string name="tool_math_statistics_desc">Mean, median, mode, standard deviation, and variance</string>
+    <string name="tool_math_statistics_keywords">standard deviation, variance, mean median mode</string>
+
+    <!-- Developer tools (wave 2) -->
+    <string name="tool_dev_xml_formatter_name">XML Formatter</string>
+    <string name="tool_dev_xml_formatter_desc">Format and indent XML</string>
+    <string name="tool_dev_xml_formatter_keywords">pretty print xml, xml indent</string>
+
+    <string name="tool_dev_html_formatter_name">HTML Formatter</string>
+    <string name="tool_dev_html_formatter_desc">Format and indent HTML</string>
+    <string name="tool_dev_html_formatter_keywords">pretty print html, html indent</string>
+
+    <string name="tool_dev_css_formatter_name">CSS Formatter</string>
+    <string name="tool_dev_css_formatter_desc">Format and indent CSS</string>
+    <string name="tool_dev_css_formatter_keywords">pretty print css, css indent</string>
+
+    <string name="tool_dev_jwt_decoder_name">JWT Decoder</string>
+    <string name="tool_dev_jwt_decoder_desc">Decode a JSON Web Token\'s header and payload</string>
+    <string name="tool_dev_jwt_decoder_keywords">json web token, decode jwt, bearer token</string>
+
+    <!-- Text tools (wave 2) -->
+    <string name="tool_text_extract_numbers_name">Extract Numbers</string>
+    <string name="tool_text_extract_numbers_desc">Pull every number out of a block of text</string>
+    <string name="tool_text_extract_numbers_keywords">find numbers, get numbers from text</string>
+
+    <string name="tool_text_extract_emails_name">Extract Emails</string>
+    <string name="tool_text_extract_emails_desc">Pull every email address out of a block of text</string>
+    <string name="tool_text_extract_emails_keywords">find emails, get email addresses</string>
+
+    <string name="tool_text_extract_urls_name">Extract URLs</string>
+    <string name="tool_text_extract_urls_desc">Pull every link out of a block of text</string>
+    <string name="tool_text_extract_urls_keywords">find links, get urls from text</string>
+
+    <!-- Security tools (wave 2) -->
+    <string name="tool_sec_passphrase_generator_name">Passphrase Generator</string>
+    <string name="tool_sec_passphrase_generator_desc">Create a memorable passphrase from random words</string>
+    <string name="tool_sec_passphrase_generator_keywords">word based password, memorable password</string>
+
+    <string name="tool_sec_hmac_generator_name">HMAC Generator</string>
+    <string name="tool_sec_hmac_generator_desc">Generate a keyed-hash message authentication code</string>
+    <string name="tool_sec_hmac_generator_keywords">hmac sha256, message authentication code</string>
+
+    <string name="tool_sec_text_encryption_name">Text Encryption</string>
+    <string name="tool_sec_text_encryption_desc">Encrypt or decrypt text with a password</string>
+    <string name="tool_sec_text_encryption_keywords">encrypt text, decrypt text, aes encryption</string>
+
+    <!-- Network tools -->
+    <string name="tool_net_subnet_calculator_name">Subnet Calculator</string>
+    <string name="tool_net_subnet_calculator_desc">Calculate network, broadcast, and usable IP range from a CIDR</string>
+    <string name="tool_net_subnet_calculator_keywords">cidr calculator, ip subnet, network mask</string>
+
+    <string name="tool_net_http_status_reference_name">HTTP Status Codes</string>
+    <string name="tool_net_http_status_reference_desc">Look up what an HTTP status code means</string>
+    <string name="tool_net_http_status_reference_keywords">404, 500 error, status code meaning</string>
+
+    <string name="tool_net_port_reference_name">Port Reference</string>
+    <string name="tool_net_port_reference_desc">Look up common network port numbers</string>
+    <string name="tool_net_port_reference_keywords">port 443, port 80, common ports</string>
+
+    <!-- Time (wave 2) -->
+    <string name="tool_time_working_days_name">Working Days Calculator</string>
+    <string name="tool_time_working_days_desc">Count business days between two dates, excluding weekends</string>
+    <string name="tool_time_working_days_keywords">business days, weekdays between dates</string>
+
+    <!-- Wave 2 field labels -->
+    <string name="fraction_numerator">Numerator</string>
+    <string name="fraction_denominator">Denominator</string>
+    <string name="ratio_first">First value</string>
+    <string name="ratio_second">Second value</string>
+    <string name="ratio_simplified">Simplified</string>
+    <string name="average_numbers_input">Numbers, separated by commas or new lines</string>
+    <string name="average_result_mean">Average</string>
+    <string name="average_result_min">Minimum</string>
+    <string name="average_result_max">Maximum</string>
+    <string name="average_count">Count: %1$d</string>
+    <string name="markup_cost">Cost price</string>
+    <string name="markup_percent">Markup</string>
+    <string name="margin_cost">Cost</string>
+    <string name="margin_revenue">Revenue (selling price)</string>
+    <string name="margin_result">Profit margin</string>
+    <string name="mortgage_home_price">Home price</string>
+    <string name="mortgage_down_payment">Down payment</string>
+    <string name="mortgage_term_years">Loan term (years)</string>
+    <string name="savings_initial">Starting amount</string>
+    <string name="savings_monthly">Monthly contribution</string>
+    <string name="savings_years">Years</string>
+    <string name="savings_future_value">Future value</string>
+    <string name="savings_total_contributed">Total contributed</string>
+    <string name="work_hours_start">Start time (HH:mm)</string>
+    <string name="work_hours_end">End time (HH:mm)</string>
+    <string name="work_hours_break_minutes">Unpaid break (minutes)</string>
+    <string name="work_hours_total">Total worked</string>
+    <string name="prime_input_number">Number</string>
+    <string name="prime_is_prime">%1$s is a prime number</string>
+    <string name="prime_is_not_prime">%1$s is not a prime number</string>
+    <string name="prime_gen_limit">List primes up to</string>
+    <string name="gcd_first_number">First number</string>
+    <string name="gcd_second_number">Second number</string>
+    <string name="gcd_result_label">GCD</string>
+    <string name="lcm_result_label">LCM</string>
+    <string name="factorial_input">Number</string>
+    <string name="fibonacci_count">How many terms</string>
+    <string name="binary_input_value">Value</string>
+    <string name="binary_base_binary">Binary</string>
+    <string name="binary_base_decimal">Decimal</string>
+    <string name="binary_base_hex">Hexadecimal</string>
+    <string name="binary_base_octal">Octal</string>
+    <string name="binary_invalid_value">That\'s not a valid number in this base.</string>
+    <string name="statistics_input">Numbers, separated by commas or new lines</string>
+    <string name="statistics_mean">Mean</string>
+    <string name="statistics_median">Median</string>
+    <string name="statistics_mode">Mode</string>
+    <string name="statistics_std_dev">Std. deviation</string>
+    <string name="statistics_variance">Variance</string>
+    <string name="jwt_input">Paste a JWT</string>
+    <string name="jwt_header">Header</string>
+    <string name="jwt_payload">Payload</string>
+    <string name="jwt_invalid">This doesn\'t look like a valid JWT.</string>
+    <string name="passphrase_word_count">Number of words</string>
+    <string name="passphrase_separator">Separator</string>
+    <string name="hmac_key_label">Secret key</string>
+    <string name="hmac_message_label">Message</string>
+    <string name="encryption_password_label">Password</string>
+    <string name="encryption_note">Encryption happens on your device. If you lose the password, the text can\'t be recovered.</string>
+    <string name="encryption_invalid">Couldn\'t decrypt — check the password and the encrypted text.</string>
+    <string name="subnet_cidr_input">IP address / CIDR, e.g. 192.168.1.0/24</string>
+    <string name="subnet_network_address">Network address</string>
+    <string name="subnet_broadcast_address">Broadcast address</string>
+    <string name="subnet_usable_range">Usable host range</string>
+    <string name="subnet_total_hosts">Usable hosts</string>
+    <string name="subnet_subnet_mask">Subnet mask</string>
+    <string name="subnet_invalid">Enter a valid IPv4 address with a /0–/32 prefix.</string>
+    <string name="reference_search_hint">Search</string>
+    <string name="working_days_result">Working days</string>
 </resources>

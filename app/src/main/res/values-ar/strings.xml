@@ -476,4 +476,206 @@
     <string name="regex_match_count">%1$d تطابق</string>
     <string name="regex_invalid_pattern">نمط غير صالح: %1$s</string>
     <string name="lorem_paragraphs_label">الفقرات: %1$d</string>
+
+    <!-- ============ WAVE 2 ============ -->
+
+    <!-- New categories -->
+    <string name="category_math">الرياضيات والهندسة</string>
+    <string name="category_math_desc">نظرية الأعداد والإحصاء وتحويل الأنظمة العددية</string>
+    <string name="category_network">أدوات الشبكة</string>
+    <string name="category_network_desc">مراجع وحاسبات شبكية محلية بدون اتصال</string>
+
+    <!-- Calculators (wave 2) -->
+    <string name="tool_calc_fraction_name">حاسبة الكسور</string>
+    <string name="tool_calc_fraction_desc">اجمع واطرح واضرب واقسم الكسور</string>
+    <string name="tool_calc_fraction_keywords">بسط، مقام، تبسيط الكسر</string>
+
+    <string name="tool_calc_ratio_name">حاسبة النسبة</string>
+    <string name="tool_calc_ratio_desc">بسّط نسبة واعثر على قيمة مكافئة</string>
+    <string name="tool_calc_ratio_keywords">تناسب، تبسيط النسبة</string>
+
+    <string name="tool_calc_average_name">حاسبة المتوسط</string>
+    <string name="tool_calc_average_desc">اعثر على المتوسط والحد الأدنى والحد الأقصى لقائمة أرقام</string>
+    <string name="tool_calc_average_keywords">المتوسط، الوسيط، قائمة أرقام</string>
+
+    <string name="tool_calc_markup_name">حاسبة هامش الربح على التكلفة</string>
+    <string name="tool_calc_markup_desc">احسب سعر البيع من سعر التكلفة ونسبة الزيادة</string>
+    <string name="tool_calc_markup_keywords">سعر التكلفة، سعر البيع، نسبة الزيادة</string>
+
+    <string name="tool_calc_profit_margin_name">حاسبة هامش الربح</string>
+    <string name="tool_calc_profit_margin_desc">احسب هامش الربح من التكلفة والإيراد</string>
+    <string name="tool_calc_profit_margin_keywords">الهامش الإجمالي، نسبة الربح، الإيراد</string>
+
+    <string name="tool_calc_mortgage_name">حاسبة الرهن العقاري</string>
+    <string name="tool_calc_mortgage_desc">قدّر القسط الشهري لرهن عقاري</string>
+    <string name="tool_calc_mortgage_keywords">قرض منزل، الدفعة الأولى، القسط الشهري</string>
+
+    <string name="tool_calc_savings_name">حاسبة الادخار</string>
+    <string name="tool_calc_savings_desc">شاهد كيف ينمو الادخار الشهري بالفائدة بمرور الوقت</string>
+    <string name="tool_calc_savings_keywords">هدف ادخاري، القيمة المستقبلية، إيداع شهري</string>
+
+    <string name="tool_calc_work_hours_name">حاسبة ساعات العمل</string>
+    <string name="tool_calc_work_hours_desc">احسب ساعات العمل بين وقت البداية والنهاية</string>
+    <string name="tool_calc_work_hours_keywords">جدول الدوام، تسجيل الحضور والانصراف، ساعات العمل</string>
+
+    <!-- Math & Engineering -->
+    <string name="tool_math_prime_checker_name">فحص الأعداد الأولية</string>
+    <string name="tool_math_prime_checker_desc">تحقق مما إذا كان الرقم أوليًا</string>
+    <string name="tool_math_prime_checker_keywords">عدد أولي، هل هو أولي</string>
+
+    <string name="tool_math_prime_generator_name">مولّد الأعداد الأولية</string>
+    <string name="tool_math_prime_generator_desc">اسرد الأعداد الأولية حتى حد معين</string>
+    <string name="tool_math_prime_generator_keywords">قائمة الأعداد الأولية</string>
+
+    <string name="tool_math_gcd_lcm_name">القاسم المشترك الأكبر والمضاعف المشترك الأصغر</string>
+    <string name="tool_math_gcd_lcm_desc">اعثر على القاسم المشترك الأكبر والمضاعف المشترك الأصغر</string>
+    <string name="tool_math_gcd_lcm_keywords">القاسم المشترك الأكبر، المضاعف المشترك الأصغر</string>
+
+    <string name="tool_math_factorial_name">المضروب</string>
+    <string name="tool_math_factorial_desc">احسب مضروب رقم</string>
+    <string name="tool_math_factorial_keywords">مضروب العدد، التباديل</string>
+
+    <string name="tool_math_fibonacci_name">متتالية فيبوناتشي</string>
+    <string name="tool_math_fibonacci_desc">أنشئ متتالية فيبوناتشي حتى طول معين</string>
+    <string name="tool_math_fibonacci_keywords">أرقام فيبوناتشي، متتالية</string>
+
+    <string name="tool_math_binary_converter_name">محول النظام الثنائي</string>
+    <string name="tool_math_binary_converter_desc">حوّل بين الثنائي والعشري والست عشري والثماني</string>
+    <string name="tool_math_binary_converter_keywords">ثنائي إلى عشري، عشري إلى ست عشري، محول ثماني</string>
+
+    <string name="tool_math_statistics_name">حاسبة الإحصاء</string>
+    <string name="tool_math_statistics_desc">المتوسط والوسيط والمنوال والانحراف المعياري والتباين</string>
+    <string name="tool_math_statistics_keywords">الانحراف المعياري، التباين، المتوسط والوسيط والمنوال</string>
+
+    <!-- Developer tools (wave 2) -->
+    <string name="tool_dev_xml_formatter_name">منسّق XML</string>
+    <string name="tool_dev_xml_formatter_desc">تنسيق وترتيب XML</string>
+    <string name="tool_dev_xml_formatter_keywords">تنسيق xml</string>
+
+    <string name="tool_dev_html_formatter_name">منسّق HTML</string>
+    <string name="tool_dev_html_formatter_desc">تنسيق وترتيب HTML</string>
+    <string name="tool_dev_html_formatter_keywords">تنسيق html</string>
+
+    <string name="tool_dev_css_formatter_name">منسّق CSS</string>
+    <string name="tool_dev_css_formatter_desc">تنسيق وترتيب CSS</string>
+    <string name="tool_dev_css_formatter_keywords">تنسيق css</string>
+
+    <string name="tool_dev_jwt_decoder_name">فك تشفير JWT</string>
+    <string name="tool_dev_jwt_decoder_desc">فك ترميز رأس وحمولة رمز JWT</string>
+    <string name="tool_dev_jwt_decoder_keywords">json web token، فك تشفير jwt، رمز الدخول</string>
+
+    <!-- Text tools (wave 2) -->
+    <string name="tool_text_extract_numbers_name">استخراج الأرقام</string>
+    <string name="tool_text_extract_numbers_desc">استخرج كل رقم من كتلة نصية</string>
+    <string name="tool_text_extract_numbers_keywords">العثور على الأرقام، استخراج أرقام من نص</string>
+
+    <string name="tool_text_extract_emails_name">استخراج البريد الإلكتروني</string>
+    <string name="tool_text_extract_emails_desc">استخرج كل بريد إلكتروني من كتلة نصية</string>
+    <string name="tool_text_extract_emails_keywords">العثور على إيميلات، استخراج بريد إلكتروني</string>
+
+    <string name="tool_text_extract_urls_name">استخراج الروابط</string>
+    <string name="tool_text_extract_urls_desc">استخرج كل رابط من كتلة نصية</string>
+    <string name="tool_text_extract_urls_keywords">العثور على روابط، استخراج urls من نص</string>
+
+    <!-- Security tools (wave 2) -->
+    <string name="tool_sec_passphrase_generator_name">مولّد عبارة المرور</string>
+    <string name="tool_sec_passphrase_generator_desc">أنشئ عبارة مرور سهلة التذكر من كلمات عشوائية</string>
+    <string name="tool_sec_passphrase_generator_keywords">كلمة مرور من كلمات، كلمة مرور سهلة التذكر</string>
+
+    <string name="tool_sec_hmac_generator_name">مولّد HMAC</string>
+    <string name="tool_sec_hmac_generator_desc">أنشئ رمز مصادقة الرسائل بالتجزئة المفتاحية</string>
+    <string name="tool_sec_hmac_generator_keywords">hmac sha256، رمز مصادقة الرسائل</string>
+
+    <string name="tool_sec_text_encryption_name">تشفير النصوص</string>
+    <string name="tool_sec_text_encryption_desc">شفّر أو فك تشفير نص بكلمة مرور</string>
+    <string name="tool_sec_text_encryption_keywords">تشفير نص، فك تشفير نص، تشفير aes</string>
+
+    <!-- Network tools -->
+    <string name="tool_net_subnet_calculator_name">حاسبة الشبكة الفرعية</string>
+    <string name="tool_net_subnet_calculator_desc">احسب عنوان الشبكة والبث ونطاق العناوين المتاحة من CIDR</string>
+    <string name="tool_net_subnet_calculator_keywords">حاسبة cidr، الشبكة الفرعية، قناع الشبكة</string>
+
+    <string name="tool_net_http_status_reference_name">رموز حالة HTTP</string>
+    <string name="tool_net_http_status_reference_desc">ابحث عن معنى رمز حالة HTTP</string>
+    <string name="tool_net_http_status_reference_keywords">404، خطأ 500، معنى رمز الحالة</string>
+
+    <string name="tool_net_port_reference_name">مرجع المنافذ</string>
+    <string name="tool_net_port_reference_desc">ابحث عن أرقام منافذ الشبكة الشائعة</string>
+    <string name="tool_net_port_reference_keywords">منفذ 443، منفذ 80، المنافذ الشائعة</string>
+
+    <!-- Time (wave 2) -->
+    <string name="tool_time_working_days_name">حاسبة أيام العمل</string>
+    <string name="tool_time_working_days_desc">احسب أيام العمل بين تاريخين باستثناء عطلة نهاية الأسبوع</string>
+    <string name="tool_time_working_days_keywords">أيام العمل، أيام الأسبوع بين تاريخين</string>
+
+    <!-- Wave 2 field labels -->
+    <string name="fraction_numerator">البسط</string>
+    <string name="fraction_denominator">المقام</string>
+    <string name="ratio_first">القيمة الأولى</string>
+    <string name="ratio_second">القيمة الثانية</string>
+    <string name="ratio_simplified">مبسّطة</string>
+    <string name="average_numbers_input">أرقام مفصولة بفواصل أو أسطر جديدة</string>
+    <string name="average_result_mean">المتوسط</string>
+    <string name="average_result_min">الحد الأدنى</string>
+    <string name="average_result_max">الحد الأقصى</string>
+    <string name="average_count">العدد: %1$d</string>
+    <string name="markup_cost">سعر التكلفة</string>
+    <string name="markup_percent">نسبة الزيادة</string>
+    <string name="margin_cost">التكلفة</string>
+    <string name="margin_revenue">الإيراد (سعر البيع)</string>
+    <string name="margin_result">هامش الربح</string>
+    <string name="mortgage_home_price">سعر المنزل</string>
+    <string name="mortgage_down_payment">الدفعة الأولى</string>
+    <string name="mortgage_term_years">مدة القرض (سنوات)</string>
+    <string name="savings_initial">المبلغ الابتدائي</string>
+    <string name="savings_monthly">المساهمة الشهرية</string>
+    <string name="savings_years">السنوات</string>
+    <string name="savings_future_value">القيمة المستقبلية</string>
+    <string name="savings_total_contributed">إجمالي المساهمات</string>
+    <string name="work_hours_start">وقت البدء (HH:mm)</string>
+    <string name="work_hours_end">وقت الانتهاء (HH:mm)</string>
+    <string name="work_hours_break_minutes">استراحة غير مدفوعة (دقائق)</string>
+    <string name="work_hours_total">إجمالي ساعات العمل</string>
+    <string name="prime_input_number">الرقم</string>
+    <string name="prime_is_prime">%1$s عدد أولي</string>
+    <string name="prime_is_not_prime">%1$s ليس عددًا أوليًا</string>
+    <string name="prime_gen_limit">اسرد الأعداد الأولية حتى</string>
+    <string name="gcd_first_number">الرقم الأول</string>
+    <string name="gcd_second_number">الرقم الثاني</string>
+    <string name="gcd_result_label">القاسم المشترك الأكبر</string>
+    <string name="lcm_result_label">المضاعف المشترك الأصغر</string>
+    <string name="factorial_input">الرقم</string>
+    <string name="fibonacci_count">عدد الحدود</string>
+    <string name="binary_input_value">القيمة</string>
+    <string name="binary_base_binary">ثنائي</string>
+    <string name="binary_base_decimal">عشري</string>
+    <string name="binary_base_hex">ست عشري</string>
+    <string name="binary_base_octal">ثماني</string>
+    <string name="binary_invalid_value">هذا ليس رقمًا صالحًا في هذا النظام.</string>
+    <string name="statistics_input">أرقام مفصولة بفواصل أو أسطر جديدة</string>
+    <string name="statistics_mean">المتوسط</string>
+    <string name="statistics_median">الوسيط</string>
+    <string name="statistics_mode">المنوال</string>
+    <string name="statistics_std_dev">الانحراف المعياري</string>
+    <string name="statistics_variance">التباين</string>
+    <string name="jwt_input">الصق رمز JWT</string>
+    <string name="jwt_header">الرأس</string>
+    <string name="jwt_payload">الحمولة</string>
+    <string name="jwt_invalid">هذا لا يبدو رمز JWT صالحًا.</string>
+    <string name="passphrase_word_count">عدد الكلمات</string>
+    <string name="passphrase_separator">الفاصل</string>
+    <string name="hmac_key_label">المفتاح السري</string>
+    <string name="hmac_message_label">الرسالة</string>
+    <string name="encryption_password_label">كلمة المرور</string>
+    <string name="encryption_note">يتم التشفير على جهازك. إذا فقدت كلمة المرور، لا يمكن استعادة النص.</string>
+    <string name="encryption_invalid">تعذّر فك التشفير — تحقق من كلمة المرور والنص المشفّر.</string>
+    <string name="subnet_cidr_input">عنوان IP / CIDR، مثل 192.168.1.0/24</string>
+    <string name="subnet_network_address">عنوان الشبكة</string>
+    <string name="subnet_broadcast_address">عنوان البث</string>
+    <string name="subnet_usable_range">نطاق العناوين المتاحة</string>
+    <string name="subnet_total_hosts">عدد المضيفين المتاحين</string>
+    <string name="subnet_subnet_mask">قناع الشبكة الفرعية</string>
+    <string name="subnet_invalid">أدخل عنوان IPv4 صالحًا مع بادئة من /0 إلى /32.</string>
+    <string name="reference_search_hint">بحث</string>
+    <string name="working_days_result">أيام العمل</string>
 </resources>

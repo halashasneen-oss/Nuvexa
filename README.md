@@ -20,19 +20,21 @@ Every tool listed in the app is fully implemented and functional; there are no "
 Soon" placeholders, dummy buttons, or fake results anywhere in the UI. What's *not* built
 yet simply isn't in the app — see [Roadmap](#roadmap) for what's next.
 
-### Implemented today (37 tools across 11 categories)
+### Implemented today (66 tools across 13 categories)
 
 | Category | Tools |
 |---|---|
-| Calculators | Basic Calculator, Percentage, Discount, Tip, Split Bill, Age, Date Difference, Simple Interest, Compound Interest, EMI |
+| Calculators | Basic, Percentage, Discount, Tip, Split Bill, Age, Date Difference, Simple Interest, Compound Interest, EMI, Fraction, Ratio, Average, Markup, Profit Margin, Mortgage, Savings, Work Hours |
 | Unit Converter | Length, Weight, Temperature, Area, Volume, Speed, Time, Data Storage (one tool, switchable) |
 | Currency | Currency Calculator (manual, offline exchange rates you set yourself) |
-| Text & Writing | Text Analyzer (words/characters/sentences/reading time), Case Converter, Text Cleaner, Base64, URL Encoder, JSON Formatter |
-| Privacy & Security | Password Generator, PIN Generator, UUID Generator, Random Number Generator, Hash Generator (MD5/SHA-1/SHA-256/SHA-512) |
+| Text & Writing | Text Analyzer (words/characters/sentences/reading time), Case Converter, Text Cleaner, Base64, URL Encoder, JSON Formatter, Extract Numbers/Emails/URLs |
+| Privacy & Security | Password Generator, PIN Generator, UUID Generator, Random Number Generator, Hash Generator (MD5/SHA-1/SHA-256/SHA-512), Passphrase Generator, HMAC Generator, Text Encryption (AES-GCM + PBKDF2) |
 | QR & Barcode | QR Generator (text/link/Wi-Fi), QR/Barcode Scanner |
 | Color Tools | Color Converter (HEX/RGB/HSL + picker), Palette Generator |
-| Time & Date | World Clock, Stopwatch, Timer, Unix Timestamp Converter, Date Calculator (add/subtract, week number, day of year) |
-| Developer Tools | Regex Tester, Lorem Ipsum Generator |
+| Time & Date | World Clock, Stopwatch, Timer, Unix Timestamp Converter, Date Calculator, Working Days Calculator |
+| Developer Tools | Regex Tester, Lorem Ipsum Generator, XML/HTML/CSS Formatter, JWT Decoder |
+| Math & Engineering | Prime Checker, Prime Generator, GCD & LCM, Factorial, Fibonacci Sequence, Binary/Hex/Octal Converter, Statistics Calculator |
+| Network Tools | Subnet/CIDR Calculator, HTTP Status Code Reference, Port Reference — local calculators and reference data only, clearly not live network diagnostics |
 | Device | Device Information |
 | Image Tools | Image Compressor, Image Resizer |
 
@@ -120,12 +122,14 @@ app IDs — replace both with real ones before publishing.
 ## Roadmap
 
 The master specification this app is built against describes a much larger set of
-categories (PDF/document tools, OCR, file management, network diagnostics, developer
-formatters beyond regex/lorem-ipsum, more QR content types, workflows chaining tools
-together, and so on). Rather than stub those out with fake "Coming Soon" tiles, they are
-simply not in the tool registry yet — the architecture (`Tool` model + `ToolRegistry` +
-`ToolScreenHost`) is built to make adding each of them a contained, incremental change:
-add a `Tool` entry, its 4-language strings, and a screen file.
+categories (PDF/document tools, OCR, file management beyond what's below, more QR content
+types, workflows chaining tools together, and so on). Rather than stub those out with fake
+"Coming Soon" tiles, they are simply not in the tool registry yet — the architecture
+(`Tool` model + `ToolRegistry` + `ToolScreenHost`) is built to make adding each of them a
+contained, incremental change: add a `Tool` entry, its 4-language strings, and a screen
+file. (Wave 2 added Math & Engineering and Network Tools as full categories this way,
+plus 8 more calculators, 4 more developer formatters, 3 text-extraction tools, and 3 more
+security tools — 66 tools total now, up from the initial 37.)
 
 Next up, roughly in priority order:
 1. PDF tools (merge/split/compress/watermark) and a document scanner.
@@ -133,8 +137,7 @@ Next up, roughly in priority order:
    save" workflows.
 3. More file tools (batch rename, ZIP, duplicate finder) via Storage Access Framework.
 4. Saved multi-tool **Workflows** (the data model already anticipates this).
-5. Network reference tools (IP/CIDR calculators, HTTP status/DNS reference) — clearly
-   labeled as local-computation-only vs. anything that would need connectivity.
+5. More QR content types (contact/email/SMS/location/calendar) and QR history.
 6. Expanding automated test coverage to instrumented UI tests (Compose test rule) for the
    navigation graph, RTL layout, and the search engine (which needs an Android `Context`
    and so isn't covered by the current plain-JVM unit tests).

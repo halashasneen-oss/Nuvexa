@@ -476,4 +476,206 @@
     <string name="regex_match_count">%1$d correspondances</string>
     <string name="regex_invalid_pattern">Motif invalide : %1$s</string>
     <string name="lorem_paragraphs_label">Paragraphes : %1$d</string>
+
+    <!-- ============ WAVE 2 ============ -->
+
+    <!-- New categories -->
+    <string name="category_math">Maths &amp; ingénierie</string>
+    <string name="category_math_desc">Théorie des nombres, statistiques et conversions de base</string>
+    <string name="category_network">Outils réseau</string>
+    <string name="category_network_desc">Références et calculateurs réseau locaux, hors ligne</string>
+
+    <!-- Calculators (wave 2) -->
+    <string name="tool_calc_fraction_name">Calculateur de fractions</string>
+    <string name="tool_calc_fraction_desc">Additionnez, soustrayez, multipliez et divisez des fractions</string>
+    <string name="tool_calc_fraction_keywords">numérateur, dénominateur, simplifier une fraction</string>
+
+    <string name="tool_calc_ratio_name">Calculateur de ratio</string>
+    <string name="tool_calc_ratio_desc">Simplifiez un ratio et trouvez une valeur équivalente</string>
+    <string name="tool_calc_ratio_keywords">proportion, simplifier un ratio</string>
+
+    <string name="tool_calc_average_name">Calculateur de moyenne</string>
+    <string name="tool_calc_average_desc">Trouvez la moyenne, le minimum et le maximum d\'une liste de nombres</string>
+    <string name="tool_calc_average_keywords">moyenne, médiane, liste de nombres</string>
+
+    <string name="tool_calc_markup_name">Calculateur de marge</string>
+    <string name="tool_calc_markup_desc">Calculez un prix de vente à partir du coût et du pourcentage de marge</string>
+    <string name="tool_calc_markup_keywords">prix de revient, prix de vente, pourcentage de marge</string>
+
+    <string name="tool_calc_profit_margin_name">Calculateur de marge bénéficiaire</string>
+    <string name="tool_calc_profit_margin_desc">Calculez la marge bénéficiaire à partir du coût et du chiffre d\'affaires</string>
+    <string name="tool_calc_profit_margin_keywords">marge brute, pourcentage de profit, chiffre d\'affaires</string>
+
+    <string name="tool_calc_mortgage_name">Calculateur de prêt immobilier</string>
+    <string name="tool_calc_mortgage_desc">Estimez une mensualité de prêt immobilier</string>
+    <string name="tool_calc_mortgage_keywords">prêt immobilier, apport, mensualité</string>
+
+    <string name="tool_calc_savings_name">Calculateur d\'épargne</string>
+    <string name="tool_calc_savings_desc">Voyez comment l\'épargne mensuelle croît avec les intérêts au fil du temps</string>
+    <string name="tool_calc_savings_keywords">objectif d\'épargne, valeur future, dépôt mensuel</string>
+
+    <string name="tool_calc_work_hours_name">Calculateur d\'heures travaillées</string>
+    <string name="tool_calc_work_hours_desc">Calculez les heures travaillées entre une heure de début et de fin</string>
+    <string name="tool_calc_work_hours_keywords">feuille de temps, pointage, heures travaillées</string>
+
+    <!-- Math & Engineering -->
+    <string name="tool_math_prime_checker_name">Vérificateur de nombre premier</string>
+    <string name="tool_math_prime_checker_desc">Vérifiez si un nombre est premier</string>
+    <string name="tool_math_prime_checker_keywords">nombre premier, est premier</string>
+
+    <string name="tool_math_prime_generator_name">Générateur de nombres premiers</string>
+    <string name="tool_math_prime_generator_desc">Listez les nombres premiers jusqu\'à une limite</string>
+    <string name="tool_math_prime_generator_keywords">liste de nombres premiers</string>
+
+    <string name="tool_math_gcd_lcm_name">PGCD &amp; PPCM</string>
+    <string name="tool_math_gcd_lcm_desc">Trouvez le plus grand commun diviseur et le plus petit commun multiple</string>
+    <string name="tool_math_gcd_lcm_keywords">plus grand commun diviseur, plus petit commun multiple</string>
+
+    <string name="tool_math_factorial_name">Factorielle</string>
+    <string name="tool_math_factorial_desc">Calculez la factorielle d\'un nombre</string>
+    <string name="tool_math_factorial_keywords">factorielle de n, permutations</string>
+
+    <string name="tool_math_fibonacci_name">Suite de Fibonacci</string>
+    <string name="tool_math_fibonacci_desc">Générez la suite de Fibonacci jusqu\'à une longueur donnée</string>
+    <string name="tool_math_fibonacci_keywords">nombres de fibonacci, suite</string>
+
+    <string name="tool_math_binary_converter_name">Convertisseur binaire</string>
+    <string name="tool_math_binary_converter_desc">Convertissez entre binaire, décimal, hexadécimal et octal</string>
+    <string name="tool_math_binary_converter_keywords">binaire vers décimal, décimal vers hexadécimal, convertisseur octal</string>
+
+    <string name="tool_math_statistics_name">Calculateur de statistiques</string>
+    <string name="tool_math_statistics_desc">Moyenne, médiane, mode, écart type et variance</string>
+    <string name="tool_math_statistics_keywords">écart type, variance, moyenne médiane mode</string>
+
+    <!-- Developer tools (wave 2) -->
+    <string name="tool_dev_xml_formatter_name">Formateur XML</string>
+    <string name="tool_dev_xml_formatter_desc">Formatez et indentez du XML</string>
+    <string name="tool_dev_xml_formatter_keywords">formater xml, indentation xml</string>
+
+    <string name="tool_dev_html_formatter_name">Formateur HTML</string>
+    <string name="tool_dev_html_formatter_desc">Formatez et indentez du HTML</string>
+    <string name="tool_dev_html_formatter_keywords">formater html, indentation html</string>
+
+    <string name="tool_dev_css_formatter_name">Formateur CSS</string>
+    <string name="tool_dev_css_formatter_desc">Formatez et indentez du CSS</string>
+    <string name="tool_dev_css_formatter_keywords">formater css, indentation css</string>
+
+    <string name="tool_dev_jwt_decoder_name">Décodeur JWT</string>
+    <string name="tool_dev_jwt_decoder_desc">Décodez l\'en-tête et la charge utile d\'un JSON Web Token</string>
+    <string name="tool_dev_jwt_decoder_keywords">json web token, décoder jwt, jeton d\'accès</string>
+
+    <!-- Text tools (wave 2) -->
+    <string name="tool_text_extract_numbers_name">Extraire les nombres</string>
+    <string name="tool_text_extract_numbers_desc">Extrayez tous les nombres d\'un bloc de texte</string>
+    <string name="tool_text_extract_numbers_keywords">trouver des nombres, extraire des nombres d\'un texte</string>
+
+    <string name="tool_text_extract_emails_name">Extraire les e-mails</string>
+    <string name="tool_text_extract_emails_desc">Extrayez toutes les adresses e-mail d\'un bloc de texte</string>
+    <string name="tool_text_extract_emails_keywords">trouver des e-mails, extraire des adresses e-mail</string>
+
+    <string name="tool_text_extract_urls_name">Extraire les liens</string>
+    <string name="tool_text_extract_urls_desc">Extrayez tous les liens d\'un bloc de texte</string>
+    <string name="tool_text_extract_urls_keywords">trouver des liens, extraire des urls d\'un texte</string>
+
+    <!-- Security tools (wave 2) -->
+    <string name="tool_sec_passphrase_generator_name">Générateur de phrase secrète</string>
+    <string name="tool_sec_passphrase_generator_desc">Créez une phrase secrète mémorisable à partir de mots aléatoires</string>
+    <string name="tool_sec_passphrase_generator_keywords">mot de passe à mots, mot de passe mémorisable</string>
+
+    <string name="tool_sec_hmac_generator_name">Générateur HMAC</string>
+    <string name="tool_sec_hmac_generator_desc">Générez un code d\'authentification de message par hachage à clé</string>
+    <string name="tool_sec_hmac_generator_keywords">hmac sha256, code d\'authentification de message</string>
+
+    <string name="tool_sec_text_encryption_name">Chiffrement de texte</string>
+    <string name="tool_sec_text_encryption_desc">Chiffrez ou déchiffrez du texte avec un mot de passe</string>
+    <string name="tool_sec_text_encryption_keywords">chiffrer un texte, déchiffrer un texte, chiffrement aes</string>
+
+    <!-- Network tools -->
+    <string name="tool_net_subnet_calculator_name">Calculateur de sous-réseau</string>
+    <string name="tool_net_subnet_calculator_desc">Calculez l\'adresse réseau, de diffusion et la plage IP utilisable à partir d\'un CIDR</string>
+    <string name="tool_net_subnet_calculator_keywords">calculateur cidr, sous-réseau ip, masque réseau</string>
+
+    <string name="tool_net_http_status_reference_name">Codes de statut HTTP</string>
+    <string name="tool_net_http_status_reference_desc">Recherchez la signification d\'un code de statut HTTP</string>
+    <string name="tool_net_http_status_reference_keywords">404, erreur 500, signification du code de statut</string>
+
+    <string name="tool_net_port_reference_name">Référence des ports</string>
+    <string name="tool_net_port_reference_desc">Recherchez les numéros de ports réseau courants</string>
+    <string name="tool_net_port_reference_keywords">port 443, port 80, ports courants</string>
+
+    <!-- Time (wave 2) -->
+    <string name="tool_time_working_days_name">Calculateur de jours ouvrés</string>
+    <string name="tool_time_working_days_desc">Comptez les jours ouvrés entre deux dates, week-ends exclus</string>
+    <string name="tool_time_working_days_keywords">jours ouvrés, jours de semaine entre deux dates</string>
+
+    <!-- Wave 2 field labels -->
+    <string name="fraction_numerator">Numérateur</string>
+    <string name="fraction_denominator">Dénominateur</string>
+    <string name="ratio_first">Première valeur</string>
+    <string name="ratio_second">Deuxième valeur</string>
+    <string name="ratio_simplified">Simplifié</string>
+    <string name="average_numbers_input">Nombres séparés par des virgules ou des retours à la ligne</string>
+    <string name="average_result_mean">Moyenne</string>
+    <string name="average_result_min">Minimum</string>
+    <string name="average_result_max">Maximum</string>
+    <string name="average_count">Nombre : %1$d</string>
+    <string name="markup_cost">Prix de revient</string>
+    <string name="markup_percent">Marge</string>
+    <string name="margin_cost">Coût</string>
+    <string name="margin_revenue">Chiffre d\'affaires (prix de vente)</string>
+    <string name="margin_result">Marge bénéficiaire</string>
+    <string name="mortgage_home_price">Prix du bien</string>
+    <string name="mortgage_down_payment">Apport</string>
+    <string name="mortgage_term_years">Durée du prêt (années)</string>
+    <string name="savings_initial">Montant de départ</string>
+    <string name="savings_monthly">Contribution mensuelle</string>
+    <string name="savings_years">Années</string>
+    <string name="savings_future_value">Valeur future</string>
+    <string name="savings_total_contributed">Total contribué</string>
+    <string name="work_hours_start">Heure de début (HH:mm)</string>
+    <string name="work_hours_end">Heure de fin (HH:mm)</string>
+    <string name="work_hours_break_minutes">Pause non payée (minutes)</string>
+    <string name="work_hours_total">Total travaillé</string>
+    <string name="prime_input_number">Nombre</string>
+    <string name="prime_is_prime">%1$s est un nombre premier</string>
+    <string name="prime_is_not_prime">%1$s n\'est pas un nombre premier</string>
+    <string name="prime_gen_limit">Lister les nombres premiers jusqu\'à</string>
+    <string name="gcd_first_number">Premier nombre</string>
+    <string name="gcd_second_number">Deuxième nombre</string>
+    <string name="gcd_result_label">PGCD</string>
+    <string name="lcm_result_label">PPCM</string>
+    <string name="factorial_input">Nombre</string>
+    <string name="fibonacci_count">Nombre de termes</string>
+    <string name="binary_input_value">Valeur</string>
+    <string name="binary_base_binary">Binaire</string>
+    <string name="binary_base_decimal">Décimal</string>
+    <string name="binary_base_hex">Hexadécimal</string>
+    <string name="binary_base_octal">Octal</string>
+    <string name="binary_invalid_value">Ce n\'est pas un nombre valide dans cette base.</string>
+    <string name="statistics_input">Nombres séparés par des virgules ou des retours à la ligne</string>
+    <string name="statistics_mean">Moyenne</string>
+    <string name="statistics_median">Médiane</string>
+    <string name="statistics_mode">Mode</string>
+    <string name="statistics_std_dev">Écart type</string>
+    <string name="statistics_variance">Variance</string>
+    <string name="jwt_input">Collez un JWT</string>
+    <string name="jwt_header">En-tête</string>
+    <string name="jwt_payload">Charge utile</string>
+    <string name="jwt_invalid">Cela ne ressemble pas à un JWT valide.</string>
+    <string name="passphrase_word_count">Nombre de mots</string>
+    <string name="passphrase_separator">Séparateur</string>
+    <string name="hmac_key_label">Clé secrète</string>
+    <string name="hmac_message_label">Message</string>
+    <string name="encryption_password_label">Mot de passe</string>
+    <string name="encryption_note">Le chiffrement se fait sur votre appareil. Si vous perdez le mot de passe, le texte ne pourra pas être récupéré.</string>
+    <string name="encryption_invalid">Déchiffrement impossible — vérifiez le mot de passe et le texte chiffré.</string>
+    <string name="subnet_cidr_input">Adresse IP / CIDR, ex. 192.168.1.0/24</string>
+    <string name="subnet_network_address">Adresse réseau</string>
+    <string name="subnet_broadcast_address">Adresse de diffusion</string>
+    <string name="subnet_usable_range">Plage d\'hôtes utilisable</string>
+    <string name="subnet_total_hosts">Hôtes utilisables</string>
+    <string name="subnet_subnet_mask">Masque de sous-réseau</string>
+    <string name="subnet_invalid">Entrez une adresse IPv4 valide avec un préfixe /0–/32.</string>
+    <string name="reference_search_hint">Rechercher</string>
+    <string name="working_days_result">Jours ouvrés</string>
 </resources>
