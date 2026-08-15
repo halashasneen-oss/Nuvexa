@@ -21,16 +21,22 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
-    // Release signing is intentionally NOT configured here. Provide a real
-    // signing config (keystore path/passwords via env vars or a local,
-    // git-ignored keystore.properties file) before building a Play Store
-    // release artifact. Never commit real signing credentials.
+    // No keystore is ever committed to this repository. The release signing config only
+    // activates when KEYSTORE_FILE actually points at a real file — set via CI secrets
+    // (KEYSTORE_BASE64 decoded to a temp path) or a local, git-ignored keystore.properties-style
+    // env setup. Without it, assembleRelease/bundleRelease still work but produce an unsigned
+    // artifact, and debug builds are entirely unaffected.
+    val releaseKeystorePath = System.getenv("KEYSTORE_FILE")
+    val hasReleaseSigning = !releaseKeystorePath.isNullOrBlank() && file(releaseKeystorePath).exists()
+
     signingConfigs {
-        create("release") {
-            // storeFile = file(System.getenv("NUVEXA_KEYSTORE_PATH") ?: "release.keystore")
-            // storePassword = System.getenv("NUVEXA_KEYSTORE_PASSWORD")
-            // keyAlias = System.getenv("NUVEXA_KEY_ALIAS")
-            // keyPassword = System.getenv("NUVEXA_KEY_PASSWORD")
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = file(releaseKeystorePath!!)
+                storePassword = System.getenv("KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("KEY_ALIAS")
+                keyPassword = System.getenv("KEY_PASSWORD")
+            }
         }
     }
 
@@ -42,6 +48,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
         debug {
             isMinifyEnabled = false

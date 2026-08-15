@@ -71,3 +71,52 @@ jobs:
         with:
           name: nuvexa-debug-apk
           path: app/build/outputs/apk/debug/*.apk
+
+      - name: Check release signing secrets
+        id: signing_check
+        run: |
+          if [ -n "${{ secrets.KEYSTORE_BASE64 }}" ] && [ -n "${{ secrets.KEYSTORE_PASSWORD }}" ] && [ -n "${{ secrets.KEY_ALIAS }}" ] && [ -n "${{ secrets.KEY_PASSWORD }}" ]; then
+            echo "has_signing=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_signing=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Release signing secrets (KEYSTORE_BASE64, KEYSTORE_PASSWORD, KEY_ALIAS, KEY_PASSWORD) are not configured, so the release APK/AAB build is skipped. Add them under Settings -> Secrets and variables -> Actions to enable it."
+          fi
+
+      - name: Decode release keystore
+        if: steps.signing_check.outputs.has_signing == 'true'
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 -d > "${{ runner.temp }}/release.keystore"
+
+      - name: Build release APK
+        if: steps.signing_check.outputs.has_signing == 'true'
+        env:
+          KEYSTORE_FILE: ${{ runner.temp }}/release.keystore
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: ./gradlew assembleRelease --stacktrace
+
+      - name: Build release AAB
+        if: steps.signing_check.outputs.has_signing == 'true'
+        env:
+          KEYSTORE_FILE: ${{ runner.temp }}/release.keystore
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: ./gradlew bundleRelease --stacktrace
+
+      - name: Upload release APK
+        if: steps.signing_check.outputs.has_signing == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuvexa-release-apk
+          path: app/build/outputs/apk/release/*.apk
+
+      - name: Upload release AAB
+        if: steps.signing_check.outputs.has_signing == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuvexa-release-aab
+          path: app/build/outputs/bundle/release/*.aab
