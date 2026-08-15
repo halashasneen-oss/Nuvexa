@@ -19,6 +19,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -55,15 +56,18 @@ fun NuvexaRootScreen(startWithOnboarding: Boolean) {
     val currentRoute = backStackEntry?.destination?.route
     val showBottomBar = bottomDestinations.any { it.route == currentRoute }
 
-    // A soft gradient glow behind the whole app instead of a flat single background color —
+    // A very soft gradient glow behind the whole app instead of a flat single background color —
     // fades from a faint primary tint at the top into the normal background within the first
-    // ~420dp, then stays flat for the rest of the screen so content further down reads normally.
+    // ~420dp, then stays flat for the rest of the screen. Kept subtle (low alpha) specifically
+    // so it never reduces text/icon contrast against MaterialTheme's normal content colors,
+    // in either light or dark theme.
     val glowHeightPx = with(LocalDensity.current) { 420.dp.toPx() }
     val backgroundColor = MaterialTheme.colorScheme.background
+    val onBackgroundColor = MaterialTheme.colorScheme.onBackground
     val backgroundBrush = Brush.verticalGradient(
         colors = listOf(
-            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.45f),
-            MaterialTheme.colorScheme.primary.copy(alpha = 0.08f),
+            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.16f),
+            MaterialTheme.colorScheme.primary.copy(alpha = 0.04f),
             backgroundColor,
         ),
         startY = 0f,
@@ -94,11 +98,21 @@ fun NuvexaRootScreen(startWithOnboarding: Boolean) {
                 }
             },
         ) { innerPadding ->
-            NuvexaNavHost(
-                navController = navController,
-                startWithOnboarding = startWithOnboarding,
+            // Transparent so the gradient behind shows through, but with an explicit
+            // contentColor — a transparent container can't be matched to a theme role, so
+            // without this, descendant Text/Icon defaults could fall back to the wrong color
+            // and lose contrast instead of reliably using onBackground.
+            Surface(
                 modifier = Modifier.padding(innerPadding),
-            )
+                color = Color.Transparent,
+                contentColor = onBackgroundColor,
+            ) {
+                NuvexaNavHost(
+                    navController = navController,
+                    startWithOnboarding = startWithOnboarding,
+                    modifier = Modifier,
+                )
+            }
         }
     }
 }
