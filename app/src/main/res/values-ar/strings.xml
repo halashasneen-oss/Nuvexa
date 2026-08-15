@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">نوفيكسا</string>
+    <string name="app_name">Nuvexa</string>
     <string name="app_tagline">كل أداة تحتاجها. دائمًا بلا إنترنت.</string>
 
     <!-- Common actions -->
@@ -47,7 +47,7 @@
     <string name="onboarding_title_2">كل شيء يعمل على جهازك</string>
     <string name="onboarding_body_2">بلا خوادم وبلا انتظار. أدواتك تعمل فورًا، حتى في وضع الطيران.</string>
     <string name="onboarding_title_3">ملفاتك تبقى خاصة</string>
-    <string name="onboarding_body_3">لا يرفع نوفيكسا صورك أو مستنداتك أو نصوصك إلى أي مكان. كل شيء يبقى على هاتفك.</string>
+    <string name="onboarding_body_3">لا يرفع Nuvexa صورك أو مستنداتك أو نصوصك إلى أي مكان. كل شيء يبقى على هاتفك.</string>
     <string name="onboarding_title_4">اعثر على أي شيء فورًا</string>
     <string name="onboarding_body_4">فقط صف ما تحتاجه — البحث يفهم اللغة الطبيعية، بلغتك أنت.</string>
 
@@ -130,7 +130,7 @@
     <string name="error_generic_title">هناك أمر يحتاج انتباهك</string>
     <string name="error_unsupported_format">صيغة هذا الملف غير مدعومة بعد.</string>
     <string name="error_corrupted_file">يبدو أن هذا الملف تالف أو غير مدعوم.</string>
-    <string name="error_permission_denied">يحتاج نوفيكسا هذا الإذن للمتابعة. يمكنك منحه من إعدادات النظام.</string>
+    <string name="error_permission_denied">يحتاج Nuvexa هذا الإذن للمتابعة. يمكنك منحه من إعدادات النظام.</string>
     <string name="error_storage_unavailable">التخزين غير متاح حاليًا. تحقق من مساحة التخزين وحاول مرة أخرى.</string>
     <string name="error_empty_input">أدخل شيئًا أولاً.</string>
     <string name="error_invalid_number">هذا لا يبدو رقمًا صالحًا.</string>
@@ -159,15 +159,15 @@
     <string name="settings_section_privacy">الخصوصية</string>
     <string name="settings_clear_history">مسح السجل</string>
     <string name="settings_clear_recent">مسح الأدوات الحديثة</string>
-    <string name="settings_privacy_note">يعالج نوفيكسا كل شيء على هذا الجهاز. لا يتم رفع أي شيء تنشئه أو تفتحه أبدًا.</string>
+    <string name="settings_privacy_note">يعالج Nuvexa كل شيء على هذا الجهاز. لا يتم رفع أي شيء تنشئه أو تفتحه أبدًا.</string>
     <string name="settings_section_about">حول التطبيق</string>
     <string name="settings_version">الإصدار</string>
     <string name="settings_privacy_policy">سياسة الخصوصية</string>
     <string name="settings_terms">شروط الاستخدام</string>
     <string name="settings_contact">تواصل معنا</string>
     <string name="support_email" translatable="false">support@nuvexa.app</string>
-    <string name="privacy_policy_body">يعمل نوفيكسا بالكامل على جهازك. لا ينشئ حساب مستخدم، ولا يرفع صورك أو مستنداتك أو نصوصك أو محتوى الحافظة، ولا يستخدم أي خدمة سحابية لأدواته. تُخزَّن بيانات مثل المفضلة وسجل الاستخدام والإعدادات محليًا في التخزين الخاص بالتطبيق ولا تُرسل إلى أي مكان أبدًا. النشاط الشبكي الوحيد في نوفيكسا هو عرض الإعلانات الاختياري عبر Google AdMob؛ جميع الأدوات تعمل بالكامل دون اتصال بالإنترنت.</string>
-    <string name="terms_body">يُقدَّم نوفيكسا مجانًا، كما هو، للاستخدام الشخصي. أنت مسؤول عن المحتوى الذي تعالجه باستخدام أدواته. تُقدَّم حاسبات ومحولات ومولّدات نوفيكسا للتسهيل والاستخدام العام؛ يُرجى التحقق من النتائج بشكل مستقل في القرارات المالية أو القانونية أو الطبية المهمة.</string>
+    <string name="privacy_policy_body">يعمل Nuvexa بالكامل على جهازك. لا ينشئ حساب مستخدم، ولا يرفع صورك أو مستنداتك أو نصوصك أو محتوى الحافظة، ولا يستخدم أي خدمة سحابية لأدواته. تُخزَّن بيانات مثل المفضلة وسجل الاستخدام والإعدادات محليًا في التخزين الخاص بالتطبيق ولا تُرسل إلى أي مكان أبدًا. النشاط الشبكي الوحيد في Nuvexa هو عرض الإعلانات الاختياري عبر Google AdMob؛ جميع الأدوات تعمل بالكامل دون اتصال بالإنترنت.</string>
+    <string name="terms_body">يُقدَّم Nuvexa مجانًا، كما هو، للاستخدام الشخصي. أنت مسؤول عن المحتوى الذي تعالجه باستخدام أدواته. تُقدَّم حاسبات ومحولات ومولّدات Nuvexa للتسهيل والاستخدام العام؛ يُرجى التحقق من النتائج بشكل مستقل في القرارات المالية أو القانونية أو الطبية المهمة.</string>
 
     <!-- Categories: calculators -->
     <string name="tool_calc_basic_name">الحاسبة</string>
@@ -227,7 +227,7 @@
     <string name="tool_currency_calculator_name">حاسبة العملات</string>
     <string name="tool_currency_calculator_desc">حوّل بين العملات باستخدام أسعار تحددها أنت</string>
     <string name="tool_currency_calculator_keywords">سعر الصرف، تحويل العملات، دولار إلى يورو</string>
-    <string name="currency_manual_rate_notice">يتم إدخال الأسعار يدويًا وتُحفظ على جهازك — لا يجلب نوفيكسا أسعارًا مباشرة أثناء عدم الاتصال.</string>
+    <string name="currency_manual_rate_notice">يتم إدخال الأسعار يدويًا وتُحفظ على جهازك — لا يجلب Nuvexa أسعارًا مباشرة أثناء عدم الاتصال.</string>
     <string name="currency_edit_rate">تعديل السعر</string>
     <string name="currency_base_currency">العملة الأساسية</string>
 

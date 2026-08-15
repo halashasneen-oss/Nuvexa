@@ -3,9 +3,12 @@ package com.nuvexa.app.ui.screens.tools
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -21,7 +24,7 @@ import com.nuvexa.app.R
 import com.nuvexa.app.core.model.ToolCategory
 import com.nuvexa.app.core.registry.ToolRegistry
 import com.nuvexa.app.ui.components.BannerAdView
-import com.nuvexa.app.ui.components.ToolCard
+import com.nuvexa.app.ui.components.ToolTile
 import com.nuvexa.app.ui.theme.LocalSpacing
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,23 +50,24 @@ fun CategoryToolsScreen(
             )
         },
     ) { innerPadding ->
-        LazyColumn(
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
             contentPadding = PaddingValues(spacing.l),
-            verticalArrangement = Arrangement.spacedBy(spacing.s),
+            horizontalArrangement = Arrangement.spacedBy(spacing.m),
+            verticalArrangement = Arrangement.spacedBy(spacing.m),
         ) {
             items(tools, key = { it.id }) { tool ->
-                ToolCard(
+                ToolTile(
                     icon = tool.icon,
                     name = stringResource(tool.nameRes),
-                    description = stringResource(tool.descriptionRes),
                     onClick = { onOpenTool(tool.id) },
                 )
             }
-            item {
-                BannerAdView(modifier = Modifier.padding(top = spacing.m))
+            item(span = { GridItemSpan(maxLineSpan) }) {
+                BannerAdView(modifier = Modifier.fillMaxWidth().padding(top = spacing.s))
             }
         }
     }

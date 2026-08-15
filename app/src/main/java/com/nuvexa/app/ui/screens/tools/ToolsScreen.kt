@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -19,7 +18,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.nuvexa.app.R
 import com.nuvexa.app.core.model.ToolCategory
 import com.nuvexa.app.core.registry.ToolRegistry
@@ -27,7 +25,7 @@ import com.nuvexa.app.core.search.SearchEngine
 import com.nuvexa.app.ui.components.AppSearchBar
 import com.nuvexa.app.ui.components.CategoryCard
 import com.nuvexa.app.ui.components.EmptyState
-import com.nuvexa.app.ui.components.ToolCard
+import com.nuvexa.app.ui.components.ToolTile
 import com.nuvexa.app.ui.theme.LocalSpacing
 
 @Composable
@@ -64,15 +62,16 @@ fun ToolsScreen(
                     modifier = Modifier.padding(top = spacing.xxl),
                 )
             } else {
-                androidx.compose.foundation.lazy.LazyColumn(
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(2),
                     contentPadding = PaddingValues(spacing.l),
-                    verticalArrangement = Arrangement.spacedBy(spacing.s),
+                    horizontalArrangement = Arrangement.spacedBy(spacing.m),
+                    verticalArrangement = Arrangement.spacedBy(spacing.m),
                 ) {
                     items(searchResults, key = { it.id }) { tool ->
-                        ToolCard(
+                        ToolTile(
                             icon = tool.icon,
                             name = stringResource(tool.nameRes),
-                            description = stringResource(tool.descriptionRes),
                             onClick = { onOpenTool(tool.id) },
                         )
                     }

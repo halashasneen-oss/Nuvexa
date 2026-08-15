@@ -1,5 +1,6 @@
 package com.nuvexa.app.ui.screens.settings
 
+import android.app.Activity
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -41,7 +42,7 @@ private sealed interface SettingsRow {
     data class Section(val title: String) : SettingsRow
     data class Radio(val label: String, val selected: Boolean, val onSelect: () -> Unit) : SettingsRow
     data class Switch(val label: String, val description: String?, val checked: Boolean, val onToggle: (Boolean) -> Unit) : SettingsRow
-    data class Click(val label: String, val trailing: String?, val onClick: () -> Unit) : SettingsRow
+    data class Click(val label: String, val trailing: String?, val onClick: (() -> Unit)? = null) : SettingsRow
 }
 
 @Composable
@@ -91,7 +92,15 @@ fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
         add(SettingsRow.Section(sectionLanguage))
         LocaleController.supportedLanguageTags.forEach { tag ->
             val label = tag?.let { LocaleController.nativeLanguageNames[it] } ?: languageSystemLabel
-            add(SettingsRow.Radio(label, uiState.languageTag == tag) { viewModel.setLanguage(tag) })
+            add(
+                SettingsRow.Radio(label, uiState.languageTag == tag) {
+                    viewModel.setLanguage(tag)
+                    // AppCompatDelegate.setApplicationLocales persists the choice, but MainActivity
+                    // is a plain ComponentActivity (no AppCompatActivity hook), so the running
+                    // Activity needs an explicit recreate to actually show the new language now.
+                    (context as? Activity)?.recreate()
+                },
+            )
         }
 
         add(SettingsRow.Section(sectionBehavior))
@@ -114,7 +123,7 @@ fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
         add(SettingsRow.Click(clearRecentLabel, null) { showClearRecentConfirm = true })
 
         add(SettingsRow.Section(sectionAbout))
-        add(SettingsRow.Click(versionLabel, com.nuvexa.app.BuildConfig.VERSION_NAME) {})
+        add(SettingsRow.Click(versionLabel, com.nuvexa.app.BuildConfig.VERSION_NAME))
         add(SettingsRow.Click(privacyPolicyLabel, null) { showPrivacyDialog = true })
         add(SettingsRow.Click(termsLabel, null) { showTermsDialog = true })
         add(
@@ -176,7 +185,7 @@ fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
                     is SettingsRow.Click -> Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable(onClick = row.onClick)
+                            .then(if (row.onClick != null) Modifier.clickable(onClick = row.onClick) else Modifier)
                             .padding(horizontal = spacing.l, vertical = spacing.m),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically,

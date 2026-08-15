@@ -1,5 +1,8 @@
 package com.nuvexa.app.ui.navigation
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -12,16 +15,19 @@ import androidx.compose.material.icons.outlined.History
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.filled.GridView
 import androidx.compose.material.icons.outlined.GridView
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.nuvexa.app.R
@@ -48,38 +54,50 @@ fun NuvexaRootScreen(startWithOnboarding: Boolean) {
     val currentRoute = backStackEntry?.destination?.route
     val showBottomBar = bottomDestinations.any { it.route == currentRoute }
 
-    Scaffold(
-        bottomBar = {
-            if (showBottomBar) {
-                NavigationBar {
-                    bottomDestinations.forEach { destination ->
-                        val selected = currentRoute == destination.route
-                        NavigationBarItem(
-                            selected = selected,
-                            onClick = {
-                                navController.navigate(destination.route) {
-                                    popUpTo(navController.graph.findStartDestination().id) { saveState = true }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            },
-                            icon = {
-                                androidx.compose.material3.Icon(
-                                    imageVector = if (selected) destination.selectedIcon else destination.unselectedIcon,
-                                    contentDescription = null,
-                                )
-                            },
-                            label = { Text(stringResource(destination.labelRes)) },
-                        )
+    // A soft gradient glow behind the whole app instead of a flat single background color —
+    // fades from a faint primary tint at the top into the normal background within the first
+    // ~420dp, then stays flat for the rest of the screen so content further down reads normally.
+    val glowHeightPx = with(LocalDensity.current) { 420.dp.toPx() }
+    val backgroundColor = MaterialTheme.colorScheme.background
+    val backgroundBrush = Brush.verticalGradient(
+        colors = listOf(
+            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.45f),
+            MaterialTheme.colorScheme.primary.copy(alpha = 0.08f),
+            backgroundColor,
+        ),
+        startY = 0f,
+        endY = glowHeightPx,
+    )
+
+    Box(modifier = Modifier.fillMaxSize().background(backgroundBrush)) {
+        Scaffold(
+            containerColor = Color.Transparent,
+            bottomBar = {
+                if (showBottomBar) {
+                    NavigationBar {
+                        bottomDestinations.forEach { destination ->
+                            val selected = currentRoute == destination.route
+                            NavigationBarItem(
+                                selected = selected,
+                                onClick = { navController.navigateToBottomDestination(destination.route) },
+                                icon = {
+                                    androidx.compose.material3.Icon(
+                                        imageVector = if (selected) destination.selectedIcon else destination.unselectedIcon,
+                                        contentDescription = null,
+                                    )
+                                },
+                                label = { Text(stringResource(destination.labelRes)) },
+                            )
+                        }
                     }
                 }
-            }
-        },
-    ) { innerPadding ->
-        NuvexaNavHost(
-            navController = navController,
-            startWithOnboarding = startWithOnboarding,
-            modifier = androidx.compose.ui.Modifier.padding(innerPadding),
-        )
+            },
+        ) { innerPadding ->
+            NuvexaNavHost(
+                navController = navController,
+                startWithOnboarding = startWithOnboarding,
+                modifier = Modifier.padding(innerPadding),
+            )
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.nuvexa.app.ui.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -43,8 +44,8 @@ fun NuvexaNavHost(
             HomeScreen(
                 onOpenTool = { toolId -> navController.navigateToTool(toolId) },
                 onOpenCategory = { categoryId -> navController.navigate(Routes.toolsCategory(categoryId)) },
-                onSeeAllRecent = { navController.navigate(Routes.HISTORY) },
-                onOpenSettings = { navController.navigate(Routes.SETTINGS) },
+                onSeeAllRecent = { navController.navigateToBottomDestination(Routes.HISTORY) },
+                onOpenSettings = { navController.navigateToBottomDestination(Routes.SETTINGS) },
             )
         }
 
@@ -94,4 +95,18 @@ fun NuvexaNavHost(
 
 private fun NavController.navigateToTool(toolId: String) {
     navigate(Routes.toolDetail(toolId))
+}
+
+/**
+ * Navigates to one of the 5 bottom-nav destinations using the same safe, single-instance
+ * pattern as the bottom bar itself, so entering e.g. Settings from a screen other than the
+ * bottom bar (like the gear icon on Home) behaves identically — including reliably popping
+ * back to Home when the user taps the Home tab afterward.
+ */
+internal fun NavController.navigateToBottomDestination(route: String) {
+    navigate(route) {
+        popUpTo(graph.findStartDestination().id) { saveState = true }
+        launchSingleTop = true
+        restoreState = true
+    }
 }
