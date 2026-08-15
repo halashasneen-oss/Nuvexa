@@ -2,7 +2,6 @@ package com.nuvexa.app.ui.screens.settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.nuvexa.app.core.util.LocaleController
 import com.nuvexa.app.data.repository.HistoryRepository
 import com.nuvexa.app.data.repository.RecentToolsRepository
 import com.nuvexa.app.data.repository.SettingsRepository
@@ -43,10 +42,7 @@ class SettingsViewModel @Inject constructor(
 
     fun setThemeMode(mode: ThemeMode) = viewModelScope.launch { settingsRepository.setThemeMode(mode) }
 
-    fun setLanguage(tag: String?) {
-        viewModelScope.launch { settingsRepository.setLanguageTag(tag) }
-        LocaleController.applyLanguage(tag)
-    }
+    fun setLanguage(tag: String?) = viewModelScope.launch { settingsRepository.setLanguageTag(tag) }
 
     fun setStartScreen(screen: StartScreen) = viewModelScope.launch { settingsRepository.setStartScreen(screen) }
 

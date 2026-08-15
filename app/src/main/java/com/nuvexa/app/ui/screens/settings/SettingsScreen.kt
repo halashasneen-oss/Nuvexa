@@ -95,9 +95,10 @@ fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
             add(
                 SettingsRow.Radio(label, uiState.languageTag == tag) {
                     viewModel.setLanguage(tag)
-                    // AppCompatDelegate.setApplicationLocales persists the choice, but MainActivity
-                    // is a plain ComponentActivity (no AppCompatActivity hook), so the running
-                    // Activity needs an explicit recreate to actually show the new language now.
+                    // Commits the tag synchronously (see LocaleController) and tells
+                    // AppCompatDelegate too, then recreates this Activity so
+                    // attachBaseContext() picks the new tag up immediately.
+                    LocaleController.applyLanguage(context, tag)
                     (context as? Activity)?.recreate()
                 },
             )
