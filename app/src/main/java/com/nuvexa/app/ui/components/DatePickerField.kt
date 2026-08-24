@@ -1,7 +1,9 @@
 package com.nuvexa.app.ui.components
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.matchParentSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material3.DatePicker
@@ -39,16 +41,26 @@ fun DatePickerField(
     var showDialog by remember { mutableStateOf(false) }
     val formatter = remember { DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(Locale.getDefault()) }
 
-    OutlinedTextField(
-        value = selectedDate.format(formatter),
-        onValueChange = {},
-        readOnly = true,
-        label = { Text(label) },
-        trailingIcon = { Icon(Icons.Filled.CalendarMonth, contentDescription = null) },
-        modifier = modifier
-            .fillMaxWidth()
-            .clickable { showDialog = true },
-    )
+    Box(modifier = modifier.fillMaxWidth()) {
+        OutlinedTextField(
+            value = selectedDate.format(formatter),
+            onValueChange = {},
+            readOnly = true,
+            label = { Text(label) },
+            trailingIcon = { Icon(Icons.Filled.CalendarMonth, contentDescription = null) },
+            modifier = Modifier.fillMaxWidth(),
+        )
+        // A readOnly OutlinedTextField can still grab focus (and briefly the keyboard) on
+        // tap depending on the IME/OEM keyboard, which can eat the first tap after picking a
+        // date — the tap dismisses the keyboard instead of reaching the next control. This
+        // fully transparent overlay intercepts every touch before it ever reaches the text
+        // field, so the field is purely decorative and this can't happen.
+        Box(
+            modifier = Modifier
+                .matchParentSize()
+                .clickable { showDialog = true },
+        )
+    }
 
     if (showDialog) {
         val state = rememberDatePickerState(
