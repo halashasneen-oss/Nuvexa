@@ -4,12 +4,17 @@ import org.w3c.dom.Node
 import org.xml.sax.InputSource
 import java.io.StringReader
 import java.io.StringWriter
-import javax.xml.XMLConstants
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.transform.OutputKeys
 import javax.xml.transform.TransformerFactory
 import javax.xml.transform.dom.DOMSource
 import javax.xml.transform.stream.StreamResult
+
+// javax.xml.XMLConstants.ACCESS_EXTERNAL_DTD/ACCESS_EXTERNAL_SCHEMA (JAXP 1.5) aren't declared
+// in Android's javax.xml.XMLConstants stub, so the property names are inlined as literals —
+// they're fixed, standard JAXP property URIs, not implementation-specific.
+private const val ACCESS_EXTERNAL_DTD = "http://javax.xml.XMLConstants/property/accessExternalDTD"
+private const val ACCESS_EXTERNAL_SCHEMA = "http://javax.xml.XMLConstants/property/accessExternalSchema"
 
 /** Builds an XXE-hardened [DocumentBuilderFactory]. This formatter only ever pretty-prints
  * text the user pasted in — it has no legitimate reason to fetch a DTD, schema, or external
@@ -26,10 +31,10 @@ private fun hardenedXmlDocumentBuilderFactory(): DocumentBuilderFactory =
         setFeature("http://xml.org/sax/features/external-general-entities", false)
         setFeature("http://xml.org/sax/features/external-parameter-entities", false)
         setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
-        // Not every JAXP implementation recognizes the JAXP-1.5 accessExternal* attributes
-        // (older Android XML stacks in particular) — best-effort, never fatal.
-        runCatching { setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "") }
-        runCatching { setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "") }
+        // Not every JAXP implementation recognizes these accessExternal* attributes
+        // (older/Android XML stacks in particular) — best-effort, never fatal.
+        runCatching { setAttribute(ACCESS_EXTERNAL_DTD, "") }
+        runCatching { setAttribute(ACCESS_EXTERNAL_SCHEMA, "") }
     }
 
 fun formatXml(input: String): Result<String> = runCatching {
