@@ -227,7 +227,7 @@
     <string name="tool_currency_calculator_name">حاسبة العملات</string>
     <string name="tool_currency_calculator_desc">حوّل بين العملات باستخدام أسعار تحددها أنت</string>
     <string name="tool_currency_calculator_keywords">سعر الصرف، تحويل العملات، دولار إلى يورو</string>
-    <string name="currency_manual_rate_notice">يتم إدخال الأسعار يدويًا وتُحفظ على جهازك — لا يجلب Nuvexa أسعارًا مباشرة أثناء عدم الاتصال.</string>
+    <string name="currency_manual_rate_notice">أسعار يدوية فقط، وليست بيانات سوق مباشرة. أدخلها وعدّلها بنفسك — لا تتوفر لدى Nuvexa أي خدمة بيانات عملات، سواء أثناء الاتصال أو عدمه.</string>
     <string name="currency_edit_rate">تعديل السعر</string>
     <string name="currency_base_currency">العملة الأساسية</string>
 

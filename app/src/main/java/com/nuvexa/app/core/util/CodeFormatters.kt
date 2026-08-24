@@ -4,18 +4,40 @@ import org.w3c.dom.Node
 import org.xml.sax.InputSource
 import java.io.StringReader
 import java.io.StringWriter
+import javax.xml.XMLConstants
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.transform.OutputKeys
 import javax.xml.transform.TransformerFactory
 import javax.xml.transform.dom.DOMSource
 import javax.xml.transform.stream.StreamResult
 
-fun formatXml(input: String): Result<String> = runCatching {
-    val factory = DocumentBuilderFactory.newInstance().apply {
+/** Builds an XXE-hardened [DocumentBuilderFactory]. This formatter only ever pretty-prints
+ * text the user pasted in — it has no legitimate reason to fetch a DTD, schema, or external
+ * entity from anywhere, local or remote. Per the OWASP XXE Prevention Cheat Sheet, the
+ * simplest and strongest defense is to reject DOCTYPE declarations outright; the other
+ * features/attributes below are defense-in-depth in case a given JAXP implementation
+ * doesn't fully honor disallow-doctype-decl. */
+private fun hardenedXmlDocumentBuilderFactory(): DocumentBuilderFactory =
+    DocumentBuilderFactory.newInstance().apply {
         isNamespaceAware = true
+        isXIncludeAware = false
+        isExpandEntityReferences = false
+        setFeature("http://apache.org/xml/features/disallow-doctype-decl", true)
+        setFeature("http://xml.org/sax/features/external-general-entities", false)
+        setFeature("http://xml.org/sax/features/external-parameter-entities", false)
         setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
+        // Not every JAXP implementation recognizes the JAXP-1.5 accessExternal* attributes
+        // (older Android XML stacks in particular) — best-effort, never fatal.
+        runCatching { setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "") }
+        runCatching { setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "") }
     }
-    val document = factory.newDocumentBuilder().parse(InputSource(StringReader(input)))
+
+fun formatXml(input: String): Result<String> = runCatching {
+    val document = hardenedXmlDocumentBuilderFactory().newDocumentBuilder().apply {
+        // Belt-and-suspenders: even if DOCTYPE/entity processing were somehow not fully
+        // disabled above, resolve every external entity to nothing rather than fetching it.
+        setEntityResolver { _, _ -> InputSource(StringReader("")) }
+    }.parse(InputSource(StringReader(input)))
     document.normalize()
     stripWhitespaceNodes(document)
 

@@ -85,7 +85,7 @@
 <main>
   <header>
     <h1>Nuvexa — Privacy Policy</h1>
-    <div class="updated">Last updated: August 15, 2026</div>
+    <div class="updated">Last updated: August 24, 2026</div>
   </header>
 
   <div class="card">
@@ -105,16 +105,19 @@
       service to run its tools.
     </p>
     <p>Information such as your favorites, history entries, and app settings (theme,
-      language, preferences) is stored only in the app's private local storage on your
-      device. It is never transmitted to Nuvexa or to any third party, and it is deleted
-      if you clear the app's data or uninstall it.</p>
+      language, preferences) is stored in the app's private local storage on your device.
+      Nuvexa itself never transmits it anywhere — see "Android backup" below for the one
+      way Android's own OS-level backup can still move some of it off the device. It is
+      deleted if you clear the app's data or uninstall it.</p>
   </div>
 
   <div class="card">
     <h2>Permissions we ask for, and why</h2>
     <ul>
-      <li><strong>Camera</strong> — used only when you open the QR/barcode scanner tool, to read a code
-        pointed at the camera. No photo or video is stored or sent anywhere.</li>
+      <li><strong>Camera</strong> — used by the QR/barcode scanner to read a code pointed at the camera,
+        and separately by the "scan text" (OCR) tools to capture a photo that Nuvexa then reads
+        text out of. In both cases the camera feed and any captured photo are processed only on
+        your device and are never uploaded anywhere.</li>
       <li><strong>Internet / network state</strong> — used only to serve optional advertising through
         Google AdMob (see below). Every tool in Nuvexa works fully offline; this permission
         is not required for the app's core functionality.</li>
@@ -122,6 +125,25 @@
         setting in the app.</li>
     </ul>
     <p>Nuvexa requests each permission only when the relevant tool is actually opened, not at launch.</p>
+  </div>
+
+  <div class="card">
+    <h2>Text recognition (OCR)</h2>
+    <p>
+      The tools that "extract text" from a photo, the camera, or a PDF use Google ML Kit's
+      on-device text recognizer, running with a model bundled inside the app. The image is
+      processed locally and is never sent to a server or to Google for this — recognition works
+      the same with your network connection fully off.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Currency rates</h2>
+    <p>
+      The Currency tool uses fixed reference rates stored in the app, not a live market feed —
+      Nuvexa has no server and does not fetch exchange rates over the network. The app makes this
+      clear in the tool itself; do not rely on it for rates that must reflect the current market.
+    </p>
   </div>
 
   <div class="card">
@@ -139,10 +161,23 @@
   <div class="card">
     <h2>Data retention and your choices</h2>
     <p>
-      Because everything Nuvexa stores lives only on your device, you are always in
-      control of it: clear your history or favorites from within the app's Settings at
-      any time, or remove all app data by uninstalling Nuvexa or clearing its storage
-      from your device's system settings.
+      You are always in control of what Nuvexa stores: clear your history or favorites from
+      within the app's Settings at any time, or remove all app data by uninstalling Nuvexa or
+      clearing its storage from your device's system settings.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Android backup</h2>
+    <p>
+      Nuvexa itself has no server and never uploads your favorites, history, or settings
+      anywhere — but Android's own backup system, which Nuvexa does not control, can. Your
+      app settings (theme, language, and similar preferences) may be included in Android's
+      standard device backup/restore and device-to-device transfer features, the same as most
+      apps. Favorites and history entries are deliberately excluded from Google's cloud backup,
+      since they can reflect what you calculated, converted, or encrypted, but they are included
+      when moving data directly to a new device you set up yourself. You can turn off Android's
+      backup for Nuvexa (or any app) from your device's system settings at any time.
     </p>
   </div>
 

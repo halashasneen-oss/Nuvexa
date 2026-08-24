@@ -227,7 +227,7 @@
     <string name="tool_currency_calculator_name">Calculateur de devises</string>
     <string name="tool_currency_calculator_desc">Convertissez entre devises avec des taux que vous définissez</string>
     <string name="tool_currency_calculator_keywords">taux de change, conversion monétaire, dollars en euros</string>
-    <string name="currency_manual_rate_notice">Les taux sont saisis manuellement et stockés sur votre appareil — Nuvexa ne récupère pas de taux en direct hors ligne.</string>
+    <string name="currency_manual_rate_notice">Taux manuels uniquement, pas des données de marché en direct. Saisissez-les et modifiez-les vous-même — Nuvexa ne dispose d\'aucun service de données de change, en ligne ou hors ligne.</string>
     <string name="currency_edit_rate">Modifier le taux</string>
     <string name="currency_base_currency">Devise de base</string>
 

@@ -23,10 +23,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.nuvexa.app.R
 import com.nuvexa.app.core.model.ToolCategory
+import android.graphics.pdf.PdfDocument
 import com.nuvexa.app.core.util.EncryptedPdfException
-import com.nuvexa.app.core.util.buildPdfFromBitmaps
+import com.nuvexa.app.core.util.addBitmapPage
 import com.nuvexa.app.core.util.getPdfPageCount
-import com.nuvexa.app.core.util.renderPdfPages
+import com.nuvexa.app.core.util.processPdfPages
 import com.nuvexa.app.core.util.savePdfDocument
 import com.nuvexa.app.core.util.shareFile
 import com.nuvexa.app.ui.components.EmptyState
@@ -71,17 +72,22 @@ fun PdfRotateScreen(modifier: Modifier = Modifier, onResult: (String) -> Unit) {
 
     fun rotate() {
         val uri = sourceUri ?: return
-        val pages = runCatching { context.renderPdfPages(uri) }
-        pages.onSuccess { bitmaps ->
-            if (bitmaps.isEmpty()) {
+        val targetIndex = (specificPage.toIntOrNull() ?: 1) - 1
+        val document = PdfDocument()
+        var pageNumber = 0
+        val outcome = runCatching {
+            context.processPdfPages(uri) { index, bitmap ->
+                pageNumber++
+                val rotation = if (rotateAll || index == targetIndex) angle else 0
+                document.addBitmapPage(bitmap, pageNumber, rotation)
+                true
+            }
+        }
+        outcome.onSuccess { processedCount ->
+            if (processedCount == 0) {
                 error = noPagesError
                 return@onSuccess
             }
-            val targetIndex = (specificPage.toIntOrNull() ?: 1) - 1
-            val rotations = bitmaps.indices.map { index ->
-                if (rotateAll || index == targetIndex) angle else 0
-            }
-            val document = buildPdfFromBitmaps(bitmaps, rotations)
             resultFile = context.savePdfDocument(document, "ROTATED")
             onResult("Rotated PDF pages by $angle°")
         }.onFailure {

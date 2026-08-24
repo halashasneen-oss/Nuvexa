@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-   Nuvexa stores nothing but local app preferences and lightweight usage
-   metadata (favorites, history entries, settings) — never file contents.
-   The defaults (full backup, no exclusions) are safe for this data.
+   Legacy (API < 31) full-backup config — mirrors data_extraction_rules.xml. Favorites and
+   history entries can reflect what a user calculated, converted, or encrypted; that never
+   leaves the device to a Nuvexa server, but it's excluded from Google's cloud backup too,
+   in keeping with Nuvexa's local-only positioning. Preferences (theme, language, haptics)
+   are not sensitive and stay backed up.
 -->
-<full-backup-content />
+<full-backup-content>
+    <exclude domain="database" path="." />
+</full-backup-content>

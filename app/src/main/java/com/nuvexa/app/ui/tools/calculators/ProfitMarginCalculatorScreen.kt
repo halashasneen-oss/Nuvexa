@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.nuvexa.app.R
 import com.nuvexa.app.core.util.formatResultNumber
+import com.nuvexa.app.core.util.safeDivide
 import com.nuvexa.app.ui.components.NuvexaNumberField
 import com.nuvexa.app.ui.components.PrimaryButton
 import com.nuvexa.app.ui.components.ResultCard
@@ -29,12 +30,23 @@ fun ProfitMarginCalculatorScreen(modifier: Modifier = Modifier, onResult: (Strin
     var cost by remember { mutableStateOf("") }
     var revenue by remember { mutableStateOf("") }
     var result by remember { mutableStateOf<MarginResult?>(null) }
+    var error by remember { mutableStateOf<String?>(null) }
+    val divisionByZeroError = stringResource(R.string.error_division_by_zero)
 
     fun calculate() {
         val costValue = cost.toBigDecimalOrNull() ?: return
-        val revenueValue = revenue.toBigDecimalOrNull()?.takeIf { it != BigDecimal.ZERO } ?: return
+        val revenueValue = revenue.toBigDecimalOrNull() ?: return
         val profit = revenueValue - costValue
-        val margin = profit * BigDecimal(100) / revenueValue
+        // Revenue is a user-entered, arbitrary divisor (not a fixed 100), so this must go
+        // through safeDivide: both zero revenue and ordinary values like 3 (which produce a
+        // non-terminating decimal) would otherwise crash with ArithmeticException.
+        val margin = (profit * BigDecimal(100)).safeDivide(revenueValue)
+        if (margin == null) {
+            error = divisionByZeroError
+            result = null
+            return
+        }
+        error = null
         result = MarginResult(margin, profit)
         onResult("Margin on cost $cost, revenue $revenue = ${formatResultNumber(margin)}%")
     }
@@ -48,6 +60,7 @@ fun ProfitMarginCalculatorScreen(modifier: Modifier = Modifier, onResult: (Strin
             modifier = Modifier.fillMaxWidth(),
             enabled = cost.isNotBlank() && revenue.isNotBlank(),
         )
+        error?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodyMedium) }
         result?.let { r ->
             Column(verticalArrangement = Arrangement.spacedBy(spacing.s)) {
                 ResultCard(value = "${formatResultNumber(r.marginPercent.round(MathContext(6)))}%", label = stringResource(R.string.margin_result))

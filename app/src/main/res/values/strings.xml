@@ -227,7 +227,7 @@
     <string name="tool_currency_calculator_name">Currency Calculator</string>
     <string name="tool_currency_calculator_desc">Convert between currencies using rates you set</string>
     <string name="tool_currency_calculator_keywords">exchange rate, money conversion, dollars to euros</string>
-    <string name="currency_manual_rate_notice">Rates are entered manually and stored on your device — Nuvexa doesn\'t fetch live rates while offline.</string>
+    <string name="currency_manual_rate_notice">Manual rates only, not live market data. Enter and edit them yourself — Nuvexa has no currency data service, online or offline.</string>
     <string name="currency_edit_rate">Edit rate</string>
     <string name="currency_base_currency">Base currency</string>
 

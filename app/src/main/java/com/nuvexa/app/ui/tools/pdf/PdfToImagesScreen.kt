@@ -21,7 +21,7 @@ import androidx.compose.ui.res.stringResource
 import com.nuvexa.app.R
 import com.nuvexa.app.core.model.ToolCategory
 import com.nuvexa.app.core.util.EncryptedPdfException
-import com.nuvexa.app.core.util.renderPdfPages
+import com.nuvexa.app.core.util.processPdfPages
 import com.nuvexa.app.core.util.saveJpegToAppPictures
 import com.nuvexa.app.core.util.shareFile
 import com.nuvexa.app.ui.components.EmptyState
@@ -42,13 +42,21 @@ fun PdfToImagesScreen(modifier: Modifier = Modifier, onResult: (String) -> Unit)
 
     val pickPdf = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         if (uri == null) return@rememberLauncherForActivityResult
-        runCatching { context.renderPdfPages(uri, targetLongEdge = 1400) }
-            .onSuccess { pages ->
-                if (pages.isEmpty()) {
+        // Each page is rendered, written to storage, and released before the next page is
+        // rendered — only one page's bitmap is ever in memory at once.
+        val files = mutableListOf<File>()
+        runCatching {
+            context.processPdfPages(uri, targetLongEdge = 1400) { index, bitmap ->
+                files.add(context.saveJpegToAppPictures(bitmap, "PAGE_${index + 1}", 92))
+                true
+            }
+        }
+            .onSuccess { processedCount ->
+                if (processedCount == 0) {
                     error = noPagesError
                 } else {
-                    savedFiles = pages.mapIndexed { index, bitmap -> context.saveJpegToAppPictures(bitmap, "PAGE_${index + 1}", 92) }
-                    onResult("Exported ${pages.size} pages as images")
+                    savedFiles = files
+                    onResult("Exported ${files.size} pages as images")
                     error = null
                 }
             }

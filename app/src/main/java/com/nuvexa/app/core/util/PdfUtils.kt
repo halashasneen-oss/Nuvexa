@@ -49,10 +49,11 @@ fun Context.getPdfPageCount(uri: Uri): Int? = openPdf(uri)?.use { it.renderer.pa
 
 /** Renders every page of the PDF at [uri] to a bitmap, longest edge scaled to roughly
  * [targetLongEdge] px. Capped at [maxPages] pages to keep memory use bounded on huge files.
- * Every page ends up held in memory at once (the caller needs them all to rebuild a PDF),
- * so both defaults are deliberately conservative — fine for typical personal documents,
- * and [Context.renderPdfPage] (single page) should be preferred wherever only one page at
- * a time is actually needed. */
+ * Every page ends up held in memory **at once** — only use this where the UI genuinely needs
+ * simultaneous access to all pages (e.g. Organize's reorderable thumbnail list). For any
+ * transform-and-rebuild flow (split/merge/rotate/watermark/export), prefer [processPdfPages]
+ * which renders, processes, and recycles one page at a time. [Context.renderPdfPage] should be
+ * used wherever only a single page is needed (e.g. on-demand viewer rendering). */
 fun Context.renderPdfPages(uri: Uri, targetLongEdge: Int = 1000, maxPages: Int = 150): List<Bitmap> {
     val bitmaps = mutableListOf<Bitmap>()
     openPdf(uri)?.use { open ->
@@ -68,6 +69,38 @@ fun Context.renderPdfPage(uri: Uri, index: Int, targetLongEdge: Int = 1600): Bit
     openPdf(uri)?.use { open ->
         if (index !in 0 until open.renderer.pageCount) null else renderOnePage(open.renderer, index, targetLongEdge)
     }
+
+/** Streams the pages of the PDF at [uri] through [onPage] one at a time: render a page, hand
+ * it to the caller, recycle it, then move on — at most one page's bitmap is ever held in
+ * memory, unlike [renderPdfPages]. [onPage] receives the zero-based page index; return `false`
+ * to stop early (e.g. once enough pages have been collected). [pageRange] limits which pages
+ * are rendered at all (pages outside it are skipped without ever being decoded), which is the
+ * key saving for tools like Split that only need a slice of a large PDF. Returns the number of
+ * pages actually processed. */
+fun Context.processPdfPages(
+    uri: Uri,
+    targetLongEdge: Int = 1000,
+    maxPages: Int = 150,
+    pageRange: IntRange? = null,
+    onPage: (index: Int, bitmap: Bitmap) -> Boolean = { _, _ -> true },
+): Int {
+    var processed = 0
+    openPdf(uri)?.use { open ->
+        val count = open.renderer.pageCount.coerceAtMost(maxPages)
+        val range = pageRange?.let { it.first.coerceAtLeast(0)..it.last.coerceAtMost(count - 1) } ?: 0 until count
+        for (i in range) {
+            val bitmap = renderOnePage(open.renderer, i, targetLongEdge) ?: continue
+            val keepGoing = try {
+                onPage(i, bitmap)
+            } finally {
+                bitmap.recycle()
+            }
+            processed++
+            if (!keepGoing) break
+        }
+    }
+    return processed
+}
 
 private fun renderOnePage(renderer: PdfRenderer, index: Int, targetLongEdge: Int): Bitmap? {
     val page = renderer.openPage(index)
@@ -90,29 +123,41 @@ private fun rotateBitmap(bitmap: Bitmap, degrees: Int): Bitmap {
     return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
 }
 
+/** Adds one A4 page to [document] from [original] (scaled to fit with a small margin),
+ * as page number [pageNumber] (1-based). The caller keeps ownership of [original] — this
+ * does not recycle it. Used both by [buildPdfFromBitmaps] (all pages already in memory) and
+ * by streaming callers that render/add/recycle one page at a time. */
+fun PdfDocument.addBitmapPage(original: Bitmap, pageNumber: Int, rotationDegrees: Int = 0, watermarkText: String? = null) {
+    val margin = 24f
+    val bitmap = rotateBitmap(original, rotationDegrees)
+    val pageInfo = PdfDocument.PageInfo.Builder(PDF_PAGE_WIDTH_PT, PDF_PAGE_HEIGHT_PT, pageNumber).create()
+    val page = startPage(pageInfo)
+    val canvas = page.canvas
+    canvas.drawColor(Color.WHITE)
+
+    val availableWidth = PDF_PAGE_WIDTH_PT - margin * 2
+    val availableHeight = PDF_PAGE_HEIGHT_PT - margin * 2
+    val scale = minOf(availableWidth / bitmap.width, availableHeight / bitmap.height)
+    val destWidth = bitmap.width * scale
+    val destHeight = bitmap.height * scale
+    val left = (PDF_PAGE_WIDTH_PT - destWidth) / 2f
+    val top = (PDF_PAGE_HEIGHT_PT - destHeight) / 2f
+    canvas.drawBitmap(bitmap, null, RectF(left, top, left + destWidth, top + destHeight), Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG))
+
+    watermarkText?.let { drawWatermark(canvas, it) }
+    finishPage(page)
+    if (bitmap !== original) bitmap.recycle()
+}
+
 /** Builds a new PDF with one A4 page per bitmap, each scaled to fit with a small margin.
- * [rotations] (degrees, one per bitmap) is applied to the source image before layout. */
+ * [rotations] (degrees, one per bitmap) is applied to the source image before layout.
+ * Requires every bitmap to already be in memory at once — prefer streaming the source PDF
+ * page-by-page with [processPdfPages] + [addBitmapPage] when the bitmaps come from rendering
+ * a (possibly large) source PDF rather than from a bounded, user-picked list of images. */
 fun buildPdfFromBitmaps(bitmaps: List<Bitmap>, rotations: List<Int>? = null, watermarkText: String? = null): PdfDocument {
     val document = PdfDocument()
-    val margin = 24f
-    bitmaps.forEachIndexed { index, original ->
-        val bitmap = rotateBitmap(original, rotations?.getOrNull(index) ?: 0)
-        val pageInfo = PdfDocument.PageInfo.Builder(PDF_PAGE_WIDTH_PT, PDF_PAGE_HEIGHT_PT, index + 1).create()
-        val page = document.startPage(pageInfo)
-        val canvas = page.canvas
-        canvas.drawColor(Color.WHITE)
-
-        val availableWidth = PDF_PAGE_WIDTH_PT - margin * 2
-        val availableHeight = PDF_PAGE_HEIGHT_PT - margin * 2
-        val scale = minOf(availableWidth / bitmap.width, availableHeight / bitmap.height)
-        val destWidth = bitmap.width * scale
-        val destHeight = bitmap.height * scale
-        val left = (PDF_PAGE_WIDTH_PT - destWidth) / 2f
-        val top = (PDF_PAGE_HEIGHT_PT - destHeight) / 2f
-        canvas.drawBitmap(bitmap, null, RectF(left, top, left + destWidth, top + destHeight), Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG))
-
-        watermarkText?.let { drawWatermark(canvas, it) }
-        document.finishPage(page)
+    bitmaps.forEachIndexed { index, bitmap ->
+        document.addBitmapPage(bitmap, index + 1, rotations?.getOrNull(index) ?: 0, watermarkText)
     }
     return document
 }

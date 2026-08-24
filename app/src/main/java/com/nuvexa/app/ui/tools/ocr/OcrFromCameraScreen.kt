@@ -53,7 +53,12 @@ fun OcrFromCameraScreen(modifier: Modifier = Modifier, onResult: (String) -> Uni
         resultText = null
         error = null
         scope.launch {
-            runCatching { recognizeTextInImage(bitmap) }
+            val outcome = try {
+                runCatching { recognizeTextInImage(bitmap) }
+            } finally {
+                bitmap.recycle()
+            }
+            outcome
                 .onSuccess { text ->
                     isProcessing = false
                     if (text.isBlank()) error = noTextError else { resultText = text; onResult("Extracted text from a photo") }

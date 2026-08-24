@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -34,19 +35,31 @@ fun TimerScreen(modifier: Modifier = Modifier) {
     val context = LocalContext.current
     var minutesInput by remember { mutableStateOf("5") }
     var secondsInput by remember { mutableStateOf("0") }
-    var remainingMs by remember { mutableStateOf(0L) }
+    // remainingMs is the frozen duration shown while stopped/paused. While running, the source
+    // of truth is targetEpochMs (an absolute wall-clock deadline) — remaining time is always
+    // recomputed as targetEpochMs - now, so backgrounding the app, a locked screen, or a
+    // delayed coroutine tick never desyncs the countdown the way accumulating "now - 200ms"
+    // on every tick would.
+    var remainingMs by remember { mutableLongStateOf(0L) }
+    var targetEpochMs by remember { mutableStateOf<Long?>(null) }
     var isRunning by remember { mutableStateOf(false) }
     var finished by remember { mutableStateOf(false) }
 
-    LaunchedEffect(isRunning) {
-        while (isRunning && remainingMs > 0) {
+    LaunchedEffect(isRunning, targetEpochMs) {
+        val target = targetEpochMs
+        if (!isRunning || target == null) return@LaunchedEffect
+        while (true) {
+            val remaining = target - System.currentTimeMillis()
+            if (remaining <= 0) {
+                remainingMs = 0
+                isRunning = false
+                finished = true
+                targetEpochMs = null
+                vibrate(context)
+                break
+            }
+            remainingMs = remaining
             delay(200)
-            remainingMs = (remainingMs - 200).coerceAtLeast(0)
-        }
-        if (isRunning && remainingMs <= 0) {
-            isRunning = false
-            finished = true
-            vibrate(context)
         }
     }
 
@@ -94,19 +107,28 @@ fun TimerScreen(modifier: Modifier = Modifier) {
             PrimaryButton(
                 text = stringResource(if (isRunning) R.string.stopwatch_pause else R.string.timer_start),
                 onClick = {
-                    if (!isRunning && remainingMs == 0L) {
-                        val m = minutesInput.toLongOrNull() ?: 0L
-                        val s = secondsInput.toLongOrNull() ?: 0L
-                        remainingMs = (m * 60 + s) * 1000
-                        finished = false
+                    if (isRunning) {
+                        // Pause: remainingMs is already frozen at its last computed value.
+                        isRunning = false
+                        targetEpochMs = null
+                    } else {
+                        if (remainingMs == 0L) {
+                            val m = minutesInput.toLongOrNull() ?: 0L
+                            val s = secondsInput.toLongOrNull() ?: 0L
+                            remainingMs = (m * 60 + s) * 1000
+                            finished = false
+                        }
+                        if (remainingMs > 0) {
+                            targetEpochMs = System.currentTimeMillis() + remainingMs
+                            isRunning = true
+                        }
                     }
-                    if (remainingMs > 0) isRunning = !isRunning
                 },
                 modifier = Modifier.weight(1f),
             )
             SecondaryButton(
                 text = stringResource(R.string.stopwatch_reset),
-                onClick = { isRunning = false; remainingMs = 0L; finished = false },
+                onClick = { isRunning = false; targetEpochMs = null; remainingMs = 0L; finished = false },
                 modifier = Modifier.weight(1f),
                 enabled = remainingMs > 0 || finished,
             )

@@ -23,13 +23,16 @@ import com.nuvexa.app.R
 import com.nuvexa.app.core.model.ToolCategory
 import com.nuvexa.app.core.util.EncryptedPdfException
 import com.nuvexa.app.core.util.copyTextToClipboard
+import com.nuvexa.app.core.util.getPdfPageCount
 import com.nuvexa.app.core.util.recognizeTextInImage
-import com.nuvexa.app.core.util.renderPdfPages
+import com.nuvexa.app.core.util.renderPdfPage
 import com.nuvexa.app.ui.components.EmptyState
 import com.nuvexa.app.ui.components.PrimaryButton
 import com.nuvexa.app.ui.components.ResultCard
 import com.nuvexa.app.ui.theme.LocalSpacing
 import kotlinx.coroutines.launch
+
+private object NoPdfPagesException : Exception("This PDF has no pages.")
 
 @Composable
 fun OcrFromPdfScreen(modifier: Modifier = Modifier, onResult: (String) -> Unit) {
@@ -51,17 +54,25 @@ fun OcrFromPdfScreen(modifier: Modifier = Modifier, onResult: (String) -> Unit) 
         resultText = null
         error = null
         scope.launch {
-            val pagesResult = runCatching { context.renderPdfPages(uri, targetLongEdge = 1400) }
-            pagesResult.onSuccess { bitmaps ->
-                if (bitmaps.isEmpty()) {
-                    isProcessing = false
-                    error = noPagesError
-                    return@onSuccess
+            // One page is rendered, OCR'd, and released before the next page is rendered —
+            // only a single page's bitmap is ever in memory, unlike batch-rendering the
+            // whole PDF up front.
+            val outcome = runCatching {
+                val count = (context.getPdfPageCount(uri) ?: 0).coerceAtMost(150)
+                if (count == 0) throw NoPdfPagesException
+                val texts = mutableListOf<String>()
+                for (index in 0 until count) {
+                    val bitmap = context.renderPdfPage(uri, index, targetLongEdge = 1400) ?: continue
+                    val text = try {
+                        runCatching { recognizeTextInImage(bitmap) }.getOrDefault("")
+                    } finally {
+                        bitmap.recycle()
+                    }
+                    if (text.isNotBlank()) texts.add("${pageLabelTemplate.format(index + 1)}\n$text")
                 }
-                val texts = bitmaps.mapIndexed { index, bitmap ->
-                    val text = runCatching { recognizeTextInImage(bitmap) }.getOrDefault("")
-                    if (text.isBlank()) "" else "${pageLabelTemplate.format(index + 1)}\n$text"
-                }.filter { it.isNotBlank() }
+                texts
+            }
+            outcome.onSuccess { texts ->
                 isProcessing = false
                 if (texts.isEmpty()) {
                     error = noTextError

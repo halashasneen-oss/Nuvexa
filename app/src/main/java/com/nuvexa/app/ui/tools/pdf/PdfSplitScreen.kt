@@ -19,10 +19,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.nuvexa.app.R
 import com.nuvexa.app.core.model.ToolCategory
+import android.graphics.pdf.PdfDocument
 import com.nuvexa.app.core.util.EncryptedPdfException
-import com.nuvexa.app.core.util.buildPdfFromBitmaps
+import com.nuvexa.app.core.util.addBitmapPage
 import com.nuvexa.app.core.util.getPdfPageCount
-import com.nuvexa.app.core.util.renderPdfPages
+import com.nuvexa.app.core.util.processPdfPages
 import com.nuvexa.app.core.util.savePdfDocument
 import com.nuvexa.app.core.util.shareFile
 import com.nuvexa.app.ui.components.EmptyState
@@ -67,14 +68,23 @@ fun PdfSplitScreen(modifier: Modifier = Modifier, onResult: (String) -> Unit) {
         val uri = sourceUri ?: return
         val from = (fromPage.toIntOrNull() ?: 1).coerceIn(1, pageCount)
         val to = (toPage.toIntOrNull() ?: pageCount).coerceIn(from, pageCount)
-        val pages = runCatching { context.renderPdfPages(uri) }
-        pages.onSuccess { all ->
-            val subset = all.subList(from - 1, to)
-            if (subset.isEmpty()) {
+        val document = PdfDocument()
+        var pageNumber = 0
+        val outcome = runCatching {
+            // Only pages inside [from, to] are ever decoded — the rest of the source PDF
+            // is skipped entirely, so a large document outside the requested range never
+            // touches memory.
+            context.processPdfPages(uri, pageRange = (from - 1) until to) { _, bitmap ->
+                pageNumber++
+                document.addBitmapPage(bitmap, pageNumber)
+                true
+            }
+        }
+        outcome.onSuccess { processedCount ->
+            if (processedCount == 0) {
                 error = noPagesError
                 return@onSuccess
             }
-            val document = buildPdfFromBitmaps(subset)
             resultFile = context.savePdfDocument(document, "SPLIT")
             onResult("Split pages $from–$to into a new PDF")
         }.onFailure {

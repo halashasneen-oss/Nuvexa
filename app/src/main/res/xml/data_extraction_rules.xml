@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+   History and favorites entries can reflect what a user calculated, converted, or
+   encrypted with Nuvexa — even though that data is never sent to a Nuvexa server, it
+   shouldn't be swept into Google's cloud backup either, in keeping with Nuvexa's
+   local-only positioning. So the "database" domain (Room: favorites/history/currency
+   rates) is deliberately left out of cloud-backup. Same-device-to-new-device transfer
+   (device-transfer) is a more direct, user-initiated move of the user's own data, so it
+   stays included there for convenience. Preferences (theme, language, haptics) aren't
+   sensitive and stay backed up in both cases.
+-->
 <data-extraction-rules>
     <cloud-backup>
         <include domain="sharedpref" path="." />
-        <include domain="database" path="." />
     </cloud-backup>
     <device-transfer>
         <include domain="sharedpref" path="." />

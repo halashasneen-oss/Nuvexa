@@ -18,9 +18,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.nuvexa.app.R
 import com.nuvexa.app.core.model.ToolCategory
+import android.graphics.pdf.PdfDocument
 import com.nuvexa.app.core.util.EncryptedPdfException
-import com.nuvexa.app.core.util.buildPdfFromBitmaps
-import com.nuvexa.app.core.util.renderPdfPages
+import com.nuvexa.app.core.util.addBitmapPage
+import com.nuvexa.app.core.util.processPdfPages
 import com.nuvexa.app.core.util.savePdfDocument
 import com.nuvexa.app.core.util.shareFile
 import com.nuvexa.app.ui.components.EmptyState
@@ -48,15 +49,24 @@ fun PdfMergeScreen(modifier: Modifier = Modifier, onResult: (String) -> Unit) {
     }
 
     fun merge() {
-        val allBitmaps = runCatching {
-            pdfUris.flatMap { context.renderPdfPages(it) }
+        val document = PdfDocument()
+        var pageNumber = 0
+        // Each source PDF is streamed one page at a time — only a single page's bitmap is
+        // ever in memory, regardless of how many files or how large they are.
+        val outcome = runCatching {
+            pdfUris.forEach { uri ->
+                context.processPdfPages(uri) { _, bitmap ->
+                    pageNumber++
+                    document.addBitmapPage(bitmap, pageNumber)
+                    true
+                }
+            }
         }
-        allBitmaps.onSuccess { bitmaps ->
-            if (bitmaps.isEmpty()) {
+        outcome.onSuccess {
+            if (pageNumber == 0) {
                 error = noPagesError
                 return@onSuccess
             }
-            val document = buildPdfFromBitmaps(bitmaps)
             resultFile = context.savePdfDocument(document, "MERGED")
             onResult("Merged ${pdfUris.size} PDFs")
             error = null

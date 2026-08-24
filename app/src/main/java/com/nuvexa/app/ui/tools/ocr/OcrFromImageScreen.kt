@@ -46,7 +46,12 @@ fun OcrFromImageScreen(modifier: Modifier = Modifier, onResult: (String) -> Unit
         resultText = null
         error = null
         scope.launch {
-            runCatching { recognizeTextInImage(bitmap) }
+            val outcome = try {
+                runCatching { recognizeTextInImage(bitmap) }
+            } finally {
+                bitmap.recycle()
+            }
+            outcome
                 .onSuccess { text ->
                     isProcessing = false
                     if (text.isBlank()) {
