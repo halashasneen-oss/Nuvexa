@@ -14,11 +14,14 @@ android {
         applicationId = "com.nuvexa.app"
         minSdk = 26
         targetSdk = 36
-        versionCode = 3
-        versionName = "1.0.2"
+        versionCode = 4
+        versionName = "1.0.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        // Google public test App ID for non-release builds. Release overrides this below.
+        manifestPlaceholders["admobAppId"] = "ca-app-pub-3940256099942544~3347511713"
     }
 
     // No keystore is ever committed to this repository. The release signing config only
@@ -48,6 +51,17 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            manifestPlaceholders["admobAppId"] = "ca-app-pub-5961173995415325~8366427758"
+            buildConfigField(
+                "String",
+                "BANNER_AD_UNIT_ID",
+                "\"ca-app-pub-5961173995415325/1581527558\""
+            )
+            buildConfigField(
+                "String",
+                "INTERSTITIAL_AD_UNIT_ID",
+                "\"ca-app-pub-5961173995415325/4862297018\""
+            )
             if (hasReleaseSigning) {
                 signingConfig = signingConfigs.getByName("release")
             }
@@ -55,6 +69,16 @@ android {
         debug {
             isMinifyEnabled = false
             applicationIdSuffix = ".debug"
+            buildConfigField(
+                "String",
+                "BANNER_AD_UNIT_ID",
+                "\"ca-app-pub-3940256099942544/6300978111\""
+            )
+            buildConfigField(
+                "String",
+                "INTERSTITIAL_AD_UNIT_ID",
+                "\"ca-app-pub-3940256099942544/1033173712\""
+            )
         }
     }
 
@@ -113,7 +137,7 @@ dependencies {
     }
     implementation("com.google.zxing:core:3.5.3")
 
-    implementation("com.google.android.gms:play-services-ads:23.5.0")
+    implementation("com.google.android.gms:play-services-ads:25.4.0")
 
     // Bundled (not Play-Services-downloaded) Latin-script model: OCR works fully offline
     // starting from first launch, matching the "OCR must work offline" requirement.

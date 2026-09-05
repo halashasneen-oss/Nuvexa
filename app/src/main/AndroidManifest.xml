@@ -42,10 +42,10 @@
             </intent-filter>
         </activity>
 
-        <!-- Google's public test AdMob App ID. Replace with a real ID before release. -->
+        <!-- Debug uses Google's public test App ID; release injects the Nuvexa production App ID. -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="${admobAppId}" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -9,24 +9,21 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.nuvexa.app.BuildConfig
 import com.nuvexa.app.core.util.AdsInitializer
-
-/** Google's official public test banner unit ID — replace with a real one before release. */
-const val TEST_BANNER_AD_UNIT_ID = "ca-app-pub-3940256099942544/6300978111"
 
 /**
  * A banner ad for non-critical screens only (never mid-workflow). Failure to load — no
  * network, no fill, Play Services missing — simply leaves an empty view; it never crashes
- * or blocks the surrounding UI.
+ * or blocks the surrounding UI. Debug builds use Google's public test unit; release builds
+ * use the production Nuvexa unit configured in Gradle.
  */
 @Composable
 fun BannerAdView(
     modifier: Modifier = Modifier,
-    adUnitId: String = TEST_BANNER_AD_UNIT_ID,
+    adUnitId: String = BuildConfig.BANNER_AD_UNIT_ID,
 ) {
     val context = LocalContext.current
-    // The SDK is only ever initialized once a banner actually needs to show — see
-    // AdsInitializer for why this isn't done unconditionally at app startup.
     LaunchedEffect(Unit) { AdsInitializer.ensureInitialized(context) }
     AndroidView(
         modifier = modifier.fillMaxWidth(),
