@@ -137,7 +137,7 @@ dependencies {
     }
     implementation("com.google.zxing:core:3.5.3")
 
-    implementation("com.google.android.gms:play-services-ads:25.4.0")
+    implementation("com.google.android.gms:play-services-ads:23.6.0")
 
     // Bundled (not Play-Services-downloaded) Latin-script model: OCR works fully offline
     // starting from first launch, matching the "OCR must work offline" requirement.
