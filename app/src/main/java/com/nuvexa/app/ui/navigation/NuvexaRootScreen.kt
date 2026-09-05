@@ -2,6 +2,7 @@ package com.nuvexa.app.ui.navigation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -33,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.nuvexa.app.R
+import com.nuvexa.app.ui.components.BannerAdView
 
 private data class BottomDestination(
     val route: String,
@@ -79,20 +81,25 @@ fun NuvexaRootScreen(startWithOnboarding: Boolean) {
             containerColor = Color.Transparent,
             bottomBar = {
                 if (showBottomBar) {
-                    NavigationBar {
-                        bottomDestinations.forEach { destination ->
-                            val selected = currentRoute == destination.route
-                            NavigationBarItem(
-                                selected = selected,
-                                onClick = { navController.navigateToBottomDestination(destination.route) },
-                                icon = {
-                                    androidx.compose.material3.Icon(
-                                        imageVector = if (selected) destination.selectedIcon else destination.unselectedIcon,
-                                        contentDescription = null,
-                                    )
-                                },
-                                label = { Text(stringResource(destination.labelRes)) },
-                            )
+                    Column {
+                        // Keep the banner visible and predictable on every top-level screen,
+                        // directly above navigation and never inside an active tool workflow.
+                        BannerAdView(modifier = Modifier.padding(vertical = 4.dp))
+                        NavigationBar {
+                            bottomDestinations.forEach { destination ->
+                                val selected = currentRoute == destination.route
+                                NavigationBarItem(
+                                    selected = selected,
+                                    onClick = { navController.navigateToBottomDestination(destination.route) },
+                                    icon = {
+                                        androidx.compose.material3.Icon(
+                                            imageVector = if (selected) destination.selectedIcon else destination.unselectedIcon,
+                                            contentDescription = null,
+                                        )
+                                    },
+                                    label = { Text(stringResource(destination.labelRes)) },
+                                )
+                            }
                         }
                     }
                 }
