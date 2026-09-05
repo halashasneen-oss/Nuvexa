@@ -11,44 +11,50 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.nuvexa.app.BuildConfig
 
 /**
- * Keeps one interstitial ready in memory and only shows it at a natural transition: when the
- * user leaves a tool. To avoid interrupting a utility-heavy session too often, an ad is eligible
- * only once every three tool exits. If an ad is unavailable, navigation continues immediately.
+ * Keeps one interstitial ready in memory and shows it only at a natural transition: leaving a
+ * tool. Production shows at most once every three tool exits. Debug uses Google's test unit and
+ * shows on every eligible exit so the integration can be verified without touching live ads.
  */
 object InterstitialAdManager {
-    private const val EXITS_BETWEEN_ADS = 3
+    private const val RELEASE_EXITS_BETWEEN_ADS = 3
 
     private var interstitialAd: InterstitialAd? = null
     private var isLoading = false
+    private var isShowing = false
     private var exitsSinceLastAd = 0
 
+    private val exitsBetweenAds: Int
+        get() = if (BuildConfig.DEBUG) 1 else RELEASE_EXITS_BETWEEN_ADS
+
     fun preload(context: Context) {
-        if (interstitialAd != null || isLoading) return
+        if (interstitialAd != null || isLoading || isShowing) return
 
-        AdsInitializer.ensureInitialized(context)
         isLoading = true
-        InterstitialAd.load(
-            context.applicationContext,
-            BuildConfig.INTERSTITIAL_AD_UNIT_ID,
-            AdRequest.Builder().build(),
-            object : InterstitialAdLoadCallback() {
-                override fun onAdLoaded(ad: InterstitialAd) {
-                    isLoading = false
-                    interstitialAd = ad
-                }
+        AdsInitializer.ensureInitialized(context) {
+            InterstitialAd.load(
+                context.applicationContext,
+                BuildConfig.INTERSTITIAL_AD_UNIT_ID,
+                AdRequest.Builder().build(),
+                object : InterstitialAdLoadCallback() {
+                    override fun onAdLoaded(ad: InterstitialAd) {
+                        isLoading = false
+                        interstitialAd = ad
+                    }
 
-                override fun onAdFailedToLoad(error: LoadAdError) {
-                    isLoading = false
-                    interstitialAd = null
-                }
-            },
-        )
+                    override fun onAdFailedToLoad(error: LoadAdError) {
+                        isLoading = false
+                        interstitialAd = null
+                    }
+                },
+            )
+        }
     }
 
     fun showOnToolExit(activity: Activity, onContinue: () -> Unit) {
-        exitsSinceLastAd += 1
+        if (isShowing) return
 
-        if (exitsSinceLastAd < EXITS_BETWEEN_ADS) {
+        exitsSinceLastAd += 1
+        if (exitsSinceLastAd < exitsBetweenAds) {
             preload(activity)
             onContinue()
             return
@@ -56,6 +62,8 @@ object InterstitialAdManager {
 
         val ad = interstitialAd
         if (ad == null) {
+            // Keep the exit count eligible. As soon as a later preload succeeds, the next tool
+            // exit can display it instead of silently resetting the frequency counter.
             preload(activity)
             onContinue()
             return
@@ -63,13 +71,16 @@ object InterstitialAdManager {
 
         exitsSinceLastAd = 0
         interstitialAd = null
+        isShowing = true
         ad.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdDismissedFullScreenContent() {
+                isShowing = false
                 preload(activity)
                 onContinue()
             }
 
             override fun onAdFailedToShowFullScreenContent(error: AdError) {
+                isShowing = false
                 preload(activity)
                 onContinue()
             }
