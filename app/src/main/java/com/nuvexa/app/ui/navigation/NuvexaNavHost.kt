@@ -1,7 +1,17 @@
 package com.nuvexa.app.ui.navigation
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -10,6 +20,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.nuvexa.app.core.registry.ToolRegistry
+import com.nuvexa.app.core.util.InterstitialAdManager
 import com.nuvexa.app.ui.screens.favorites.FavoritesScreen
 import com.nuvexa.app.ui.screens.history.HistoryScreen
 import com.nuvexa.app.ui.screens.home.HomeScreen
@@ -87,10 +98,44 @@ fun NuvexaNavHost(
             val toolId = backStackEntry.arguments?.getString("toolId").orEmpty()
             val tool = ToolRegistry.findById(toolId)
             if (tool != null) {
-                ToolScreenHost(tool = tool, onBack = { navController.popBackStack() })
+                val context = LocalContext.current
+                val activity = remember(context) { context.findActivity() }
+                var exitInProgress by remember(tool.id) { mutableStateOf(false) }
+
+                // Start loading as soon as a tool opens so an interstitial is ready by the time
+                // the user naturally leaves the tool.
+                LaunchedEffect(tool.id) {
+                    InterstitialAdManager.preload(context)
+                }
+
+                val exitTool: () -> Unit = {
+                    if (!exitInProgress) {
+                        exitInProgress = true
+                        val continueBack = {
+                            navController.popBackStack()
+                            exitInProgress = false
+                        }
+                        if (activity != null) {
+                            InterstitialAdManager.showOnToolExit(activity, continueBack)
+                        } else {
+                            continueBack()
+                        }
+                    }
+                }
+
+                // Both the toolbar back button and Android system back now pass through the exact
+                // same interstitial decision path.
+                BackHandler(onBack = exitTool)
+                ToolScreenHost(tool = tool, onBack = exitTool)
             }
         }
     }
+}
+
+private tailrec fun Context.findActivity(): Activity? = when (this) {
+    is Activity -> this
+    is ContextWrapper -> baseContext.findActivity()
+    else -> null
 }
 
 private fun NavController.navigateToTool(toolId: String) {
