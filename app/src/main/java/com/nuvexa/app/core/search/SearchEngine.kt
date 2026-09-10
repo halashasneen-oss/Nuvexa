@@ -6,24 +6,15 @@ import com.nuvexa.app.core.registry.ToolRegistry
 import java.text.Normalizer
 import java.util.Locale
 
-/**
- * Local, offline, multilingual search over [ToolRegistry]. Matches the query against each
- * tool's localized name, description, category, and keyword aliases (natural phrases like
- * "how old am I" or "convertir imagen a pdf" baked into the string resources), so results
- * work the same in English, Arabic, French, and Spanish without any network call.
- */
+/** Local, offline, multilingual search over [ToolRegistry]. */
 object SearchEngine {
 
     private val stopWords = setOf(
-        // English
         "a", "an", "the", "to", "of", "in", "on", "is", "my", "how", "do", "i", "does", "can", "you", "for", "am",
-        // Arabic
         "من", "إلى", "في", "على", "هو", "هي", "أنا", "كيف", "هل", "ما", "و",
-        // French
         "le", "la", "les", "de", "à", "un", "une", "du", "des", "en", "est", "comment", "je",
-        // Spanish
         "el", "los", "las", "una", "es", "como", "yo", "mi",
-    )
+    ).map(::normalize).toSet()
 
     fun search(context: Context, query: String, tools: List<Tool> = ToolRegistry.tools): List<Tool> {
         val trimmed = query.trim()
@@ -35,7 +26,9 @@ object SearchEngine {
 
         return tools
             .map { tool -> tool to scoreTool(context, tool, words) }
-            .filter { (_, result) -> result.matchedWords * 2 >= words.size } // at least ~60% of words matched, rounded up
+            // Require at least 60% of meaningful query words to match. The previous expression
+            // actually allowed 50% despite its comment claiming ~60%.
+            .filter { (_, result) -> result.matchedWords * 5 >= words.size * 3 }
             .sortedByDescending { (_, result) -> result.score }
             .map { it.first }
     }
