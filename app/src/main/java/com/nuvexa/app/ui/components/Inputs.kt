@@ -1,8 +1,8 @@
 package com.nuvexa.app.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -24,7 +24,10 @@ fun NuvexaNumberField(
 ) {
     OutlinedTextField(
         value = value,
-        onValueChange = { input ->
+        onValueChange = { rawInput ->
+            // Accept both common decimal separators while keeping the internal numeric format
+            // consistent for existing toDoubleOrNull() calculations throughout the app.
+            val input = rawInput.replace(',', '.')
             val filtered = input.filterIndexed { index, c ->
                 c.isDigit() ||
                     (allowDecimal && c == '.' && input.indexOf('.') == index) ||
