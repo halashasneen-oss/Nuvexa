@@ -30,8 +30,12 @@ object Recommendations {
         return if (suggestions.size >= limit) {
             suggestions.take(limit)
         } else {
-            val fallback = ToolRegistry.tools.filterNot { it.id in usedIds && it in suggestions }
-            (suggestions + fallback).distinct().take(limit)
+            // Exclude both already-used tools and items already present in suggestions.
+            // The old `&&` condition could let used tools reappear in the fallback list.
+            val fallback = ToolRegistry.tools.filterNot { tool ->
+                tool.id in usedIds || tool in suggestions
+            }
+            (suggestions + fallback).take(limit)
         }
     }
 }
