@@ -20,6 +20,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.nuvexa.app.R
 import com.nuvexa.app.core.model.ToolCategory
 import com.nuvexa.app.core.registry.ToolRegistry
@@ -51,7 +52,7 @@ fun CategoryToolsScreen(
         },
     ) { innerPadding ->
         LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
+            columns = GridCells.Adaptive(minSize = 148.dp),
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
@@ -63,6 +64,7 @@ fun CategoryToolsScreen(
                 ToolTile(
                     icon = tool.icon,
                     name = stringResource(tool.nameRes),
+                    category = tool.category,
                     onClick = { onOpenTool(tool.id) },
                 )
             }
