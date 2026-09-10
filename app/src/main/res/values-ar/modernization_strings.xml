@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_hero_title">تطبيق واحد. عشرات الأدوات المفيدة.</string>
+    <string name="home_hero_subtitle">أدوات سريعة وخاصة للدراسة والعمل والحياة اليومية — مصممة للعمل دون اتصال.</string>
+    <string name="home_hero_badge">%1$d أداة • الخصوصية أساس التصميم</string>
+
+    <string name="tool_text_compare_name">مقارنة النصوص</string>
+    <string name="tool_text_compare_desc">قارن بين نصين واكتشف فورًا اختلاف الأسطر والكلمات والأحرف.</string>
+    <string name="tool_text_compare_keywords">مقارنة نص اختلاف فروقات تغييرات أسطر كلمات أحرف تدقيق مراجعة</string>
+    <string name="text_compare_first">النص الأصلي</string>
+    <string name="text_compare_second">النص المعدّل</string>
+    <string name="text_compare_identical">النصان متطابقان</string>
+    <string name="text_compare_different">تم العثور على اختلافات</string>
+    <string name="text_compare_summary">%1$d أسطر مختلفة • فرق %2$d كلمة • فرق %3$d حرف</string>
+    <string name="text_compare_first_change">أول اختلاف يظهر في السطر %1$d</string>
+
+    <string name="tool_password_strength_name">قوة كلمة المرور</string>
+    <string name="tool_password_strength_desc">افحص قوة كلمة المرور محليًا دون إرسالها أو حفظها.</string>
+    <string name="tool_password_strength_keywords">كلمة مرور قوة فحص أمان قوية ضعيفة خصوصية</string>
+    <string name="password_strength_input">كلمة المرور المراد فحصها</string>
+    <string name="password_strength_weak">ضعيفة</string>
+    <string name="password_strength_fair">مقبولة</string>
+    <string name="password_strength_good">جيدة</string>
+    <string name="password_strength_strong">قوية</string>
+    <string name="password_strength_excellent">ممتازة</string>
+    <string name="password_strength_length">12 حرفًا على الأقل</string>
+    <string name="password_strength_case">أحرف كبيرة وصغيرة</string>
+    <string name="password_strength_number">رقم واحد على الأقل</string>
+    <string name="password_strength_symbol">رمز خاص واحد على الأقل</string>
+    <string name="password_strength_extra">16 حرفًا أو أكثر أو تنوع مرتفع في الأحرف</string>
+    <string name="password_strength_privacy">يتم تقييم كلمة المرور على جهازك فقط ولا يتم حفظها.</string>
+
+    <string name="tool_grade_goal_name">حاسبة الدرجة المستهدفة</string>
+    <string name="tool_grade_goal_desc">اعرف الدرجة المطلوبة في الجزء المتبقي للوصول إلى معدلك المستهدف.</string>
+    <string name="tool_grade_goal_keywords">درجة هدف امتحان نهائي علامة جامعة طالب معدل مطلوب</string>
+    <string name="grade_goal_current">المعدل الحالي</string>
+    <string name="grade_goal_completed">نسبة المادة المنجزة</string>
+    <string name="grade_goal_target">الدرجة النهائية المستهدفة</string>
+    <string name="grade_goal_required">المعدل المطلوب في النسبة المتبقية %1$s%%</string>
+    <string name="grade_goal_impossible">هذا الهدف يحتاج إلى أكثر من 100%% في الجزء المتبقي.</string>
+    <string name="grade_goal_secured">أنت ضامن هذا الهدف بالفعل حسب القيم المدخلة.</string>
+    <string name="grade_goal_invalid">أدخل قيمًا من 0 إلى 100، على أن تكون النسبة المنجزة أقل من 100.</string>
+</resources>
