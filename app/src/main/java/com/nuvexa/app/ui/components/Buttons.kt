@@ -1,5 +1,6 @@
 package com.nuvexa.app.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -50,9 +51,7 @@ fun SecondaryButton(
         modifier = modifier.height(ButtonHeight),
         enabled = enabled,
         shape = RoundedCornerShape(17.dp),
-        border = ButtonDefaults.outlinedButtonBorder(enabled).copy(
-            width = 1.dp,
-        ),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.55f)),
     ) {
         Text(text, style = MaterialTheme.typography.titleMedium)
     }
