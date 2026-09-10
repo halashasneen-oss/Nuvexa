@@ -1,213 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
 <title>Nuvexa — Privacy Policy</title>
 <style>
-  :root {
-    --bg: #f7f7fb;
-    --surface: #ffffff;
-    --text: #1b1b23;
-    --text-muted: #55555f;
-    --border: #e2e2ea;
-    --accent: #4f46e5;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #121218;
-      --surface: #1c1c24;
-      --text: #eeeef4;
-      --text-muted: #b3b3c0;
-      --border: #33333e;
-      --accent: #a5a1ff;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-  }
-  main {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 48px 20px 80px;
-  }
-  header {
-    margin-bottom: 32px;
-  }
-  h1 {
-    font-size: 1.9rem;
-    margin: 0 0 8px;
-  }
-  .updated {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px 28px;
-    margin-bottom: 20px;
-  }
-  h2 {
-    font-size: 1.2rem;
-    margin: 0 0 12px;
-    color: var(--accent);
-  }
-  p, li {
-    color: var(--text);
-    font-size: 0.98rem;
-  }
-  ul {
-    margin: 8px 0;
-    padding-inline-start: 22px;
-  }
-  li {
-    margin-bottom: 6px;
-  }
-  a {
-    color: var(--accent);
-  }
-  footer {
-    margin-top: 32px;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    text-align: center;
-  }
+  :root{--bg:#f4f6fb;--surface:#fff;--text:#171821;--muted:#5d6270;--border:#dfe3ec;--accent:#4f46e5;--accent2:#7c3aed;--shadow:0 14px 35px rgba(30,41,59,.08)}
+  @media(prefers-color-scheme:dark){:root{--bg:#0b1020;--surface:#121a2c;--text:#f5f7ff;--muted:#c1c8d8;--border:#29344d;--accent:#a8b4ff;--accent2:#d5b3ff;--shadow:0 14px 35px rgba(0,0,0,.28)}}
+  *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top right,rgba(79,70,229,.12),transparent 32%),radial-gradient(circle at top left,rgba(124,58,237,.10),transparent 28%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.68}
+  main{max-width:900px;margin:auto;padding:32px 18px 72px}.hero{background:linear-gradient(135deg,rgba(79,70,229,.14),rgba(124,58,237,.09));border:1px solid var(--border);border-radius:24px;padding:26px;margin-bottom:18px;box-shadow:var(--shadow)}
+  h1{margin:0 0 8px;font-size:2rem}.updated{color:var(--muted);font-size:.92rem}.langbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.langbtn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:9px 14px;border-radius:999px;font-weight:600;cursor:pointer}.langbtn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent}
+  .policy{display:none}.policy.active{display:block}.card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:22px 24px;margin:14px 0;box-shadow:var(--shadow)}h2{font-size:1.15rem;margin:0 0 10px;color:var(--accent)}p,li{font-size:.98rem}ul{padding-inline-start:22px}a{color:var(--accent);word-break:break-word}.policy[dir="rtl"]{text-align:right;font-family:"Segoe UI",Tahoma,Arial,sans-serif}.policy[dir="rtl"] ul{padding-inline-start:0;padding-inline-end:22px}footer{text-align:center;color:var(--muted);font-size:.86rem;margin-top:28px}@media(max-width:600px){main{padding:20px 12px 52px}.hero,.card{border-radius:17px;padding:18px}h1{font-size:1.65rem}}
 </style>
 </head>
 <body>
 <main>
-  <header>
+  <section class="hero">
     <h1>Nuvexa — Privacy Policy</h1>
-    <div class="updated">Last updated: August 24, 2026</div>
-  </header>
+    <div class="updated">Version 1.1.0 · Last updated: September 10, 2026</div>
+    <div class="langbar" aria-label="Language selector">
+      <button class="langbtn active" data-lang="en">English</button>
+      <button class="langbtn" data-lang="ar">العربية</button>
+      <button class="langbtn" data-lang="fr">Français</button>
+      <button class="langbtn" data-lang="es">Español</button>
+    </div>
+  </section>
 
-  <div class="card">
-    <h2>Overview</h2>
-    <p>
-      Nuvexa is an offline-first utility app — calculators, converters, generators, and
-      everyday tools that run entirely on your device. This policy explains what Nuvexa
-      does and does not do with your data.
-    </p>
-  </div>
+  <article class="policy active" data-policy="en" lang="en" dir="ltr">
+    <div class="card"><h2>Overview</h2><p>Nuvexa is an offline-first utility app that provides calculators, converters, PDF and image tools, OCR, QR/barcode tools, text utilities and privacy/security tools. Core tool processing is performed on your device. Network access is used for Google AdMob advertising.</p></div>
+    <div class="card"><h2>Data we collect</h2><p>Nuvexa does not require a user account and does not operate its own cloud server for tool processing. Text, photos, documents, passwords and files you use inside tools are not uploaded by Nuvexa. Favorites, recent tools, history summaries and settings are stored locally in the app's private storage.</p></div>
+    <div class="card"><h2>Permissions</h2><ul><li><strong>Camera</strong> — for QR/barcode scanning and camera OCR.</li><li><strong>Internet / network state</strong> — for Google AdMob ads.</li><li><strong>Vibration</strong> — for optional haptic feedback.</li></ul><p>Permissions are requested only when needed by the related feature where applicable.</p></div>
+    <div class="card"><h2>Local processing</h2><p>OCR uses a bundled on-device Google ML Kit text-recognition model. Password Strength Audit evaluates the entered password locally and does not save the password itself. File Checksum calculates SHA-256 and SHA-512 locally. PDF, image, text and calculator tools are designed to process their input on-device.</p></div>
+    <div class="card"><h2>Currency rates</h2><p>The Currency tool uses fixed reference rates stored in the app rather than a live market feed. Do not rely on it when a current market rate is required.</p></div>
+    <div class="card"><h2>Advertising</h2><p>Nuvexa may display banner and interstitial ads served by <strong>Google AdMob</strong>. AdMob may collect or process advertising-related data such as device or advertising identifiers according to Google's own policies and consent requirements. Learn more at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. Advertising is separate from Nuvexa's tool processing.</p></div>
+    <div class="card"><h2>Data retention and control</h2><p>You can clear history and recent activity from within Nuvexa. You can remove all app data by clearing Nuvexa storage in Android settings or uninstalling the app.</p></div>
+    <div class="card"><h2>Android backup</h2><p>Android's operating-system backup or device-transfer features may back up some app preferences. Favorites and history are intentionally excluded from Google cloud backup where configured, although device-to-device transfer behavior is controlled by Android.</p></div>
+    <div class="card"><h2>Children's privacy</h2><p>Nuvexa is a general-audience utility app and is not directed to children under 13. Nuvexa does not knowingly collect personal information through its own servers because it does not operate such servers for tool processing.</p></div>
+    <div class="card"><h2>Changes to this policy</h2><p>If this policy changes, the updated version will be published at this same address with a new update date.</p></div>
+    <div class="card"><h2>Contact</h2><p>Questions about this policy can be sent to <a href="mailto:support@nuvexa.app">support@nuvexa.app</a>.</p></div>
+  </article>
 
-  <div class="card">
-    <h2>Data we collect</h2>
-    <p>
-      Nuvexa does not require or create a user account. It does not upload your photos,
-      documents, text, or clipboard content anywhere, and it does not use any cloud
-      service to run its tools.
-    </p>
-    <p>Information such as your favorites, history entries, and app settings (theme,
-      language, preferences) is stored in the app's private local storage on your device.
-      Nuvexa itself never transmits it anywhere — see "Android backup" below for the one
-      way Android's own OS-level backup can still move some of it off the device. It is
-      deleted if you clear the app's data or uninstall it.</p>
-  </div>
+  <article class="policy" data-policy="ar" lang="ar" dir="rtl">
+    <div class="card"><h2>نظرة عامة</h2><p>تطبيق Nuvexa هو تطبيق أدوات يعمل بالدرجة الأولى دون اتصال بالإنترنت، ويضم حاسبات ومحولات وأدوات PDF وصور وOCR وQR/باركود وأدوات نصوص وأدوات خصوصية وأمان. تتم معالجة وظائف الأدوات الأساسية على جهازك، بينما يُستخدم الاتصال بالإنترنت لعرض إعلانات Google AdMob.</p></div>
+    <div class="card"><h2>البيانات التي نجمعها</h2><p>لا يتطلب Nuvexa إنشاء حساب مستخدم، ولا يشغّل خادمًا سحابيًا خاصًا به لمعالجة الأدوات. النصوص والصور والمستندات وكلمات المرور والملفات التي تستخدمها داخل الأدوات لا يقوم Nuvexa برفعها. يتم حفظ المفضلة والأدوات الحديثة وملخصات السجل والإعدادات محليًا داخل مساحة التطبيق الخاصة على جهازك.</p></div>
+    <div class="card"><h2>الأذونات</h2><ul><li><strong>الكاميرا</strong> — لمسح QR/الباركود وللتعرف على النصوص عبر الكاميرا.</li><li><strong>الإنترنت / حالة الشبكة</strong> — لعرض إعلانات Google AdMob.</li><li><strong>الاهتزاز</strong> — للتغذية اللمسية الاختيارية.</li></ul><p>يتم طلب الأذونات عند الحاجة للميزة المرتبطة بها كلما كان ذلك ممكنًا.</p></div>
+    <div class="card"><h2>المعالجة المحلية</h2><p>يستخدم OCR نموذج Google ML Kit مضمّنًا يعمل على الجهاز. تقوم أداة فحص قوة كلمة المرور بتحليلها محليًا ولا تحفظ كلمة المرور نفسها. وتحسب أداة File Checksum قيم SHA-256 وSHA-512 محليًا. كما صُممت أدوات PDF والصور والنصوص والحاسبات لمعالجة المدخلات على الجهاز.</p></div>
+    <div class="card"><h2>أسعار العملات</h2><p>تستخدم أداة العملات أسعارًا مرجعية ثابتة مخزنة داخل التطبيق وليست تغذية مباشرة من السوق. لذلك لا ينبغي الاعتماد عليها عندما تكون هناك حاجة لسعر صرف لحظي.</p></div>
+    <div class="card"><h2>الإعلانات</h2><p>قد يعرض Nuvexa إعلانات بانر وإعلانات بينية مقدمة من <strong>Google AdMob</strong>. قد تقوم AdMob بجمع أو معالجة بيانات مرتبطة بالإعلانات مثل معرّفات الجهاز أو الإعلانات وفق سياسات Google ومتطلبات الموافقة الخاصة بها. يمكنك مراجعة <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">سياسة خصوصية Google</a>. الإعلانات منفصلة عن معالجة أدوات Nuvexa.</p></div>
+    <div class="card"><h2>الاحتفاظ بالبيانات والتحكم بها</h2><p>يمكنك مسح السجل والنشاط الحديث من داخل Nuvexa. كما يمكنك إزالة جميع بيانات التطبيق من إعدادات Android أو بإلغاء تثبيت التطبيق.</p></div>
+    <div class="card"><h2>نسخ Android الاحتياطي</h2><p>قد تقوم ميزات النسخ الاحتياطي أو نقل الجهاز في Android بحفظ بعض تفضيلات التطبيق. يتم استثناء المفضلة والسجل من النسخ السحابي إلى Google عندما تسمح إعدادات التطبيق بذلك، بينما يبقى سلوك النقل من جهاز إلى جهاز خاضعًا لنظام Android.</p></div>
+    <div class="card"><h2>خصوصية الأطفال</h2><p>Nuvexa تطبيق أدوات موجه لعامة المستخدمين وليس مخصصًا للأطفال دون سن 13 عامًا. ولا يقوم Nuvexa عن قصد بجمع معلومات شخصية عبر خوادم خاصة به لأنه لا يشغّل خوادم لمعالجة الأدوات.</p></div>
+    <div class="card"><h2>التغييرات على هذه السياسة</h2><p>في حال تعديل هذه السياسة، سيتم نشر النسخة المحدثة على نفس هذا الرابط مع تغيير تاريخ آخر تحديث.</p></div>
+    <div class="card"><h2>التواصل</h2><p>للاستفسارات المتعلقة بهذه السياسة يمكن التواصل عبر <a href="mailto:support@nuvexa.app">support@nuvexa.app</a>.</p></div>
+  </article>
 
-  <div class="card">
-    <h2>Permissions we ask for, and why</h2>
-    <ul>
-      <li><strong>Camera</strong> — used by the QR/barcode scanner to read a code pointed at the camera,
-        and separately by the "scan text" (OCR) tools to capture a photo that Nuvexa then reads
-        text out of. In both cases the camera feed and any captured photo are processed only on
-        your device and are never uploaded anywhere.</li>
-      <li><strong>Internet / network state</strong> — used only to serve optional advertising through
-        Google AdMob (see below). Every tool in Nuvexa works fully offline; this permission
-        is not required for the app's core functionality.</li>
-      <li><strong>Vibrate</strong> — used for optional haptic feedback on button presses, controlled by a
-        setting in the app.</li>
-    </ul>
-    <p>Nuvexa requests each permission only when the relevant tool is actually opened, not at launch.</p>
-  </div>
+  <article class="policy" data-policy="fr" lang="fr" dir="ltr">
+    <div class="card"><h2>Présentation</h2><p>Nuvexa est une application utilitaire conçue pour fonctionner principalement hors ligne. Elle comprend des calculatrices, convertisseurs, outils PDF et image, OCR, QR/code-barres, outils de texte et outils de confidentialité/sécurité. Le traitement principal est effectué sur votre appareil. L'accès réseau est utilisé pour la publicité Google AdMob.</p></div>
+    <div class="card"><h2>Données que nous collectons</h2><p>Nuvexa ne nécessite pas de compte utilisateur et n'exploite pas de serveur cloud propre pour le traitement des outils. Les textes, photos, documents, mots de passe et fichiers utilisés dans les outils ne sont pas téléversés par Nuvexa. Les favoris, outils récents, résumés d'historique et paramètres sont enregistrés localement dans le stockage privé de l'application.</p></div>
+    <div class="card"><h2>Autorisations</h2><ul><li><strong>Caméra</strong> — pour scanner les QR/codes-barres et utiliser l'OCR caméra.</li><li><strong>Internet / état du réseau</strong> — pour les annonces Google AdMob.</li><li><strong>Vibration</strong> — pour le retour haptique facultatif.</li></ul><p>Les autorisations sont demandées uniquement lorsqu'une fonction associée en a besoin, lorsque cela s'applique.</p></div>
+    <div class="card"><h2>Traitement local</h2><p>L'OCR utilise un modèle Google ML Kit intégré fonctionnant sur l'appareil. L'audit de robustesse du mot de passe analyse le mot de passe localement et ne l'enregistre pas. L'outil de somme de contrôle calcule SHA-256 et SHA-512 localement. Les outils PDF, image, texte et calcul sont conçus pour traiter leurs entrées sur l'appareil.</p></div>
+    <div class="card"><h2>Taux de change</h2><p>L'outil de devises utilise des taux de référence fixes enregistrés dans l'application et non un flux de marché en direct. Ne l'utilisez pas lorsqu'un taux actuel est nécessaire.</p></div>
+    <div class="card"><h2>Publicité</h2><p>Nuvexa peut afficher des bannières et des annonces interstitielles fournies par <strong>Google AdMob</strong>. AdMob peut collecter ou traiter des données liées à la publicité, comme des identifiants d'appareil ou publicitaires, conformément aux politiques et exigences de consentement de Google. Consultez la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politique de confidentialité de Google</a>. La publicité est distincte du traitement des outils Nuvexa.</p></div>
+    <div class="card"><h2>Conservation et contrôle des données</h2><p>Vous pouvez effacer l'historique et l'activité récente dans Nuvexa. Vous pouvez supprimer toutes les données de l'application depuis les paramètres Android ou en désinstallant l'application.</p></div>
+    <div class="card"><h2>Sauvegarde Android</h2><p>Les fonctions de sauvegarde ou de transfert d'appareil d'Android peuvent enregistrer certaines préférences de l'application. Les favoris et l'historique sont exclus de la sauvegarde cloud Google lorsque la configuration le permet, tandis que le transfert appareil à appareil reste contrôlé par Android.</p></div>
+    <div class="card"><h2>Confidentialité des enfants</h2><p>Nuvexa est une application utilitaire grand public et ne s'adresse pas aux enfants de moins de 13 ans. Nuvexa ne collecte pas sciemment d'informations personnelles via ses propres serveurs puisqu'il n'exploite pas de serveurs pour le traitement des outils.</p></div>
+    <div class="card"><h2>Modifications de cette politique</h2><p>Si cette politique change, la nouvelle version sera publiée à la même adresse avec une date de mise à jour révisée.</p></div>
+    <div class="card"><h2>Contact</h2><p>Pour toute question concernant cette politique : <a href="mailto:support@nuvexa.app">support@nuvexa.app</a>.</p></div>
+  </article>
 
-  <div class="card">
-    <h2>Text recognition (OCR)</h2>
-    <p>
-      The tools that "extract text" from a photo, the camera, or a PDF use Google ML Kit's
-      on-device text recognizer, running with a model bundled inside the app. The image is
-      processed locally and is never sent to a server or to Google for this — recognition works
-      the same with your network connection fully off.
-    </p>
-  </div>
+  <article class="policy" data-policy="es" lang="es" dir="ltr">
+    <div class="card"><h2>Descripción general</h2><p>Nuvexa es una aplicación de utilidades diseñada para funcionar principalmente sin conexión. Incluye calculadoras, convertidores, herramientas PDF e imagen, OCR, QR/códigos de barras, herramientas de texto y de privacidad/seguridad. El procesamiento principal se realiza en tu dispositivo. El acceso a Internet se utiliza para publicidad de Google AdMob.</p></div>
+    <div class="card"><h2>Datos que recopilamos</h2><p>Nuvexa no requiere una cuenta de usuario y no opera un servidor propio en la nube para procesar las herramientas. Los textos, fotos, documentos, contraseñas y archivos utilizados dentro de las herramientas no son subidos por Nuvexa. Favoritos, herramientas recientes, resúmenes del historial y ajustes se almacenan localmente en el almacenamiento privado de la aplicación.</p></div>
+    <div class="card"><h2>Permisos</h2><ul><li><strong>Cámara</strong> — para escanear QR/códigos de barras y usar OCR con la cámara.</li><li><strong>Internet / estado de red</strong> — para anuncios de Google AdMob.</li><li><strong>Vibración</strong> — para respuesta háptica opcional.</li></ul><p>Los permisos se solicitan únicamente cuando la función relacionada los necesita, cuando corresponda.</p></div>
+    <div class="card"><h2>Procesamiento local</h2><p>OCR utiliza un modelo integrado de Google ML Kit que funciona en el dispositivo. La auditoría de fortaleza de contraseña analiza la contraseña localmente y no guarda la contraseña. File Checksum calcula SHA-256 y SHA-512 localmente. Las herramientas PDF, imagen, texto y cálculo están diseñadas para procesar sus entradas en el dispositivo.</p></div>
+    <div class="card"><h2>Tipos de cambio</h2><p>La herramienta de monedas utiliza tasas de referencia fijas almacenadas en la aplicación, no un feed de mercado en tiempo real. No debe utilizarse cuando se necesite una tasa de cambio actual.</p></div>
+    <div class="card"><h2>Publicidad</h2><p>Nuvexa puede mostrar anuncios de banner e intersticiales servidos por <strong>Google AdMob</strong>. AdMob puede recopilar o procesar datos relacionados con la publicidad, como identificadores del dispositivo o publicitarios, de acuerdo con las políticas y requisitos de consentimiento de Google. Consulta la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidad de Google</a>. La publicidad es independiente del procesamiento de las herramientas de Nuvexa.</p></div>
+    <div class="card"><h2>Retención y control de datos</h2><p>Puedes borrar el historial y la actividad reciente desde Nuvexa. También puedes eliminar todos los datos de la aplicación desde los ajustes de Android o desinstalando la aplicación.</p></div>
+    <div class="card"><h2>Copia de seguridad de Android</h2><p>Las funciones de copia de seguridad o transferencia de dispositivo de Android pueden guardar algunas preferencias de la aplicación. Favoritos e historial se excluyen de la copia de seguridad en la nube de Google cuando la configuración lo permite, mientras que la transferencia entre dispositivos está controlada por Android.</p></div>
+    <div class="card"><h2>Privacidad de menores</h2><p>Nuvexa es una aplicación de utilidades para público general y no está dirigida a menores de 13 años. Nuvexa no recopila conscientemente información personal mediante servidores propios porque no opera servidores para procesar las herramientas.</p></div>
+    <div class="card"><h2>Cambios en esta política</h2><p>Si esta política cambia, la versión actualizada se publicará en esta misma dirección con una nueva fecha de actualización.</p></div>
+    <div class="card"><h2>Contacto</h2><p>Para preguntas sobre esta política: <a href="mailto:support@nuvexa.app">support@nuvexa.app</a>.</p></div>
+  </article>
 
-  <div class="card">
-    <h2>Currency rates</h2>
-    <p>
-      The Currency tool uses fixed reference rates stored in the app, not a live market feed —
-      Nuvexa has no server and does not fetch exchange rates over the network. The app makes this
-      clear in the tool itself; do not rely on it for rates that must reflect the current market.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Advertising</h2>
-    <p>
-      Nuvexa may show ads served by <strong>Google AdMob</strong>. AdMob may collect and process
-      data (such as an advertising identifier) according to Google's own privacy and
-      consent practices, independent of Nuvexa. You can review Google's policies at
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.
-      Advertising is the only network activity Nuvexa performs — no tool's functionality
-      depends on it, and every tool works the same with the network fully off.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Data retention and your choices</h2>
-    <p>
-      You are always in control of what Nuvexa stores: clear your history or favorites from
-      within the app's Settings at any time, or remove all app data by uninstalling Nuvexa or
-      clearing its storage from your device's system settings.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Android backup</h2>
-    <p>
-      Nuvexa itself has no server and never uploads your favorites, history, or settings
-      anywhere — but Android's own backup system, which Nuvexa does not control, can. Your
-      app settings (theme, language, and similar preferences) may be included in Android's
-      standard device backup/restore and device-to-device transfer features, the same as most
-      apps. Favorites and history entries are deliberately excluded from Google's cloud backup,
-      since they can reflect what you calculated, converted, or encrypted, but they are included
-      when moving data directly to a new device you set up yourself. You can turn off Android's
-      backup for Nuvexa (or any app) from your device's system settings at any time.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Children's privacy</h2>
-    <p>
-      Nuvexa is a general-audience utility app and is not directed at children under 13.
-      It does not knowingly collect personal information from anyone, including children.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Changes to this policy</h2>
-    <p>
-      If this policy changes, the updated version will be published at this same address
-      with a new "last updated" date above.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Contact</h2>
-    <p>
-      Questions about this policy or Nuvexa's data practices can be sent to
-      <a href="mailto:support@nuvexa.app">support@nuvexa.app</a>.
-    </p>
-  </div>
-
-  <footer>
-    Nuvexa — Every tool you need. Always offline.
-  </footer>
+  <footer>Nuvexa · Privacy Policy · Version 1.1.0</footer>
 </main>
+<script>
+(function(){
+  const buttons=[...document.querySelectorAll('.langbtn')];
+  const policies=[...document.querySelectorAll('.policy')];
+  function setLang(lang){
+    buttons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+    policies.forEach(p=>p.classList.toggle('active',p.dataset.policy===lang));
+    const active=policies.find(p=>p.dataset.policy===lang);
+    document.documentElement.lang=lang;
+    document.documentElement.dir=active?.dir||'ltr';
+    try{localStorage.setItem('nuvexa-policy-lang',lang)}catch(e){}
+  }
+  buttons.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  let saved=null; try{saved=localStorage.getItem('nuvexa-policy-lang')}catch(e){}
+  const browser=(navigator.language||'en').slice(0,2);
+  const initial=['en','ar','fr','es'].includes(saved)?saved:(['ar','fr','es'].includes(browser)?browser:'en');
+  setLang(initial);
+})();
+</script>
 </body>
 </html>
