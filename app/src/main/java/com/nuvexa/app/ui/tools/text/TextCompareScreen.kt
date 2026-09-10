@@ -3,6 +3,7 @@ package com.nuvexa.app.ui.tools.text
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CompareArrows
 import androidx.compose.material3.Card
@@ -18,18 +19,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import kotlin.math.abs
-import kotlin.math.max
 import com.nuvexa.app.R
 import com.nuvexa.app.ui.components.NuvexaTextField
 import com.nuvexa.app.ui.theme.LocalSpacing
+import kotlin.math.abs
+import kotlin.math.max
 
 @Composable
 fun TextCompareScreen(modifier: Modifier = Modifier) {
     val spacing = LocalSpacing.current
     var original by remember { mutableStateOf("") }
     var updated by remember { mutableStateOf("") }
-
     val stats = remember(original, updated) { compareTexts(original, updated) }
 
     Column(
@@ -63,17 +63,10 @@ fun TextCompareScreen(modifier: Modifier = Modifier) {
                 ),
             ) {
                 Column(
-                    modifier = Modifier.fillMaxWidth().then(Modifier),
+                    modifier = Modifier.fillMaxWidth().padding(spacing.l),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(spacing.s),
                 ) {
-                    Column(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(spacing.s),
-                    ) {
-                        androidx.compose.foundation.layout.Spacer(Modifier)
-                    }
                     Icon(
                         imageVector = Icons.Filled.CompareArrows,
                         contentDescription = null,
@@ -102,7 +95,6 @@ fun TextCompareScreen(modifier: Modifier = Modifier) {
                             color = MaterialTheme.colorScheme.primary,
                         )
                     }
-                    androidx.compose.foundation.layout.Spacer(Modifier)
                 }
             }
         }
