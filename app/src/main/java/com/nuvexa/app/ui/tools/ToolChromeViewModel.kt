@@ -6,16 +6,14 @@ import com.nuvexa.app.data.repository.FavoritesRepository
 import com.nuvexa.app.data.repository.HistoryRepository
 import com.nuvexa.app.data.repository.RecentToolsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-/**
- * Shared chrome logic for every tool screen: favorite toggling, recent-usage tracking,
- * and history recording. One instance is created per tool-detail nav back stack entry.
- */
+/** Shared chrome logic for every tool screen. */
 @HiltViewModel
 class ToolChromeViewModel @Inject constructor(
     private val favoritesRepository: FavoritesRepository,
@@ -24,6 +22,7 @@ class ToolChromeViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var boundToolId: String? = null
+    private var favoriteObservationJob: Job? = null
 
     private val _isFavorite = MutableStateFlow(false)
     val isFavorite: StateFlow<Boolean> = _isFavorite.asStateFlow()
@@ -31,8 +30,13 @@ class ToolChromeViewModel @Inject constructor(
     fun bind(toolId: String) {
         if (boundToolId == toolId) return
         boundToolId = toolId
+
         viewModelScope.launch { recentToolsRepository.recordUsage(toolId) }
-        viewModelScope.launch {
+
+        // A ViewModel can survive long enough to be rebound in navigation edge cases. Cancel the
+        // old collector explicitly so two favorite flows can never race to update the same state.
+        favoriteObservationJob?.cancel()
+        favoriteObservationJob = viewModelScope.launch {
             favoritesRepository.observeIsFavorite(toolId).collect { _isFavorite.value = it }
         }
     }

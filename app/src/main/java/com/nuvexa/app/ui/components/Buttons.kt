@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-private val ButtonHeight = 52.dp
+private val ButtonHeight = 54.dp
 
 @Composable
 fun PrimaryButton(
@@ -26,11 +26,12 @@ fun PrimaryButton(
         onClick = onClick,
         modifier = modifier.height(ButtonHeight),
         enabled = enabled,
-        shape = MaterialTheme.shapes.medium,
+        shape = MaterialTheme.shapes.extraLarge,
+        elevation = ButtonDefaults.buttonElevation(defaultElevation = 3.dp, pressedElevation = 0.dp),
     ) {
         if (leadingIcon != null) {
             leadingIcon()
-            androidx.compose.foundation.layout.Spacer(Modifier.width(4.dp))
+            androidx.compose.foundation.layout.Spacer(Modifier.width(6.dp))
         }
         Text(text, style = MaterialTheme.typography.titleMedium)
     }
@@ -47,7 +48,7 @@ fun SecondaryButton(
         onClick = onClick,
         modifier = modifier.height(ButtonHeight),
         enabled = enabled,
-        shape = MaterialTheme.shapes.medium,
+        shape = MaterialTheme.shapes.extraLarge,
     ) {
         Text(text, style = MaterialTheme.typography.titleMedium)
     }
@@ -63,6 +64,7 @@ fun DangerTextButton(
         onClick = onClick,
         modifier = modifier,
         colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error),
+        shape = MaterialTheme.shapes.extraLarge,
     ) {
         Text(text)
     }

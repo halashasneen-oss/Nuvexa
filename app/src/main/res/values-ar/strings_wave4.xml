@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_tagline">أدوات قوية. خصوصية من الأساس.</string>
+    <string name="tools_subtitle">مجموعة أدوات مختارة للعمل والدراسة والملفات والخصوصية.</string>
+    <string name="tool_local_badge">يعمل محليًا • مصمم للخصوصية</string>
+
+    <string name="tool_calc_scientific_name">الحاسبة العلمية</string>
+    <string name="tool_calc_scientific_desc">احسب التعابير المتقدمة والأسس والجذور واللوغاريتمات والدوال المثلثية.</string>
+    <string name="tool_calc_scientific_keywords">حاسبة علمية جيب جيب تمام ظل جذر لوغاريتم أس معادلة رياضيات</string>
+    <string name="scientific_expression">التعبير الحسابي</string>
+    <string name="scientific_degrees">درجات</string>
+    <string name="scientific_radians">راديان</string>
+    <string name="scientific_quick_functions">دوال سريعة</string>
+    <string name="scientific_evaluate">احسب</string>
+    <string name="scientific_result">النتيجة</string>
+    <string name="scientific_invalid_expression">تحقق من التعبير الحسابي وحاول مرة أخرى.</string>
+
+    <string name="tool_calc_trip_cost_name">تكلفة الوقود والرحلة</string>
+    <string name="tool_calc_trip_cost_desc">احسب كمية الوقود المطلوبة وتكلفة الرحلة وحصة كل راكب.</string>
+    <string name="tool_calc_trip_cost_keywords">وقود بنزين رحلة سفر سيارة مسافة استهلاك تكلفة ركاب</string>
+    <string name="trip_distance">مسافة الرحلة</string>
+    <string name="trip_consumption">استهلاك الوقود</string>
+    <string name="trip_fuel_price">سعر لتر الوقود</string>
+    <string name="trip_passengers">عدد الركاب</string>
+    <string name="trip_calculate">احسب الرحلة</string>
+    <string name="trip_total_cost">التكلفة الإجمالية المقدرة</string>
+    <string name="trip_fuel_needed">الوقود المطلوب</string>
+    <string name="trip_per_person">التكلفة لكل شخص</string>
+    <string name="trip_invalid_input">أدخل قيمًا موجبة وصحيحة لحساب الرحلة.</string>
+
+    <string name="tool_sec_password_audit_name">تدقيق قوة كلمة المرور</string>
+    <string name="tool_sec_password_audit_desc">افحص قوة كلمة المرور ومقدار تعقيدها ونقاط ضعفها محليًا على جهازك.</string>
+    <string name="tool_sec_password_audit_keywords">كلمة مرور قوة تدقيق أمان حماية فحص ضعيفة قوية خصوصية</string>
+    <string name="password_audit_password">كلمة المرور المراد فحصها</string>
+    <string name="password_audit_enter_password">أدخل كلمة مرور لفحصها</string>
+    <string name="password_audit_weak">ضعيفة</string>
+    <string name="password_audit_fair">مقبولة</string>
+    <string name="password_audit_good">جيدة</string>
+    <string name="password_audit_strong">قوية</string>
+    <string name="password_audit_entropy">تقدير التعقيد ~%1$d بت</string>
+    <string name="password_audit_length">12 محرفًا على الأقل</string>
+    <string name="password_audit_uppercase">تحتوي حرفًا إنجليزيًا كبيرًا</string>
+    <string name="password_audit_lowercase">تحتوي حرفًا إنجليزيًا صغيرًا</string>
+    <string name="password_audit_number">تحتوي رقمًا</string>
+    <string name="password_audit_symbol">تحتوي رمزًا خاصًا</string>
+    <string name="password_audit_no_common">لا تحتوي أنماط كلمات مرور شائعة</string>
+    <string name="password_audit_privacy_note">ما تكتبه هنا لا يُحفظ في السجل ولا يُرسل إلى أي جهة.</string>
+
+    <string name="tool_sec_file_checksum_name">فحص بصمة الملف</string>
+    <string name="tool_sec_file_checksum_desc">احسب SHA-256 وSHA-512 للتحقق من سلامة أي ملف محليًا.</string>
+    <string name="tool_sec_file_checksum_keywords">ملف بصمة تجزئة تحقق سلامة sha256 sha512 hash checksum</string>
+    <string name="file_checksum_privacy">تتم قراءة الملف المحدد محليًا فقط ولا يغادر محتواه جهازك.</string>
+    <string name="file_checksum_pick">اختر ملفًا</string>
+    <string name="file_checksum_selected">الملف المحدد: %1$s</string>
+    <string name="file_checksum_reading">جارٍ حساب بصمة الملف…</string>
+    <string name="file_checksum_error">تعذر قراءة هذا الملف. جرّب ملفًا آخر.</string>
+    <string name="file_checksum_unknown_file">الملف المحدد</string>
+
+    <string name="tool_pdf_inspector_name">فاحص PDF</string>
+    <string name="tool_pdf_inspector_desc">اعرض عدد الصفحات والحجم الكلي ومتوسط حجم الصفحة في مكان واحد.</string>
+    <string name="tool_pdf_inspector_keywords">pdf فحص معلومات صفحات عدد حجم تحليل مستند ملف</string>
+    <string name="pdf_inspector_help">اختر ملف PDF لعرض أهم معلوماته البنيوية والحجمية بسرعة.</string>
+    <string name="pdf_inspector_pages">عدد الصفحات</string>
+    <string name="pdf_inspector_total_size">الحجم الكلي</string>
+    <string name="pdf_inspector_average_size">متوسط حجم الصفحة</string>
+</resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_tagline">Powerful tools. Private by design.</string>
+    <string name="tools_subtitle">A curated toolbox for everyday work, study, files and privacy.</string>
+    <string name="tool_local_badge">Local-first • private by design</string>
+
+    <string name="tool_calc_scientific_name">Scientific Calculator</string>
+    <string name="tool_calc_scientific_desc">Evaluate advanced expressions with powers, roots, logarithms and trigonometry.</string>
+    <string name="tool_calc_scientific_keywords">scientific calculator sin cos tan sqrt log ln power equation math</string>
+    <string name="scientific_expression">Expression</string>
+    <string name="scientific_degrees">Degrees</string>
+    <string name="scientific_radians">Radians</string>
+    <string name="scientific_quick_functions">Quick functions</string>
+    <string name="scientific_evaluate">Calculate</string>
+    <string name="scientific_result">Result</string>
+    <string name="scientific_invalid_expression">Check the expression and try again.</string>
+
+    <string name="tool_calc_trip_cost_name">Fuel &amp; Trip Cost</string>
+    <string name="tool_calc_trip_cost_desc">Plan fuel needed, total trip cost and cost per passenger.</string>
+    <string name="tool_calc_trip_cost_keywords">fuel trip petrol gas travel cost distance consumption car passengers</string>
+    <string name="trip_distance">Trip distance</string>
+    <string name="trip_consumption">Fuel consumption</string>
+    <string name="trip_fuel_price">Fuel price per liter</string>
+    <string name="trip_passengers">Passengers</string>
+    <string name="trip_calculate">Calculate trip</string>
+    <string name="trip_total_cost">Estimated total cost</string>
+    <string name="trip_fuel_needed">Fuel needed</string>
+    <string name="trip_per_person">Cost per person</string>
+    <string name="trip_invalid_input">Enter valid positive values to calculate the trip.</string>
+
+    <string name="tool_sec_password_audit_name">Password Strength Audit</string>
+    <string name="tool_sec_password_audit_desc">Check password strength, estimated entropy and common weaknesses entirely on-device.</string>
+    <string name="tool_sec_password_audit_keywords">password strength audit entropy security checker weak strong privacy</string>
+    <string name="password_audit_password">Password to check</string>
+    <string name="password_audit_enter_password">Enter a password to audit</string>
+    <string name="password_audit_weak">Weak</string>
+    <string name="password_audit_fair">Fair</string>
+    <string name="password_audit_good">Good</string>
+    <string name="password_audit_strong">Strong</string>
+    <string name="password_audit_entropy">~%1$d bits estimated</string>
+    <string name="password_audit_length">At least 12 characters</string>
+    <string name="password_audit_uppercase">Contains an uppercase letter</string>
+    <string name="password_audit_lowercase">Contains a lowercase letter</string>
+    <string name="password_audit_number">Contains a number</string>
+    <string name="password_audit_symbol">Contains a symbol</string>
+    <string name="password_audit_no_common">Avoids common password patterns</string>
+    <string name="password_audit_privacy_note">Nothing you type here is saved to history or sent anywhere.</string>
+
+    <string name="tool_sec_file_checksum_name">File Checksum</string>
+    <string name="tool_sec_file_checksum_desc">Calculate SHA-256 and SHA-512 fingerprints to verify any file locally.</string>
+    <string name="tool_sec_file_checksum_keywords">file checksum sha256 sha512 hash verify fingerprint integrity download</string>
+    <string name="file_checksum_privacy">The selected file is read locally only. Its contents never leave your device.</string>
+    <string name="file_checksum_pick">Choose a file</string>
+    <string name="file_checksum_selected">Selected: %1$s</string>
+    <string name="file_checksum_reading">Calculating checksums…</string>
+    <string name="file_checksum_error">This file could not be read. Try another file.</string>
+    <string name="file_checksum_unknown_file">Selected file</string>
+
+    <string name="tool_pdf_inspector_name">PDF Inspector</string>
+    <string name="tool_pdf_inspector_desc">Inspect page count, total file size and average size per page in one place.</string>
+    <string name="tool_pdf_inspector_keywords">pdf inspect info pages count size analyze document file</string>
+    <string name="pdf_inspector_help">Choose a PDF to see its most useful structural and size information at a glance.</string>
+    <string name="pdf_inspector_pages">Pages</string>
+    <string name="pdf_inspector_total_size">Total size</string>
+    <string name="pdf_inspector_average_size">Average page size</string>
+</resources>

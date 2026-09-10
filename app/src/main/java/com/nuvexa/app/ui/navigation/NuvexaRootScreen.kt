@@ -1,24 +1,23 @@
 package com.nuvexa.app.ui.navigation
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.filled.History
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.StarBorder
-import androidx.compose.material.icons.outlined.History
-import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material.icons.filled.GridView
-import androidx.compose.material.icons.outlined.GridView
+import androidx.compose.material.icons.rounded.GridView
+import androidx.compose.material.icons.rounded.History
+import androidx.compose.material.icons.rounded.Home
+import androidx.compose.material.icons.rounded.Settings
+import androidx.compose.material.icons.rounded.Star
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -39,16 +38,15 @@ import com.nuvexa.app.ui.components.BannerAdView
 private data class BottomDestination(
     val route: String,
     val labelRes: Int,
-    val selectedIcon: ImageVector,
-    val unselectedIcon: ImageVector,
+    val icon: ImageVector,
 )
 
 private val bottomDestinations = listOf(
-    BottomDestination(Routes.HOME, R.string.nav_home, Icons.Filled.Home, Icons.Outlined.Home),
-    BottomDestination(Routes.TOOLS, R.string.nav_tools, Icons.Filled.GridView, Icons.Outlined.GridView),
-    BottomDestination(Routes.FAVORITES, R.string.nav_favorites, Icons.Filled.Star, Icons.Outlined.StarBorder),
-    BottomDestination(Routes.HISTORY, R.string.nav_history, Icons.Filled.History, Icons.Outlined.History),
-    BottomDestination(Routes.SETTINGS, R.string.nav_settings, Icons.Filled.Settings, Icons.Outlined.Settings),
+    BottomDestination(Routes.HOME, R.string.nav_home, Icons.Rounded.Home),
+    BottomDestination(Routes.TOOLS, R.string.nav_tools, Icons.Rounded.GridView),
+    BottomDestination(Routes.FAVORITES, R.string.nav_favorites, Icons.Rounded.Star),
+    BottomDestination(Routes.HISTORY, R.string.nav_history, Icons.Rounded.History),
+    BottomDestination(Routes.SETTINGS, R.string.nav_settings, Icons.Rounded.Settings),
 )
 
 @Composable
@@ -58,19 +56,13 @@ fun NuvexaRootScreen(startWithOnboarding: Boolean) {
     val currentRoute = backStackEntry?.destination?.route
     val showBottomBar = bottomDestinations.any { it.route == currentRoute }
 
-    // A very soft gradient glow behind the whole app instead of a flat single background color —
-    // fades from a faint primary tint at the top into the normal background within the first
-    // ~420dp, then stays flat for the rest of the screen. Kept subtle (low alpha) specifically
-    // so it never reduces text/icon contrast against MaterialTheme's normal content colors,
-    // in either light or dark theme.
-    val glowHeightPx = with(LocalDensity.current) { 420.dp.toPx() }
-    val backgroundColor = MaterialTheme.colorScheme.background
-    val onBackgroundColor = MaterialTheme.colorScheme.onBackground
+    val glowHeightPx = with(LocalDensity.current) { 560.dp.toPx() }
+    val scheme = MaterialTheme.colorScheme
     val backgroundBrush = Brush.verticalGradient(
         colors = listOf(
-            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.16f),
-            MaterialTheme.colorScheme.primary.copy(alpha = 0.04f),
-            backgroundColor,
+            scheme.primaryContainer.copy(alpha = 0.44f),
+            scheme.tertiaryContainer.copy(alpha = 0.20f),
+            scheme.background,
         ),
         startY = 0f,
         endY = glowHeightPx,
@@ -82,37 +74,49 @@ fun NuvexaRootScreen(startWithOnboarding: Boolean) {
             bottomBar = {
                 if (showBottomBar) {
                     Column {
-                        // Keep the banner visible and predictable on every top-level screen,
-                        // directly above navigation and never inside an active tool workflow.
+                        // Ad placement/behavior is intentionally unchanged.
                         BannerAdView(modifier = Modifier.padding(vertical = 4.dp))
-                        NavigationBar {
-                            bottomDestinations.forEach { destination ->
-                                val selected = currentRoute == destination.route
-                                NavigationBarItem(
-                                    selected = selected,
-                                    onClick = { navController.navigateToBottomDestination(destination.route) },
-                                    icon = {
-                                        androidx.compose.material3.Icon(
-                                            imageVector = if (selected) destination.selectedIcon else destination.unselectedIcon,
-                                            contentDescription = null,
-                                        )
-                                    },
-                                    label = { Text(stringResource(destination.labelRes)) },
-                                )
+                        Surface(
+                            shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
+                            color = scheme.surface.copy(alpha = 0.97f),
+                            shadowElevation = 10.dp,
+                            border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.22f)),
+                        ) {
+                            NavigationBar(
+                                containerColor = Color.Transparent,
+                                tonalElevation = 0.dp,
+                            ) {
+                                bottomDestinations.forEach { destination ->
+                                    val selected = currentRoute == destination.route
+                                    NavigationBarItem(
+                                        selected = selected,
+                                        onClick = { navController.navigateToBottomDestination(destination.route) },
+                                        icon = {
+                                            Icon(
+                                                imageVector = destination.icon,
+                                                contentDescription = null,
+                                            )
+                                        },
+                                        label = { Text(stringResource(destination.labelRes)) },
+                                        colors = NavigationBarItemDefaults.colors(
+                                            selectedIconColor = scheme.onPrimaryContainer,
+                                            selectedTextColor = scheme.onSurface,
+                                            indicatorColor = scheme.primaryContainer,
+                                            unselectedIconColor = scheme.onSurfaceVariant,
+                                            unselectedTextColor = scheme.onSurfaceVariant,
+                                        ),
+                                    )
+                                }
                             }
                         }
                     }
                 }
             },
         ) { innerPadding ->
-            // Transparent so the gradient behind shows through, but with an explicit
-            // contentColor — a transparent container can't be matched to a theme role, so
-            // without this, descendant Text/Icon defaults could fall back to the wrong color
-            // and lose contrast instead of reliably using onBackground.
             Surface(
                 modifier = Modifier.padding(innerPadding),
                 color = Color.Transparent,
-                contentColor = onBackgroundColor,
+                contentColor = scheme.onBackground,
             ) {
                 NuvexaNavHost(
                     navController = navController,

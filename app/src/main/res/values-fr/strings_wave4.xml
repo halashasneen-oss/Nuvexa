@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_tagline">Des outils puissants. La confidentialité par conception.</string>
+    <string name="tools_subtitle">Une boîte à outils sélectionnée pour le quotidien, les études, les fichiers et la confidentialité.</string>
+    <string name="tool_local_badge">Local en priorité • conçu pour la confidentialité</string>
+
+    <string name="tool_calc_scientific_name">Calculatrice scientifique</string>
+    <string name="tool_calc_scientific_desc">Évaluez des expressions avancées avec puissances, racines, logarithmes et trigonométrie.</string>
+    <string name="tool_calc_scientific_keywords">calculatrice scientifique sin cos tan racine logarithme puissance équation maths</string>
+    <string name="scientific_expression">Expression</string>
+    <string name="scientific_degrees">Degrés</string>
+    <string name="scientific_radians">Radians</string>
+    <string name="scientific_quick_functions">Fonctions rapides</string>
+    <string name="scientific_evaluate">Calculer</string>
+    <string name="scientific_result">Résultat</string>
+    <string name="scientific_invalid_expression">Vérifiez l’expression puis réessayez.</string>
+
+    <string name="tool_calc_trip_cost_name">Coût carburant et trajet</string>
+    <string name="tool_calc_trip_cost_desc">Estimez le carburant nécessaire, le coût total du trajet et le coût par passager.</string>
+    <string name="tool_calc_trip_cost_keywords">carburant essence trajet voyage coût distance consommation voiture passagers</string>
+    <string name="trip_distance">Distance du trajet</string>
+    <string name="trip_consumption">Consommation de carburant</string>
+    <string name="trip_fuel_price">Prix du carburant par litre</string>
+    <string name="trip_passengers">Passagers</string>
+    <string name="trip_calculate">Calculer le trajet</string>
+    <string name="trip_total_cost">Coût total estimé</string>
+    <string name="trip_fuel_needed">Carburant nécessaire</string>
+    <string name="trip_per_person">Coût par personne</string>
+    <string name="trip_invalid_input">Saisissez des valeurs positives valides pour calculer le trajet.</string>
+
+    <string name="tool_sec_password_audit_name">Audit de robustesse du mot de passe</string>
+    <string name="tool_sec_password_audit_desc">Analysez la robustesse, l’entropie estimée et les faiblesses courantes directement sur l’appareil.</string>
+    <string name="tool_sec_password_audit_keywords">mot de passe robustesse audit entropie sécurité contrôle faible fort confidentialité</string>
+    <string name="password_audit_password">Mot de passe à vérifier</string>
+    <string name="password_audit_enter_password">Saisissez un mot de passe à analyser</string>
+    <string name="password_audit_weak">Faible</string>
+    <string name="password_audit_fair">Moyen</string>
+    <string name="password_audit_good">Bon</string>
+    <string name="password_audit_strong">Fort</string>
+    <string name="password_audit_entropy">~%1$d bits estimés</string>
+    <string name="password_audit_length">Au moins 12 caractères</string>
+    <string name="password_audit_uppercase">Contient une majuscule</string>
+    <string name="password_audit_lowercase">Contient une minuscule</string>
+    <string name="password_audit_number">Contient un chiffre</string>
+    <string name="password_audit_symbol">Contient un symbole</string>
+    <string name="password_audit_no_common">Évite les modèles de mots de passe courants</string>
+    <string name="password_audit_privacy_note">Le texte saisi ici n’est ni enregistré dans l’historique ni envoyé ailleurs.</string>
+
+    <string name="tool_sec_file_checksum_name">Empreinte de fichier</string>
+    <string name="tool_sec_file_checksum_desc">Calculez les empreintes SHA-256 et SHA-512 pour vérifier un fichier localement.</string>
+    <string name="tool_sec_file_checksum_keywords">fichier empreinte sha256 sha512 hash somme contrôle vérifier intégrité téléchargement</string>
+    <string name="file_checksum_privacy">Le fichier sélectionné est lu uniquement en local. Son contenu ne quitte jamais votre appareil.</string>
+    <string name="file_checksum_pick">Choisir un fichier</string>
+    <string name="file_checksum_selected">Sélectionné : %1$s</string>
+    <string name="file_checksum_reading">Calcul des empreintes…</string>
+    <string name="file_checksum_error">Impossible de lire ce fichier. Essayez-en un autre.</string>
+    <string name="file_checksum_unknown_file">Fichier sélectionné</string>
+
+    <string name="tool_pdf_inspector_name">Inspecteur PDF</string>
+    <string name="tool_pdf_inspector_desc">Consultez le nombre de pages, la taille totale et la taille moyenne par page au même endroit.</string>
+    <string name="tool_pdf_inspector_keywords">pdf inspecter informations pages nombre taille analyser document fichier</string>
+    <string name="pdf_inspector_help">Choisissez un PDF pour voir rapidement ses principales informations de structure et de taille.</string>
+    <string name="pdf_inspector_pages">Pages</string>
+    <string name="pdf_inspector_total_size">Taille totale</string>
+    <string name="pdf_inspector_average_size">Taille moyenne par page</string>
+</resources>

@@ -1,6 +1,7 @@
 package com.nuvexa.app.ui.screens.tools
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -8,7 +9,8 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.rounded.Search
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -18,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.nuvexa.app.R
 import com.nuvexa.app.core.model.ToolCategory
 import com.nuvexa.app.core.registry.ToolRegistry
@@ -40,12 +43,22 @@ fun ToolsScreen(
         if (query.isBlank()) emptyList() else SearchEngine.search(context, query)
     }
 
-    androidx.compose.foundation.layout.Column(modifier = Modifier.fillMaxSize()) {
-        Text(
-            text = stringResource(R.string.tools_title),
-            style = androidx.compose.material3.MaterialTheme.typography.displaySmall,
+    Column(modifier = Modifier.fillMaxSize()) {
+        Column(
             modifier = Modifier.padding(horizontal = spacing.l, vertical = spacing.m),
-        )
+            verticalArrangement = Arrangement.spacedBy(spacing.xs),
+        ) {
+            Text(
+                text = stringResource(R.string.tools_title),
+                style = MaterialTheme.typography.displaySmall,
+            )
+            Text(
+                text = stringResource(R.string.tools_subtitle),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+
         AppSearchBar(
             query = query,
             onQueryChange = { query = it },
@@ -56,14 +69,14 @@ fun ToolsScreen(
         if (query.isNotBlank()) {
             if (searchResults.isEmpty()) {
                 EmptyState(
-                    icon = Icons.Filled.Search,
+                    icon = Icons.Rounded.Search,
                     title = stringResource(R.string.search_no_results_title),
                     body = stringResource(R.string.search_no_results_body),
                     modifier = Modifier.padding(top = spacing.xxl),
                 )
             } else {
                 LazyVerticalGrid(
-                    columns = GridCells.Fixed(2),
+                    columns = GridCells.Adaptive(minSize = 148.dp),
                     contentPadding = PaddingValues(spacing.l),
                     horizontalArrangement = Arrangement.spacedBy(spacing.m),
                     verticalArrangement = Arrangement.spacedBy(spacing.m),
@@ -79,7 +92,7 @@ fun ToolsScreen(
             }
         } else {
             LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
+                columns = GridCells.Adaptive(minSize = 156.dp),
                 contentPadding = PaddingValues(spacing.l),
                 horizontalArrangement = Arrangement.spacedBy(spacing.m),
                 verticalArrangement = Arrangement.spacedBy(spacing.m),

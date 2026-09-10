@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_tagline">Herramientas potentes. Privacidad desde el diseño.</string>
+    <string name="tools_subtitle">Una caja de herramientas seleccionada para el día a día, estudio, archivos y privacidad.</string>
+    <string name="tool_local_badge">Local primero • diseñado para la privacidad</string>
+
+    <string name="tool_calc_scientific_name">Calculadora científica</string>
+    <string name="tool_calc_scientific_desc">Evalúa expresiones avanzadas con potencias, raíces, logaritmos y trigonometría.</string>
+    <string name="tool_calc_scientific_keywords">calculadora científica sin cos tan raíz logaritmo potencia ecuación matemáticas</string>
+    <string name="scientific_expression">Expresión</string>
+    <string name="scientific_degrees">Grados</string>
+    <string name="scientific_radians">Radianes</string>
+    <string name="scientific_quick_functions">Funciones rápidas</string>
+    <string name="scientific_evaluate">Calcular</string>
+    <string name="scientific_result">Resultado</string>
+    <string name="scientific_invalid_expression">Revisa la expresión e inténtalo de nuevo.</string>
+
+    <string name="tool_calc_trip_cost_name">Combustible y coste del viaje</string>
+    <string name="tool_calc_trip_cost_desc">Calcula combustible necesario, coste total del viaje y coste por pasajero.</string>
+    <string name="tool_calc_trip_cost_keywords">combustible gasolina viaje coste distancia consumo coche pasajeros</string>
+    <string name="trip_distance">Distancia del viaje</string>
+    <string name="trip_consumption">Consumo de combustible</string>
+    <string name="trip_fuel_price">Precio del combustible por litro</string>
+    <string name="trip_passengers">Pasajeros</string>
+    <string name="trip_calculate">Calcular viaje</string>
+    <string name="trip_total_cost">Coste total estimado</string>
+    <string name="trip_fuel_needed">Combustible necesario</string>
+    <string name="trip_per_person">Coste por persona</string>
+    <string name="trip_invalid_input">Introduce valores positivos válidos para calcular el viaje.</string>
+
+    <string name="tool_sec_password_audit_name">Auditor de seguridad de contraseña</string>
+    <string name="tool_sec_password_audit_desc">Comprueba la fortaleza, entropía estimada y debilidades comunes directamente en el dispositivo.</string>
+    <string name="tool_sec_password_audit_keywords">contraseña fortaleza auditor entropía seguridad comprobar débil fuerte privacidad</string>
+    <string name="password_audit_password">Contraseña a comprobar</string>
+    <string name="password_audit_enter_password">Introduce una contraseña para analizarla</string>
+    <string name="password_audit_weak">Débil</string>
+    <string name="password_audit_fair">Aceptable</string>
+    <string name="password_audit_good">Buena</string>
+    <string name="password_audit_strong">Fuerte</string>
+    <string name="password_audit_entropy">~%1$d bits estimados</string>
+    <string name="password_audit_length">Al menos 12 caracteres</string>
+    <string name="password_audit_uppercase">Contiene una mayúscula</string>
+    <string name="password_audit_lowercase">Contiene una minúscula</string>
+    <string name="password_audit_number">Contiene un número</string>
+    <string name="password_audit_symbol">Contiene un símbolo</string>
+    <string name="password_audit_no_common">Evita patrones de contraseña comunes</string>
+    <string name="password_audit_privacy_note">Lo que escribas aquí no se guarda en el historial ni se envía a ningún sitio.</string>
+
+    <string name="tool_sec_file_checksum_name">Huella de archivo</string>
+    <string name="tool_sec_file_checksum_desc">Calcula huellas SHA-256 y SHA-512 para verificar cualquier archivo localmente.</string>
+    <string name="tool_sec_file_checksum_keywords">archivo huella sha256 sha512 hash checksum verificar integridad descarga</string>
+    <string name="file_checksum_privacy">El archivo seleccionado se lee solo de forma local. Su contenido nunca sale del dispositivo.</string>
+    <string name="file_checksum_pick">Elegir un archivo</string>
+    <string name="file_checksum_selected">Seleccionado: %1$s</string>
+    <string name="file_checksum_reading">Calculando huellas…</string>
+    <string name="file_checksum_error">No se pudo leer este archivo. Prueba con otro.</string>
+    <string name="file_checksum_unknown_file">Archivo seleccionado</string>
+
+    <string name="tool_pdf_inspector_name">Inspector de PDF</string>
+    <string name="tool_pdf_inspector_desc">Consulta número de páginas, tamaño total y tamaño medio por página en un solo lugar.</string>
+    <string name="tool_pdf_inspector_keywords">pdf inspeccionar información páginas número tamaño analizar documento archivo</string>
+    <string name="pdf_inspector_help">Elige un PDF para ver de un vistazo sus datos principales de estructura y tamaño.</string>
+    <string name="pdf_inspector_pages">Páginas</string>
+    <string name="pdf_inspector_total_size">Tamaño total</string>
+    <string name="pdf_inspector_average_size">Tamaño medio por página</string>
+</resources>

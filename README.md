@@ -1,167 +1,163 @@
 # Nuvexa
 
-Every tool you need. Always offline.
+**Powerful tools. Private by design.**
 
-Nuvexa is an offline-first, privacy-focused Android utility app: calculators, converters,
-generators, and everyday tools that live in your pocket without ever needing an internet
-connection. Nothing you create or open in Nuvexa is uploaded anywhere.
+Nuvexa is an offline-first Android utility app built for everyday calculations, files,
+text, privacy, study and developer work. Core tool functionality runs on-device; network
+access is used for optional Google AdMob advertising.
 
-- **Offline-first** — every tool below works with no network connection.
-- **Private by design** — no accounts, no analytics SDKs, no uploading of your files, photos,
-  or text. The only network call the app ever makes is optional ad serving.
-- **Multilingual** — English, Arabic (full RTL), French, and Spanish, with natural (not
-  word-for-word) translations and locale-aware number/date formatting.
-- **Free, ad-supported** — a banner ad on non-critical discovery screens (Tools categories,
-  History). No interstitials, no forced ad views to use a tool.
+## Current status
 
-## Status: real, working tools — not a mockup
+- **80 curated tools across 15 categories** — real screens, no "Coming Soon" tiles.
+- **Kotlin + Jetpack Compose + Material 3** with a shared modern design system.
+- **English, Arabic (RTL), French and Spanish**.
+- **Offline-first** calculators, converters, PDF utilities, OCR, QR, image and security tools.
+- **Local history/favorites/recents** using Room and DataStore.
+- `app/build.gradle.kts` currently reports **version 1.0.4** (`versionCode = 5`).
 
-Every tool listed in the app is fully implemented and functional; there are no "Coming
-Soon" placeholders, dummy buttons, or fake results anywhere in the UI. What's *not* built
-yet simply isn't in the app — see [Roadmap](#roadmap) for what's next.
-
-### Implemented today (80 tools across 15 categories)
+## Tool catalog
 
 | Category | Tools |
 |---|---|
-| Calculators | Basic, Percentage, Discount, Tip, Split Bill, Age, Date Difference, Simple Interest, Compound Interest, EMI, Fraction, Ratio, Average, Markup, Profit Margin, Mortgage, Savings, Work Hours |
-| Unit Converter | Length, Weight, Temperature, Area, Volume, Speed, Time, Data Storage (one tool, switchable) |
-| Currency | Currency Calculator (manual, offline exchange rates you set yourself) |
-| Text & Writing | Text Analyzer (words/characters/sentences/reading time), Case Converter, Text Cleaner, Base64, URL Encoder, JSON Formatter, Extract Numbers/Emails/URLs |
-| Privacy & Security | Password Generator, PIN Generator, UUID Generator, Random Number Generator, Hash Generator (MD5/SHA-1/SHA-256/SHA-512), Passphrase Generator, HMAC Generator, Text Encryption (AES-GCM + PBKDF2) |
-| QR & Barcode | QR Generator (text/link/Wi-Fi), QR/Barcode Scanner |
-| Color Tools | Color Converter (HEX/RGB/HSL + picker), Palette Generator |
+| Calculators | Basic, Scientific, Percentage, Discount, Tip, Split Bill, Age, Date Difference, Simple Interest, Compound Interest, EMI, Fraction, Ratio, Average, Markup, Profit Margin, Mortgage, Savings, Work Hours, Fuel & Trip Cost |
+| Unit Converter | Length, Weight, Temperature, Area, Volume, Speed, Time and Data Storage in one switchable converter |
+| Currency | Offline/manual Currency Calculator |
+| Text & Writing | Text Analyzer, Case Converter, Text Cleaner, Base64, URL Encoder, JSON Formatter, Extract Numbers, Extract Emails, Extract URLs |
+| Privacy & Security | Password Generator, Password Strength Audit, File Checksum (SHA-256/SHA-512), PIN Generator, UUID Generator, Random Number Generator, Hash Generator, Passphrase Generator, HMAC Generator, AES-GCM Text Encryption |
+| QR & Barcode | QR Generator, QR/Barcode Scanner |
+| Color Tools | Color Converter, Palette Generator |
 | Time & Date | World Clock, Stopwatch, Timer, Unix Timestamp Converter, Date Calculator, Working Days Calculator |
-| Developer Tools | Regex Tester, Lorem Ipsum Generator, XML/HTML/CSS Formatter, JWT Decoder |
-| Math & Engineering | Prime Checker, Prime Generator, GCD & LCM, Factorial, Fibonacci Sequence, Binary/Hex/Octal Converter, Statistics Calculator |
-| Network Tools | Subnet/CIDR Calculator, HTTP Status Code Reference, Port Reference — local calculators and reference data only, clearly not live network diagnostics |
-| PDF & Documents | Images→PDF, Text→PDF, PDF→Images, PDF Viewer, Page Counter, Size Analyzer, Merge, Split, Rotate, Watermark, Organize Pages (see note below) |
-| OCR & Text Scanning | OCR from Image, OCR from Camera, OCR from PDF — Google ML Kit's on-device, bundled-model text recognizer (no network call, works from first launch) |
+| Developer Tools | Regex Tester, XML Formatter, HTML Formatter, CSS Formatter, JWT Decoder |
 | Device | Device Information |
 | Image Tools | Image Compressor, Image Resizer |
+| Math & Engineering | Prime Checker, Prime Generator, GCD & LCM, Factorial, Fibonacci, Binary/Hex/Octal Converter, Statistics Calculator |
+| Network Tools | Subnet/CIDR Calculator |
+| PDF & Documents | Images→PDF, Text→PDF, PDF→Images, PDF Viewer, PDF Inspector, Merge, Split, Rotate, Watermark, Organize Pages |
+| OCR & Text Scanning | OCR from Image, OCR from Camera, OCR from PDF |
 
-> **PDF tools use a rasterized approach.** Android has no built-in library for editing an
-> existing PDF's real structure — only `PdfRenderer` (rasterize pages to images, read-only)
-> and `PdfDocument` (build a new PDF from scratch). So Merge/Split/Rotate/Watermark/Organize
-> all work by rendering each page to a high-resolution image and rebuilding a new PDF from
-> those images — genuinely functional, but the output pages are images, not the original
-> selectable/vector text. Each of those tools says so plainly in its own description. Images→PDF
-> and Text→PDF are the exception: they build genuinely vector PDFs (real embedded images /
-> real drawn text) since there's no existing structure to preserve. Password-protected PDFs
-> can't be opened (no decryption support) and are reported with a clear message rather than
-> failing silently.
+### Why the catalog changed
 
-Plus the full app shell: onboarding, home dashboard (search, quick actions, favorites,
-recents, local usage-based recommendations), category browser, favorites (reorderable),
-history, and a complete settings screen (theme, language, start screen, haptics, storage,
-privacy, about).
+Nuvexa deliberately favors tools that perform a useful action over static reference-list
+screens. The HTTP status reference, port reference and Lorem Ipsum generator were removed
+from the visible catalog. Separate PDF Page Counter and PDF Size Analyzer screens were
+replaced by one **PDF Inspector** that provides page count, total size and average page size
+together.
+
+The refresh adds five higher-value tools without bloating the catalog:
+
+1. **Scientific Calculator** — expression parser with precedence, powers, roots, logarithms,
+   trigonometry and degree/radian modes.
+2. **Fuel & Trip Cost** — estimates fuel required, total cost and cost per passenger.
+3. **Password Strength Audit** — local strength/entropy checks; entered passwords are not
+   saved to history.
+4. **File Checksum** — computes SHA-256 and SHA-512 in one pass without uploading the file.
+5. **PDF Inspector** — combines the most useful PDF information in a single screen.
+
+## Design system
+
+The UI uses a shared Compose design layer so every tool inherits the same visual language:
+
+- Indigo/violet/blue brand palette with light and dark schemes.
+- Rounded Material icons with branded gradient icon badges.
+- Larger rounded surfaces, clearer hierarchy and consistent card elevation.
+- Adaptive tool/category grids for different phone widths.
+- Modernized home hero, search, quick actions, category cards and bottom navigation.
+- A shared tool header that shows the tool icon, description and local-first privacy cue.
+- Localized numeric input normalization for `.` / `,` / Arabic decimal separators and
+  Arabic/Persian digits before existing calculators parse values.
+
+## Advertising — current implementation
+
+Nuvexa is free and ad-supported. The app currently contains **both banner and interstitial
+AdMob ads**.
+
+- **Banner ads** are shown on top-level screens and on category browsing screens.
+- **Interstitial ads** are offered only at a natural transition: when leaving a tool.
+- In a release build, the interstitial manager shows at most one ad every **three tool exits**.
+- Debug builds use Google's public test ad units and make every eligible exit testable.
+- Ad loading is initialized through the shared `AdsInitializer` and the interstitial is
+  preloaded so tool navigation is not dependent on ad load timing.
+- If an interstitial is unavailable or fails to show, navigation continues normally.
+
+Ad configuration is defined in `app/build.gradle.kts` and ad behavior lives in
+`BannerAd.kt`, `AdsInitializer.kt` and `InterstitialAdManager.kt`. The modernization refresh
+does **not** change the existing ad IDs, frequency policy or ad manager behavior.
 
 ## Privacy
 
-- No user accounts, ever.
-- No file, photo, or text content is uploaded — image compression/resizing, hashing, QR
-  generation/scanning, and every calculator run entirely on-device.
-- History only stores a short, human-readable summary line per operation (e.g. "15% of
-  200 = 30") — never the underlying file or full text content.
-- The only network permission Nuvexa holds is used for optional ad serving; every tool's
-  *functionality* works with Wi-Fi and mobile data both off.
-- Full policy text is in-app under Settings → About → Privacy Policy (also mirrors the
-  string in `strings.xml` as `privacy_policy_body`).
+- No Nuvexa account is required.
+- Core tools do not upload user text, photos or documents.
+- OCR uses the bundled on-device Google ML Kit text-recognition model.
+- Password Strength Audit never writes the tested password to history.
+- File Checksum reads the selected file locally and calculates both digests on-device.
+- Favorites, recent tools, settings and short history summaries are stored locally.
+- Advertising is the app's intended network activity; AdMob may process advertising-related
+  data under Google's own policies.
+
+The published policy is in `docs/privacy-policy.html`, and the in-app policy is available
+under **Settings → About → Privacy Policy**.
+
+## PDF implementation note
+
+Android's built-in PDF APIs do not provide a full structural editor. Existing PDF editing
+operations such as Merge, Split, Rotate, Watermark and Organize use a rasterized workflow:
+pages are rendered to high-resolution images and rebuilt into a new PDF. That makes the
+operations functional without a third-party PDF engine, but rebuilt page text is not the
+original selectable/vector text. Password-protected PDFs are reported as unsupported rather
+than failing silently.
+
+Images→PDF and Text→PDF create new PDFs directly and are not subject to that same existing-PDF
+structure limitation.
 
 ## Architecture
 
-- **Kotlin + Jetpack Compose**, Material 3, single-activity navigation (Navigation Compose).
-- **MVVM**: Hilt-injected `ViewModel`s expose `StateFlow` UI state; screens are stateless
-  Composables.
-- **Repository pattern** over Room (favorites, history, recent tools, manual currency
-  rates) and DataStore (settings).
-- **`ToolRegistry`** is the single source of truth for every tool (id, category, icon,
-  localized name/description/search keywords). `ToolScreenHost` dispatches a tool id to
-  its real screen — every id in the registry has a matching branch, enforced by hand and
-  checked in CI-style review; nothing is listed without a working screen behind it.
-- **`SearchEngine`** is a small local, multilingual keyword matcher — no cloud search, no
-  ML model. It matches localized names/descriptions/keywords across all 4 languages,
-  including natural-language phrases like *"how old am I"* or *"convertir imagen a pdf"*
-  baked into each tool's keyword string resource.
-- **`Recommendations`** is a lightweight on-device heuristic: it looks at which categories
-  you actually use (from local usage counts) and surfaces other tools in those categories.
-
-```
+```text
 app/src/main/java/com/nuvexa/app/
-  core/            # Tool model, registry, search, recommendations, format/color/file utils
-  data/            # Room entities/DAOs, DataStore settings, repositories
-  di/              # Hilt modules
+  core/
+    model/          Tool and category models
+    registry/       ToolRegistry — visible catalog source of truth
+    search/         Local multilingual search and recommendations
+    util/           Calculators, formatters, PDF/OCR/crypto helpers, ad coordination
+  data/
+    local/          Room + DataStore
+    repository/     Favorites, history, recents, settings, currency data
+  di/               Hilt modules
   ui/
-    theme/         # Material3 color scheme, typography, shapes, spacing
-    navigation/    # NavHost, routes, bottom nav shell
-    components/    # ToolScaffold, ToolCard, ResultCard, inputs, buttons, ads, etc.
-    screens/       # Onboarding, Home, Tools, Favorites, History, Settings
-    tools/         # One package per category, one file per tool screen
+    components/     Shared inputs, buttons, cards, result surfaces, ads, icon badges
+    navigation/     Root shell, routes and NavHost
+    screens/        Home, Tools, Favorites, History, Settings, Onboarding
+    theme/          Color, typography, shapes and spacing
+    tools/          Functional tool screens grouped by category
 ```
 
-## Localization
+`ToolRegistry` and `ToolScreenHost` are kept in parity: a tool should never be shown unless
+there is a real screen behind its id.
 
-All UI strings — chrome, every tool name/description/search-keyword string, error
-messages, empty states — live in `res/values{,-ar,-fr,-es}/strings.xml` with **matching
-key sets across all four locales** (verified by diffing the key lists; there is no
-missing-translation gap today). Arabic is right-to-left; Compose's layout direction
-mirroring handles navigation, icons, and forms automatically, and this was spot-checked
-across every screen (paddings use `start`/`end`, not `left`/`right`).
+## Build and verification
 
-Per-app language switching (Settings → Language) uses AndroidX's
-`AppCompatDelegate.setApplicationLocales`, which works down to API 26 without requiring
-`AppCompatActivity`.
-
-## Build
-
-```
-./gradlew assembleDebug     # debug build
-./gradlew testDebugUnitTest # local JVM unit tests (calculators, converters, color math)
+```bash
+./gradlew test
+./gradlew lint
+./gradlew assembleDebug
 ```
 
-> **A note on this repository's current CI environment:** the sandbox this project was
-> authored in has no outbound access to `dl.google.com` / Google's Maven repository (and
-> no Android SDK installed), so the Gradle/AGP build itself could not be executed here.
-> The project was written carefully by hand and cross-checked with static analysis
-> (string-resource reference checks, tool-registry/dispatch parity checks, brace/paren
-> balance checks) instead. **Run a real build in Android Studio or CI with normal network
-> access before treating this as release-ready** — that is the first thing to verify.
+GitHub Actions runs unit tests, Android lint and a debug APK build on pushes and pull
+requests. Release APK/AAB builds run when release-signing secrets are configured.
 
-Signing is intentionally unconfigured (see `app/build.gradle.kts`); provide a real
-keystore via environment variables or a local, git-ignored `keystore.properties` before
-building a release artifact. AdMob is wired up with Google's public **test** ad unit and
-app IDs — replace both with real ones before publishing.
+The scientific-expression parser has dedicated JVM tests covering precedence,
+right-associative powers, unary minus, scientific functions, degree mode, localized decimal
+characters and invalid math.
 
-## Roadmap
+## Release signing
 
-The master specification this app is built against describes a much larger set of
-categories (file management beyond what's below, more QR content types, workflows
-chaining tools together, and so on). Rather than stub those out with fake "Coming Soon"
-tiles, they are simply not in the tool registry yet — the architecture (`Tool` model +
-`ToolRegistry` + `ToolScreenHost`) is built to make adding each of them a contained,
-incremental change: add a `Tool` entry, its 4-language strings, and a screen file.
+No keystore is committed to the repository. Release signing is activated only when the
+expected environment variables are available (`KEYSTORE_FILE`, passwords and alias). GitHub
+Actions can decode the keystore from configured repository secrets before building a signed
+release artifact.
 
-- Wave 2 added Math & Engineering and Network Tools as full categories, plus 8 more
-  calculators, 4 more developer formatters, 3 text-extraction tools, and 3 more security
-  tools (37 → 66 tools).
-- Wave 3 added PDF & Documents and OCR & Text Scanning as full categories — 11 PDF tools
-  (built on Android's built-in `PdfRenderer`/`PdfDocument`, no new risk beyond what's
-  already unverifiable in this environment) and 3 OCR tools (the one genuinely new
-  dependency this wave: Google ML Kit's bundled-model text recognizer, `com.google.mlkit:text-recognition`,
-  chosen specifically because the model ships in the APK rather than needing a Play-Services
-  download, so OCR works offline from first launch) (66 → 80 tools).
+## Next high-value directions
 
-Next up, roughly in priority order:
-1. A camera-based Document Scanner with auto edge-detection (e.g. ML Kit's Document Scanner
-   API) — deliberately left out this wave to avoid stacking two unverified ML Kit modules
-   at once; PDF/OCR wiring is already there for it to plug into.
-2. Real (non-rasterized) PDF editing — would need a third-party PDF library (e.g.
-   pdfbox-android) instead of just `PdfRenderer`/`PdfDocument`; see the PDF tools note above
-   for why that's a deliberately separate, bigger decision.
-3. More file tools (batch rename, ZIP, duplicate finder) via Storage Access Framework.
-4. Saved multi-tool **Workflows** (the data model already anticipates this) — e.g. "photo →
-   OCR → clean text → save," which OCR from Image now makes directly possible to wire up.
-5. More QR content types (contact/email/SMS/location/calendar) and QR history.
-6. Expanding automated test coverage to instrumented UI tests (Compose test rule) for the
-   navigation graph, RTL layout, and the search engine (which needs an Android `Context`
-   and so isn't covered by the current plain-JVM unit tests).
+Future additions should stay selective rather than increasing the tool count for its own
+sake. Strong candidates include a camera document scanner, real structural PDF editing via a
+purpose-built PDF library, privacy-focused image metadata removal, and saved multi-tool
+workflows such as **photo → OCR → clean text → save**.
