@@ -1,5 +1,6 @@
 package com.nuvexa.app.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
@@ -22,12 +23,19 @@ fun PrimaryButton(
     enabled: Boolean = true,
     leadingIcon: (@Composable () -> Unit)? = null,
 ) {
+    val scheme = MaterialTheme.colorScheme
     Button(
         onClick = onClick,
         modifier = modifier.height(ButtonHeight),
         enabled = enabled,
         shape = MaterialTheme.shapes.extraLarge,
-        elevation = ButtonDefaults.buttonElevation(defaultElevation = 3.dp, pressedElevation = 0.dp),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = scheme.primary,
+            contentColor = scheme.onPrimary,
+            disabledContainerColor = scheme.surfaceVariant,
+            disabledContentColor = scheme.onSurfaceVariant.copy(alpha = 0.56f),
+        ),
+        elevation = ButtonDefaults.buttonElevation(defaultElevation = 4.dp, pressedElevation = 1.dp),
     ) {
         if (leadingIcon != null) {
             leadingIcon()
@@ -44,11 +52,17 @@ fun SecondaryButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
+    val scheme = MaterialTheme.colorScheme
     OutlinedButton(
         onClick = onClick,
         modifier = modifier.height(ButtonHeight),
         enabled = enabled,
         shape = MaterialTheme.shapes.extraLarge,
+        colors = ButtonDefaults.outlinedButtonColors(
+            contentColor = scheme.primary,
+            disabledContentColor = scheme.onSurfaceVariant.copy(alpha = 0.56f),
+        ),
+        border = BorderStroke(1.dp, if (enabled) scheme.primary.copy(alpha = 0.62f) else scheme.outline.copy(alpha = 0.28f)),
     ) {
         Text(text, style = MaterialTheme.typography.titleMedium)
     }

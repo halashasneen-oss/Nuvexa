@@ -29,15 +29,19 @@ fun ToolTile(
     modifier: Modifier = Modifier,
 ) {
     val spacing = LocalSpacing.current
+    val scheme = MaterialTheme.colorScheme
     Card(
         modifier = modifier
             .fillMaxWidth()
             .aspectRatio(0.94f)
             .clickable(onClick = onClick),
         shape = MaterialTheme.shapes.large,
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp, pressedElevation = 0.dp),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.24f)),
+        colors = CardDefaults.cardColors(
+            containerColor = scheme.surface.copy(alpha = 0.90f),
+            contentColor = scheme.onSurface,
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp, pressedElevation = 1.dp),
+        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.30f)),
     ) {
         Column(
             modifier = Modifier
@@ -46,10 +50,11 @@ fun ToolTile(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            ToolIconBadge(icon = icon, size = 56.dp, iconSize = 28.dp)
+            ToolIconBadge(icon = icon)
             Text(
                 text = name,
                 style = MaterialTheme.typography.labelLarge,
+                color = scheme.onSurface,
                 textAlign = TextAlign.Center,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,

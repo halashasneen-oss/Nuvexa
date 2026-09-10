@@ -189,8 +189,9 @@ fun HomeScreen(
                 Surface(
                     modifier = Modifier.fillMaxWidth(),
                     shape = MaterialTheme.shapes.large,
-                    color = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.66f),
-                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary.copy(alpha = 0.18f)),
+                    color = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.74f),
+                    contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary.copy(alpha = 0.24f)),
                 ) {
                     Row(
                         modifier = Modifier.padding(spacing.m),
@@ -217,11 +218,14 @@ fun HomeScreen(
 @Composable
 private fun HomeHero(onOpenSettings: () -> Unit) {
     val spacing = LocalSpacing.current
+    val scheme = MaterialTheme.colorScheme
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacing.m),
     ) {
+        // The app mark is intentionally larger than tool icons; tool icons themselves are fixed
+        // to one standard size everywhere else.
         ToolIconBadge(icon = Icons.Rounded.GridView, size = 60.dp, iconSize = 30.dp)
         Column(
             modifier = Modifier.weight(1f),
@@ -230,20 +234,26 @@ private fun HomeHero(onOpenSettings: () -> Unit) {
             Text(
                 text = stringResource(R.string.app_name),
                 style = MaterialTheme.typography.displayMedium,
+                color = scheme.onBackground,
             )
             Text(
                 text = stringResource(R.string.home_tagline),
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                color = scheme.onSurfaceVariant,
             )
         }
         Surface(
             shape = CircleShape,
-            color = MaterialTheme.colorScheme.surface.copy(alpha = 0.92f),
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.24f)),
+            color = scheme.surface.copy(alpha = 0.90f),
+            contentColor = scheme.onSurface,
+            border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.30f)),
         ) {
             IconButton(onClick = onOpenSettings) {
-                Icon(Icons.Rounded.Settings, contentDescription = stringResource(R.string.nav_settings))
+                Icon(
+                    Icons.Rounded.Settings,
+                    contentDescription = stringResource(R.string.nav_settings),
+                    tint = scheme.onSurface,
+                )
             }
         }
     }
@@ -252,24 +262,29 @@ private fun HomeHero(onOpenSettings: () -> Unit) {
 @Composable
 private fun QuickActionItem(tool: Tool, onClick: () -> Unit) {
     val spacing = LocalSpacing.current
+    val scheme = MaterialTheme.colorScheme
     Card(
         modifier = Modifier
             .width(118.dp)
             .clickable(onClick = onClick),
         shape = MaterialTheme.shapes.large,
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp, pressedElevation = 0.dp),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.24f)),
+        colors = CardDefaults.cardColors(
+            containerColor = scheme.surface.copy(alpha = 0.90f),
+            contentColor = scheme.onSurface,
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp, pressedElevation = 1.dp),
+        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.30f)),
     ) {
         Column(
             modifier = Modifier.padding(spacing.m),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(spacing.s),
         ) {
-            ToolIconBadge(icon = tool.icon, size = 50.dp, iconSize = 25.dp, subtle = true)
+            ToolIconBadge(icon = tool.icon, subtle = true)
             Text(
                 text = stringResource(tool.nameRes),
                 style = MaterialTheme.typography.labelLarge,
+                color = scheme.onSurface,
                 textAlign = TextAlign.Center,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,

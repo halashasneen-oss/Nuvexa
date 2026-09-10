@@ -52,6 +52,7 @@ fun ToolScaffold(
 ) {
     val spacing = LocalSpacing.current
     val context = LocalContext.current
+    val scheme = MaterialTheme.colorScheme
 
     // Ad behavior intentionally unchanged: preload on tool entry and offer the interstitial
     // manager the natural exit transition for both toolbar and system-back exits.
@@ -75,6 +76,7 @@ fun ToolScaffold(
     Scaffold(
         modifier = modifier,
         containerColor = Color.Transparent,
+        contentColor = scheme.onBackground,
         topBar = {
             TopAppBar(
                 title = {},
@@ -82,13 +84,15 @@ fun ToolScaffold(
                     Surface(
                         modifier = Modifier.padding(start = 8.dp),
                         shape = CircleShape,
-                        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.92f),
-                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.24f)),
+                        color = scheme.surface.copy(alpha = 0.92f),
+                        contentColor = scheme.onSurface,
+                        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.30f)),
                     ) {
                         IconButton(onClick = exitTool) {
                             Icon(
                                 Icons.AutoMirrored.Rounded.ArrowBack,
                                 contentDescription = stringResource(R.string.action_back),
+                                tint = scheme.onSurface,
                             )
                         }
                     }
@@ -97,8 +101,9 @@ fun ToolScaffold(
                     Surface(
                         modifier = Modifier.padding(end = 8.dp),
                         shape = CircleShape,
-                        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.92f),
-                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.24f)),
+                        color = scheme.surface.copy(alpha = 0.92f),
+                        contentColor = scheme.onSurface,
+                        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.30f)),
                     ) {
                         IconButton(onClick = onToggleFavorite) {
                             Icon(
@@ -106,12 +111,16 @@ fun ToolScaffold(
                                 contentDescription = stringResource(
                                     if (isFavorite) R.string.action_remove_favorite else R.string.action_add_favorite,
                                 ),
-                                tint = if (isFavorite) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+                                tint = if (isFavorite) scheme.primary else scheme.onSurfaceVariant,
                             )
                         }
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent),
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.Transparent,
+                    navigationIconContentColor = scheme.onSurface,
+                    actionIconContentColor = scheme.onSurface,
+                ),
             )
         },
     ) { innerPadding ->
@@ -131,19 +140,21 @@ fun ToolScaffold(
 @Composable
 private fun ToolHero(tool: Tool) {
     val spacing = LocalSpacing.current
+    val scheme = MaterialTheme.colorScheme
     Surface(
         modifier = Modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.extraLarge,
-        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.94f),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.24f)),
-        shadowElevation = 3.dp,
+        color = scheme.surface.copy(alpha = 0.90f),
+        contentColor = scheme.onSurface,
+        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.30f)),
+        shadowElevation = 4.dp,
     ) {
         Row(
             modifier = Modifier.padding(spacing.l),
             horizontalArrangement = Arrangement.spacedBy(spacing.m),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            ToolIconBadge(icon = tool.icon, size = 60.dp, iconSize = 30.dp)
+            ToolIconBadge(icon = tool.icon)
             Column(
                 modifier = Modifier.weight(1f),
                 verticalArrangement = Arrangement.spacedBy(4.dp),
@@ -151,20 +162,22 @@ private fun ToolHero(tool: Tool) {
                 Text(
                     text = stringResource(tool.nameRes),
                     style = MaterialTheme.typography.headlineMedium,
+                    color = scheme.onSurface,
                 )
                 Text(
                     text = stringResource(tool.descriptionRes),
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = scheme.onSurfaceVariant,
                 )
                 Surface(
                     shape = MaterialTheme.shapes.extraLarge,
-                    color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.72f),
+                    color = scheme.primaryContainer.copy(alpha = 0.82f),
+                    contentColor = scheme.onPrimaryContainer,
                 ) {
                     Text(
                         text = stringResource(R.string.tool_local_badge),
                         style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        color = scheme.onPrimaryContainer,
                         modifier = Modifier.padding(horizontal = spacing.s, vertical = 5.dp),
                     )
                 }

@@ -30,15 +30,19 @@ fun CategoryCard(
     modifier: Modifier = Modifier,
 ) {
     val spacing = LocalSpacing.current
+    val scheme = MaterialTheme.colorScheme
     Card(
         modifier = modifier
             .fillMaxWidth()
             .heightIn(min = 150.dp)
             .clickable(onClick = onClick),
         shape = MaterialTheme.shapes.large,
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp, pressedElevation = 0.dp),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.25f)),
+        colors = CardDefaults.cardColors(
+            containerColor = scheme.surface.copy(alpha = 0.90f),
+            contentColor = scheme.onSurface,
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp, pressedElevation = 1.dp),
+        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.30f)),
     ) {
         Column(
             modifier = Modifier.padding(spacing.m),
@@ -49,15 +53,16 @@ fun CategoryCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.Top,
             ) {
-                ToolIconBadge(icon = icon, size = 46.dp, iconSize = 23.dp, subtle = true)
+                ToolIconBadge(icon = icon, subtle = true)
                 Surface(
                     shape = MaterialTheme.shapes.extraLarge,
-                    color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.72f),
+                    color = scheme.secondaryContainer.copy(alpha = 0.82f),
+                    contentColor = scheme.onSecondaryContainer,
                 ) {
                     Text(
                         text = toolCount,
                         style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                        color = scheme.onSecondaryContainer,
                         modifier = Modifier.padding(horizontal = spacing.s, vertical = 5.dp),
                     )
                 }
@@ -65,6 +70,7 @@ fun CategoryCard(
             Text(
                 text = name,
                 style = MaterialTheme.typography.titleMedium,
+                color = scheme.onSurface,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.padding(top = spacing.m),

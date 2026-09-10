@@ -43,11 +43,20 @@ fun ResultCard(
         modifier = modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.extraLarge,
         color = Color.Transparent,
-        shadowElevation = 4.dp,
+        contentColor = scheme.onPrimary,
+        shadowElevation = 6.dp,
     ) {
         Column(
             modifier = Modifier
-                .background(Brush.linearGradient(listOf(scheme.primary, scheme.secondary, scheme.tertiary)))
+                .background(
+                    Brush.linearGradient(
+                        listOf(
+                            scheme.primary,
+                            scheme.secondary,
+                            scheme.tertiary,
+                        ),
+                    ),
+                )
                 .padding(spacing.l),
             horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(spacing.s),
@@ -56,7 +65,7 @@ fun ResultCard(
                 Text(
                     text = label,
                     style = MaterialTheme.typography.labelLarge,
-                    color = scheme.onPrimary.copy(alpha = 0.82f),
+                    color = scheme.onPrimary.copy(alpha = 0.88f),
                 )
             }
             Text(

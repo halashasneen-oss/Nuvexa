@@ -29,35 +29,40 @@ fun ToolCard(
     trailing: (@Composable () -> Unit)? = null,
 ) {
     val spacing = LocalSpacing.current
+    val scheme = MaterialTheme.colorScheme
     Card(
         modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
         shape = MaterialTheme.shapes.large,
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp, pressedElevation = 0.dp),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.28f)),
+        colors = CardDefaults.cardColors(
+            containerColor = scheme.surface.copy(alpha = 0.90f),
+            contentColor = scheme.onSurface,
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp, pressedElevation = 1.dp),
+        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.30f)),
     ) {
         Row(
             modifier = Modifier.padding(horizontal = spacing.m, vertical = spacing.m),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(spacing.m),
         ) {
-            ToolIconBadge(icon = icon, size = 50.dp, iconSize = 25.dp)
+            ToolIconBadge(icon = icon)
             Column(
                 modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(2.dp),
+                verticalArrangement = Arrangement.spacedBy(3.dp),
             ) {
                 Text(
                     text = name,
                     style = MaterialTheme.typography.titleMedium,
+                    color = scheme.onSurface,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
                 Text(
                     text = description,
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = scheme.onSurfaceVariant,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )

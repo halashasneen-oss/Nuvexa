@@ -20,6 +20,7 @@ fun AppSearchBar(
     placeholder: String,
     modifier: Modifier = Modifier,
 ) {
+    val scheme = MaterialTheme.colorScheme
     OutlinedTextField(
         value = query,
         onValueChange = onQueryChange,
@@ -36,10 +37,19 @@ fun AppSearchBar(
         singleLine = true,
         shape = MaterialTheme.shapes.extraLarge,
         colors = OutlinedTextFieldDefaults.colors(
-            focusedContainerColor = MaterialTheme.colorScheme.surface,
-            unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-            focusedBorderColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.72f),
-            unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.28f),
+            focusedTextColor = scheme.onSurface,
+            unfocusedTextColor = scheme.onSurface,
+            cursorColor = scheme.primary,
+            focusedContainerColor = scheme.surface.copy(alpha = 0.92f),
+            unfocusedContainerColor = scheme.surface.copy(alpha = 0.88f),
+            focusedBorderColor = scheme.primary.copy(alpha = 0.86f),
+            unfocusedBorderColor = scheme.outline.copy(alpha = 0.38f),
+            focusedLeadingIconColor = scheme.primary,
+            unfocusedLeadingIconColor = scheme.onSurfaceVariant,
+            focusedTrailingIconColor = scheme.onSurfaceVariant,
+            unfocusedTrailingIconColor = scheme.onSurfaceVariant,
+            focusedPlaceholderColor = scheme.onSurfaceVariant.copy(alpha = 0.78f),
+            unfocusedPlaceholderColor = scheme.onSurfaceVariant.copy(alpha = 0.78f),
         ),
     )
 }

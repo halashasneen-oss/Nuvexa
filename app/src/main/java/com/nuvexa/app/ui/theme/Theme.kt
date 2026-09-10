@@ -34,6 +34,7 @@ private val LightColors = lightColorScheme(
     error = StatusError,
     errorContainer = StatusErrorContainer,
     onError = SurfaceLight,
+    onErrorContainer = ColorOnErrorContainerLight,
 )
 
 private val DarkColors = darkColorScheme(
@@ -57,8 +58,9 @@ private val DarkColors = darkColorScheme(
     onSurfaceVariant = OnSurfaceVariantDark,
     outline = OutlineDark,
     error = StatusErrorDark,
-    errorContainer = StatusError,
+    errorContainer = ColorErrorContainerDark,
     onError = BackgroundDark,
+    onErrorContainer = ColorOnErrorContainerDark,
 )
 
 data class NuvexaStatusColors(
@@ -81,11 +83,11 @@ private val LightStatus = NuvexaStatusColors(
 
 private val DarkStatus = NuvexaStatusColors(
     success = StatusSuccessDark,
-    successContainer = StatusSuccess,
+    successContainer = ColorSuccessContainerDark,
     warning = StatusWarningDark,
-    warningContainer = StatusWarning,
+    warningContainer = ColorWarningContainerDark,
     info = StatusInfoDark,
-    infoContainer = StatusInfo,
+    infoContainer = ColorInfoContainerDark,
 )
 
 val LocalNuvexaStatusColors = androidx.compose.runtime.staticCompositionLocalOf { LightStatus }
