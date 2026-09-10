@@ -5,7 +5,6 @@ import androidx.compose.material.icons.filled.AccessTime
 import androidx.compose.material.icons.filled.AccountBalance
 import androidx.compose.material.icons.filled.AspectRatio
 import androidx.compose.material.icons.filled.AttachMoney
-import androidx.compose.material.icons.filled.Article
 import androidx.compose.material.icons.filled.BrandingWatermark
 import androidx.compose.material.icons.filled.Cake
 import androidx.compose.material.icons.filled.Calculate
@@ -17,7 +16,6 @@ import androidx.compose.material.icons.filled.Colorize
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Dialpad
-import androidx.compose.material.icons.filled.Dns
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Event
 import androidx.compose.material.icons.filled.Fingerprint
@@ -59,12 +57,7 @@ import com.nuvexa.app.R
 import com.nuvexa.app.core.model.Tool
 import com.nuvexa.app.core.model.ToolCategory
 
-/**
- * The single source of truth for every tool available in the app. Adding a tool means
- * adding an entry here (visible everywhere: search, categories, favorites) and a matching
- * screen in `ui.tools` wired into `ToolScreenHost`. Nothing is listed here unless it has a
- * real, working screen — no placeholders, no "coming soon" entries.
- */
+/** Single source of truth for every visible, working tool in Nuvexa. */
 object ToolRegistry {
 
     val tools: List<Tool> = listOf(
@@ -78,9 +71,9 @@ object ToolRegistry {
         Tool("calc_simple_interest", ToolCategory.CALCULATORS, R.string.tool_calc_simple_interest_name, R.string.tool_calc_simple_interest_desc, R.string.tool_calc_simple_interest_keywords, Icons.Filled.TrendingUp),
         Tool("calc_compound_interest", ToolCategory.CALCULATORS, R.string.tool_calc_compound_interest_name, R.string.tool_calc_compound_interest_desc, R.string.tool_calc_compound_interest_keywords, Icons.Filled.ShowChart),
         Tool("calc_emi", ToolCategory.CALCULATORS, R.string.tool_calc_emi_name, R.string.tool_calc_emi_desc, R.string.tool_calc_emi_keywords, Icons.Filled.AccountBalance),
+        Tool("calc_grade_goal", ToolCategory.CALCULATORS, R.string.tool_grade_goal_name, R.string.tool_grade_goal_desc, R.string.tool_grade_goal_keywords, Icons.Filled.ShowChart),
 
         Tool("unit_converter", ToolCategory.CONVERTER, R.string.tool_unit_converter_name, R.string.tool_unit_converter_desc, R.string.tool_unit_converter_keywords, Icons.Filled.SwapHoriz),
-
         Tool("currency_calculator", ToolCategory.CURRENCY, R.string.tool_currency_calculator_name, R.string.tool_currency_calculator_desc, R.string.tool_currency_calculator_keywords, Icons.Filled.AttachMoney),
 
         Tool("text_analyzer", ToolCategory.TEXT, R.string.tool_text_analyzer_name, R.string.tool_text_analyzer_desc, R.string.tool_text_analyzer_keywords, Icons.Filled.TextFields),
@@ -89,8 +82,10 @@ object ToolRegistry {
         Tool("text_base64", ToolCategory.TEXT, R.string.tool_text_base64_name, R.string.tool_text_base64_desc, R.string.tool_text_base64_keywords, Icons.Filled.Code),
         Tool("text_url_encode", ToolCategory.TEXT, R.string.tool_text_url_encode_name, R.string.tool_text_url_encode_desc, R.string.tool_text_url_encode_keywords, Icons.Filled.Link),
         Tool("text_json_formatter", ToolCategory.TEXT, R.string.tool_text_json_formatter_name, R.string.tool_text_json_formatter_desc, R.string.tool_text_json_formatter_keywords, Icons.Filled.Description),
+        Tool("text_compare", ToolCategory.TEXT, R.string.tool_text_compare_name, R.string.tool_text_compare_desc, R.string.tool_text_compare_keywords, Icons.Filled.FindReplace),
 
         Tool("sec_password_generator", ToolCategory.SECURITY, R.string.tool_sec_password_generator_name, R.string.tool_sec_password_generator_desc, R.string.tool_sec_password_generator_keywords, Icons.Filled.Lock),
+        Tool("sec_password_strength", ToolCategory.SECURITY, R.string.tool_password_strength_name, R.string.tool_password_strength_desc, R.string.tool_password_strength_keywords, Icons.Filled.VpnKey),
         Tool("sec_pin_generator", ToolCategory.SECURITY, R.string.tool_sec_pin_generator_name, R.string.tool_sec_pin_generator_desc, R.string.tool_sec_pin_generator_keywords, Icons.Filled.Dialpad),
         Tool("sec_uuid_generator", ToolCategory.SECURITY, R.string.tool_sec_uuid_generator_name, R.string.tool_sec_uuid_generator_desc, R.string.tool_sec_uuid_generator_keywords, Icons.Filled.Fingerprint),
         Tool("sec_random_number", ToolCategory.SECURITY, R.string.tool_sec_random_number_name, R.string.tool_sec_random_number_desc, R.string.tool_sec_random_number_keywords, Icons.Filled.Casino),
@@ -109,14 +104,13 @@ object ToolRegistry {
         Tool("time_date_calculator", ToolCategory.TIME, R.string.tool_time_date_calculator_name, R.string.tool_time_date_calculator_desc, R.string.tool_time_date_calculator_keywords, Icons.Filled.Event),
 
         Tool("dev_regex_tester", ToolCategory.DEVELOPER, R.string.tool_dev_regex_tester_name, R.string.tool_dev_regex_tester_desc, R.string.tool_dev_regex_tester_keywords, Icons.Filled.FindReplace),
-        Tool("dev_lorem_ipsum", ToolCategory.DEVELOPER, R.string.tool_dev_lorem_ipsum_name, R.string.tool_dev_lorem_ipsum_desc, R.string.tool_dev_lorem_ipsum_keywords, Icons.Filled.Article),
+        Tool("net_subnet_calculator", ToolCategory.DEVELOPER, R.string.tool_net_subnet_calculator_name, R.string.tool_net_subnet_calculator_desc, R.string.tool_net_subnet_calculator_keywords, Icons.Filled.Wifi),
 
         Tool("device_info", ToolCategory.DEVICE, R.string.tool_device_info_name, R.string.tool_device_info_desc, R.string.tool_device_info_keywords, Icons.Filled.PhoneAndroid),
 
         Tool("image_compressor", ToolCategory.IMAGE, R.string.tool_image_compressor_name, R.string.tool_image_compressor_desc, R.string.tool_image_compressor_keywords, Icons.Filled.Image),
         Tool("image_resizer", ToolCategory.IMAGE, R.string.tool_image_resizer_name, R.string.tool_image_resizer_desc, R.string.tool_image_resizer_keywords, Icons.Filled.AspectRatio),
 
-        // ============ WAVE 2 ============
         Tool("calc_fraction", ToolCategory.CALCULATORS, R.string.tool_calc_fraction_name, R.string.tool_calc_fraction_desc, R.string.tool_calc_fraction_keywords, Icons.Filled.Functions),
         Tool("calc_ratio", ToolCategory.CALCULATORS, R.string.tool_calc_ratio_name, R.string.tool_calc_ratio_desc, R.string.tool_calc_ratio_keywords, Icons.Filled.Calculate),
         Tool("calc_average", ToolCategory.CALCULATORS, R.string.tool_calc_average_name, R.string.tool_calc_average_desc, R.string.tool_calc_average_keywords, Icons.Filled.ShowChart),
@@ -147,13 +141,8 @@ object ToolRegistry {
         Tool("sec_hmac_generator", ToolCategory.SECURITY, R.string.tool_sec_hmac_generator_name, R.string.tool_sec_hmac_generator_desc, R.string.tool_sec_hmac_generator_keywords, Icons.Filled.Tag),
         Tool("sec_text_encryption", ToolCategory.SECURITY, R.string.tool_sec_text_encryption_name, R.string.tool_sec_text_encryption_desc, R.string.tool_sec_text_encryption_keywords, Icons.Filled.Lock),
 
-        Tool("net_subnet_calculator", ToolCategory.NETWORK, R.string.tool_net_subnet_calculator_name, R.string.tool_net_subnet_calculator_desc, R.string.tool_net_subnet_calculator_keywords, Icons.Filled.Wifi),
-        Tool("net_http_status_reference", ToolCategory.NETWORK, R.string.tool_net_http_status_reference_name, R.string.tool_net_http_status_reference_desc, R.string.tool_net_http_status_reference_keywords, Icons.Filled.Info),
-        Tool("net_port_reference", ToolCategory.NETWORK, R.string.tool_net_port_reference_name, R.string.tool_net_port_reference_desc, R.string.tool_net_port_reference_keywords, Icons.Filled.Dns),
-
         Tool("time_working_days", ToolCategory.TIME, R.string.tool_time_working_days_name, R.string.tool_time_working_days_desc, R.string.tool_time_working_days_keywords, Icons.Filled.Event),
 
-        // ============ WAVE 3 ============
         Tool("pdf_images_to_pdf", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_images_to_pdf_name, R.string.tool_pdf_images_to_pdf_desc, R.string.tool_pdf_images_to_pdf_keywords, Icons.Filled.PictureAsPdf),
         Tool("pdf_text_to_pdf", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_text_to_pdf_name, R.string.tool_pdf_text_to_pdf_desc, R.string.tool_pdf_text_to_pdf_keywords, Icons.Filled.Description),
         Tool("pdf_to_images", ToolCategory.PDF_DOCUMENT, R.string.tool_pdf_to_images_name, R.string.tool_pdf_to_images_desc, R.string.tool_pdf_to_images_keywords, Icons.Filled.Image),
@@ -178,6 +167,11 @@ object ToolRegistry {
     fun byCategory(category: ToolCategory): List<Tool> = tools.filter { it.category == category }
 
     val quickActionIds: List<String> = listOf(
-        "qr_scanner", "image_compressor", "calc_basic", "unit_converter", "sec_password_generator", "text_analyzer",
+        "qr_scanner",
+        "calc_grade_goal",
+        "image_compressor",
+        "sec_password_strength",
+        "text_compare",
+        "unit_converter",
     )
 }
