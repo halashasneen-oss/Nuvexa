@@ -13,7 +13,7 @@ access is used for optional Google AdMob advertising.
 - **English, Arabic (RTL), French and Spanish**.
 - **Offline-first** calculators, converters, PDF utilities, OCR, QR, image and security tools.
 - **Local history/favorites/recents** using Room and DataStore.
-- `app/build.gradle.kts` currently reports **version 1.0.4** (`versionCode = 5`).
+- `app/build.gradle.kts` currently reports **version 1.1.0** (`versionCode = 6`).
 
 ## Tool catalog
 
