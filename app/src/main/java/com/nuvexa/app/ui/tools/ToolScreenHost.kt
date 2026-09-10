@@ -14,6 +14,7 @@ import com.nuvexa.app.ui.tools.calculators.DateDifferenceScreen
 import com.nuvexa.app.ui.tools.calculators.DiscountCalculatorScreen
 import com.nuvexa.app.ui.tools.calculators.EmiCalculatorScreen
 import com.nuvexa.app.ui.tools.calculators.FractionCalculatorScreen
+import com.nuvexa.app.ui.tools.calculators.GradeGoalCalculatorScreen
 import com.nuvexa.app.ui.tools.calculators.MarkupCalculatorScreen
 import com.nuvexa.app.ui.tools.calculators.MortgageCalculatorScreen
 import com.nuvexa.app.ui.tools.calculators.PercentageCalculatorScreen
@@ -31,7 +32,6 @@ import com.nuvexa.app.ui.tools.currency.CurrencyCalculatorScreen
 import com.nuvexa.app.ui.tools.developer.CssFormatterScreen
 import com.nuvexa.app.ui.tools.developer.HtmlFormatterScreen
 import com.nuvexa.app.ui.tools.developer.JwtDecoderScreen
-import com.nuvexa.app.ui.tools.developer.LoremIpsumScreen
 import com.nuvexa.app.ui.tools.developer.RegexTesterScreen
 import com.nuvexa.app.ui.tools.developer.XmlFormatterScreen
 import com.nuvexa.app.ui.tools.device.DeviceInfoScreen
@@ -44,8 +44,6 @@ import com.nuvexa.app.ui.tools.math.GcdLcmScreen
 import com.nuvexa.app.ui.tools.math.PrimeCheckerScreen
 import com.nuvexa.app.ui.tools.math.PrimeGeneratorScreen
 import com.nuvexa.app.ui.tools.math.StatisticsScreen
-import com.nuvexa.app.ui.tools.network.HttpStatusReferenceScreen
-import com.nuvexa.app.ui.tools.network.PortReferenceScreen
 import com.nuvexa.app.ui.tools.network.SubnetCalculatorScreen
 import com.nuvexa.app.ui.tools.ocr.OcrFromCameraScreen
 import com.nuvexa.app.ui.tools.ocr.OcrFromImageScreen
@@ -67,6 +65,7 @@ import com.nuvexa.app.ui.tools.security.HashGeneratorScreen
 import com.nuvexa.app.ui.tools.security.HmacGeneratorScreen
 import com.nuvexa.app.ui.tools.security.PassphraseGeneratorScreen
 import com.nuvexa.app.ui.tools.security.PasswordGeneratorScreen
+import com.nuvexa.app.ui.tools.security.PasswordStrengthScreen
 import com.nuvexa.app.ui.tools.security.PinGeneratorScreen
 import com.nuvexa.app.ui.tools.security.RandomNumberScreen
 import com.nuvexa.app.ui.tools.security.TextEncryptionScreen
@@ -79,6 +78,7 @@ import com.nuvexa.app.ui.tools.text.ExtractUrlsScreen
 import com.nuvexa.app.ui.tools.text.JsonFormatterScreen
 import com.nuvexa.app.ui.tools.text.TextAnalyzerScreen
 import com.nuvexa.app.ui.tools.text.TextCleanerScreen
+import com.nuvexa.app.ui.tools.text.TextCompareScreen
 import com.nuvexa.app.ui.tools.text.UrlEncoderScreen
 import com.nuvexa.app.ui.tools.time.DateCalculatorScreen
 import com.nuvexa.app.ui.tools.time.StopwatchScreen
@@ -87,13 +87,6 @@ import com.nuvexa.app.ui.tools.time.UnixTimestampScreen
 import com.nuvexa.app.ui.tools.time.WorkingDaysCalculatorScreen
 import com.nuvexa.app.ui.tools.time.WorldClockScreen
 
-/**
- * Dispatches a [Tool] id to its real screen composable and wraps it in the shared
- * [ToolScaffold] chrome (back, favorite toggle, usage tracking). Every id in
- * [com.nuvexa.app.core.registry.ToolRegistry] must have a branch here — that invariant is
- * what keeps the registry honest: nothing is listed unless it actually opens to a working
- * screen.
- */
 @Composable
 fun ToolScreenHost(tool: Tool, onBack: () -> Unit) {
     val chromeViewModel: ToolChromeViewModel = hiltViewModel()
@@ -118,6 +111,7 @@ fun ToolScreenHost(tool: Tool, onBack: () -> Unit) {
             "calc_simple_interest" -> SimpleInterestScreen(modifier, recordHistory)
             "calc_compound_interest" -> CompoundInterestScreen(modifier, recordHistory)
             "calc_emi" -> EmiCalculatorScreen(modifier, recordHistory)
+            "calc_grade_goal" -> GradeGoalCalculatorScreen(modifier, recordHistory)
             "unit_converter" -> UnitConverterScreen(modifier)
             "currency_calculator" -> CurrencyCalculatorScreen(modifier)
             "text_analyzer" -> TextAnalyzerScreen(modifier)
@@ -126,7 +120,9 @@ fun ToolScreenHost(tool: Tool, onBack: () -> Unit) {
             "text_base64" -> Base64ToolScreen(modifier)
             "text_url_encode" -> UrlEncoderScreen(modifier)
             "text_json_formatter" -> JsonFormatterScreen(modifier)
+            "text_compare" -> TextCompareScreen(modifier)
             "sec_password_generator" -> PasswordGeneratorScreen(modifier)
+            "sec_password_strength" -> PasswordStrengthScreen(modifier)
             "sec_pin_generator" -> PinGeneratorScreen(modifier)
             "sec_uuid_generator" -> UuidGeneratorScreen(modifier)
             "sec_random_number" -> RandomNumberScreen(modifier)
@@ -141,12 +137,11 @@ fun ToolScreenHost(tool: Tool, onBack: () -> Unit) {
             "time_unix_converter" -> UnixTimestampScreen(modifier)
             "time_date_calculator" -> DateCalculatorScreen(modifier)
             "dev_regex_tester" -> RegexTesterScreen(modifier)
-            "dev_lorem_ipsum" -> LoremIpsumScreen(modifier)
+            "net_subnet_calculator" -> SubnetCalculatorScreen(modifier)
             "device_info" -> DeviceInfoScreen(modifier)
             "image_compressor" -> ImageCompressorScreen(modifier, recordHistory)
             "image_resizer" -> ImageResizerScreen(modifier, recordHistory)
 
-            // ============ WAVE 2 ============
             "calc_fraction" -> FractionCalculatorScreen(modifier, recordHistory)
             "calc_ratio" -> RatioCalculatorScreen(modifier, recordHistory)
             "calc_average" -> AverageCalculatorScreen(modifier, recordHistory)
@@ -177,13 +172,8 @@ fun ToolScreenHost(tool: Tool, onBack: () -> Unit) {
             "sec_hmac_generator" -> HmacGeneratorScreen(modifier)
             "sec_text_encryption" -> TextEncryptionScreen(modifier)
 
-            "net_subnet_calculator" -> SubnetCalculatorScreen(modifier)
-            "net_http_status_reference" -> HttpStatusReferenceScreen(modifier)
-            "net_port_reference" -> PortReferenceScreen(modifier)
-
             "time_working_days" -> WorkingDaysCalculatorScreen(modifier)
 
-            // ============ WAVE 3 ============
             "pdf_images_to_pdf" -> ImagesToPdfScreen(modifier, recordHistory)
             "pdf_text_to_pdf" -> TextToPdfScreen(modifier, recordHistory)
             "pdf_to_images" -> PdfToImagesScreen(modifier, recordHistory)
