@@ -17,9 +17,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.PrivacyTip
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -30,20 +33,24 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.nuvexa.app.R
 import com.nuvexa.app.core.model.Tool
+import com.nuvexa.app.core.model.ToolCategory
 import com.nuvexa.app.core.registry.ToolRegistry
 import com.nuvexa.app.core.search.SearchEngine
 import com.nuvexa.app.ui.components.AppSearchBar
 import com.nuvexa.app.ui.components.CategoryCard
 import com.nuvexa.app.ui.components.SectionHeader
 import com.nuvexa.app.ui.components.ToolCard
+import com.nuvexa.app.ui.components.toolVisualStyle
 import com.nuvexa.app.ui.theme.LocalSpacing
 
 @Composable
@@ -65,7 +72,7 @@ fun HomeScreen(
 
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
-        contentPadding = PaddingValues(spacing.l),
+        contentPadding = PaddingValues(horizontal = spacing.l, vertical = spacing.m),
         verticalArrangement = Arrangement.spacedBy(spacing.xl),
     ) {
         item {
@@ -74,12 +81,18 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(text = stringResource(R.string.app_name), style = MaterialTheme.typography.displayMedium)
+                Text(
+                    text = stringResource(R.string.app_name),
+                    style = MaterialTheme.typography.displayMedium,
+                    fontWeight = FontWeight.ExtraBold,
+                )
                 IconButton(onClick = onOpenSettings) {
                     Icon(Icons.Filled.Settings, contentDescription = stringResource(R.string.nav_settings))
                 }
             }
         }
+
+        item { HomeHeroCard() }
 
         item {
             AppSearchBar(
@@ -104,6 +117,7 @@ fun HomeScreen(
                         icon = tool.icon,
                         name = stringResource(tool.nameRes),
                         description = stringResource(tool.descriptionRes),
+                        category = tool.category,
                         onClick = { onOpenTool(tool.id) },
                     )
                 }
@@ -112,7 +126,10 @@ fun HomeScreen(
             item {
                 Column(verticalArrangement = Arrangement.spacedBy(spacing.s)) {
                     SectionHeader(title = stringResource(R.string.home_quick_actions))
-                    LazyRow(horizontalArrangement = Arrangement.spacedBy(spacing.m)) {
+                    LazyRow(
+                        contentPadding = PaddingValues(end = spacing.s),
+                        horizontalArrangement = Arrangement.spacedBy(spacing.m),
+                    ) {
                         items(ToolRegistry.quickActionIds.mapNotNull(ToolRegistry::findById), key = { it.id }) { tool ->
                             QuickActionItem(tool = tool, onClick = { onOpenTool(tool.id) })
                         }
@@ -130,6 +147,7 @@ fun HomeScreen(
                                     icon = tool.icon,
                                     name = stringResource(tool.nameRes),
                                     description = stringResource(tool.descriptionRes),
+                                    category = tool.category,
                                     onClick = { onOpenTool(tool.id) },
                                 )
                             }
@@ -173,6 +191,7 @@ fun HomeScreen(
                                     icon = tool.icon,
                                     name = stringResource(tool.nameRes),
                                     description = stringResource(tool.descriptionRes),
+                                    category = tool.category,
                                     onClick = { onOpenTool(tool.id) },
                                 )
                             }
@@ -184,11 +203,12 @@ fun HomeScreen(
             item {
                 Column(verticalArrangement = Arrangement.spacedBy(spacing.s)) {
                     SectionHeader(title = stringResource(R.string.home_categories))
-                    com.nuvexa.app.core.model.ToolCategory.entries.forEach { category ->
+                    ToolCategory.entries.forEach { category ->
                         CategoryCard(
                             icon = category.icon,
                             name = stringResource(category.nameRes),
                             toolCount = stringResource(R.string.category_tool_count, ToolRegistry.byCategory(category).size),
+                            category = category,
                             onClick = { onOpenCategory(category.id) },
                             modifier = Modifier.padding(bottom = spacing.s),
                         )
@@ -200,13 +220,13 @@ fun HomeScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(MaterialTheme.colorScheme.surfaceVariant)
+                        .clip(RoundedCornerShape(20.dp))
+                        .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.72f))
                         .padding(spacing.m),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(spacing.s),
                 ) {
-                    Icon(Icons.Filled.PrivacyTip, contentDescription = null, tint = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Icon(Icons.Filled.PrivacyTip, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
                     Text(
                         text = stringResource(R.string.home_privacy_banner),
                         style = MaterialTheme.typography.bodyMedium,
@@ -219,23 +239,82 @@ fun HomeScreen(
 }
 
 @Composable
+private fun HomeHeroCard() {
+    val spacing = LocalSpacing.current
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(28.dp),
+        colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color.Transparent),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    Brush.linearGradient(
+                        listOf(
+                            MaterialTheme.colorScheme.primary,
+                            MaterialTheme.colorScheme.primary.copy(alpha = 0.72f),
+                        ),
+                    ),
+                )
+                .padding(spacing.l),
+            verticalArrangement = Arrangement.spacedBy(spacing.s),
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(42.dp)
+                    .clip(RoundedCornerShape(14.dp))
+                    .background(MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.14f)),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.AutoAwesome,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onPrimary,
+                )
+            }
+            Text(
+                text = stringResource(R.string.home_hero_title),
+                style = MaterialTheme.typography.headlineLarge,
+                color = MaterialTheme.colorScheme.onPrimary,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                text = stringResource(R.string.home_hero_subtitle),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.86f),
+            )
+            Text(
+                text = stringResource(R.string.home_hero_badge, ToolRegistry.tools.size),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onPrimary,
+            )
+        }
+    }
+}
+
+@Composable
 private fun QuickActionItem(tool: Tool, onClick: () -> Unit) {
     val spacing = LocalSpacing.current
+    val visual = toolVisualStyle(tool.category)
     Column(
         modifier = Modifier
-            .width(84.dp)
-            .clickable(onClick = onClick),
+            .width(92.dp)
+            .clip(RoundedCornerShape(18.dp))
+            .clickable(onClick = onClick)
+            .padding(vertical = spacing.xs),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(spacing.xs),
     ) {
         Box(
             modifier = Modifier
-                .size(56.dp)
-                .clip(CircleShape)
-                .background(MaterialTheme.colorScheme.primaryContainer),
+                .size(58.dp)
+                .clip(RoundedCornerShape(19.dp))
+                .background(visual.container),
             contentAlignment = Alignment.Center,
         ) {
-            Icon(tool.icon, contentDescription = null, tint = MaterialTheme.colorScheme.onPrimaryContainer)
+            Icon(tool.icon, contentDescription = null, tint = visual.accent, modifier = Modifier.size(28.dp))
         }
         Text(
             text = stringResource(tool.nameRes),
