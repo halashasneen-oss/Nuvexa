@@ -63,7 +63,7 @@ fun ToolsScreen(
                 )
             } else {
                 LazyVerticalGrid(
-                    columns = GridCells.Fixed(2),
+                    columns = GridCells.Adaptive(minSize = androidx.compose.ui.unit.Dp(148f)),
                     contentPadding = PaddingValues(spacing.l),
                     horizontalArrangement = Arrangement.spacedBy(spacing.m),
                     verticalArrangement = Arrangement.spacedBy(spacing.m),
@@ -72,6 +72,7 @@ fun ToolsScreen(
                         ToolTile(
                             icon = tool.icon,
                             name = stringResource(tool.nameRes),
+                            category = tool.category,
                             onClick = { onOpenTool(tool.id) },
                         )
                     }
@@ -79,7 +80,7 @@ fun ToolsScreen(
             }
         } else {
             LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
+                columns = GridCells.Adaptive(minSize = androidx.compose.ui.unit.Dp(148f)),
                 contentPadding = PaddingValues(spacing.l),
                 horizontalArrangement = Arrangement.spacedBy(spacing.m),
                 verticalArrangement = Arrangement.spacedBy(spacing.m),
@@ -89,6 +90,7 @@ fun ToolsScreen(
                         icon = category.icon,
                         name = stringResource(category.nameRes),
                         toolCount = stringResource(R.string.category_tool_count, ToolRegistry.byCategory(category).size),
+                        category = category,
                         onClick = { onOpenCategory(category.id) },
                     )
                 }
