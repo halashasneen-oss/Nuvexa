@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_hero_title">One app. Dozens of useful tools.</string>
+    <string name="home_hero_subtitle">Fast, private utilities for study, work and everyday life — designed to work offline.</string>
+    <string name="home_hero_badge">%1$d tools • private by design</string>
+
+    <string name="tool_text_compare_name">Text Compare</string>
+    <string name="tool_text_compare_desc">Compare two texts and instantly spot changed lines, words and characters.</string>
+    <string name="tool_text_compare_keywords">compare text diff difference changes lines words characters proofread revision</string>
+    <string name="text_compare_first">Original text</string>
+    <string name="text_compare_second">Updated text</string>
+    <string name="text_compare_identical">The texts are identical</string>
+    <string name="text_compare_different">Differences found</string>
+    <string name="text_compare_summary">%1$d changed lines • %2$d word difference • %3$d character difference</string>
+    <string name="text_compare_first_change">First change appears on line %1$d</string>
+
+    <string name="tool_password_strength_name">Password Strength</string>
+    <string name="tool_password_strength_desc">Check password strength locally without sending or saving the password.</string>
+    <string name="tool_password_strength_keywords">password strength checker security strong weak privacy entropy</string>
+    <string name="password_strength_input">Password to check</string>
+    <string name="password_strength_weak">Weak</string>
+    <string name="password_strength_fair">Fair</string>
+    <string name="password_strength_good">Good</string>
+    <string name="password_strength_strong">Strong</string>
+    <string name="password_strength_excellent">Excellent</string>
+    <string name="password_strength_length">At least 12 characters</string>
+    <string name="password_strength_case">Uppercase and lowercase letters</string>
+    <string name="password_strength_number">At least one number</string>
+    <string name="password_strength_symbol">At least one symbol</string>
+    <string name="password_strength_extra">16+ characters or high character variety</string>
+    <string name="password_strength_privacy">Your password is evaluated only on this device and is never stored.</string>
+
+    <string name="tool_grade_goal_name">Grade Goal Calculator</string>
+    <string name="tool_grade_goal_desc">Find the score you need on the remaining coursework to reach your target grade.</string>
+    <string name="tool_grade_goal_keywords">grade target exam final score school university student required mark average</string>
+    <string name="grade_goal_current">Current average</string>
+    <string name="grade_goal_completed">Completed course weight</string>
+    <string name="grade_goal_target">Target final grade</string>
+    <string name="grade_goal_required">Required average on remaining %1$s%%</string>
+    <string name="grade_goal_impossible">This target requires more than 100%% on the remaining work.</string>
+    <string name="grade_goal_secured">You have already secured this target based on the entered values.</string>
+    <string name="grade_goal_invalid">Enter values from 0 to 100, with completed weight below 100.</string>
+</resources>
