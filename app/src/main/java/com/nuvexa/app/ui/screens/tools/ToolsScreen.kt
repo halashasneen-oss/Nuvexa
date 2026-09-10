@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.nuvexa.app.R
 import com.nuvexa.app.core.model.ToolCategory
 import com.nuvexa.app.core.registry.ToolRegistry
@@ -63,7 +64,7 @@ fun ToolsScreen(
                 )
             } else {
                 LazyVerticalGrid(
-                    columns = GridCells.Adaptive(minSize = androidx.compose.ui.unit.Dp(148f)),
+                    columns = GridCells.Adaptive(minSize = 148.dp),
                     contentPadding = PaddingValues(spacing.l),
                     horizontalArrangement = Arrangement.spacedBy(spacing.m),
                     verticalArrangement = Arrangement.spacedBy(spacing.m),
@@ -80,7 +81,7 @@ fun ToolsScreen(
             }
         } else {
             LazyVerticalGrid(
-                columns = GridCells.Adaptive(minSize = androidx.compose.ui.unit.Dp(148f)),
+                columns = GridCells.Adaptive(minSize = 148.dp),
                 contentPadding = PaddingValues(spacing.l),
                 horizontalArrangement = Arrangement.spacedBy(spacing.m),
                 verticalArrangement = Arrangement.spacedBy(spacing.m),
