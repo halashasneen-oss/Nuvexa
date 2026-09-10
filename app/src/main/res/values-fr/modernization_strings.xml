@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_hero_title">Une seule app. Des dizaines d’outils utiles.</string>
+    <string name="home_hero_subtitle">Des utilitaires rapides et privés pour les études, le travail et le quotidien — conçus pour fonctionner hors ligne.</string>
+    <string name="home_hero_badge">%1$d outils • confidentialité intégrée</string>
+
+    <string name="tool_text_compare_name">Comparer des textes</string>
+    <string name="tool_text_compare_desc">Comparez deux textes et repérez immédiatement les lignes, mots et caractères modifiés.</string>
+    <string name="tool_text_compare_keywords">comparer texte différence modifications lignes mots caractères révision</string>
+    <string name="text_compare_first">Texte d’origine</string>
+    <string name="text_compare_second">Texte modifié</string>
+    <string name="text_compare_identical">Les textes sont identiques</string>
+    <string name="text_compare_different">Différences détectées</string>
+    <string name="text_compare_summary">%1$d lignes modifiées • écart de %2$d mots • écart de %3$d caractères</string>
+    <string name="text_compare_first_change">La première différence apparaît à la ligne %1$d</string>
+
+    <string name="tool_password_strength_name">Force du mot de passe</string>
+    <string name="tool_password_strength_desc">Évaluez un mot de passe localement sans l’envoyer ni l’enregistrer.</string>
+    <string name="tool_password_strength_keywords">mot de passe force sécurité fort faible confidentialité</string>
+    <string name="password_strength_input">Mot de passe à vérifier</string>
+    <string name="password_strength_weak">Faible</string>
+    <string name="password_strength_fair">Moyen</string>
+    <string name="password_strength_good">Bon</string>
+    <string name="password_strength_strong">Fort</string>
+    <string name="password_strength_excellent">Excellent</string>
+    <string name="password_strength_length">Au moins 12 caractères</string>
+    <string name="password_strength_case">Majuscules et minuscules</string>
+    <string name="password_strength_number">Au moins un chiffre</string>
+    <string name="password_strength_symbol">Au moins un symbole</string>
+    <string name="password_strength_extra">16 caractères ou plus, ou forte variété</string>
+    <string name="password_strength_privacy">Le mot de passe est évalué uniquement sur cet appareil et n’est jamais enregistré.</string>
+
+    <string name="tool_grade_goal_name">Objectif de note</string>
+    <string name="tool_grade_goal_desc">Calculez la note nécessaire sur le travail restant pour atteindre votre objectif final.</string>
+    <string name="tool_grade_goal_keywords">note objectif examen final étudiant université moyenne score requis</string>
+    <string name="grade_goal_current">Moyenne actuelle</string>
+    <string name="grade_goal_completed">Part du cours déjà effectuée</string>
+    <string name="grade_goal_target">Note finale visée</string>
+    <string name="grade_goal_required">Moyenne requise sur les %1$s%% restants</string>
+    <string name="grade_goal_impossible">Cet objectif exige plus de 100%% sur le travail restant.</string>
+    <string name="grade_goal_secured">Vous avez déjà atteint cet objectif selon les valeurs saisies.</string>
+    <string name="grade_goal_invalid">Saisissez des valeurs entre 0 et 100, avec une part effectuée inférieure à 100.</string>
+</resources>
