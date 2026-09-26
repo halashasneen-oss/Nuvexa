@@ -24,13 +24,24 @@ fun NuvexaNumberField(
     val scheme = MaterialTheme.colorScheme
     OutlinedTextField(
         value = value,
-        onValueChange = { input -> onValueChange(normalizeLocalizedNumberInput(input, allowDecimal, allowNegative)) },
+        onValueChange = { input ->
+            onValueChange(
+                normalizeLocalizedNumberInput(
+                    input,
+                    allowDecimal,
+                    allowNegative,
+                ),
+            )
+        },
         modifier = modifier.fillMaxWidth(),
         label = { Text(label) },
         suffix = suffix?.let { { Text(it, color = scheme.onSurfaceVariant) } },
         singleLine = true,
-        keyboardOptions = KeyboardOptions(keyboardType = if (allowDecimal) KeyboardType.Decimal else KeyboardType.Number),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = if (allowDecimal) KeyboardType.Decimal else KeyboardType.Number,
+        ),
         shape = MaterialTheme.shapes.large,
+        textStyle = MaterialTheme.typography.bodyLarge,
         colors = nuvexaFieldColors(),
     )
 }
@@ -52,24 +63,31 @@ fun NuvexaTextField(
         minLines = minLines,
         maxLines = maxLines,
         shape = MaterialTheme.shapes.large,
+        textStyle = MaterialTheme.typography.bodyLarge,
         colors = nuvexaFieldColors(),
     )
 }
 
 @Composable
-private fun nuvexaFieldColors() = OutlinedTextFieldDefaults.colors(
+internal fun nuvexaFieldColors() = OutlinedTextFieldDefaults.colors(
     focusedTextColor = MaterialTheme.colorScheme.onSurface,
     unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
     cursorColor = MaterialTheme.colorScheme.primary,
-    focusedContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.92f),
-    unfocusedContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.88f),
-    focusedBorderColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.86f),
-    unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.38f),
+    focusedContainerColor = MaterialTheme.colorScheme.surface,
+    unfocusedContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.94f),
+    focusedBorderColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.74f),
+    unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.28f),
     focusedLabelColor = MaterialTheme.colorScheme.primary,
     unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant,
+    focusedSuffixColor = MaterialTheme.colorScheme.onSurfaceVariant,
+    unfocusedSuffixColor = MaterialTheme.colorScheme.onSurfaceVariant,
 )
 
-internal fun normalizeLocalizedNumberInput(input: String, allowDecimal: Boolean, allowNegative: Boolean): String {
+internal fun normalizeLocalizedNumberInput(
+    input: String,
+    allowDecimal: Boolean,
+    allowNegative: Boolean,
+): String {
     var hasDecimal = false
     val out = StringBuilder(input.length)
     input.forEach { original ->
@@ -82,7 +100,10 @@ internal fun normalizeLocalizedNumberInput(input: String, allowDecimal: Boolean,
         }
         when {
             c.isDigit() -> out.append(c)
-            allowDecimal && c == '.' && !hasDecimal -> { hasDecimal = true; out.append(c) }
+            allowDecimal && c == '.' && !hasDecimal -> {
+                hasDecimal = true
+                out.append(c)
+            }
             allowNegative && c == '-' && out.isEmpty() -> out.append(c)
         }
     }

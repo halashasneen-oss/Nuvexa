@@ -13,7 +13,7 @@ access is used for optional Google AdMob advertising.
 - **English, Arabic (RTL), French and Spanish**.
 - **Offline-first** calculators, converters, PDF utilities, OCR, QR, image and security tools.
 - **Local history/favorites/recents** using Room and DataStore.
-- `app/build.gradle.kts` currently reports **version 1.1.0** (`versionCode = 6`).
+- `app/build.gradle.kts` currently reports **version 1.2.0** (`versionCode = 7`).
 
 ## Tool catalog
 
@@ -68,20 +68,23 @@ The UI uses a shared Compose design layer so every tool inherits the same visual
 
 ## Advertising — current implementation
 
-Nuvexa is free and ad-supported. The app currently contains **both banner and interstitial
-AdMob ads**.
+Nuvexa is free and ad-supported. The normal advertising model remains unchanged outside an
+earned ad-free window:
 
-- **Banner ads** are shown on top-level screens and on category browsing screens.
-- **Interstitial ads** are offered only at a natural transition: when leaving a tool.
+- **Banner ads** are shown on top-level screens and category browsing screens.
+- **Interstitial ads** are offered only at a natural transition when leaving a tool.
 - In a release build, the interstitial manager shows at most one ad every **three tool exits**.
-- Debug builds use Google's public test ad units and make every eligible exit testable.
-- Ad loading is initialized through the shared `AdsInitializer` and the interstitial is
-  preloaded so tool navigation is not dependent on ad load timing.
-- If an interstitial is unavailable or fails to show, navigation continues normally.
+- A new, explicitly opt-in **Rewarded Ad** card appears on Home. After the user completes the
+  rewarded ad and chooses a destination in Android's share sheet, Nuvexa grants **60 minutes
+  without banner or interstitial ads**.
+- The one-hour entitlement and any pending share step are stored only in local app preferences
+  so the reward survives an app restart. Nuvexa does not claim to verify publication inside a
+  third-party social app; Android only reports that a share target was selected.
+- Debug builds use Google's public test ad units. Release builds use the production Nuvexa rewarded-ad unit configured in `app/build.gradle.kts`; debug builds remain on Google test inventory.
+- If an ad is unavailable or fails to show, normal app usage continues.
 
-Ad configuration is defined in `app/build.gradle.kts` and ad behavior lives in
-`BannerAd.kt`, `AdsInitializer.kt` and `InterstitialAdManager.kt`. The modernization refresh
-does **not** change the existing ad IDs, frequency policy or ad manager behavior.
+Ad configuration is defined in `app/build.gradle.kts`. Banner, interstitial, rewarded-ad and
+temporary ad-free behavior live in the shared ad utility/components layer.
 
 ## Privacy
 

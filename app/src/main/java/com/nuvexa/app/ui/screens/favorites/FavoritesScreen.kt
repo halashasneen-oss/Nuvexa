@@ -1,5 +1,6 @@
 package com.nuvexa.app.ui.screens.favorites
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDownward
 import androidx.compose.material.icons.filled.ArrowUpward
@@ -16,11 +18,14 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.nuvexa.app.R
@@ -37,25 +42,45 @@ fun FavoritesScreen(
     val favorites by viewModel.favoriteTools.collectAsStateWithLifecycle()
 
     Column(modifier = Modifier.fillMaxSize()) {
-        Text(
-            text = stringResource(R.string.favorites_title),
-            style = MaterialTheme.typography.displaySmall,
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = spacing.l, vertical = spacing.m),
-        )
+            verticalArrangement = Arrangement.spacedBy(spacing.xs),
+        ) {
+            Text(
+                text = stringResource(R.string.favorites_title),
+                style = MaterialTheme.typography.displaySmall,
+                color = MaterialTheme.colorScheme.onBackground,
+            )
+            if (favorites.isNotEmpty()) {
+                Text(
+                    text = stringResource(R.string.category_tool_count, favorites.size),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
 
         if (favorites.isEmpty()) {
             EmptyState(
                 icon = Icons.Filled.Star,
                 title = stringResource(R.string.favorites_empty_title),
                 body = stringResource(R.string.favorites_empty_body),
-                modifier = Modifier.padding(top = spacing.xxl),
+                modifier = Modifier.padding(
+                    start = spacing.l,
+                    end = spacing.l,
+                    top = spacing.xxl,
+                ),
             )
         } else {
             LazyColumn(
-                contentPadding = PaddingValues(spacing.l),
-                verticalArrangement = Arrangement.spacedBy(spacing.s),
+                contentPadding = PaddingValues(
+                    start = spacing.l,
+                    end = spacing.l,
+                    bottom = spacing.xxl,
+                ),
+                verticalArrangement = Arrangement.spacedBy(spacing.m),
             ) {
                 items(favorites, key = { it.id }) { tool ->
                     val index = favorites.indexOf(tool)
@@ -65,12 +90,34 @@ fun FavoritesScreen(
                         description = stringResource(tool.descriptionRes),
                         onClick = { onOpenTool(tool.id) },
                         trailing = {
-                            Row {
-                                IconButton(onClick = { viewModel.moveUp(tool.id) }, enabled = index > 0) {
-                                    Icon(Icons.Filled.ArrowUpward, contentDescription = null)
-                                }
-                                IconButton(onClick = { viewModel.moveDown(tool.id) }, enabled = index < favorites.lastIndex) {
-                                    Icon(Icons.Filled.ArrowDownward, contentDescription = null)
+                            Surface(
+                                shape = CircleShape,
+                                color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.58f),
+                                contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                                border = BorderStroke(
+                                    1.dp,
+                                    MaterialTheme.colorScheme.outline.copy(alpha = 0.16f),
+                                ),
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    IconButton(
+                                        onClick = { viewModel.moveUp(tool.id) },
+                                        enabled = index > 0,
+                                    ) {
+                                        Icon(
+                                            Icons.Filled.ArrowUpward,
+                                            contentDescription = null,
+                                        )
+                                    }
+                                    IconButton(
+                                        onClick = { viewModel.moveDown(tool.id) },
+                                        enabled = index < favorites.lastIndex,
+                                    ) {
+                                        Icon(
+                                            Icons.Filled.ArrowDownward,
+                                            contentDescription = null,
+                                        )
+                                    }
                                 }
                             }
                         },

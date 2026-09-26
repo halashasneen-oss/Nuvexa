@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-private val ButtonHeight = 54.dp
+private val ButtonHeight = 56.dp
 
 @Composable
 fun PrimaryButton(
@@ -28,20 +28,27 @@ fun PrimaryButton(
         onClick = onClick,
         modifier = modifier.height(ButtonHeight),
         enabled = enabled,
-        shape = MaterialTheme.shapes.extraLarge,
+        shape = MaterialTheme.shapes.large,
         colors = ButtonDefaults.buttonColors(
             containerColor = scheme.primary,
             contentColor = scheme.onPrimary,
-            disabledContainerColor = scheme.surfaceVariant,
+            disabledContainerColor = scheme.surfaceVariant.copy(alpha = 0.88f),
             disabledContentColor = scheme.onSurfaceVariant.copy(alpha = 0.56f),
         ),
-        elevation = ButtonDefaults.buttonElevation(defaultElevation = 4.dp, pressedElevation = 1.dp),
+        elevation = ButtonDefaults.buttonElevation(
+            defaultElevation = 7.dp,
+            pressedElevation = 2.dp,
+            disabledElevation = 0.dp,
+        ),
     ) {
         if (leadingIcon != null) {
             leadingIcon()
-            androidx.compose.foundation.layout.Spacer(Modifier.width(6.dp))
+            androidx.compose.foundation.layout.Spacer(Modifier.width(8.dp))
         }
-        Text(text, style = MaterialTheme.typography.titleMedium)
+        Text(
+            text = text,
+            style = MaterialTheme.typography.titleMedium,
+        )
     }
 }
 
@@ -57,14 +64,23 @@ fun SecondaryButton(
         onClick = onClick,
         modifier = modifier.height(ButtonHeight),
         enabled = enabled,
-        shape = MaterialTheme.shapes.extraLarge,
+        shape = MaterialTheme.shapes.large,
         colors = ButtonDefaults.outlinedButtonColors(
+            containerColor = scheme.surface.copy(alpha = 0.90f),
             contentColor = scheme.primary,
-            disabledContentColor = scheme.onSurfaceVariant.copy(alpha = 0.56f),
+            disabledContainerColor = scheme.surface.copy(alpha = 0.54f),
+            disabledContentColor = scheme.onSurfaceVariant.copy(alpha = 0.50f),
         ),
-        border = BorderStroke(1.dp, if (enabled) scheme.primary.copy(alpha = 0.62f) else scheme.outline.copy(alpha = 0.28f)),
+        border = BorderStroke(
+            1.dp,
+            if (enabled) scheme.primary.copy(alpha = 0.42f)
+            else scheme.outline.copy(alpha = 0.22f),
+        ),
     ) {
-        Text(text, style = MaterialTheme.typography.titleMedium)
+        Text(
+            text = text,
+            style = MaterialTheme.typography.titleMedium,
+        )
     }
 }
 
@@ -78,8 +94,8 @@ fun DangerTextButton(
         onClick = onClick,
         modifier = modifier,
         colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error),
-        shape = MaterialTheme.shapes.extraLarge,
+        shape = MaterialTheme.shapes.large,
     ) {
-        Text(text)
+        Text(text, style = MaterialTheme.typography.labelLarge)
     }
 }

@@ -60,8 +60,12 @@ class MainActivity : ComponentActivity() {
 
             NuvexaTheme(darkTheme = darkTheme) {
                 val onboardingComplete by viewModel.onboardingComplete.collectAsStateWithLifecycle()
+                val startScreen by viewModel.startScreen.collectAsStateWithLifecycle()
                 onboardingComplete?.let { complete ->
-                    NuvexaRootScreen(startWithOnboarding = !complete)
+                    NuvexaRootScreen(
+                        startWithOnboarding = !complete,
+                        startScreen = startScreen,
+                    )
                 }
             }
         }

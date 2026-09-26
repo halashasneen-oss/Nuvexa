@@ -12,6 +12,8 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun AppSearchBar(
@@ -21,12 +23,30 @@ fun AppSearchBar(
     modifier: Modifier = Modifier,
 ) {
     val scheme = MaterialTheme.colorScheme
+
     OutlinedTextField(
         value = query,
         onValueChange = onQueryChange,
-        modifier = modifier.fillMaxWidth(),
-        placeholder = { Text(placeholder) },
-        leadingIcon = { Icon(Icons.Rounded.Search, contentDescription = null) },
+        modifier = modifier
+            .fillMaxWidth()
+            .shadow(
+                elevation = 5.dp,
+                shape = MaterialTheme.shapes.extraLarge,
+                clip = false,
+            ),
+        placeholder = {
+            Text(
+                text = placeholder,
+                style = MaterialTheme.typography.bodyMedium,
+            )
+        },
+        leadingIcon = {
+            Icon(
+                Icons.Rounded.Search,
+                contentDescription = null,
+                tint = if (query.isEmpty()) scheme.onSurfaceVariant else scheme.primary,
+            )
+        },
         trailingIcon = {
             if (query.isNotEmpty()) {
                 IconButton(onClick = { onQueryChange("") }) {
@@ -40,16 +60,16 @@ fun AppSearchBar(
             focusedTextColor = scheme.onSurface,
             unfocusedTextColor = scheme.onSurface,
             cursorColor = scheme.primary,
-            focusedContainerColor = scheme.surface.copy(alpha = 0.92f),
-            unfocusedContainerColor = scheme.surface.copy(alpha = 0.88f),
-            focusedBorderColor = scheme.primary.copy(alpha = 0.86f),
-            unfocusedBorderColor = scheme.outline.copy(alpha = 0.38f),
+            focusedContainerColor = scheme.surface,
+            unfocusedContainerColor = scheme.surface.copy(alpha = 0.96f),
+            focusedBorderColor = scheme.primary.copy(alpha = 0.72f),
+            unfocusedBorderColor = scheme.outline.copy(alpha = 0.22f),
             focusedLeadingIconColor = scheme.primary,
             unfocusedLeadingIconColor = scheme.onSurfaceVariant,
             focusedTrailingIconColor = scheme.onSurfaceVariant,
             unfocusedTrailingIconColor = scheme.onSurfaceVariant,
-            focusedPlaceholderColor = scheme.onSurfaceVariant.copy(alpha = 0.78f),
-            unfocusedPlaceholderColor = scheme.onSurfaceVariant.copy(alpha = 0.78f),
+            focusedPlaceholderColor = scheme.onSurfaceVariant.copy(alpha = 0.72f),
+            unfocusedPlaceholderColor = scheme.onSurfaceVariant.copy(alpha = 0.72f),
         ),
     )
 }

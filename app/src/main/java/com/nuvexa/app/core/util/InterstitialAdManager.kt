@@ -14,6 +14,9 @@ import com.nuvexa.app.BuildConfig
  * Keeps one interstitial ready in memory and shows it only at a natural transition: leaving a
  * tool. Production shows at most once every three tool exits. Debug uses Google's test unit and
  * shows on every eligible exit so the integration can be verified without touching live ads.
+ *
+ * An active one-hour reward suppresses interstitial display without changing the normal frequency
+ * rules that apply outside the reward window.
  */
 object InterstitialAdManager {
     private const val RELEASE_EXITS_BETWEEN_ADS = 3
@@ -27,6 +30,7 @@ object InterstitialAdManager {
         get() = if (BuildConfig.DEBUG) 1 else RELEASE_EXITS_BETWEEN_ADS
 
     fun preload(context: Context) {
+        if (AdFreeSessionManager.isAdFree(context)) return
         if (interstitialAd != null || isLoading || isShowing) return
 
         isLoading = true
@@ -52,6 +56,11 @@ object InterstitialAdManager {
 
     fun showOnToolExit(activity: Activity, onContinue: () -> Unit) {
         if (isShowing) return
+
+        if (AdFreeSessionManager.isAdFree(activity)) {
+            onContinue()
+            return
+        }
 
         exitsSinceLastAd += 1
         if (exitsSinceLastAd < exitsBetweenAds) {

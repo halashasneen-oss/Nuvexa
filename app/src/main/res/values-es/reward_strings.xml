@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reward_card_eyebrow">RECOMPENSA SIN ANUNCIOS</string>
+    <string name="reward_badge">60 MIN</string>
+    <string name="reward_card_title">Disfruta 1 hora sin anuncios</string>
+    <string name="reward_card_body">Mira un anuncio con recompensa y luego elige dónde compartir Nuvexa. Al seleccionar un destino para compartir, todos los anuncios se pausan durante 60 minutos.</string>
+    <string name="reward_cta">Ver anuncio y compartir</string>
+    <string name="reward_loading">Preparando la recompensa…</string>
+    <string name="reward_unavailable">El anuncio con recompensa aún no está listo. Inténtalo de nuevo en un momento.</string>
+    <string name="reward_pending_title">Solo queda un paso</string>
+    <string name="reward_pending_body">Elige una aplicación para compartir Nuvexa y activar tu hora sin anuncios.</string>
+    <string name="reward_share_cta">Compartir para activar</string>
+    <string name="reward_active_title">Modo sin anuncios activo</string>
+    <string name="reward_active_body">Quedan %1$d min</string>
+    <string name="reward_active_note">Los banners y anuncios intersticiales están pausados.</string>
+    <string name="reward_share_subject">Nuvexa — herramientas inteligentes en una sola app</string>
+    <string name="reward_share_text">Prueba Nuvexa — PDF, OCR, QR, calculadoras y mucho más en una sola app: %1$s</string>
+    <string name="reward_share_chooser">Compartir Nuvexa</string>
+    <string name="home_hero_badge_tools">80 herramientas inteligentes</string>
+    <string name="home_hero_badge_private">Procesamiento local</string>
+</resources>

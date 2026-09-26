@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reward_card_eyebrow">AD-FREE REWARD</string>
+    <string name="reward_badge">60 MIN</string>
+    <string name="reward_card_title">Enjoy 1 hour without ads</string>
+    <string name="reward_card_body">Watch one rewarded ad, then choose where to share Nuvexa. Once a share target is selected, all ads pause for 60 minutes.</string>
+    <string name="reward_cta">Watch ad &amp; share</string>
+    <string name="reward_loading">Preparing reward…</string>
+    <string name="reward_unavailable">The reward ad isn’t ready yet. Try again in a moment.</string>
+    <string name="reward_pending_title">One last step</string>
+    <string name="reward_pending_body">Choose an app to share Nuvexa and activate your ad-free hour.</string>
+    <string name="reward_share_cta">Share to activate</string>
+    <string name="reward_active_title">Ad-free mode is active</string>
+    <string name="reward_active_body">%1$d min remaining</string>
+    <string name="reward_active_note">Banner and interstitial ads are paused.</string>
+    <string name="reward_share_subject">Nuvexa — smart tools in one app</string>
+    <string name="reward_share_text">Try Nuvexa — PDF, OCR, QR, calculators and more in one app: %1$s</string>
+    <string name="reward_share_chooser">Share Nuvexa</string>
+    <string name="home_hero_badge_tools">80 smart tools</string>
+    <string name="home_hero_badge_private">On-device first</string>
+</resources>

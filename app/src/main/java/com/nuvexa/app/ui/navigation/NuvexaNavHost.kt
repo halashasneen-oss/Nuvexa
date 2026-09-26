@@ -20,6 +20,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.nuvexa.app.core.registry.ToolRegistry
+import com.nuvexa.app.data.repository.StartScreen
 import com.nuvexa.app.core.util.InterstitialAdManager
 import com.nuvexa.app.ui.screens.favorites.FavoritesScreen
 import com.nuvexa.app.ui.screens.history.HistoryScreen
@@ -34,11 +35,18 @@ import com.nuvexa.app.ui.tools.ToolScreenHost
 fun NuvexaNavHost(
     navController: NavHostController,
     startWithOnboarding: Boolean,
+    startScreen: StartScreen,
     modifier: Modifier = Modifier,
 ) {
+    val initialRoute = when (startScreen) {
+        StartScreen.HOME -> Routes.HOME
+        StartScreen.TOOLS -> Routes.TOOLS
+        StartScreen.FAVORITES -> Routes.FAVORITES
+    }
+
     NavHost(
         navController = navController,
-        startDestination = if (startWithOnboarding) Routes.ONBOARDING else Routes.HOME,
+        startDestination = if (startWithOnboarding) Routes.ONBOARDING else initialRoute,
         modifier = modifier,
     ) {
         composable(Routes.ONBOARDING) {

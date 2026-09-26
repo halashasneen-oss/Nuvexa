@@ -38,7 +38,10 @@ fun DatePickerField(
     modifier: Modifier = Modifier,
 ) {
     var showDialog by remember { mutableStateOf(false) }
-    val formatter = remember { DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(Locale.getDefault()) }
+    val formatter = remember {
+        DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+            .withLocale(Locale.getDefault())
+    }
 
     Box(modifier = modifier.fillMaxWidth()) {
         OutlinedTextField(
@@ -46,14 +49,18 @@ fun DatePickerField(
             onValueChange = {},
             readOnly = true,
             label = { Text(label) },
-            trailingIcon = { Icon(Icons.Filled.CalendarMonth, contentDescription = null) },
+            trailingIcon = {
+                Icon(
+                    Icons.Filled.CalendarMonth,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                )
+            },
             modifier = Modifier.fillMaxWidth(),
+            shape = MaterialTheme.shapes.large,
+            textStyle = MaterialTheme.typography.bodyLarge,
+            colors = nuvexaFieldColors(),
         )
-        // A readOnly OutlinedTextField can still grab focus (and briefly the keyboard) on
-        // tap depending on the IME/OEM keyboard, which can eat the first tap after picking a
-        // date — the tap dismisses the keyboard instead of reaching the next control. This
-        // fully transparent overlay intercepts every touch before it ever reaches the text
-        // field, so the field is purely decorative and this can't happen.
         Box(
             modifier = Modifier
                 .matchParentSize()
@@ -63,20 +70,33 @@ fun DatePickerField(
 
     if (showDialog) {
         val state = rememberDatePickerState(
-            initialSelectedDateMillis = selectedDate.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli(),
+            initialSelectedDateMillis = selectedDate
+                .atStartOfDay(ZoneOffset.UTC)
+                .toInstant()
+                .toEpochMilli(),
         )
         DatePickerDialog(
             onDismissRequest = { showDialog = false },
             confirmButton = {
-                TextButton(onClick = {
-                    state.selectedDateMillis?.let { millis ->
-                        onDateSelected(Instant.ofEpochMilli(millis).atZone(ZoneOffset.UTC).toLocalDate())
-                    }
-                    showDialog = false
-                }) { Text(stringResource(R.string.action_confirm)) }
+                TextButton(
+                    onClick = {
+                        state.selectedDateMillis?.let { millis ->
+                            onDateSelected(
+                                Instant.ofEpochMilli(millis)
+                                    .atZone(ZoneOffset.UTC)
+                                    .toLocalDate(),
+                            )
+                        }
+                        showDialog = false
+                    },
+                ) {
+                    Text(stringResource(R.string.action_confirm))
+                }
             },
             dismissButton = {
-                TextButton(onClick = { showDialog = false }) { Text(stringResource(R.string.action_cancel)) }
+                TextButton(onClick = { showDialog = false }) {
+                    Text(stringResource(R.string.action_cancel))
+                }
             },
         ) {
             DatePicker(state = state)

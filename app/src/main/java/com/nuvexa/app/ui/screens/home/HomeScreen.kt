@@ -1,8 +1,10 @@
 package com.nuvexa.app.ui.screens.home
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -31,6 +33,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -46,6 +50,7 @@ import com.nuvexa.app.core.search.SearchEngine
 import com.nuvexa.app.ui.components.AppSearchBar
 import com.nuvexa.app.ui.components.CategoryCard
 import com.nuvexa.app.ui.components.EmptyState
+import com.nuvexa.app.ui.components.RewardedShareCard
 import com.nuvexa.app.ui.components.SectionHeader
 import com.nuvexa.app.ui.components.ToolCard
 import com.nuvexa.app.ui.components.ToolIconBadge
@@ -74,6 +79,10 @@ fun HomeScreen(
         verticalArrangement = Arrangement.spacedBy(spacing.xl),
     ) {
         item { HomeHero(onOpenSettings = onOpenSettings) }
+
+        // The reward is intentionally visible immediately on Home instead of being buried in
+        // Settings. It is always opt-in and clearly discloses the action and the 60-minute reward.
+        item { RewardedShareCard() }
 
         item {
             AppSearchBar(
@@ -110,7 +119,10 @@ fun HomeScreen(
                         contentPadding = PaddingValues(vertical = 2.dp),
                         horizontalArrangement = Arrangement.spacedBy(spacing.m),
                     ) {
-                        items(ToolRegistry.quickActionIds.mapNotNull(ToolRegistry::findById), key = { it.id }) { tool ->
+                        items(
+                            ToolRegistry.quickActionIds.mapNotNull(ToolRegistry::findById),
+                            key = { it.id },
+                        ) { tool ->
                             QuickActionItem(tool = tool, onClick = { onOpenTool(tool.id) })
                         }
                     }
@@ -122,14 +134,17 @@ fun HomeScreen(
                     Column(verticalArrangement = Arrangement.spacedBy(spacing.s)) {
                         SectionHeader(title = stringResource(R.string.home_favorites))
                         Column(verticalArrangement = Arrangement.spacedBy(spacing.s)) {
-                            uiState.favoriteToolIds.mapNotNull(ToolRegistry::findById).take(4).forEach { tool ->
-                                ToolCard(
-                                    icon = tool.icon,
-                                    name = stringResource(tool.nameRes),
-                                    description = stringResource(tool.descriptionRes),
-                                    onClick = { onOpenTool(tool.id) },
-                                )
-                            }
+                            uiState.favoriteToolIds
+                                .mapNotNull(ToolRegistry::findById)
+                                .take(4)
+                                .forEach { tool ->
+                                    ToolCard(
+                                        icon = tool.icon,
+                                        name = stringResource(tool.nameRes),
+                                        description = stringResource(tool.descriptionRes),
+                                        onClick = { onOpenTool(tool.id) },
+                                    )
+                                }
                         }
                     }
                 }
@@ -139,8 +154,16 @@ fun HomeScreen(
                 Column(verticalArrangement = Arrangement.spacedBy(spacing.s)) {
                     SectionHeader(
                         title = stringResource(R.string.home_recent),
-                        actionLabel = if (uiState.recentTools.isNotEmpty()) stringResource(R.string.home_recent_see_all) else null,
-                        onActionClick = if (uiState.recentTools.isNotEmpty()) onSeeAllRecent else null,
+                        actionLabel = if (uiState.recentTools.isNotEmpty()) {
+                            stringResource(R.string.home_recent_see_all)
+                        } else {
+                            null
+                        },
+                        onActionClick = if (uiState.recentTools.isNotEmpty()) {
+                            onSeeAllRecent
+                        } else {
+                            null
+                        },
                     )
                     if (uiState.recentTools.isEmpty()) {
                         EmptyState(
@@ -152,7 +175,10 @@ fun HomeScreen(
                         LazyRow(horizontalArrangement = Arrangement.spacedBy(spacing.m)) {
                             items(uiState.recentTools, key = { it.toolId }) { recent ->
                                 ToolRegistry.findById(recent.toolId)?.let { tool ->
-                                    QuickActionItem(tool = tool, onClick = { onOpenTool(tool.id) })
+                                    QuickActionItem(
+                                        tool = tool,
+                                        onClick = { onOpenTool(tool.id) },
+                                    )
                                 }
                             }
                         }
@@ -165,14 +191,16 @@ fun HomeScreen(
                     Column(verticalArrangement = Arrangement.spacedBy(spacing.s)) {
                         SectionHeader(title = stringResource(R.string.home_recommended))
                         Column(verticalArrangement = Arrangement.spacedBy(spacing.s)) {
-                            uiState.recommendedToolIds.mapNotNull(ToolRegistry::findById).forEach { tool ->
-                                ToolCard(
-                                    icon = tool.icon,
-                                    name = stringResource(tool.nameRes),
-                                    description = stringResource(tool.descriptionRes),
-                                    onClick = { onOpenTool(tool.id) },
-                                )
-                            }
+                            uiState.recommendedToolIds
+                                .mapNotNull(ToolRegistry::findById)
+                                .forEach { tool ->
+                                    ToolCard(
+                                        icon = tool.icon,
+                                        name = stringResource(tool.nameRes),
+                                        description = stringResource(tool.descriptionRes),
+                                        onClick = { onOpenTool(tool.id) },
+                                    )
+                                }
                         }
                     }
                 }
@@ -191,7 +219,10 @@ fun HomeScreen(
                     shape = MaterialTheme.shapes.large,
                     color = MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.74f),
                     contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
-                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.tertiary.copy(alpha = 0.24f)),
+                    border = BorderStroke(
+                        1.dp,
+                        MaterialTheme.colorScheme.tertiary.copy(alpha = 0.24f),
+                    ),
                 ) {
                     Row(
                         modifier = Modifier.padding(spacing.m),
@@ -219,43 +250,100 @@ fun HomeScreen(
 private fun HomeHero(onOpenSettings: () -> Unit) {
     val spacing = LocalSpacing.current
     val scheme = MaterialTheme.colorScheme
-    Row(
+
+    Surface(
         modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(spacing.m),
+        shape = MaterialTheme.shapes.extraLarge,
+        color = Color.Transparent,
+        contentColor = scheme.onSurface,
+        border = BorderStroke(1.dp, scheme.primary.copy(alpha = 0.20f)),
+        shadowElevation = 10.dp,
     ) {
-        // The app mark is intentionally larger than tool icons; tool icons themselves are fixed
-        // to one standard size everywhere else.
-        ToolIconBadge(icon = Icons.Rounded.GridView, size = 60.dp, iconSize = 30.dp)
-        Column(
-            modifier = Modifier.weight(1f),
-            verticalArrangement = Arrangement.spacedBy(2.dp),
+        Box(
+            modifier = Modifier.background(
+                Brush.linearGradient(
+                    colors = listOf(
+                        scheme.primaryContainer.copy(alpha = 0.92f),
+                        scheme.secondaryContainer.copy(alpha = 0.62f),
+                        scheme.surface.copy(alpha = 0.94f),
+                    ),
+                ),
+            ),
         ) {
-            Text(
-                text = stringResource(R.string.app_name),
-                style = MaterialTheme.typography.displayMedium,
-                color = scheme.onBackground,
-            )
-            Text(
-                text = stringResource(R.string.home_tagline),
-                style = MaterialTheme.typography.bodyMedium,
-                color = scheme.onSurfaceVariant,
-            )
-        }
-        Surface(
-            shape = CircleShape,
-            color = scheme.surface.copy(alpha = 0.90f),
-            contentColor = scheme.onSurface,
-            border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.30f)),
-        ) {
-            IconButton(onClick = onOpenSettings) {
-                Icon(
-                    Icons.Rounded.Settings,
-                    contentDescription = stringResource(R.string.nav_settings),
-                    tint = scheme.onSurface,
-                )
+            Column(
+                modifier = Modifier.padding(spacing.l),
+                verticalArrangement = Arrangement.spacedBy(spacing.m),
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(spacing.m),
+                ) {
+                    ToolIconBadge(
+                        icon = Icons.Rounded.GridView,
+                        size = 64.dp,
+                        iconSize = 32.dp,
+                    )
+
+                    Column(
+                        modifier = Modifier.weight(1f),
+                        verticalArrangement = Arrangement.spacedBy(3.dp),
+                    ) {
+                        Text(
+                            text = stringResource(R.string.app_name),
+                            style = MaterialTheme.typography.displayMedium,
+                            color = scheme.onSurface,
+                        )
+                        Text(
+                            text = stringResource(R.string.home_tagline),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = scheme.onSurfaceVariant,
+                        )
+                    }
+
+                    Surface(
+                        shape = CircleShape,
+                        color = scheme.surface.copy(alpha = 0.80f),
+                        contentColor = scheme.onSurface,
+                        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.28f)),
+                    ) {
+                        IconButton(onClick = onOpenSettings) {
+                            Icon(
+                                Icons.Rounded.Settings,
+                                contentDescription = stringResource(R.string.nav_settings),
+                                tint = scheme.onSurface,
+                            )
+                        }
+                    }
+                }
+
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(spacing.s),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    HeroBadge(text = stringResource(R.string.home_hero_badge_tools))
+                    HeroBadge(text = stringResource(R.string.home_hero_badge_private))
+                }
             }
         }
+    }
+}
+
+@Composable
+private fun HeroBadge(text: String) {
+    val scheme = MaterialTheme.colorScheme
+    Surface(
+        shape = MaterialTheme.shapes.extraLarge,
+        color = scheme.surface.copy(alpha = 0.72f),
+        contentColor = scheme.onSurface,
+        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.22f)),
+    ) {
+        Text(
+            text = text,
+            style = MaterialTheme.typography.labelMedium,
+            color = scheme.onSurfaceVariant,
+            modifier = Modifier.padding(horizontal = 10.dp, vertical = 7.dp),
+        )
     }
 }
 
@@ -265,15 +353,18 @@ private fun QuickActionItem(tool: Tool, onClick: () -> Unit) {
     val scheme = MaterialTheme.colorScheme
     Card(
         modifier = Modifier
-            .width(118.dp)
+            .width(122.dp)
             .clickable(onClick = onClick),
         shape = MaterialTheme.shapes.large,
         colors = CardDefaults.cardColors(
-            containerColor = scheme.surface.copy(alpha = 0.90f),
+            containerColor = scheme.surface.copy(alpha = 0.93f),
             contentColor = scheme.onSurface,
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp, pressedElevation = 1.dp),
-        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.30f)),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 5.dp,
+            pressedElevation = 1.dp,
+        ),
+        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.26f)),
     ) {
         Column(
             modifier = Modifier.padding(spacing.m),
@@ -307,7 +398,10 @@ private fun CategoryGrid(onOpenCategory: (String) -> Unit) {
                     CategoryCard(
                         icon = category.icon,
                         name = stringResource(category.nameRes),
-                        toolCount = stringResource(R.string.category_tool_count, ToolRegistry.byCategory(category).size),
+                        toolCount = stringResource(
+                            R.string.category_tool_count,
+                            ToolRegistry.byCategory(category).size,
+                        ),
                         onClick = { onOpenCategory(category.id) },
                         modifier = Modifier.weight(1f),
                     )
