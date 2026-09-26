@@ -1,9 +1,5 @@
 package com.nuvexa.app.ui.components
 
-import android.app.Activity
-import android.content.Context
-import android.content.ContextWrapper
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -30,19 +26,15 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.nuvexa.app.R
 import com.nuvexa.app.core.model.Tool
-import com.nuvexa.app.core.util.InterstitialAdManager
 import com.nuvexa.app.ui.theme.LocalSpacing
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -56,25 +48,8 @@ fun ToolScaffold(
     content: @Composable (Modifier) -> Unit,
 ) {
     val spacing = LocalSpacing.current
-    val context = LocalContext.current
     val scheme = MaterialTheme.colorScheme
 
-    LaunchedEffect(Unit) {
-        InterstitialAdManager.preload(context)
-    }
-
-    val exitTool = remember(context, onBack) {
-        {
-            val activity = context.findActivity()
-            if (activity != null) {
-                InterstitialAdManager.showOnToolExit(activity, onBack)
-            } else {
-                onBack()
-            }
-        }
-    }
-
-    BackHandler { exitTool() }
 
     Scaffold(
         modifier = modifier,
@@ -100,7 +75,7 @@ fun ToolScaffold(
                         border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.24f)),
                         shadowElevation = 3.dp,
                     ) {
-                        IconButton(onClick = exitTool) {
+                        IconButton(onClick = onBack) {
                             Icon(
                                 Icons.AutoMirrored.Rounded.ArrowBack,
                                 contentDescription = stringResource(R.string.action_back),
@@ -248,13 +223,3 @@ private fun ToolHero(tool: Tool) {
     }
 }
 
-private fun Context.findActivity(): Activity? {
-    var current: Context = this
-    while (current is ContextWrapper) {
-        if (current is Activity) return current
-        val base = current.baseContext
-        if (base === current) return null
-        current = base
-    }
-    return current as? Activity
-}

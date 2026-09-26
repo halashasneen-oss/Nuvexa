@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.nuvexa.app.R
+import com.nuvexa.app.data.repository.StartScreen
 import com.nuvexa.app.ui.components.BannerAdView
 
 private data class BottomDestination(
@@ -51,7 +52,10 @@ private val bottomDestinations = listOf(
 )
 
 @Composable
-fun NuvexaRootScreen(startWithOnboarding: Boolean) {
+fun NuvexaRootScreen(
+    startWithOnboarding: Boolean,
+    startScreen: StartScreen,
+) {
     val navController = rememberNavController()
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
@@ -180,6 +184,7 @@ fun NuvexaRootScreen(startWithOnboarding: Boolean) {
                 NuvexaNavHost(
                     navController = navController,
                     startWithOnboarding = startWithOnboarding,
+                    startScreen = startScreen,
                     modifier = Modifier,
                 )
             }

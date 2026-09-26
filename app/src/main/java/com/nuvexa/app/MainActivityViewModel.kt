@@ -3,6 +3,7 @@ package com.nuvexa.app
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nuvexa.app.data.repository.SettingsRepository
+import com.nuvexa.app.data.repository.StartScreen
 import com.nuvexa.app.data.repository.ThemeMode
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
@@ -20,4 +21,7 @@ class MainActivityViewModel @Inject constructor(
 
     val onboardingComplete: StateFlow<Boolean?> = settingsRepository.onboardingComplete
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
+    val startScreen: StateFlow<StartScreen> = settingsRepository.startScreen
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), StartScreen.HOME)
 }

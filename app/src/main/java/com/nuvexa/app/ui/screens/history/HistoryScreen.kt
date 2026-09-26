@@ -78,13 +78,6 @@ fun HistoryScreen(
                     style = MaterialTheme.typography.displaySmall,
                     color = MaterialTheme.colorScheme.onBackground,
                 )
-                if (history.isNotEmpty()) {
-                    Text(
-                        text = stringResource(R.string.category_tool_count, history.size),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
             }
             if (history.isNotEmpty()) {
                 DangerTextButton(
