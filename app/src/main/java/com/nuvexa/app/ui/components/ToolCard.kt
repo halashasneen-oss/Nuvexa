@@ -7,8 +7,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.ArrowForward
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,17 +33,18 @@ fun ToolCard(
 ) {
     val spacing = LocalSpacing.current
     val scheme = MaterialTheme.colorScheme
+
     Card(
         modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
-        shape = MaterialTheme.shapes.large,
+        shape = MaterialTheme.shapes.extraLarge,
         colors = CardDefaults.cardColors(
-            containerColor = scheme.surface.copy(alpha = 0.90f),
+            containerColor = scheme.surface.copy(alpha = 0.96f),
             contentColor = scheme.onSurface,
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp, pressedElevation = 1.dp),
-        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.30f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 5.dp, pressedElevation = 1.dp),
+        border = BorderStroke(1.dp, scheme.outline.copy(alpha = 0.22f)),
     ) {
         Row(
             modifier = Modifier.padding(horizontal = spacing.m, vertical = spacing.m),
@@ -48,9 +52,10 @@ fun ToolCard(
             horizontalArrangement = Arrangement.spacedBy(spacing.m),
         ) {
             ToolIconBadge(icon = icon)
+
             Column(
                 modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(3.dp),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 Text(
                     text = name,
@@ -67,7 +72,16 @@ fun ToolCard(
                     overflow = TextOverflow.Ellipsis,
                 )
             }
-            trailing?.invoke()
+
+            if (trailing != null) {
+                trailing()
+            } else {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Rounded.ArrowForward,
+                    contentDescription = null,
+                    tint = scheme.onSurfaceVariant.copy(alpha = 0.72f),
+                )
+            }
         }
     }
 }
