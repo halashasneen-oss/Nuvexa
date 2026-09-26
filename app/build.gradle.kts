@@ -20,17 +20,12 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
-        // Google public test App ID for non-release builds. Release overrides this below.
         manifestPlaceholders["admobAppId"] = "ca-app-pub-3940256099942544~3347511713"
     }
 
-    // No keystore is ever committed to this repository. The release signing config only
-    // activates when KEYSTORE_FILE actually points at a real file — set via CI secrets
-    // (KEYSTORE_BASE64 decoded to a temp path) or a local, git-ignored keystore.properties-style
-    // env setup. Without it, assembleRelease/bundleRelease still work but produce an unsigned
-    // artifact, and debug builds are entirely unaffected.
     val releaseKeystorePath = System.getenv("KEYSTORE_FILE")
     val hasReleaseSigning = !releaseKeystorePath.isNullOrBlank() && file(releaseKeystorePath).exists()
+    val rewardedReleaseAdUnitId = System.getenv("REWARDED_AD_UNIT_ID").orEmpty()
 
     signingConfigs {
         if (hasReleaseSigning) {
@@ -62,6 +57,11 @@ android {
                 "INTERSTITIAL_AD_UNIT_ID",
                 "\"ca-app-pub-5961173995415325/4862297018\""
             )
+            buildConfigField(
+                "String",
+                "REWARDED_AD_UNIT_ID",
+                "\"$rewardedReleaseAdUnitId\""
+            )
             if (hasReleaseSigning) {
                 signingConfig = signingConfigs.getByName("release")
             }
@@ -78,6 +78,11 @@ android {
                 "String",
                 "INTERSTITIAL_AD_UNIT_ID",
                 "\"ca-app-pub-3940256099942544/1033173712\""
+            )
+            buildConfigField(
+                "String",
+                "REWARDED_AD_UNIT_ID",
+                "\"ca-app-pub-3940256099942544/5224354917\""
             )
         }
     }
@@ -139,8 +144,6 @@ dependencies {
 
     implementation("com.google.android.gms:play-services-ads:23.6.0")
 
-    // Bundled (not Play-Services-downloaded) Latin-script model: OCR works fully offline
-    // starting from first launch, matching the "OCR must work offline" requirement.
     implementation("com.google.mlkit:text-recognition:16.0.1")
 
     testImplementation("junit:junit:4.13.2")

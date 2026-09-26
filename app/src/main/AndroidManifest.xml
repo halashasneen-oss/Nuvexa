@@ -42,6 +42,11 @@
             </intent-filter>
         </activity>
 
+        <!-- Explicit chooser callback used only to confirm that a share target was selected. -->
+        <receiver
+            android:name=".core.util.RewardShareReceiver"
+            android:exported="false" />
+
         <!-- Debug uses Google's public test App ID; release injects the Nuvexa production App ID. -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

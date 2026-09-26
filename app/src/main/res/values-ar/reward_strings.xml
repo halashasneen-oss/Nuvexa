@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reward_card_eyebrow">مكافأة بدون إعلانات</string>
+    <string name="reward_badge">60 دقيقة</string>
+    <string name="reward_card_title">استمتع بساعة كاملة بدون إعلانات</string>
+    <string name="reward_card_body">شاهد إعلان مكافأة واحدًا، ثم اختر المكان الذي تريد مشاركة Nuvexa من خلاله. عند اختيار تطبيق للمشاركة، تتوقف جميع الإعلانات لمدة 60 دقيقة.</string>
+    <string name="reward_cta">شاهد الإعلان وشارك</string>
+    <string name="reward_loading">جارٍ تجهيز المكافأة…</string>
+    <string name="reward_unavailable">إعلان المكافأة غير جاهز الآن. حاول مرة أخرى بعد قليل.</string>
+    <string name="reward_pending_title">بقيت خطوة واحدة</string>
+    <string name="reward_pending_body">اختر تطبيقًا لمشاركة Nuvexa وتفعيل ساعتك بدون إعلانات.</string>
+    <string name="reward_share_cta">شارك لتفعيل الساعة</string>
+    <string name="reward_active_title">وضع بدون إعلانات مفعّل</string>
+    <string name="reward_active_body">متبقي %1$d دقيقة</string>
+    <string name="reward_active_note">تم إيقاف إعلانات البانر والإعلانات البينية مؤقتًا.</string>
+    <string name="reward_share_subject">Nuvexa — أدوات ذكية في تطبيق واحد</string>
+    <string name="reward_share_text">جرّب Nuvexa — أدوات PDF وOCR وQR وحاسبات وأكثر في تطبيق واحد: %1$s</string>
+    <string name="reward_share_chooser">مشاركة Nuvexa</string>
+    <string name="home_hero_badge_tools">80 أداة ذكية</string>
+    <string name="home_hero_badge_private">المعالجة على الجهاز</string>
+</resources>
