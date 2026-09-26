@@ -25,6 +25,8 @@ import com.nuvexa.app.core.util.processPdfPages
 import com.nuvexa.app.core.util.savePdfDocument
 import com.nuvexa.app.core.util.shareFile
 import com.nuvexa.app.ui.components.EmptyState
+import com.nuvexa.app.ui.components.FeedbackCard
+import com.nuvexa.app.ui.components.FeedbackTone
 import com.nuvexa.app.ui.components.NuvexaTextField
 import com.nuvexa.app.ui.components.PrimaryButton
 import com.nuvexa.app.ui.components.SecondaryButton
@@ -96,7 +98,12 @@ fun PdfWatermarkScreen(modifier: Modifier = Modifier, onResult: (String) -> Unit
             )
         }
 
-        error?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodyMedium) }
+        error?.let {
+            FeedbackCard(
+                message = it,
+                tone = FeedbackTone.ERROR,
+            )
+        }
 
         resultFile?.let { file ->
             Text(

@@ -25,6 +25,8 @@ import com.nuvexa.app.core.util.processPdfPages
 import com.nuvexa.app.core.util.saveJpegToAppPictures
 import com.nuvexa.app.core.util.shareFile
 import com.nuvexa.app.ui.components.EmptyState
+import com.nuvexa.app.ui.components.FeedbackCard
+import com.nuvexa.app.ui.components.FeedbackTone
 import com.nuvexa.app.ui.components.PrimaryButton
 import com.nuvexa.app.ui.components.SecondaryButton
 import com.nuvexa.app.ui.theme.LocalSpacing
@@ -75,7 +77,12 @@ fun PdfToImagesScreen(modifier: Modifier = Modifier, onResult: (String) -> Unit)
                 onClick = { pickPdf.launch("application/pdf") },
                 modifier = Modifier.fillMaxWidth(),
             )
-            error?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodyMedium) }
+            error?.let {
+            FeedbackCard(
+                message = it,
+                tone = FeedbackTone.ERROR,
+            )
+        }
         } else {
             Text(stringResource(R.string.pdf_page_count_result, savedFiles.size), style = MaterialTheme.typography.titleMedium)
             Text(

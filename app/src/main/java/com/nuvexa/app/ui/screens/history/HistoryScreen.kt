@@ -39,6 +39,7 @@ import com.nuvexa.app.ui.components.BannerAdView
 import com.nuvexa.app.ui.components.ConfirmDialog
 import com.nuvexa.app.ui.components.DangerTextButton
 import com.nuvexa.app.ui.components.EmptyState
+import com.nuvexa.app.ui.components.ToolIconBadge
 import com.nuvexa.app.ui.theme.LocalSpacing
 
 @Composable
@@ -57,7 +58,8 @@ fun HistoryScreen(
         } else {
             history.filter { entry ->
                 val toolName = ToolRegistry.findById(entry.toolId)?.let { it.id } ?: ""
-                entry.summary.contains(query, ignoreCase = true) || toolName.contains(query, ignoreCase = true)
+                entry.summary.contains(query, ignoreCase = true) ||
+                    toolName.contains(query, ignoreCase = true)
             }
         }
     }
@@ -70,9 +72,25 @@ fun HistoryScreen(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text(text = stringResource(R.string.history_title), style = MaterialTheme.typography.displaySmall)
+            Column(verticalArrangement = Arrangement.spacedBy(spacing.xs)) {
+                Text(
+                    text = stringResource(R.string.history_title),
+                    style = MaterialTheme.typography.displaySmall,
+                    color = MaterialTheme.colorScheme.onBackground,
+                )
+                if (history.isNotEmpty()) {
+                    Text(
+                        text = stringResource(R.string.category_tool_count, history.size),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
             if (history.isNotEmpty()) {
-                DangerTextButton(text = stringResource(R.string.action_delete_all), onClick = { showClearAllDialog = true })
+                DangerTextButton(
+                    text = stringResource(R.string.action_delete_all),
+                    onClick = { showClearAllDialog = true },
+                )
             }
         }
 
@@ -90,12 +108,16 @@ fun HistoryScreen(
                 icon = Icons.Filled.History,
                 title = stringResource(R.string.history_empty_title),
                 body = stringResource(R.string.history_empty_body),
-                modifier = Modifier.padding(top = spacing.xxl),
+                modifier = Modifier.padding(
+                    start = spacing.l,
+                    end = spacing.l,
+                    top = spacing.xxl,
+                ),
             )
         } else {
             LazyColumn(
                 contentPadding = PaddingValues(spacing.l),
-                verticalArrangement = Arrangement.spacedBy(spacing.s),
+                verticalArrangement = Arrangement.spacedBy(spacing.m),
             ) {
                 items(filtered, key = { it.id }) { entry ->
                     val tool = ToolRegistry.findById(entry.toolId)
@@ -104,31 +126,52 @@ fun HistoryScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable { onOpenTool(tool.id) },
-                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-                            elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.4f)),
+                            shape = MaterialTheme.shapes.extraLarge,
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.96f),
+                            ),
+                            elevation = CardDefaults.cardElevation(
+                                defaultElevation = 5.dp,
+                                pressedElevation = 1.dp,
+                            ),
+                            border = BorderStroke(
+                                1.dp,
+                                MaterialTheme.colorScheme.outline.copy(alpha = 0.20f),
+                            ),
                         ) {
                             Row(
                                 modifier = Modifier.padding(spacing.m),
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.spacedBy(spacing.m),
                             ) {
-                                Icon(tool.icon, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
-                                Column(modifier = Modifier.weight(1f)) {
-                                    Text(stringResource(tool.nameRes), style = MaterialTheme.typography.titleMedium)
+                                ToolIconBadge(icon = tool.icon)
+                                Column(
+                                    modifier = Modifier.weight(1f),
+                                    verticalArrangement = Arrangement.spacedBy(3.dp),
+                                ) {
                                     Text(
-                                        entry.summary,
+                                        text = stringResource(tool.nameRes),
+                                        style = MaterialTheme.typography.titleMedium,
+                                    )
+                                    Text(
+                                        text = entry.summary,
                                         style = MaterialTheme.typography.bodySmall,
                                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     )
                                     Text(
-                                        DateUtils.getRelativeTimeSpanString(entry.timestampEpochMillis).toString(),
+                                        text = DateUtils.getRelativeTimeSpanString(
+                                            entry.timestampEpochMillis,
+                                        ).toString(),
                                         style = MaterialTheme.typography.labelSmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        color = MaterialTheme.colorScheme.primary,
                                     )
                                 }
                                 IconButton(onClick = { viewModel.delete(entry.id) }) {
-                                    Icon(Icons.Filled.Delete, contentDescription = stringResource(R.string.action_delete))
+                                    Icon(
+                                        Icons.Filled.Delete,
+                                        contentDescription = stringResource(R.string.action_delete),
+                                        tint = MaterialTheme.colorScheme.error,
+                                    )
                                 }
                             }
                         }

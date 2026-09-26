@@ -6,7 +6,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,7 +26,10 @@ import com.nuvexa.app.core.util.getPdfPageCount
 import com.nuvexa.app.core.util.recognizeTextInImage
 import com.nuvexa.app.core.util.renderPdfPage
 import com.nuvexa.app.ui.components.EmptyState
+import com.nuvexa.app.ui.components.FeedbackCard
+import com.nuvexa.app.ui.components.FeedbackTone
 import com.nuvexa.app.ui.components.PrimaryButton
+import com.nuvexa.app.ui.components.ProcessingCard
 import com.nuvexa.app.ui.components.ResultCard
 import com.nuvexa.app.ui.theme.LocalSpacing
 import kotlinx.coroutines.launch
@@ -106,13 +108,15 @@ fun OcrFromPdfScreen(modifier: Modifier = Modifier, onResult: (String) -> Unit) 
         }
 
         if (isProcessing) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-                CircularProgressIndicator()
-                Text(stringResource(R.string.ocr_processing), style = MaterialTheme.typography.bodyMedium)
-            }
+            ProcessingCard(message = stringResource(R.string.ocr_processing))
         }
 
-        error?.let { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodyMedium) }
+        error?.let {
+            FeedbackCard(
+                message = it,
+                tone = FeedbackTone.ERROR,
+            )
+        }
 
         resultText?.let { text ->
             ResultCard(

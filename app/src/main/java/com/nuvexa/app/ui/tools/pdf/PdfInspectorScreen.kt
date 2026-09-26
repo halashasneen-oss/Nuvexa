@@ -29,6 +29,8 @@ import com.nuvexa.app.core.util.EncryptedPdfException
 import com.nuvexa.app.core.util.fileSizeFromUri
 import com.nuvexa.app.core.util.formatBytes
 import com.nuvexa.app.core.util.getPdfPageCount
+import com.nuvexa.app.ui.components.FeedbackCard
+import com.nuvexa.app.ui.components.FeedbackTone
 import com.nuvexa.app.ui.components.PrimaryButton
 import com.nuvexa.app.ui.components.ResultCard
 import com.nuvexa.app.ui.theme.LocalSpacing
@@ -93,7 +95,10 @@ fun PdfInspectorScreen(
         )
 
         error?.let {
-            Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodyMedium)
+            FeedbackCard(
+                message = it,
+                tone = FeedbackTone.ERROR,
+            )
         }
 
         info?.let { data ->
