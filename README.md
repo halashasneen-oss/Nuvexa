@@ -80,8 +80,7 @@ earned ad-free window:
 - The one-hour entitlement and any pending share step are stored only in local app preferences
   so the reward survives an app restart. Nuvexa does not claim to verify publication inside a
   third-party social app; Android only reports that a share target was selected.
-- Debug builds use Google's public test ad units. Release builds require the production rewarded
-  unit through the `REWARDED_AD_UNIT_ID` environment variable/CI secret.
+- Debug builds use Google's public test ad units. Release builds use the production Nuvexa rewarded-ad unit configured in `app/build.gradle.kts`; debug builds remain on Google test inventory.
 - If an ad is unavailable or fails to show, normal app usage continues.
 
 Ad configuration is defined in `app/build.gradle.kts`. Banner, interstitial, rewarded-ad and

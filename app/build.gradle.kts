@@ -25,7 +25,6 @@ android {
 
     val releaseKeystorePath = System.getenv("KEYSTORE_FILE")
     val hasReleaseSigning = !releaseKeystorePath.isNullOrBlank() && file(releaseKeystorePath).exists()
-    val rewardedReleaseAdUnitId = System.getenv("REWARDED_AD_UNIT_ID").orEmpty()
 
     signingConfigs {
         if (hasReleaseSigning) {
@@ -60,7 +59,7 @@ android {
             buildConfigField(
                 "String",
                 "REWARDED_AD_UNIT_ID",
-                "\"$rewardedReleaseAdUnitId\""
+                "\"ca-app-pub-5961173995415325/6140697007\""
             )
             if (hasReleaseSigning) {
                 signingConfig = signingConfigs.getByName("release")
